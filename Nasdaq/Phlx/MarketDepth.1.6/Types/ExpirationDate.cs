@@ -11,6 +11,31 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Length of Expiration Date in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Expiration Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public byte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Expiration Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(byte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Expiration Date as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

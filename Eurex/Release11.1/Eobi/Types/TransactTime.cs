@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Transact Time:
+    ///  Transact Time
     /// </summary>
 
     public unsafe struct TransactTime
     {
         /// <summary>
-        ///  Length of Transact Time in bytes
+        ///  Size of Transact Time in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Transact Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Transact Time
+        ///  Write Transact Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Transact Time as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ulong Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

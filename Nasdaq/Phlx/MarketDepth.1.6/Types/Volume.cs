@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
@@ -12,25 +12,35 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Length of Volume in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Volume
+        ///  Write Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Volume as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal uint Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Number Of Sell Orders:
+    ///  Number Of Sell Orders
     /// </summary>
 
     public unsafe struct NumberOfSellOrders
     {
         /// <summary>
-        ///  Length of Number Of Sell Orders in bytes
+        ///  Size of Number Of Sell Orders in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Number Of Sell Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Number Of Sell Orders
+        ///  Write Number Of Sell Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Number Of Sell Orders as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ushort Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

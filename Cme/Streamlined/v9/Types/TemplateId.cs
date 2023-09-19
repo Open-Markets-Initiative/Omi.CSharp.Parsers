@@ -1,7 +1,7 @@
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Template Id:
+    ///  Template Id
     /// </summary>
     public enum TemplateId : ushort
     {

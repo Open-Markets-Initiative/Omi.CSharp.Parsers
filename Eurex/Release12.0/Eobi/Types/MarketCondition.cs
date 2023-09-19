@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Market Condition:
+    ///  Market Condition
     /// </summary>
     public enum MarketCondition : byte
     {

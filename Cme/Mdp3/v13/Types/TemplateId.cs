@@ -1,7 +1,7 @@
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Template Id:
+    ///  Template Id
     /// </summary>
     public enum TemplateId : ushort
     {

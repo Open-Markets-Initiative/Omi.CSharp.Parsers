@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Security Trading Status:
+    ///  Security Trading Status
     /// </summary>
     public enum SecurityTradingStatus : byte
     {

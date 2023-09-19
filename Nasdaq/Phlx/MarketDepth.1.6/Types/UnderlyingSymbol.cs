@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
@@ -6,19 +5,21 @@ namespace Nasdaq.MarketDepth
     /// <summary>
     ///  Underlying Symbol: Denotes the unique symbol assigned to the underlying security within exchange.
     /// </summary>
-    public struct UnderlyingSymbol
+    public unsafe struct UnderlyingSymbol
     {
         /// <summary>
         ///  Length of Underlying Symbol in bytes
         /// </summary>
-        public const int Length = 13;
+        public const int Size = 13;
 
         /// <summary>
         ///  Read Underlying Symbol from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Underlying Symbol
@@ -26,16 +27,16 @@ namespace Nasdaq.MarketDepth
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

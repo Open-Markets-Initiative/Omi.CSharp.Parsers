@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
@@ -9,27 +9,37 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct RefClOrdId
     {
         /// <summary>
-        ///  Length of Ref Cl Ord Id in bytes
+        ///  Size of Ref Cl Ord Id in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Ref Cl Ord Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Ref Cl Ord Id
+        ///  Write Ref Cl Ord Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Ref Cl Ord Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ulong Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

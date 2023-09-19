@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Block Length:
+    ///  Block Length
     /// </summary>
 
     public unsafe struct BlockLength
     {
         /// <summary>
-        ///  Length of Block Length in bytes
+        ///  Size of Block Length in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Block Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Block Length
+        ///  Write Block Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Block Length as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ushort Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

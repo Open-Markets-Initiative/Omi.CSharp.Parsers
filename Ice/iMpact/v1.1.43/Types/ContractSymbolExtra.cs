@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
@@ -6,19 +5,21 @@ namespace Ice.iMpact
     /// <summary>
     ///  Contract Symbol Extra: Extra contract symbol. Some contract symbols might contain more than 35 characters. Clients should append this field to ContractSymbol (Offset 11) to get the complete contract symbol.
     /// </summary>
-    public struct ContractSymbolExtra
+    public unsafe struct ContractSymbolExtra
     {
         /// <summary>
         ///  Length of Contract Symbol Extra in bytes
         /// </summary>
-        public const int Length = 35;
+        public const int Size = 35;
 
         /// <summary>
         ///  Read Contract Symbol Extra from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Contract Symbol Extra
@@ -26,16 +27,16 @@ namespace Ice.iMpact
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Ice.iMpact
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

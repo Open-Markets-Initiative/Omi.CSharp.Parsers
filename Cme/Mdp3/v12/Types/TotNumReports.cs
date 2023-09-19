@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
@@ -14,27 +14,37 @@ namespace Cme.Mdp3
         public const ushort FixTag = 911;
 
         /// <summary>
-        ///  Length of Tot Num Reports in bytes
+        ///  Size of Tot Num Reports in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Tot Num Reports
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (uint)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Tot Num Reports
+        ///  Write Tot Num Reports
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Tot Num Reports as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal uint Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

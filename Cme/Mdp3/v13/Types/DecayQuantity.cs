@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Decay Quantity: Optional 4 Byte Fixed Width Integer
+    ///  Decay Quantity: Indicates the quantity that a contract will decay daily by once the decay start date is reached
     /// </summary>
 
-    public struct DecayQuantity
+    public unsafe struct DecayQuantity
     {
+        /// <summary>
+        ///  Fix Tag for Decay Quantity
+        /// </summary>
+        public const ushort FixTag = 5818;
+
         /// <summary>
         ///  Length of Decay Quantity in bytes
         /// </summary>
         public const int Length = 4;
 
         /// <summary>
-        ///  Null value for Decay Quantity
+        ///  Sentinel null value for Decay Quantity
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Size of Decay Quantity in bytes
+        /// </summary>
+        public const int Size = 4;
+
+        /// <summary>
+        ///  Read Decay Quantity
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (int)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Decay Quantity
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(int value)
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Decay Quantity as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

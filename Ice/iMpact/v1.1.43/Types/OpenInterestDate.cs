@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
@@ -6,19 +5,21 @@ namespace Ice.iMpact
     /// <summary>
     ///  Open Interest Date: The date Open Interest is effective for, in the format of YYYY-MM-DD.
     /// </summary>
-    public struct OpenInterestDate
+    public unsafe struct OpenInterestDate
     {
         /// <summary>
         ///  Length of Open Interest Date in bytes
         /// </summary>
-        public const int Length = 10;
+        public const int Size = 10;
 
         /// <summary>
         ///  Read Open Interest Date from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Open Interest Date
@@ -26,16 +27,16 @@ namespace Ice.iMpact
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Ice.iMpact
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

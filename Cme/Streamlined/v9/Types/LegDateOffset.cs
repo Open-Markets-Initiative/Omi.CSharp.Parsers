@@ -16,6 +16,31 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Length of Leg Date Offset in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Leg Date Offset
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public sbyte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Leg Date Offset
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(sbyte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Leg Date Offset as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

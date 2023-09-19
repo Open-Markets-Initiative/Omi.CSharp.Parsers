@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Input Source:
+    ///  Input Source
     /// </summary>
     public enum InputSource : byte
     {

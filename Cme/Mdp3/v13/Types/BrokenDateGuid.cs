@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
@@ -14,27 +14,37 @@ namespace Cme.Mdp3
         public const ushort FixTag = 39031;
 
         /// <summary>
-        ///  Length of Broken Date Guid in bytes
+        ///  Size of Broken Date Guid in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Broken Date Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Broken Date Guid
+        ///  Write Broken Date Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Broken Date Guid as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ulong Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

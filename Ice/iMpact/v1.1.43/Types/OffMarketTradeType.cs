@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
@@ -6,19 +5,21 @@ namespace Ice.iMpact
     /// <summary>
     ///  Off Market Trade Type: Only for off market trade. The first character is ‘ ‘ when it is a regular trade. One or two null characters (‘\0’) will be appended to the end of this field when applicable.
     /// </summary>
-    public struct OffMarketTradeType
+    public unsafe struct OffMarketTradeType
     {
         /// <summary>
         ///  Length of Off Market Trade Type in bytes
         /// </summary>
-        public const int Length = 3;
+        public const int Size = 3;
 
         /// <summary>
         ///  Read Off Market Trade Type from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Off Market Trade Type
@@ -26,16 +27,16 @@ namespace Ice.iMpact
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Ice.iMpact
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -1,24 +1,25 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Unit Of Measure:
+    ///  Unit Of Measure
     /// </summary>
-    public struct UnitOfMeasure
+    public unsafe struct UnitOfMeasure
     {
         /// <summary>
         ///  Length of Unit Of Measure in bytes
         /// </summary>
-        public const int Length = 30;
+        public const int Size = 30;
 
         /// <summary>
         ///  Read Unit Of Measure from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Unit Of Measure
@@ -26,16 +27,16 @@ namespace Ice.iMpact
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Ice.iMpact
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

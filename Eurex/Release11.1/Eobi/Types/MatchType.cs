@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Match Type:
+    ///  Match Type
     /// </summary>
     public enum MatchType : byte
     {

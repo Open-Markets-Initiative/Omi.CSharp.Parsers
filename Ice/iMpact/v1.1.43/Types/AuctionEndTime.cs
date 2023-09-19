@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
@@ -12,25 +12,35 @@ namespace Ice.iMpact
         /// <summary>
         ///  Length of Auction End Time in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Auction End Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Auction End Time
+        ///  Write Auction End Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Auction End Time as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal long Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

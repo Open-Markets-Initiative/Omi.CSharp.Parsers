@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
@@ -12,25 +12,35 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Length of Reserved in bytes
         /// </summary>
-        public const int Length = 3;
+        public const int Size = 3;
 
         /// <summary>
         ///  Read Reserved
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public fixed byte Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((fixed byte)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Reserved
+        ///  Write Reserved
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(fixed byte value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(fixed byte *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Reserved as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal fixed byte Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

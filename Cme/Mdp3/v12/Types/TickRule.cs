@@ -16,6 +16,31 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Tick Rule in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Tick Rule
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public sbyte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Tick Rule
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(sbyte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Tick Rule as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Fed Funds Date: Optional 2 Byte Fixed Width Integer
+    ///  Fed Funds Date: The date that the for which the fed funds date was published
     /// </summary>
 
-    public struct FedFundsDate
+    public unsafe struct FedFundsDate
     {
+        /// <summary>
+        ///  Fix Tag for Fed Funds Date
+        /// </summary>
+        public const ushort FixTag = 38010;
+
         /// <summary>
         ///  Length of Fed Funds Date in bytes
         /// </summary>
         public const int Length = 2;
 
         /// <summary>
-        ///  Null value for Fed Funds Date
+        ///  Sentinel null value for Fed Funds Date
         /// </summary>
         public const ushort NoValue = 65535;
+
+        /// <summary>
+        ///  Size of Fed Funds Date in bytes
+        /// </summary>
+        public const int Size = 2;
+
+        /// <summary>
+        ///  Read Fed Funds Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ushort Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Fed Funds Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ushort value)
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Fed Funds Date as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

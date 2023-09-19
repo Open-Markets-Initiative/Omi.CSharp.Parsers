@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
@@ -9,27 +9,37 @@ namespace Cme.Streamlined
     public unsafe struct MessageSize
     {
         /// <summary>
-        ///  Length of Message Size in bytes
+        ///  Size of Message Size in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Message Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Message Size
+        ///  Write Message Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Message Size as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ushort Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

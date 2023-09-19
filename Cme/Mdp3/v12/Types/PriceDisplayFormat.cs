@@ -16,6 +16,31 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Price Display Format in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Price Display Format
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public byte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Price Display Format
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(byte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Price Display Format as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

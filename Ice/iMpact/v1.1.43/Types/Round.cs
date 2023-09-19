@@ -1,10 +1,10 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Round:
+    ///  Round
     /// </summary>
 
     public unsafe struct Round
@@ -12,25 +12,35 @@ namespace Ice.iMpact
         /// <summary>
         ///  Length of Round in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Round
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public short Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Round
+        ///  Write Round
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Round as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal short Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

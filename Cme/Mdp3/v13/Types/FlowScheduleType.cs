@@ -16,6 +16,31 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Flow Schedule Type in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Flow Schedule Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public sbyte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Flow Schedule Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(sbyte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Flow Schedule Type as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

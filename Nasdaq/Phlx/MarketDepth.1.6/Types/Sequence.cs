@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
@@ -12,25 +12,35 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Length of Sequence in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ulong)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Sequence
+        ///  Write Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Sequence as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ulong Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

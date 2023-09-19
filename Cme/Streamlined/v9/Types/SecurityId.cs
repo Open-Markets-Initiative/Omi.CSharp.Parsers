@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Security Id: Optional 8 Byte Fixed Width Integer
+    ///  Security Id: Unique security ID
     /// </summary>
 
-    public struct SecurityId
+    public unsafe struct SecurityId
     {
+        /// <summary>
+        ///  Fix Tag for Security Id
+        /// </summary>
+        public const ushort FixTag = 48;
+
         /// <summary>
         ///  Length of Security Id in bytes
         /// </summary>
         public const int Length = 8;
 
         /// <summary>
-        ///  Null value for Security Id
+        ///  Sentinel null value for Security Id
         /// </summary>
         public const ulong NoValue = 18446744073709551615;
+
+        /// <summary>
+        ///  Size of Security Id in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Security Id
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Security Id
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Security Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

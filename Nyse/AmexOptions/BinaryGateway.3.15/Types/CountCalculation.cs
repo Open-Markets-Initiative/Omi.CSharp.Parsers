@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
@@ -9,27 +9,37 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct CountCalculation
     {
         /// <summary>
-        ///  Length of Count Calculation in bytes
+        ///  Size of Count Calculation in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Count Calculation
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (uint)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Count Calculation
+        ///  Write Count Calculation
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Count Calculation as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal uint Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

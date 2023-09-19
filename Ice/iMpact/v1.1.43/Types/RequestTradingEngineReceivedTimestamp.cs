@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
@@ -12,25 +12,35 @@ namespace Ice.iMpact
         /// <summary>
         ///  Length of Request Trading Engine Received Timestamp in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Request Trading Engine Received Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Request Trading Engine Received Timestamp
+        ///  Write Request Trading Engine Received Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Request Trading Engine Received Timestamp as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal long Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

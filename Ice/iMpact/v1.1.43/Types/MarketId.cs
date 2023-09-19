@@ -1,10 +1,10 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market Id:
+    ///  Market Id
     /// </summary>
 
     public unsafe struct MarketId
@@ -12,25 +12,35 @@ namespace Ice.iMpact
         /// <summary>
         ///  Length of Market Id in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Market Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Market Id
+        ///  Write Market Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Market Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal int Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

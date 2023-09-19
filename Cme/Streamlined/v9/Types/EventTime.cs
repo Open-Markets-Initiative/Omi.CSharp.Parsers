@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
@@ -14,27 +14,37 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1145;
 
         /// <summary>
-        ///  Length of Event Time in bytes
+        ///  Size of Event Time in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Event Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Event Time
+        ///  Write Event Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Event Time as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ulong Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

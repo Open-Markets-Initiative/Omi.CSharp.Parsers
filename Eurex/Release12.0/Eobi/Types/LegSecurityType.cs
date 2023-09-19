@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Leg Security Type:
+    ///  Leg Security Type
     /// </summary>
     public enum LegSecurityType : byte
     {

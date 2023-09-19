@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Trade Condition:
+    ///  Trade Condition
     /// </summary>
     public enum TradeCondition : ushort
     {

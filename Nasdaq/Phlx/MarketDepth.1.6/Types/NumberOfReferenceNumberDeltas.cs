@@ -1,4 +1,4 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
@@ -12,25 +12,35 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Length of Number Of Reference Number Deltas in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Number Of Reference Number Deltas
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Number Of Reference Number Deltas
+        ///  Write Number Of Reference Number Deltas
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Number Of Reference Number Deltas as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ushort Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -16,6 +16,31 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Length of Put Or Call in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Put Or Call
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public byte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Put Or Call
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(byte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Put Or Call as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

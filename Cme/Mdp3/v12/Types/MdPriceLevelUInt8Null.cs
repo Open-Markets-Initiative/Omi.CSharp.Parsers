@@ -16,6 +16,31 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Md Price Level u Int 8 Null in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Md Price Level u Int 8 Null
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public byte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Md Price Level u Int 8 Null
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(byte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Md Price Level u Int 8 Null as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

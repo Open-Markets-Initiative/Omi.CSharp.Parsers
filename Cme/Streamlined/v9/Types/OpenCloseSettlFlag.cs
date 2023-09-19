@@ -16,6 +16,31 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Length of Open Close Settl Flag in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Open Close Settl Flag
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public byte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Open Close Settl Flag
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(byte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Open Close Settl Flag as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

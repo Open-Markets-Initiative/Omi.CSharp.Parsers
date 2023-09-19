@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Nominal: Optional 8 Byte Fixed Width Integer
+    ///  Nominal: This is the notional value used to calculate NPV and Fixed and Floating Payment amounts
     /// </summary>
 
-    public struct Nominal
+    public unsafe struct Nominal
     {
+        /// <summary>
+        ///  Fix Tag for Nominal
+        /// </summary>
+        public const ushort FixTag = 9280;
+
         /// <summary>
         ///  Length of Nominal in bytes
         /// </summary>
         public const int Length = 8;
 
         /// <summary>
-        ///  Null value for Nominal
+        ///  Sentinel null value for Nominal
         /// </summary>
         public const ulong NoValue = 18446744073709551615;
+
+        /// <summary>
+        ///  Size of Nominal in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Nominal
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Nominal
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Nominal as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

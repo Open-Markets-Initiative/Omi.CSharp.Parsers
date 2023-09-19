@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Security Id:
+    ///  Security Id
     /// </summary>
 
     public unsafe struct SecurityId
     {
         /// <summary>
-        ///  Length of Security Id in bytes
+        ///  Size of Security Id in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (long)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Security Id
+        ///  Write Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Security Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal long Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

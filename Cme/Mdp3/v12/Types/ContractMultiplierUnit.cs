@@ -16,6 +16,31 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Contract Multiplier Unit in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Read Contract Multiplier Unit
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public sbyte Decode()
+            => Byte;
+
+        /// <summary>
+        ///  Write Contract Multiplier Unit
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(sbyte value)
+            => Byte = value;
+
+        /// <summary>
+        ///  Contract Multiplier Unit as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

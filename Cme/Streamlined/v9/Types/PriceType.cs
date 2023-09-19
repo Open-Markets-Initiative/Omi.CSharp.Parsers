@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Price Type: Optional 2 Byte Fixed Width Integer
+    ///  Price Type: Valid price types for intraday trade
     /// </summary>
 
-    public struct PriceType
+    public unsafe struct PriceType
     {
+        /// <summary>
+        ///  Fix Tag for Price Type
+        /// </summary>
+        public const ushort FixTag = 423;
+
         /// <summary>
         ///  Length of Price Type in bytes
         /// </summary>
         public const int Length = 2;
 
         /// <summary>
-        ///  Null value for Price Type
+        ///  Sentinel null value for Price Type
         /// </summary>
         public const ushort NoValue = 65535;
+
+        /// <summary>
+        ///  Size of Price Type in bytes
+        /// </summary>
+        public const int Size = 2;
+
+        /// <summary>
+        ///  Read Price Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ushort Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Price Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ushort value)
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Price Type as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

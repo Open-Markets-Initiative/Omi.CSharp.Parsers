@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
@@ -6,19 +5,21 @@ namespace Nyse.AmexOptions.BinaryGateway
     /// <summary>
     ///  User Data: Customer defined up to 10 characters; only printable ASCII characters allowed, excluding comma, semicolon, pipe delimiter, “at” symbol, greater than/less than, ampersand (&) and single/double quotation mark.
     /// </summary>
-    public struct UserData
+    public unsafe struct UserData
     {
         /// <summary>
         ///  Length of User Data in bytes
         /// </summary>
-        public const int Length = 10;
+        public const int Size = 10;
 
         /// <summary>
         ///  Read User Data from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode User Data
@@ -26,16 +27,16 @@ namespace Nyse.AmexOptions.BinaryGateway
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -48,6 +49,6 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

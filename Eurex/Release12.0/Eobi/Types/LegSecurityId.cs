@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Leg Security Id:
+    ///  Leg Security Id
     /// </summary>
 
     public unsafe struct LegSecurityId
     {
         /// <summary>
-        ///  Length of Leg Security Id in bytes
+        ///  Size of Leg Security Id in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Leg Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (long)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Leg Security Id
+        ///  Write Leg Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Leg Security Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal long Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

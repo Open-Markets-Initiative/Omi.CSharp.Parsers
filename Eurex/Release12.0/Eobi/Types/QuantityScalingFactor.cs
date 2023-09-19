@@ -1,35 +1,45 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Quantity Scaling Factor:
+    ///  Quantity Scaling Factor
     /// </summary>
 
     public unsafe struct QuantityScalingFactor
     {
         /// <summary>
-        ///  Length of Quantity Scaling Factor in bytes
+        ///  Size of Quantity Scaling Factor in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
 
         /// <summary>
         ///  Read Quantity Scaling Factor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ushort Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Quantity Scaling Factor
+        ///  Write Quantity Scaling Factor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Quantity Scaling Factor as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal ushort Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

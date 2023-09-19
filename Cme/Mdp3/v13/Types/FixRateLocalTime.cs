@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
@@ -6,7 +5,7 @@ namespace Cme.Mdp3
     /// <summary>
     ///  Fix Rate Local Time: Fixing Rate Local Time, denoted in HH:MM:SS format
     /// </summary>
-    public struct FixRateLocalTime
+    public unsafe struct FixRateLocalTime
     {
         /// <summary>
         ///  Fix Tag for Fix Rate Local Time
@@ -16,14 +15,16 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Fix Rate Local Time in bytes
         /// </summary>
-        public const int Length = 8;
+        public const int Size = 8;
 
         /// <summary>
         ///  Read Fix Rate Local Time from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Fix Rate Local Time
@@ -31,16 +32,16 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -53,6 +54,6 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

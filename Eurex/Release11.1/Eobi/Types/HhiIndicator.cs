@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Hhi Indicator:
+    ///  Hhi Indicator
     /// </summary>
     public enum HhiIndicator : sbyte
     {

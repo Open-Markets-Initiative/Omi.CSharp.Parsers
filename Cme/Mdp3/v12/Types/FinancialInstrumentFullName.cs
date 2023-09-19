@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
@@ -6,7 +5,7 @@ namespace Cme.Mdp3
     /// <summary>
     ///  Financial Instrument Full Name: Long name of the instrument
     /// </summary>
-    public struct FinancialInstrumentFullName
+    public unsafe struct FinancialInstrumentFullName
     {
         /// <summary>
         ///  Fix Tag for Financial Instrument Full Name
@@ -16,14 +15,16 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Length of Financial Instrument Full Name in bytes
         /// </summary>
-        public const int Length = 35;
+        public const int Size = 35;
 
         /// <summary>
         ///  Read Financial Instrument Full Name from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
-            => new string((sbyte *)Buffer, 0, Length);
+        {
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+        }
 
         /// <summary>
         ///  Encode Financial Instrument Full Name
@@ -31,16 +32,16 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe void Encode(string value)
         {
-            var end = Math.Min(value.Length, Length);
+            var end = Math.Min(value.Length, Size);
 
             for (var i = 0; i < end; i++)
             {
-                Buffer[i] = (byte)value[i];
+                Bytes[i] = (byte)value[i];
             }
 
-            for (var i = end; i < Length; i++)
+            for (var i = end; i < Size; i++)
             {
-                Buffer[i] = 0;
+                Bytes[i] = 0;
             }
         }
 
@@ -53,6 +54,6 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Buffer[Length];
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -1,10 +1,10 @@
-using System;
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Open Interest Change:
+    ///  Open Interest Change
     /// </summary>
 
     public unsafe struct OpenInterestChange
@@ -12,25 +12,35 @@ namespace Ice.iMpact
         /// <summary>
         ///  Length of Open Interest Change in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Open Interest Change
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
+        }
 
         /// <summary>
-        ///  Encode Open Interest Change
+        ///  Write Open Interest Change
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Open Interest Change as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal int Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Md Entry Time: Optional 4 Byte Fixed Width Integer
+    ///  Md Entry Time: Indicates Market Data Entry Timestamp
     /// </summary>
 
-    public struct MdEntryTime
+    public unsafe struct MdEntryTime
     {
+        /// <summary>
+        ///  Fix Tag for Md Entry Time
+        /// </summary>
+        public const ushort FixTag = 273;
+
         /// <summary>
         ///  Length of Md Entry Time in bytes
         /// </summary>
         public const int Length = 4;
 
         /// <summary>
-        ///  Null value for Md Entry Time
+        ///  Sentinel null value for Md Entry Time
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Size of Md Entry Time in bytes
+        /// </summary>
+        public const int Size = 4;
+
+        /// <summary>
+        ///  Read Md Entry Time
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (int)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Md Entry Time
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(int value)
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Md Entry Time as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

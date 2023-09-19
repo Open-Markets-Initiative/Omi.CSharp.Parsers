@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
@@ -9,27 +9,37 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct TimeLimit
     {
         /// <summary>
-        ///  Length of Time Limit in bytes
+        ///  Size of Time Limit in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Time Limit
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (int)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Time Limit
+        ///  Write Time Limit
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Time Limit as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal int Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Side:
+    ///  Side
     /// </summary>
     public enum Side : byte
     {

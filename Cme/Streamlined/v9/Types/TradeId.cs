@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
@@ -14,27 +14,37 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1003;
 
         /// <summary>
-        ///  Length of Trade Id in bytes
+        ///  Size of Trade Id in bytes
         /// </summary>
-        public const int Length = 4;
+        public const int Size = 4;
 
         /// <summary>
         ///  Read Trade Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int Decode()
-            => Value;
+        {
+            fixed (byte* pointer = Bytes) { return (int)pointer; }
+        }
 
         /// <summary>
-        ///  Encode Trade Id
+        ///  Write Trade Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-            => Value = value;
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Trade Id as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal int Value;
+        internal unsafe fixed byte Bytes[Size];
     }
 }

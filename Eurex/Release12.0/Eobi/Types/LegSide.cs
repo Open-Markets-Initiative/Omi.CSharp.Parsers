@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Leg Side:
+    ///  Leg Side
     /// </summary>
     public enum LegSide : byte
     {

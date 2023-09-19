@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Trd Type:
+    ///  Trd Type
     /// </summary>
     public enum TrdType : ushort
     {

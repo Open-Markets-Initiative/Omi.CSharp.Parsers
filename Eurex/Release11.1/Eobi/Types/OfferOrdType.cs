@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Offer Ord Type:
+    ///  Offer Ord Type
     /// </summary>
     public enum OfferOrdType : byte
     {

@@ -1,21 +1,60 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Decay Start Date: Optional 2 Byte Fixed Width Integer
+    ///  Decay Start Date: Indicates the date at which a decaying contract will begin to decay
     /// </summary>
 
-    public struct DecayStartDate
+    public unsafe struct DecayStartDate
     {
+        /// <summary>
+        ///  Fix Tag for Decay Start Date
+        /// </summary>
+        public const ushort FixTag = 5819;
+
         /// <summary>
         ///  Length of Decay Start Date in bytes
         /// </summary>
         public const int Length = 2;
 
         /// <summary>
-        ///  Null value for Decay Start Date
+        ///  Sentinel null value for Decay Start Date
         /// </summary>
         public const ushort NoValue = 65535;
+
+        /// <summary>
+        ///  Size of Decay Start Date in bytes
+        /// </summary>
+        public const int Size = 2;
+
+        /// <summary>
+        ///  Read Decay Start Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ushort Decode()
+        {
+            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
+        }
+
+        /// <summary>
+        ///  Write Decay Start Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ushort value)
+        {
+            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
+        }
+
+        /// <summary>
+        ///  Decay Start Date as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

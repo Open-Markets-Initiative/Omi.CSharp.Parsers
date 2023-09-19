@@ -1,7 +1,7 @@
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Product Complex:
+    ///  Product Complex
     /// </summary>
     public enum ProductComplex : byte
     {
