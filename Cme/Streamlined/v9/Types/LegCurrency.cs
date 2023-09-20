@@ -18,19 +18,51 @@ namespace Cme.Streamlined
         public const int Size = 3;
 
         /// <summary>
+        ///  Length of Leg Currency field
+        /// </summary>
+        public int Length
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get
+            {
+                if (Bytes[0] == 0) { return 0; }
+                if (Bytes[1] == 0) { return 1; }
+                if (Bytes[2] == 0) { return 2; }
+
+                return 3;
+            }
+        }
+
+        /// <summary>
+        ///  Does Leg Currency field contain a value?
+        /// </summary>
+        public bool HasValue
+            => Bytes[0] != 0;
+
+        /// <summary>
         ///  Read Leg Currency from buffer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string Decode()
         {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Size); }
+            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
+        }
+
+        /// <summary>
+        ///  Try Read Leg Currency
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out string value)
+        {
+            value = Decode();
+            return HasValue;
         }
 
         /// <summary>
         ///  Encode Leg Currency
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public unsafe void Encode(string value)
+        public void Encode(string value)
         {
             var end = Math.Min(value.Length, Size);
 
