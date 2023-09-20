@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Mode: One Byte Fixed Width Integer
+    ///  Mode: Mode requested
     /// </summary>
 
     public struct Mode
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Mode as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

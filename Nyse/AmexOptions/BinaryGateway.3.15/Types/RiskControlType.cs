@@ -8,42 +8,42 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Single Order Max Qty
         /// </summary>
-        SingleOrderMaxQty = 1;
+        SingleOrderMaxQty = 1,
 
         /// <summary>
         ///  Single Order Max Notional Value
         /// </summary>
-        SingleOrderMaxNotionalValue = 2;
+        SingleOrderMaxNotionalValue = 2,
 
         /// <summary>
         ///  Gross Credit
         /// </summary>
-        GrossCredit = 3;
+        GrossCredit = 3,
 
         /// <summary>
         ///  Activitybased Rolling Transaction
         /// </summary>
-        ActivitybasedRollingTransaction = 8;
+        ActivitybasedRollingTransaction = 8,
 
         /// <summary>
         ///  Activitybased Rolling Volume
         /// </summary>
-        ActivitybasedRollingVolume = 9;
+        ActivitybasedRollingVolume = 9,
 
         /// <summary>
         ///  Activitybased Rolling Percentage
         /// </summary>
-        ActivitybasedRollingPercentage = 10;
+        ActivitybasedRollingPercentage = 10,
 
         /// <summary>
         ///  Activitybased Global Risk Mitigation Protection For Transaction Volume Percentage
         /// </summary>
-        ActivitybasedGlobalRiskMitigationProtectionForTransactionVolumePercentage = 11;
+        ActivitybasedGlobalRiskMitigationProtectionForTransactionVolumePercentage = 11,
 
     }
 }

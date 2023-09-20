@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  No Locate Reqd
         /// </summary>
-        NoLocateReqd = 0;
+        NoLocateReqd = 0,
 
         /// <summary>
         ///  Locate Req For Ssh Orders
         /// </summary>
-        LocateReqForSshOrders = 1;
+        LocateReqForSshOrders = 1,
 
     }
 }

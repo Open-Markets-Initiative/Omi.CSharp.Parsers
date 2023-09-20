@@ -8,12 +8,12 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Put Option
         /// </summary>
-        Put = 0;
+        Put = 0,
 
         /// <summary>
         ///  Call Option
         /// </summary>
-        Call = 1;
+        Call = 1,
 
     }
 }

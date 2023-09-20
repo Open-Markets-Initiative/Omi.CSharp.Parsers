@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Production Symbol
         /// </summary>
-        ProductionSymbol = 0;
+        ProductionSymbol = 0,
 
         /// <summary>
         ///  Test Symbol
         /// </summary>
-        TestSymbol = 1;
+        TestSymbol = 1,
 
     }
 }

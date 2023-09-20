@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1446;
 
         /// <summary>
-        ///  Length of Rate Source in bytes
+        ///  Size of Rate Source underlying field in bytes
         /// </summary>
         public const int Size = 12;
 

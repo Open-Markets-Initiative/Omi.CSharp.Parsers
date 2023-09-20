@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct TargetCancelMpid
     {
         /// <summary>
-        ///  Length of Target Cancel Mpid in bytes
+        ///  Size of Target Cancel Mpid underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

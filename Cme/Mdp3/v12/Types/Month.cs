@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Month: One Byte Fixed Width Integer
+    ///  Month: MM
     /// </summary>
 
     public struct Month
@@ -31,7 +31,7 @@ namespace Cme.Mdp3
         ///  Month as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

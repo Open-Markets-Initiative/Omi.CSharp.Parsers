@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37725;
 
         /// <summary>
-        ///  Length of Fx Currency Symbol in bytes
+        ///  Size of Fx Currency Symbol underlying field in bytes
         /// </summary>
         public const int Size = 7;
 

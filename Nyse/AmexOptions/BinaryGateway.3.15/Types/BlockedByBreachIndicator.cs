@@ -8,22 +8,22 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Blocked By Breach
         /// </summary>
-        NotBlockedByBreach = 0;
+        NotBlockedByBreach = 0,
 
         /// <summary>
         ///  Blocked By Breach
         /// </summary>
-        BlockedByBreach = 1;
+        BlockedByBreach = 1,
 
         /// <summary>
         ///  Blocked By Arbitrage Check
         /// </summary>
-        BlockedByArbitrageCheck = 2;
+        BlockedByArbitrageCheck = 2,
 
         /// <summary>
         ///  Blocked By Intrinsic Value Check
         /// </summary>
-        BlockedByIntrinsicValueCheck = 3;
+        BlockedByIntrinsicValueCheck = 3,
 
     }
 }

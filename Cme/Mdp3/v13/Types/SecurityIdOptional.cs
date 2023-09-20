@@ -38,6 +38,16 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Try Read Security Id Optional
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out int value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Security Id Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,10 +57,17 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Set Security Id Optional to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Security Id Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

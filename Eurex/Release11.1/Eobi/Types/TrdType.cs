@@ -8,72 +8,72 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        BlockTrade = 1;
+        BlockTrade = 1,
 
         /// <summary>
         ///  Exchange For Physical
         /// </summary>
-        Efp = 2;
+        Efp = 2,
 
         /// <summary>
         ///  Exchange For Swap
         /// </summary>
-        Efs = 12;
+        Efs = 12,
 
         /// <summary>
         ///  Portfolio Compression Trade
         /// </summary>
-        PortfolioCompressionTrade = 50;
+        PortfolioCompressionTrade = 50,
 
         /// <summary>
         ///  
         /// </summary>
-        Otc = 54;
+        Otc = 54,
 
         /// <summary>
         ///  ExchangeBasisFacility
         /// </summary>
-        ExchangeBasisFacility = 55;
+        ExchangeBasisFacility = 55,
 
         /// <summary>
         ///  
         /// </summary>
-        VolaTrade = 1000;
+        VolaTrade = 1000,
 
         /// <summary>
         ///  EFP-Fin Trade
         /// </summary>
-        EfpFinTrade = 1001;
+        EfpFinTrade = 1001,
 
         /// <summary>
         ///  EFP-Index-Futures Trade
         /// </summary>
-        EfpIndexFuturesTrade = 1002;
+        EfpIndexFuturesTrade = 1002,
 
         /// <summary>
         ///  Block Trade At Market
         /// </summary>
-        BlockTradeAtMarket = 1004;
+        BlockTradeAtMarket = 1004,
 
         /// <summary>
         ///  Xetra / Eurex Enlight Triggered Trade
         /// </summary>
-        XetraEurexEnlightTriggeredTrade = 1006;
+        XetraEurexEnlightTriggeredTrade = 1006,
 
         /// <summary>
         ///  Block QTPIP Trade
         /// </summary>
-        BlockQtpipTrade = 1007;
+        BlockQtpipTrade = 1007,
 
         /// <summary>
         ///  
         /// </summary>
-        TrdTypeMaximumValue = 1007;
+        TrdTypeMaximumValue = 1007,
 
         /// <summary>
         ///  
         /// </summary>
-        TrdTypeMinimumValue = 1;
+        TrdTypeMinimumValue = 1,
 
     }
 }

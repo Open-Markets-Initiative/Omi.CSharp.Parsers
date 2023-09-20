@@ -8,27 +8,27 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Option
         /// </summary>
-        Opt = 1;
+        Opt = 1,
 
         /// <summary>
         ///  Future
         /// </summary>
-        Fut = 2;
+        Fut = 2,
 
         /// <summary>
         ///  Multi-Leg
         /// </summary>
-        Mleg = 3;
+        Mleg = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        SecurityTypeMaximumValue = 3;
+        SecurityTypeMaximumValue = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        SecurityTypeMinimumValue = 1;
+        SecurityTypeMinimumValue = 1,
 
     }
 }

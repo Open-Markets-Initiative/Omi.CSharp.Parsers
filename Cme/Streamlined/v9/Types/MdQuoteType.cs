@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Md Quote Type: One Byte Fixed Width Integer
+    ///  Md Quote Type: Identifies the type of quote. 0=Indicative, 1=Tradeable
     /// </summary>
 
     public struct MdQuoteType
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Md Quote Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

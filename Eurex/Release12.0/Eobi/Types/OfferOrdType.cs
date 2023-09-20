@@ -8,17 +8,17 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Market Order
         /// </summary>
-        Market = 1;
+        Market = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        OfferOrdTypeMaximumValue = 1;
+        OfferOrdTypeMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        OfferOrdTypeMinimumValue = 1;
+        OfferOrdTypeMinimumValue = 1,
 
     }
 }

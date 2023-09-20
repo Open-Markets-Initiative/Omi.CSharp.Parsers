@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct OffMarketTradeType
     {
         /// <summary>
-        ///  Length of Off Market Trade Type in bytes
+        ///  Size of Off Market Trade Type underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

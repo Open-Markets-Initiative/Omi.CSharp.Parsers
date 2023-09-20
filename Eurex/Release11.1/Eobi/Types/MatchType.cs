@@ -8,37 +8,37 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Manual Trade Entry
         /// </summary>
-        ConfirmedTradeReport = 3;
+        ConfirmedTradeReport = 3,
 
         /// <summary>
         ///  Trade from Uncrossing
         /// </summary>
-        CrossAuction = 5;
+        CrossAuction = 5,
 
         /// <summary>
         ///  Trade from Auction
         /// </summary>
-        CallAuction = 7;
+        CallAuction = 7,
 
         /// <summary>
         ///  Trade from Liquidity Improvement Cross
         /// </summary>
-        LiquidityImprovementCross = 13;
+        LiquidityImprovementCross = 13,
 
         /// <summary>
         ///  Price Without Turnover in Continuous Auction
         /// </summary>
-        ContinuousAuction = 14;
+        ContinuousAuction = 14,
 
         /// <summary>
         ///  
         /// </summary>
-        MatchTypeMaximumValue = 14;
+        MatchTypeMaximumValue = 14,
 
         /// <summary>
         ///  
         /// </summary>
-        MatchTypeMinimumValue = 3;
+        MatchTypeMinimumValue = 3,
 
     }
 }

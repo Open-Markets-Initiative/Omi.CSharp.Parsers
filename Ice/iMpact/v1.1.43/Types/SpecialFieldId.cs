@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Special Field Id: One Byte Fixed Width Integer
+    ///  Special Field Id: Special Field Identifier
     /// </summary>
 
     public struct SpecialFieldId
@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Special Field Id as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

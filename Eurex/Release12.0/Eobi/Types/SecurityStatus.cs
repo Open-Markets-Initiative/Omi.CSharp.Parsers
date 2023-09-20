@@ -8,52 +8,52 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Active = 1;
+        Active = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Inactive = 2;
+        Inactive = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        Expired = 4;
+        Expired = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        KnockedOut = 6;
+        KnockedOut = 6,
 
         /// <summary>
         ///  
         /// </summary>
-        KnockOutRevoked = 7;
+        KnockOutRevoked = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        Suspended = 9;
+        Suspended = 9,
 
         /// <summary>
         ///  
         /// </summary>
-        PendingDeletion = 11;
+        PendingDeletion = 11,
 
         /// <summary>
         ///  
         /// </summary>
-        KnockedOutAndSuspended = 12;
+        KnockedOutAndSuspended = 12,
 
         /// <summary>
         ///  
         /// </summary>
-        SecurityStatusMaximumValue = 12;
+        SecurityStatusMaximumValue = 12,
 
         /// <summary>
         ///  
         /// </summary>
-        SecurityStatusMinimumValue = 1;
+        SecurityStatusMinimumValue = 1,
 
     }
 }

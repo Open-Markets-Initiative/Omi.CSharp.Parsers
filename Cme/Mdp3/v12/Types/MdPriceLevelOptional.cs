@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Md Price Level Optional: One Byte Fixed Width Integer
+    ///  Md Price Level Optional: Aggregate book position
     /// </summary>
 
     public struct MdPriceLevelOptional
@@ -14,7 +14,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1023;
 
         /// <summary>
-        ///  Length of Md Price Level Optional in bytes
+        ///  Size of Md Price Level Optional in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Md Price Level Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Md Price Level Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 2796;
 
         /// <summary>
-        ///  Length of Fx Benchmark Rate Fix in bytes
+        ///  Size of Fx Benchmark Rate Fix underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 458;
 
         /// <summary>
-        ///  Length of Underlying Security Alt Id in bytes
+        ///  Size of Underlying Security Alt Id underlying field in bytes
         /// </summary>
         public const int Size = 12;
 

@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct ContraClearingAccount
     {
         /// <summary>
-        ///  Length of Contra Clearing Account in bytes
+        ///  Size of Contra Clearing Account underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

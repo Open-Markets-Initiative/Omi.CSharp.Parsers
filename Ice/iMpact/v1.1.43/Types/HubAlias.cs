@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct HubAlias
     {
         /// <summary>
-        ///  Length of Hub Alias in bytes
+        ///  Size of Hub Alias underlying field in bytes
         /// </summary>
         public const int Size = 80;
 

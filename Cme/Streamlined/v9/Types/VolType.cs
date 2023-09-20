@@ -38,6 +38,16 @@ namespace Cme.Streamlined
         }
 
         /// <summary>
+        ///  Try Read Vol Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out ushort value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Vol Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,10 +57,17 @@ namespace Cme.Streamlined
         }
 
         /// <summary>
+        ///  Set Vol Type to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Vol Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

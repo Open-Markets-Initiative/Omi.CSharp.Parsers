@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct MpvLevelName
     {
         /// <summary>
-        ///  Length of Mpv Level Name in bytes
+        ///  Size of Mpv Level Name underlying field in bytes
         /// </summary>
         public const int Size = 24;
 

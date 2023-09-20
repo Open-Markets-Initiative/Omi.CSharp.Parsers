@@ -8,17 +8,17 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        NoUpdate = -1;
+        NoUpdate = -1,
 
         /// <summary>
         ///  
         /// </summary>
-        HhiIndicatorMaximumValue = 100;
+        HhiIndicatorMaximumValue = 100,
 
         /// <summary>
         ///  
         /// </summary>
-        HhiIndicatorMinimumValue = -1;
+        HhiIndicatorMinimumValue = -1,
 
     }
 }

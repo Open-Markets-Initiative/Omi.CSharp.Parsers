@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 947;
 
         /// <summary>
-        ///  Length of Strike Currency in bytes
+        ///  Size of Strike Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

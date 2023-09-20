@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Triggered by the buy side
         /// </summary>
-        Buy = 1;
+        Buy = 1,
 
         /// <summary>
         ///  Triggered by the sell side
         /// </summary>
-        Sell = 2;
+        Sell = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        AggressorSideMaximumValue = 2;
+        AggressorSideMaximumValue = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        AggressorSideMinimumValue = 1;
+        AggressorSideMinimumValue = 1,
 
     }
 }

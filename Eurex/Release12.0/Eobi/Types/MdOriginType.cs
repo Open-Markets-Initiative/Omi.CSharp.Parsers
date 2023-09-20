@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Book = 0;
+        Book = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        OffBook = 1;
+        OffBook = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MdOriginTypeMaximumValue = 1;
+        MdOriginTypeMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MdOriginTypeMinimumValue = 0;
+        MdOriginTypeMinimumValue = 0,
 
     }
 }

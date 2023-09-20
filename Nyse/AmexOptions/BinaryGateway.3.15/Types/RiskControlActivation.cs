@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Risk Control Turned Off
         /// </summary>
-        RiskControlTurnedOff = 0;
+        RiskControlTurnedOff = 0,
 
         /// <summary>
         ///  Risk Control Turned On
         /// </summary>
-        RiskControlTurnedOn = 1;
+        RiskControlTurnedOn = 1,
 
     }
 }

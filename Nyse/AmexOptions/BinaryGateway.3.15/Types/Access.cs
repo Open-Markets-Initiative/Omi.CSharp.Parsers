@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Access: One Byte Fixed Width Integer
+    ///  Access: Available access on the stream
     /// </summary>
 
     public struct Access
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Access as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Sub Fraction: One Byte Fixed Width Integer
+    ///  Sub Fraction: Price Denominator of Sub Fraction
     /// </summary>
 
     public struct SubFraction
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Sub Fraction as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

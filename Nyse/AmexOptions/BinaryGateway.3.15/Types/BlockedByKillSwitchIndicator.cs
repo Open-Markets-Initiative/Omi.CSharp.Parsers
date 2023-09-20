@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Blocked By Kill Switch
         /// </summary>
-        NotBlockedByKillSwitch = 0;
+        NotBlockedByKillSwitch = 0,
 
         /// <summary>
         ///  Blocked By Kill Switch
         /// </summary>
-        BlockedByKillSwitch = 1;
+        BlockedByKillSwitch = 1,
 
     }
 }

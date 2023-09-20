@@ -8,32 +8,32 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Halted = 1;
+        Halted = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Open = 2;
+        Open = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        Closed = 3;
+        Closed = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        PreClose = 5;
+        PreClose = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        TesTradSesStatusMaximumValue = 5;
+        TesTradSesStatusMaximumValue = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        TesTradSesStatusMinimumValue = 1;
+        TesTradSesStatusMinimumValue = 1,
 
     }
 }

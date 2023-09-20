@@ -8,7 +8,7 @@ namespace Eurex.Eobi
     public unsafe struct SecurityDesc
     {
         /// <summary>
-        ///  Length of Security Desc in bytes
+        ///  Size of Security Desc underlying field in bytes
         /// </summary>
         public const int Size = 40;
 

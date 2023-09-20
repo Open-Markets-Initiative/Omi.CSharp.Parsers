@@ -8,17 +8,17 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Aggressor Indicator 1=Aggressor Order 0=Passive Order
         /// </summary>
-        NoValue = 255;
+        NoValue = 255,
 
         /// <summary>
         ///  Not Aggressor
         /// </summary>
-        NotAggressor = 0;
+        NotAggressor = 0,
 
         /// <summary>
         ///  Aggressor
         /// </summary>
-        Aggressor = 1;
+        Aggressor = 1,
 
     }
 }

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 2714;
 
         /// <summary>
-        ///  Length of Financial Instrument Full Name in bytes
+        ///  Size of Financial Instrument Full Name underlying field in bytes
         /// </summary>
         public const int Size = 35;
 

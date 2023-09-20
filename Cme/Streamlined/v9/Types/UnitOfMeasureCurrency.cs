@@ -13,7 +13,7 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1716;
 
         /// <summary>
-        ///  Length of Unit Of Measure Currency in bytes
+        ///  Size of Unit Of Measure Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        No = 0;
+        No = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Yes = 1;
+        Yes = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        FastMarketIndicatorMaximumValue = 1;
+        FastMarketIndicatorMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        FastMarketIndicatorMinimumValue = 0;
+        FastMarketIndicatorMinimumValue = 0,
 
     }
 }

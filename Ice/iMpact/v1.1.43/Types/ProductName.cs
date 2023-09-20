@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct ProductName
     {
         /// <summary>
-        ///  Length of Product Name in bytes
+        ///  Size of Product Name underlying field in bytes
         /// </summary>
         public const int Size = 62;
 

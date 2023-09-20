@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct AuctionDate
     {
         /// <summary>
-        ///  Length of Auction Date in bytes
+        ///  Size of Auction Date underlying field in bytes
         /// </summary>
         public const int Size = 10;
 

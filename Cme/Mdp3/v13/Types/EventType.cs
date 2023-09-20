@@ -8,12 +8,12 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Activation
         /// </summary>
-        Activation = 5;
+        Activation = 5,
 
         /// <summary>
         ///  Last Eligible Trade Date
         /// </summary>
-        LastEligibleTradeDate = 7;
+        LastEligibleTradeDate = 7,
 
     }
 }

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Leg Date Offset: One Byte Fixed Width Integer
+    ///  Leg Date Offset: Float reset date offset, specified when LegType = FLOAT.
     /// </summary>
 
     public struct LegDateOffset
@@ -14,7 +14,7 @@ namespace Cme.Streamlined
         public const ushort FixTag = 37503;
 
         /// <summary>
-        ///  Length of Leg Date Offset in bytes
+        ///  Size of Leg Date Offset in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Leg Date Offset
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Leg Date Offset as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

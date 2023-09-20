@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Working Away From Display: One Byte Fixed Width Integer
+    ///  Working Away From Display: 0 = Working Price is equal to Display Price 1 = Working Price is different from Display Price
     /// </summary>
 
     public struct WorkingAwayFromDisplay
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Working Away From Display as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

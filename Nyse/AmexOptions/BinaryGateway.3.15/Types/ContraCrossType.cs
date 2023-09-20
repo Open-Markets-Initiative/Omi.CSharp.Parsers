@@ -8,27 +8,27 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Price Improvement Cube
         /// </summary>
-        PriceImprovementCube = 5;
+        PriceImprovementCube = 5,
 
         /// <summary>
         ///  Aon Cube Solicitation
         /// </summary>
-        AonCubeSolicitation = 7;
+        AonCubeSolicitation = 7,
 
         /// <summary>
         ///  Qcc
         /// </summary>
-        Qcc = 10;
+        Qcc = 10,
 
         /// <summary>
         ///  Customer To Customer Cross
         /// </summary>
-        CustomerToCustomerCross = 11;
+        CustomerToCustomerCross = 11,
 
     }
 }

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
 {
     /// <summary>
-    ///  Expiration Date: One Byte Fixed Width Integer
+    ///  Expiration Date: Day of the Month of expiration (1- 31)
     /// </summary>
 
     public struct ExpirationDate
@@ -31,7 +31,7 @@ namespace Nasdaq.MarketDepth
         ///  Expiration Date as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

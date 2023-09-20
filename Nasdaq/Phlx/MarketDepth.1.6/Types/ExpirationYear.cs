@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
 {
     /// <summary>
-    ///  Expiration Year: One Byte Fixed Width Integer
+    ///  Expiration Year: Last two digits of the year of the option expiration
     /// </summary>
 
     public struct ExpirationYear
@@ -31,7 +31,7 @@ namespace Nasdaq.MarketDepth
         ///  Expiration Year as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

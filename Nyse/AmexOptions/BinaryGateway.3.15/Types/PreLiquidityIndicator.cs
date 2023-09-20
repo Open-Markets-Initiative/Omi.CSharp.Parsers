@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct PreLiquidityIndicator
     {
         /// <summary>
-        ///  Length of Pre Liquidity Indicator in bytes
+        ///  Size of Pre Liquidity Indicator underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

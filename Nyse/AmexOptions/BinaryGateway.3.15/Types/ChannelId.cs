@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Channel Id: One Byte Fixed Width Integer
+    ///  Channel Id: TXN of Underlying
     /// </summary>
 
     public struct ChannelId
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Channel Id as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

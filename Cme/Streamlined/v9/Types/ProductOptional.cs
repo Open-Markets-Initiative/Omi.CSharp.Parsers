@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Product Optional: One Byte Fixed Width Integer
+    ///  Product Optional: Identifies the type of product.
     /// </summary>
 
     public struct ProductOptional
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Product Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

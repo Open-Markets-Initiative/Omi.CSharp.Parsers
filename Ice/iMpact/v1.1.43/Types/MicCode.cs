@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct MicCode
     {
         /// <summary>
-        ///  Length of Mic Code in bytes
+        ///  Size of Mic Code underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

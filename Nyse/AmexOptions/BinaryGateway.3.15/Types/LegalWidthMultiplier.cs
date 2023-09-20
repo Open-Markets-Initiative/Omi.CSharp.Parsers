@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Legal Width Multiplier: One Byte Fixed Width Integer
+    ///  Legal Width Multiplier: Multiplier applied to standard legal width. For example:
     /// </summary>
 
     public struct LegalWidthMultiplier
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Legal Width Multiplier as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

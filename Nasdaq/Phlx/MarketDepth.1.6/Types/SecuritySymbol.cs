@@ -8,7 +8,7 @@ namespace Nasdaq.MarketDepth
     public unsafe struct SecuritySymbol
     {
         /// <summary>
-        ///  Length of Security Symbol in bytes
+        ///  Size of Security Symbol underlying field in bytes
         /// </summary>
         public const int Size = 6;
 

@@ -8,7 +8,7 @@ namespace Nasdaq.MarketDepth
     public unsafe struct Session
     {
         /// <summary>
-        ///  Length of Session in bytes
+        ///  Size of Session underlying field in bytes
         /// </summary>
         public const int Size = 10;
 

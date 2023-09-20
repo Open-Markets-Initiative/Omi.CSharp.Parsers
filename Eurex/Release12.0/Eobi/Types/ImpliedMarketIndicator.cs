@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        NotImplied = 0;
+        NotImplied = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        ImpliedInOut = 3;
+        ImpliedInOut = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        ImpliedMarketIndicatorMaximumValue = 3;
+        ImpliedMarketIndicatorMaximumValue = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        ImpliedMarketIndicatorMinimumValue = 0;
+        ImpliedMarketIndicatorMinimumValue = 0,
 
     }
 }

@@ -38,6 +38,16 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Try Read Broken Date Start
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out ushort value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Broken Date Start
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,10 +57,17 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Set Broken Date Start to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Broken Date Start as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

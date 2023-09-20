@@ -38,6 +38,16 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Try Read Tot Num Reports Optional
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out uint value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Tot Num Reports Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,10 +57,17 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Set Tot Num Reports Optional to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Tot Num Reports Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

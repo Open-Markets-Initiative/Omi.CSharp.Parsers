@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Put Or Call: One Byte Fixed Width Integer
+    ///  Put Or Call: Indicates whether an option instrument is a put or call
     /// </summary>
 
     public struct PutOrCall
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Put Or Call as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

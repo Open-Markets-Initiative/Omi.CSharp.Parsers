@@ -8,17 +8,17 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Orders Only
         /// </summary>
-        OrdersOnly = 0;
+        OrdersOnly = 0,
 
         /// <summary>
         ///  Options Mm Quotes Only
         /// </summary>
-        OptionsMmQuotesOnly = 1;
+        OptionsMmQuotesOnly = 1,
 
         /// <summary>
         ///  Both Orders And Options Mm Quotes
         /// </summary>
-        BothOrdersAndOptionsMmQuotes = 2;
+        BothOrdersAndOptionsMmQuotes = 2,
 
     }
 }

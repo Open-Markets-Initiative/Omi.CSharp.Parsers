@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct ContraMarketMaker
     {
         /// <summary>
-        ///  Length of Contra Market Maker in bytes
+        ///  Size of Contra Market Maker underlying field in bytes
         /// </summary>
         public const int Size = 10;
 

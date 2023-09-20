@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Num In Group uint 8: One Byte Fixed Width Integer
+    ///  Num In Group uint 8
     /// </summary>
 
     public struct NumInGroupUint8
@@ -31,7 +31,7 @@ namespace Cme.Streamlined
         ///  Num In Group uint 8 as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

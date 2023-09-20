@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Appointed For Underlying Symbol
         /// </summary>
-        NotAppointedForUnderlyingSymbol = 0;
+        NotAppointedForUnderlyingSymbol = 0,
 
         /// <summary>
         ///  Appointed For Underlying Symbol
         /// </summary>
-        AppointedForUnderlyingSymbol = 1;
+        AppointedForUnderlyingSymbol = 1,
 
     }
 }

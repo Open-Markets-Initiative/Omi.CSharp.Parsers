@@ -1,15 +1,15 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Number Of Special Fields: One Byte Fixed Width Integer
+    ///  Number Of Special Fields: Number of Fields present on this message
     /// </summary>
 
     public struct NumberOfSpecialFields
     {
         /// <summary>
-        ///  Length of Number Of Special Fields in bytes
+        ///  Size of Number Of Special Fields in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -18,20 +18,20 @@ namespace Ice.iMpact
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Number Of Special Fields
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Number Of Special Fields as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

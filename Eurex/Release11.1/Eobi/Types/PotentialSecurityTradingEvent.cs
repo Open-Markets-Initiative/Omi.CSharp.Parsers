@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  None
         /// </summary>
-        None = 0;
+        None = 0,
 
         /// <summary>
         ///  Price volatility, auction is extended
         /// </summary>
-        PriceVolatilityAuctionIsExtended = 10;
+        PriceVolatilityAuctionIsExtended = 10,
 
         /// <summary>
         ///  
         /// </summary>
-        PotentialSecurityTradingEventMaximumValue = 10;
+        PotentialSecurityTradingEventMaximumValue = 10,
 
         /// <summary>
         ///  
         /// </summary>
-        PotentialSecurityTradingEventMinimumValue = 0;
+        PotentialSecurityTradingEventMinimumValue = 0,
 
     }
 }

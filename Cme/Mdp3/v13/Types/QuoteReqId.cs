@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 131;
 
         /// <summary>
-        ///  Length of Quote Req Id in bytes
+        ///  Size of Quote Req Id underlying field in bytes
         /// </summary>
         public const int Size = 23;
 

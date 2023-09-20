@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Buy
         /// </summary>
-        Buy = 1;
+        Buy = 1,
 
         /// <summary>
         ///  Sell
         /// </summary>
-        Sell = 2;
+        Sell = 2,
 
     }
 }

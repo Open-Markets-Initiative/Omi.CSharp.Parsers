@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct OpenInterestDate
     {
         /// <summary>
-        ///  Length of Open Interest Date in bytes
+        ///  Size of Open Interest Date underlying field in bytes
         /// </summary>
         public const int Size = 10;
 

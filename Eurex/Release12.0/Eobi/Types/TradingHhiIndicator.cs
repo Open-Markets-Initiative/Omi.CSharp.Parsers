@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Trading Hhi Indicator: One Byte Fixed Width Integer
+    ///  Trading Hhi Indicator
     /// </summary>
 
     public struct TradingHhiIndicator
@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  Trading Hhi Indicator as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

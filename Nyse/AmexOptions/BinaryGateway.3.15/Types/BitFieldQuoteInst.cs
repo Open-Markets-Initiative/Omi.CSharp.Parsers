@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Bit Field Quote Inst: One Byte Fixed Width Integer
+    ///  Bit Field Quote Inst: Bitfield (containing Side and Type)
     /// </summary>
 
     public struct BitFieldQuoteInst
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Bit Field Quote Inst as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

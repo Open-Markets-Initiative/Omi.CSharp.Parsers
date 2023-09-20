@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Reference Id: One Byte Fixed Width Integer
+    ///  Reference Id: Reference to corresponding Price and Security ID, sequence of MD entry in the message
     /// </summary>
 
     public struct ReferenceId
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Reference Id as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

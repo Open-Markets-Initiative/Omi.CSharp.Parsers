@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        N = 0;
+        N = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Y = 1;
+        Y = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        LastFragmentMaximumValue = 1;
+        LastFragmentMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        LastFragmentMinimumValue = 0;
+        LastFragmentMinimumValue = 0,
 
     }
 }

@@ -38,6 +38,16 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Try Read Coupon Frequency Period
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out ushort value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Coupon Frequency Period
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,10 +57,17 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Set Coupon Frequency Period to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Coupon Frequency Period as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 788;
 
         /// <summary>
-        ///  Length of Termination Type in bytes
+        ///  Size of Termination Type underlying field in bytes
         /// </summary>
         public const int Size = 8;
 

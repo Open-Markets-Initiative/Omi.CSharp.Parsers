@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct UnitOfMeasure
     {
         /// <summary>
-        ///  Length of Unit Of Measure in bytes
+        ///  Size of Unit Of Measure underlying field in bytes
         /// </summary>
         public const int Size = 30;
 

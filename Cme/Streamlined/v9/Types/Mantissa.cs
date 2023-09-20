@@ -33,6 +33,16 @@ namespace Cme.Streamlined
         }
 
         /// <summary>
+        ///  Try Read Mantissa
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out long value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
         ///  Write Mantissa
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -42,10 +52,17 @@ namespace Cme.Streamlined
         }
 
         /// <summary>
+        ///  Set Mantissa to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Mantissa as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying bytes

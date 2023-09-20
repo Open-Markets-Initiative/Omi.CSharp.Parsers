@@ -8,17 +8,17 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Active
         /// </summary>
-        Active = 1;
+        Active = 1,
 
         /// <summary>
         ///  Inactive
         /// </summary>
-        Inactive = 2;
+        Inactive = 2,
 
         /// <summary>
         ///  Prospect
         /// </summary>
-        Prospect = 3;
+        Prospect = 3,
 
     }
 }

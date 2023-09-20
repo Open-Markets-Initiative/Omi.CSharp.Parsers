@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1022;
 
         /// <summary>
-        ///  Length of Md Feed Type in bytes
+        ///  Size of Md Feed Type underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

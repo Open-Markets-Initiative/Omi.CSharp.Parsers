@@ -1,15 +1,15 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Extra Flags: One Byte Fixed Width Integer
+    ///  Extra Flags: For Future use
     /// </summary>
 
     public struct ExtraFlags
     {
         /// <summary>
-        ///  Length of Extra Flags in bytes
+        ///  Size of Extra Flags in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -18,20 +18,20 @@ namespace Ice.iMpact
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Extra Flags
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Extra Flags as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

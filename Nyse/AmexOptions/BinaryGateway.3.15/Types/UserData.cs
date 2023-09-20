@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct UserData
     {
         /// <summary>
-        ///  Length of User Data in bytes
+        ///  Size of User Data underlying field in bytes
         /// </summary>
         public const int Size = 10;
 

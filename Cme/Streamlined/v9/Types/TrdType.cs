@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Trd Type: One Byte Fixed Width Integer
+    ///  Trd Type: Valid trade types for intraday trade
     /// </summary>
 
     public struct TrdType
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Trd Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

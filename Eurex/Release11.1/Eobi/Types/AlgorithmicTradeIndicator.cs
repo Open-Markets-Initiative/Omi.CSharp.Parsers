@@ -8,17 +8,17 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        AlgorithmicTrade = 1;
+        AlgorithmicTrade = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        AlgorithmicTradeIndicatorMaximumValue = 1;
+        AlgorithmicTradeIndicatorMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        AlgorithmicTradeIndicatorMinimumValue = 1;
+        AlgorithmicTradeIndicatorMinimumValue = 1,
 
     }
 }

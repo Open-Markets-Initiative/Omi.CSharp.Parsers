@@ -8,17 +8,17 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Activation
         /// </summary>
-        Activation = 5;
+        Activation = 5,
 
         /// <summary>
         ///  Deletion
         /// </summary>
-        Deletion = 6;
+        Deletion = 6,
 
         /// <summary>
         ///  Modification
         /// </summary>
-        Modification = 120;
+        Modification = 120,
 
     }
 }

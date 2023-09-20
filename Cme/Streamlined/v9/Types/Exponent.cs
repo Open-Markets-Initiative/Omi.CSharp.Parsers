@@ -1,15 +1,15 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Exponent: One Byte Fixed Width Integer
+    ///  Exponent: exponent
     /// </summary>
 
     public struct Exponent
     {
         /// <summary>
-        ///  Length of Exponent in bytes
+        ///  Size of Exponent in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -18,20 +18,20 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Exponent
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Exponent as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

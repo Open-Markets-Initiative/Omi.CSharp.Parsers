@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct Mpid
     {
         /// <summary>
-        ///  Length of Mpid in bytes
+        ///  Size of Mpid underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

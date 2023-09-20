@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Max No Of Substitutions: One Byte Fixed Width Integer
+    ///  Max No Of Substitutions: Max number of substitutions allowed. The value of 0 indicates that substitutions are not allowed
     /// </summary>
 
     public struct MaxNoOfSubstitutions
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Max No Of Substitutions as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

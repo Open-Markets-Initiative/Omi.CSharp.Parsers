@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37722;
 
         /// <summary>
-        ///  Length of Market Set in bytes
+        ///  Size of Market Set underlying field in bytes
         /// </summary>
         public const int Size = 6;
 

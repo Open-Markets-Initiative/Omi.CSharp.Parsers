@@ -1,15 +1,15 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Num Decimals Price: One Byte Fixed Width Integer
+    ///  Num Decimals Price: Number of decimals to use for Prices
     /// </summary>
 
     public struct NumDecimalsPrice
     {
         /// <summary>
-        ///  Length of Num Decimals Price in bytes
+        ///  Size of Num Decimals Price in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -18,20 +18,20 @@ namespace Ice.iMpact
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Num Decimals Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Num Decimals Price as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct Mic
     {
         /// <summary>
-        ///  Length of Mic in bytes
+        ///  Size of Mic underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

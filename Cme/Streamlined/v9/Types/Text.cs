@@ -13,7 +13,7 @@ namespace Cme.Streamlined
         public const ushort FixTag = 58;
 
         /// <summary>
-        ///  Length of Text in bytes
+        ///  Size of Text underlying field in bytes
         /// </summary>
         public const int Size = 180;
 

@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Incomplete = 0;
+        Incomplete = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Complete = 1;
+        Complete = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        CompletionIndicatorMaximumValue = 1;
+        CompletionIndicatorMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        CompletionIndicatorMinimumValue = 0;
+        CompletionIndicatorMinimumValue = 0,
 
     }
 }

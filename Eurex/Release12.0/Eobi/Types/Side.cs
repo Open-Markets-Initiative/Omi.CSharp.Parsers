@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Buy = 1;
+        Buy = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Sell = 2;
+        Sell = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        SideMaximumValue = 2;
+        SideMaximumValue = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        SideMinimumValue = 1;
+        SideMinimumValue = 1,
 
     }
 }

@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct ClearedAlias
     {
         /// <summary>
-        ///  Length of Cleared Alias in bytes
+        ///  Size of Cleared Alias underlying field in bytes
         /// </summary>
         public const int Size = 15;
 

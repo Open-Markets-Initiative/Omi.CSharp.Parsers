@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Market Depth: One Byte Fixed Width Integer
+    ///  Market Depth: Book depth
     /// </summary>
 
     public struct MarketDepth
@@ -14,7 +14,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 264;
 
         /// <summary>
-        ///  Length of Market Depth in bytes
+        ///  Size of Market Depth in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Market Depth
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Market Depth as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

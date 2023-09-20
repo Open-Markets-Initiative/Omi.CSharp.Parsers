@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        CrossAnnouncement = 1;
+        CrossAnnouncement = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        LiquidityImprovementCross = 2;
+        LiquidityImprovementCross = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        CrossRequestTypeMaximumValue = 2;
+        CrossRequestTypeMaximumValue = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        CrossRequestTypeMinimumValue = 1;
+        CrossRequestTypeMinimumValue = 1,
 
     }
 }

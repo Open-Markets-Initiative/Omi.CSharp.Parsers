@@ -1,15 +1,15 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Hedge Body Length: One Byte Fixed Width Integer
+    ///  Hedge Body Length: Message length, including this  field, for a hedge
     /// </summary>
 
     public struct HedgeBodyLength
     {
         /// <summary>
-        ///  Length of Hedge Body Length in bytes
+        ///  Size of Hedge Body Length in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -18,20 +18,20 @@ namespace Ice.iMpact
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Hedge Body Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Hedge Body Length as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

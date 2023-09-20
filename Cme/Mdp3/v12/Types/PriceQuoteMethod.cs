@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1196;
 
         /// <summary>
-        ///  Length of Price Quote Method in bytes
+        ///  Size of Price Quote Method underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

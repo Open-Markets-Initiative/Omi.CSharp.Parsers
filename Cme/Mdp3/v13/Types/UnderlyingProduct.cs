@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Underlying Product: One Byte Fixed Width Integer
+    ///  Underlying Product: Product complex
     /// </summary>
 
     public struct UnderlyingProduct
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Underlying Product as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

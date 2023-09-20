@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct ClearingFirmCovered
     {
         /// <summary>
-        ///  Length of Clearing Firm Covered in bytes
+        ///  Size of Clearing Firm Covered underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

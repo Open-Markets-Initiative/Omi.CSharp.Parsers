@@ -8,27 +8,27 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        SingleSecurity = 1;
+        SingleSecurity = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        IndividualLegOfAMultiLegSecurity = 2;
+        IndividualLegOfAMultiLegSecurity = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        MultiLegSecurity = 3;
+        MultiLegSecurity = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        MultiLegReportingTypeMaximumValue = 3;
+        MultiLegReportingTypeMaximumValue = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        MultiLegReportingTypeMinimumValue = 1;
+        MultiLegReportingTypeMinimumValue = 1,
 
     }
 }

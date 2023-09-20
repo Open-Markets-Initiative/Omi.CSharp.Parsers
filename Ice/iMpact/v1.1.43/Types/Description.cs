@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct Description
     {
         /// <summary>
-        ///  Length of Description in bytes
+        ///  Size of Description underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

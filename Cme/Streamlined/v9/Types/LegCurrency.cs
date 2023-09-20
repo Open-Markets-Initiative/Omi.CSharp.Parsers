@@ -13,7 +13,7 @@ namespace Cme.Streamlined
         public const ushort FixTag = 556;
 
         /// <summary>
-        ///  Length of Leg Currency in bytes
+        ///  Size of Leg Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

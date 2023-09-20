@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Main Fraction: One Byte Fixed Width Integer
+    ///  Main Fraction: Price Denominator of Main Fraction
     /// </summary>
 
     public struct MainFraction
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Main Fraction as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

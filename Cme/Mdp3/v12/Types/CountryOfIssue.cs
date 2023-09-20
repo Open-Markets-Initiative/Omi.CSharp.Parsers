@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 470;
 
         /// <summary>
-        ///  Length of Country Of Issue in bytes
+        ///  Size of Country Of Issue underlying field in bytes
         /// </summary>
         public const int Size = 2;
 

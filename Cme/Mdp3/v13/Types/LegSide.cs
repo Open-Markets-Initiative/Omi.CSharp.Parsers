@@ -8,12 +8,12 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Buy Side
         /// </summary>
-        BuySide = 1;
+        BuySide = 1,
 
         /// <summary>
         ///  Sell Side
         /// </summary>
-        SellSide = 2;
+        SellSide = 2,
 
     }
 }

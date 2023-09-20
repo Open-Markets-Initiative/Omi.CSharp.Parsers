@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Leg Side: One Byte Fixed Width Integer
+    ///  Leg Side: The side of this individual leg.
     /// </summary>
 
     public struct LegSide
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Leg Side as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

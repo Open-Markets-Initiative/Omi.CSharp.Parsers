@@ -8,32 +8,32 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Active = 1;
+        Active = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Inactive = 2;
+        Inactive = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        Expired = 4;
+        Expired = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        Suspended = 9;
+        Suspended = 9,
 
         /// <summary>
         ///  
         /// </summary>
-        TesSecurityMassStatusMaximumValue = 9;
+        TesSecurityMassStatusMaximumValue = 9,
 
         /// <summary>
         ///  
         /// </summary>
-        TesSecurityMassStatusMinimumValue = 1;
+        TesSecurityMassStatusMinimumValue = 1,
 
     }
 }

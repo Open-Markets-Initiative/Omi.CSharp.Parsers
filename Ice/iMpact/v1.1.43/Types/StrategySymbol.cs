@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct StrategySymbol
     {
         /// <summary>
-        ///  Length of Strategy Symbol in bytes
+        ///  Size of Strategy Symbol underlying field in bytes
         /// </summary>
         public const int Size = 18;
 

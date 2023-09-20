@@ -8,37 +8,37 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        OpeningAuction = 1;
+        OpeningAuction = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        ClosingAuction = 2;
+        ClosingAuction = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        IntradayAuction = 3;
+        IntradayAuction = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        CircuitBreakerAuction = 4;
+        CircuitBreakerAuction = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        IpoAuction = 5;
+        IpoAuction = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        MatchSubTypeMaximumValue = 5;
+        MatchSubTypeMaximumValue = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        MatchSubTypeMinimumValue = 1;
+        MatchSubTypeMinimumValue = 1,
 
     }
 }

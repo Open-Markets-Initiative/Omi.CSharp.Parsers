@@ -8,17 +8,17 @@ namespace Cme.Mdp3
         /// <summary>
         ///  New
         /// </summary>
-        New = 0;
+        New = 0,
 
         /// <summary>
         ///  Update
         /// </summary>
-        Update = 1;
+        Update = 1,
 
         /// <summary>
         ///  Delete
         /// </summary>
-        Delete = 2;
+        Delete = 2,
 
     }
 }

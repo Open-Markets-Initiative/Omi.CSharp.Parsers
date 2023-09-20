@@ -8,72 +8,72 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Trade = 2;
+        Trade = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        OpeningPrice = 4;
+        OpeningPrice = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        ClosingPrice = 5;
+        ClosingPrice = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        HighPrice = 7;
+        HighPrice = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        LowPrice = 8;
+        LowPrice = 8,
 
         /// <summary>
         ///  
         /// </summary>
-        TradeVolume = 66;
+        TradeVolume = 66,
 
         /// <summary>
         ///  
         /// </summary>
-        PreviousClosingPrice = 101;
+        PreviousClosingPrice = 101,
 
         /// <summary>
         ///  
         /// </summary>
-        OpeningAuction = 200;
+        OpeningAuction = 200,
 
         /// <summary>
         ///  
         /// </summary>
-        IntradayAuction = 201;
+        IntradayAuction = 201,
 
         /// <summary>
         ///  
         /// </summary>
-        CircuitBreakerAuction = 202;
+        CircuitBreakerAuction = 202,
 
         /// <summary>
         ///  
         /// </summary>
-        ClosingAuction = 203;
+        ClosingAuction = 203,
 
         /// <summary>
         ///  
         /// </summary>
-        IpoAuction = 204;
+        IpoAuction = 204,
 
         /// <summary>
         ///  
         /// </summary>
-        MdEntryTypeMaximumValue = 204;
+        MdEntryTypeMaximumValue = 204,
 
         /// <summary>
         ///  
         /// </summary>
-        MdEntryTypeMinimumValue = 2;
+        MdEntryTypeMinimumValue = 2,
 
     }
 }

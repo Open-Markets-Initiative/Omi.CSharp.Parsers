@@ -8,82 +8,82 @@ namespace Cme.Streamlined
         /// <summary>
         ///  AdminHeartbeat
         /// </summary>
-        AdminHeartbeat = 312;
+        AdminHeartbeat = 312,
 
         /// <summary>
         ///  AdminLogin
         /// </summary>
-        AdminLogin = 315;
+        AdminLogin = 315,
 
         /// <summary>
         ///  AdminLogout
         /// </summary>
-        AdminLogout = 316;
+        AdminLogout = 316,
 
         /// <summary>
         ///  MDIncrementalRefreshErisReferenceDataAndDailyStatistics
         /// </summary>
-        MdIncrementalRefreshErisReferenceDataAndDailyStatistics = 333;
+        MdIncrementalRefreshErisReferenceDataAndDailyStatistics = 333,
 
         /// <summary>
         ///  MDNewsIndices
         /// </summary>
-        MdNewsIndices = 339;
+        MdNewsIndices = 339,
 
         /// <summary>
         ///  MDIncrementalRefreshTradeBlocks
         /// </summary>
-        MdIncrementalRefreshTradeBlocks340 = 340;
+        MdIncrementalRefreshTradeBlocks340 = 340,
 
         /// <summary>
         ///  QuoteRequest
         /// </summary>
-        QuoteRequest = 345;
+        QuoteRequest = 345,
 
         /// <summary>
         ///  MDInstrumentDefinitionIndices
         /// </summary>
-        MdInstrumentDefinitionIndices = 347;
+        MdInstrumentDefinitionIndices = 347,
 
         /// <summary>
         ///  MDIncrementalRefreshIndices
         /// </summary>
-        MdIncrementalRefreshIndices = 348;
+        MdIncrementalRefreshIndices = 348,
 
         /// <summary>
         ///  MDIncrementalRefreshTradeBlocks
         /// </summary>
-        MdIncrementalRefreshTradeBlocks349 = 349;
+        MdIncrementalRefreshTradeBlocks349 = 349,
 
         /// <summary>
         ///  MDIncrementalRefreshEris
         /// </summary>
-        MdIncrementalRefreshEris351 = 351;
+        MdIncrementalRefreshEris351 = 351,
 
         /// <summary>
         ///  MDIncrementalRefreshEris
         /// </summary>
-        MdIncrementalRefreshEris353 = 353;
+        MdIncrementalRefreshEris353 = 353,
 
         /// <summary>
         ///  MDIncrementalRefreshOTC
         /// </summary>
-        MdIncrementalRefreshOtC356 = 356;
+        MdIncrementalRefreshOtC356 = 356,
 
         /// <summary>
         ///  MDInstrumentDefinitionEris
         /// </summary>
-        MdInstrumentDefinitionEris = 363;
+        MdInstrumentDefinitionEris = 363,
 
         /// <summary>
         ///  MDIncrementalRefreshTradeBlocks
         /// </summary>
-        MdIncrementalRefreshTradeBlocks365 = 365;
+        MdIncrementalRefreshTradeBlocks365 = 365,
 
         /// <summary>
         ///  MDIncrementalRefreshOTC
         /// </summary>
-        MdIncrementalRefreshOtC366 = 366;
+        MdIncrementalRefreshOtC366 = 366,
 
     }
 }

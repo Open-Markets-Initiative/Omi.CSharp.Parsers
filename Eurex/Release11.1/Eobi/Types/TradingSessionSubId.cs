@@ -8,37 +8,37 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        PreTrading = 1;
+        PreTrading = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Continuous = 3;
+        Continuous = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        Closing = 4;
+        Closing = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        PostTrading = 5;
+        PostTrading = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        Quiescent = 7;
+        Quiescent = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        TradingSessionSubIDMaximumValue = 7;
+        TradingSessionSubIDMaximumValue = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        TradingSessionSubIDMinimumValue = 1;
+        TradingSessionSubIDMinimumValue = 1,
 
     }
 }

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  No Md Entries: One Byte Fixed Width Integer
+    ///  No Md Entries
     /// </summary>
 
     public struct NoMdEntries
@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  No Md Entries as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

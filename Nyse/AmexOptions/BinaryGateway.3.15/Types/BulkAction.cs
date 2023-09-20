@@ -8,32 +8,32 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Cancel Single Leg Only
         /// </summary>
-        CancelSingleLegOnly = 1;
+        CancelSingleLegOnly = 1,
 
         /// <summary>
         ///  Cancel Complex Only
         /// </summary>
-        CancelComplexOnly = 2;
+        CancelComplexOnly = 2,
 
         /// <summary>
         ///  Cancel Both Single Leg And Complex
         /// </summary>
-        CancelBothSingleLegAndComplex = 3;
+        CancelBothSingleLegAndComplex = 3,
 
         /// <summary>
         ///  Block And Cancel
         /// </summary>
-        BlockAndCancel = 4;
+        BlockAndCancel = 4,
 
         /// <summary>
         ///  Unblock
         /// </summary>
-        Unblock = 5;
+        Unblock = 5,
 
     }
 }

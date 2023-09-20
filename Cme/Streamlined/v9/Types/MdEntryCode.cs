@@ -8,32 +8,32 @@ namespace Cme.Streamlined
         /// <summary>
         ///  List of conditions describing a index value
         /// </summary>
-        NoValue = 255;
+        NoValue = 255,
 
         /// <summary>
         ///  Indicative
         /// </summary>
-        Indicative = 1;
+        Indicative = 1,
 
         /// <summary>
         ///  PreMarket
         /// </summary>
-        PreMarket = 2;
+        PreMarket = 2,
 
         /// <summary>
         ///  PreliminaryClose
         /// </summary>
-        PreliminaryClose = 3;
+        PreliminaryClose = 3,
 
         /// <summary>
         ///  SessionClose
         /// </summary>
-        SessionClose = 4;
+        SessionClose = 4,
 
         /// <summary>
         ///  Close
         /// </summary>
-        Close = 5;
+        Close = 5,
 
     }
 }

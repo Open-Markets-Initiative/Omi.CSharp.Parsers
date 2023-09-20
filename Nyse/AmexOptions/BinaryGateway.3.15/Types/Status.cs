@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Request processed successfully
         /// </summary>
-        RequestProcessedSuccessfully = 0;
+        RequestProcessedSuccessfully = 0,
 
         /// <summary>
         ///  Not logged in
         /// </summary>
-        NotLoggedIn = 18;
+        NotLoggedIn = 18,
 
     }
 }

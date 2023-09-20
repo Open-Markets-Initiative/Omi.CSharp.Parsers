@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct Password
     {
         /// <summary>
-        ///  Length of Password in bytes
+        ///  Size of Password underlying field in bytes
         /// </summary>
         public const int Size = 32;
 

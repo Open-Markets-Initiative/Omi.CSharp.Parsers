@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct Isin
     {
         /// <summary>
-        ///  Length of Isin in bytes
+        ///  Size of Isin underlying field in bytes
         /// </summary>
         public const int Size = 12;
 

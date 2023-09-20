@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct MpvClassName
     {
         /// <summary>
-        ///  Length of Mpv Class Name in bytes
+        ///  Size of Mpv Class Name underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

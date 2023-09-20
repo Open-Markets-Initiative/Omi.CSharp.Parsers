@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Required
         /// </summary>
-        NotRequired = 0;
+        NotRequired = 0,
 
         /// <summary>
         ///  Required
         /// </summary>
-        Required = 1;
+        Required = 1,
 
     }
 }

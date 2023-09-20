@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Partition Id: One Byte Fixed Width Integer
+    ///  Partition Id
     /// </summary>
 
     public struct PartitionId
@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  Partition Id as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

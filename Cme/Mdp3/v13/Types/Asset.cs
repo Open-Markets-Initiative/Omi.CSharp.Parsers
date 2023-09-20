@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 6937;
 
         /// <summary>
-        ///  Length of Asset in bytes
+        ///  Size of Asset underlying field in bytes
         /// </summary>
         public const int Size = 6;
 

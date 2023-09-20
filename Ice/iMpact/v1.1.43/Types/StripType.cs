@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct StripType
     {
         /// <summary>
-        ///  Length of Strip Type in bytes
+        ///  Size of Strip Type underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

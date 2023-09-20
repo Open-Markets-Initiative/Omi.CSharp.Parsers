@@ -8,17 +8,17 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        SoldOut = 1;
+        SoldOut = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MassSoldOutIndicatorMaximumValue = 1;
+        MassSoldOutIndicatorMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MassSoldOutIndicatorMinimumValue = 1;
+        MassSoldOutIndicatorMinimumValue = 1,
 
     }
 }

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 120;
 
         /// <summary>
-        ///  Length of Settl Currency in bytes
+        ///  Size of Settl Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

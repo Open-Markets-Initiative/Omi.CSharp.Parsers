@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Market Segment Id: One Byte Fixed Width Integer
+    ///  Market Segment Id: Identifies the market segment, populated for all CME Globex instruments
     /// </summary>
 
     public struct MarketSegmentId
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Market Segment Id as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

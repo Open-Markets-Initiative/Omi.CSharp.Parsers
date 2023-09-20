@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct OptionalData
     {
         /// <summary>
-        ///  Length of Optional Data in bytes
+        ///  Size of Optional Data underlying field in bytes
         /// </summary>
         public const int Size = 16;
 

@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Cash = 0;
+        Cash = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Physical = 1;
+        Physical = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        SettlMethodMaximumValue = 1;
+        SettlMethodMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        SettlMethodMinimumValue = 0;
+        SettlMethodMinimumValue = 0,
 
     }
 }

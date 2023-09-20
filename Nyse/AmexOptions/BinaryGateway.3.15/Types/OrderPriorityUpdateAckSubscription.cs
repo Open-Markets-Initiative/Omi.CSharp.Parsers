@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Unsolicited Order Priority Update Ack
         /// </summary>
-        UnsolicitedOrderPriorityUpdateAck = 1;
+        UnsolicitedOrderPriorityUpdateAck = 1,
 
         /// <summary>
         ///  Unsolicited Order Priority Update Ack And Unsolicited Repricing Ack
         /// </summary>
-        UnsolicitedOrderPriorityUpdateAckAndUnsolicitedRepricingAck = 2;
+        UnsolicitedOrderPriorityUpdateAckAndUnsolicitedRepricingAck = 2,
 
     }
 }

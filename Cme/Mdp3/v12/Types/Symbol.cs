@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 55;
 
         /// <summary>
-        ///  Length of Symbol in bytes
+        ///  Size of Symbol underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

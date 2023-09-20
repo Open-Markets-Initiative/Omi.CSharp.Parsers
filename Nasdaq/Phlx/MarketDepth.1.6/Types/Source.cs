@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
 {
     /// <summary>
-    ///  Source: One Byte Fixed Width Integer
+    ///  Source: Identifies the source of the Option, valid for the trading day
     /// </summary>
 
     public struct Source
@@ -31,7 +31,7 @@ namespace Nasdaq.MarketDepth
         ///  Source as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

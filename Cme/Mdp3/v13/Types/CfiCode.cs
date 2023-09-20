@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 461;
 
         /// <summary>
-        ///  Length of Cfi Code in bytes
+        ///  Size of Cfi Code underlying field in bytes
         /// </summary>
         public const int Size = 6;
 

@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct ClearingNumber
     {
         /// <summary>
-        ///  Length of Clearing Number in bytes
+        ///  Size of Clearing Number underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

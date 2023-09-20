@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Week: One Byte Fixed Width Integer
+    ///  Week: WW
     /// </summary>
 
     public struct Week
@@ -31,7 +31,7 @@ namespace Cme.Streamlined
         ///  Week as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

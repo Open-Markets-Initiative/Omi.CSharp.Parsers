@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  No Reset
         /// </summary>
-        NoReset = 0;
+        NoReset = 0,
 
         /// <summary>
         ///  Reset
         /// </summary>
-        Reset = 1;
+        Reset = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        ApplSeqResetIndicatorMaximumValue = 1;
+        ApplSeqResetIndicatorMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        ApplSeqResetIndicatorMinimumValue = 0;
+        ApplSeqResetIndicatorMinimumValue = 0,
 
     }
 }

@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Solicited Ack
         /// </summary>
-        SolicitedAck = 0;
+        SolicitedAck = 0,
 
         /// <summary>
         ///  Unsolicited Ack
         /// </summary>
-        UnsolicitedAck = 1;
+        UnsolicitedAck = 1,
 
     }
 }

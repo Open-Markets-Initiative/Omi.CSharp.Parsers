@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Market Depth: One Byte Fixed Width Integer
+    ///  Market Depth: Indicated the level on the book traded.
     /// </summary>
 
     public struct MarketDepth
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Market Depth as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

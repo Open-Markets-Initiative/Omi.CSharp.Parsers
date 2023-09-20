@@ -8,32 +8,32 @@ namespace Cme.Streamlined
         /// <summary>
         ///  New
         /// </summary>
-        New = 0;
+        New = 0,
 
         /// <summary>
         ///  Change
         /// </summary>
-        Change = 1;
+        Change = 1,
 
         /// <summary>
         ///  Delete
         /// </summary>
-        Delete = 2;
+        Delete = 2,
 
         /// <summary>
         ///  Delete Thru
         /// </summary>
-        DeleteThru = 3;
+        DeleteThru = 3,
 
         /// <summary>
         ///  Delete From
         /// </summary>
-        DeleteFrom = 4;
+        DeleteFrom = 4,
 
         /// <summary>
         ///  Overlay
         /// </summary>
-        Overlay = 5;
+        Overlay = 5,
 
     }
 }

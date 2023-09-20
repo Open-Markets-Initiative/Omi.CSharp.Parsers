@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 63;
 
         /// <summary>
-        ///  Length of Settl Type in bytes
+        ///  Size of Settl Type underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  No Related Sym: One Byte Fixed Width Integer
+    ///  No Related Sym
     /// </summary>
 
     public struct NoRelatedSym
@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  No Related Sym as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

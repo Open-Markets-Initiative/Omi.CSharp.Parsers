@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37716;
 
         /// <summary>
-        ///  Length of Term Code in bytes
+        ///  Size of Term Code underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

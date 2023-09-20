@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Open Close Settl Flag: One Byte Fixed Width Integer
+    ///  Open Close Settl Flag: Flag that identifies a market data entry
     /// </summary>
 
     public struct OpenCloseSettlFlag
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Open Close Settl Flag as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

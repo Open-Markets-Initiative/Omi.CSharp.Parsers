@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37727;
 
         /// <summary>
-        ///  Length of Fix Rate Local Time Zone in bytes
+        ///  Size of Fix Rate Local Time Zone underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

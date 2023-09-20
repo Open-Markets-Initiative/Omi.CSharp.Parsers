@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  No Legs: One Byte Fixed Width Integer
+    ///  No Legs
     /// </summary>
 
     public struct NoLegs
@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  No Legs as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

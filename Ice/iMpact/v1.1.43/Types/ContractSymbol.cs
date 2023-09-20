@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct ContractSymbol
     {
         /// <summary>
-        ///  Length of Contract Symbol in bytes
+        ///  Size of Contract Symbol underlying field in bytes
         /// </summary>
         public const int Size = 35;
 

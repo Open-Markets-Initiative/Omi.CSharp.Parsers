@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Trade Bust
         /// </summary>
-        TradeBust = 0;
+        TradeBust = 0,
 
         /// <summary>
         ///  Trade Correction
         /// </summary>
-        TradeCorrection = 1;
+        TradeCorrection = 1,
 
     }
 }

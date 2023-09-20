@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Put = 0;
+        Put = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Call = 1;
+        Call = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        PutOrCallMaximumValue = 1;
+        PutOrCallMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        PutOrCallMinimumValue = 0;
+        PutOrCallMinimumValue = 0,
 
     }
 }

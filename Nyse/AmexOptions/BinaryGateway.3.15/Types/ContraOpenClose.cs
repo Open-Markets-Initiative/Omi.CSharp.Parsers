@@ -8,17 +8,17 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Open
         /// </summary>
-        Open = 1;
+        Open = 1,
 
         /// <summary>
         ///  Close
         /// </summary>
-        Close = 2;
+        Close = 2,
 
     }
 }

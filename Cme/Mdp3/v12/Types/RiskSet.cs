@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37721;
 
         /// <summary>
-        ///  Length of Risk Set in bytes
+        ///  Size of Risk Set underlying field in bytes
         /// </summary>
         public const int Size = 6;
 

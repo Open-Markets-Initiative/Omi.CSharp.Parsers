@@ -8,22 +8,22 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Notification
         /// </summary>
-        Notification = 1;
+        Notification = 1,
 
         /// <summary>
         ///  Cancel Non Auction Orders
         /// </summary>
-        CancelNonAuctionOrders = 2;
+        CancelNonAuctionOrders = 2,
 
         /// <summary>
         ///  Block
         /// </summary>
-        Block = 3;
+        Block = 3,
 
     }
 }

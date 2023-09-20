@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Enable Cancel On Disconnect Day
         /// </summary>
-        EnableCancelOnDisconnectDay = 1;
+        EnableCancelOnDisconnectDay = 1,
 
         /// <summary>
         ///  Enable Cancel On Disconnect All
         /// </summary>
-        EnableCancelOnDisconnectAll = 2;
+        EnableCancelOnDisconnectAll = 2,
 
     }
 }

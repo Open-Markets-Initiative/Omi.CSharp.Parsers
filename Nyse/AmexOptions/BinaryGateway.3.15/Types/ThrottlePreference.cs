@@ -8,12 +8,12 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Queue Orders When Throttled
         /// </summary>
-        QueueOrdersWhenThrottled = 0;
+        QueueOrdersWhenThrottled = 0,
 
         /// <summary>
         ///  Reject Orders When Throttled
         /// </summary>
-        RejectOrdersWhenThrottled = 1;
+        RejectOrdersWhenThrottled = 1,
 
     }
 }

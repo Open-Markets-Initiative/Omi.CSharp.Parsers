@@ -8,17 +8,17 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Include Ioc And Gtx Orders In Activitybased Calculations And Cancellations
         /// </summary>
-        IncludeIocAndGtxOrdersInActivitybasedCalculationsAndCancellations = 1;
+        IncludeIocAndGtxOrdersInActivitybasedCalculationsAndCancellations = 1,
 
         /// <summary>
         ///  Exclude Ioc And Gtx Orders From Activitybased Calculations And Cancellations
         /// </summary>
-        ExcludeIocAndGtxOrdersFromActivitybasedCalculationsAndCancellations = 2;
+        ExcludeIocAndGtxOrdersFromActivitybasedCalculationsAndCancellations = 2,
 
     }
 }

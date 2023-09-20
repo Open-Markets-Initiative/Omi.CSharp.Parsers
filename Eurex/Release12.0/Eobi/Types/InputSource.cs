@@ -8,17 +8,17 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        ClipClientBroker = 1;
+        ClipClientBroker = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        InputSourceMaximumValue = 1;
+        InputSourceMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        InputSourceMinimumValue = 1;
+        InputSourceMinimumValue = 1,
 
     }
 }

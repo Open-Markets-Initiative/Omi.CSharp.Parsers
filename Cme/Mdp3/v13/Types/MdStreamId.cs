@@ -8,27 +8,27 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Source of the Clean Price
         /// </summary>
-        NoValue = 255;
+        NoValue = 255,
 
         /// <summary>
         ///  Globex Market Surveillance team
         /// </summary>
-        MarketPlaceAssistant = 0;
+        MarketPlaceAssistant = 0,
 
         /// <summary>
         ///  Globex Trading Activity
         /// </summary>
-        Globex = 1;
+        Globex = 1,
 
         /// <summary>
         ///  Refinitiv
         /// </summary>
-        Refinitiv = 2;
+        Refinitiv = 2,
 
         /// <summary>
         ///  Icap Market Data Feed
         /// </summary>
-        Icap = 3;
+        Icap = 3,
 
     }
 }

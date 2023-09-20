@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct TargetCancelUsername
     {
         /// <summary>
-        ///  Length of Target Cancel Username in bytes
+        ///  Size of Target Cancel Username underlying field in bytes
         /// </summary>
         public const int Size = 16;
 

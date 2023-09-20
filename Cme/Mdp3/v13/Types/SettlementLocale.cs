@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37734;
 
         /// <summary>
-        ///  Length of Settlement Locale in bytes
+        ///  Size of Settlement Locale underlying field in bytes
         /// </summary>
         public const int Size = 8;
 

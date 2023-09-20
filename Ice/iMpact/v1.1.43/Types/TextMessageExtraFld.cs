@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct TextMessageExtraFld
     {
         /// <summary>
-        ///  Length of Text Message Extra Fld in bytes
+        ///  Size of Text Message Extra Fld underlying field in bytes
         /// </summary>
         public const int Size = 800;
 

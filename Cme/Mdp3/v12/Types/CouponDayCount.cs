@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1950;
 
         /// <summary>
-        ///  Length of Coupon Day Count in bytes
+        ///  Size of Coupon Day Count underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

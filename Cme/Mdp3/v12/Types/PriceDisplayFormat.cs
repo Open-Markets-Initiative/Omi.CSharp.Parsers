@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Price Display Format: One Byte Fixed Width Integer
+    ///  Price Display Format: Number of decimals in fractional display price
     /// </summary>
 
     public struct PriceDisplayFormat
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Price Display Format as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

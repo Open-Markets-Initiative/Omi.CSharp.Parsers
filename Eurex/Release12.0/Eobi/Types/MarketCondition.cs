@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Normal = 0;
+        Normal = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        Stressed = 1;
+        Stressed = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MarketConditionMaximumValue = 1;
+        MarketConditionMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MarketConditionMinimumValue = 0;
+        MarketConditionMinimumValue = 0,
 
     }
 }

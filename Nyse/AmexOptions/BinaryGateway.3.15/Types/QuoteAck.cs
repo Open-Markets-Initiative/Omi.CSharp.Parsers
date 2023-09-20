@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Quote Ack: One Byte Fixed Width Integer
+    ///  Quote Ack
     /// </summary>
 
     public struct QuoteAck
@@ -11,7 +11,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Length of Quote Ack in bytes
         /// </summary>
-        public const int Size = 21;
+        public const int Size = 1;
 
         /// <summary>
         ///  Read Quote Ack
@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Quote Ack as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

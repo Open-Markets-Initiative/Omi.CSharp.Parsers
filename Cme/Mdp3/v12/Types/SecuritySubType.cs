@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 762;
 
         /// <summary>
-        ///  Length of Security Sub Type in bytes
+        ///  Size of Security Sub Type underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

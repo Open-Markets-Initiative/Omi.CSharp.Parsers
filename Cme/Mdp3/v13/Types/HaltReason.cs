@@ -8,42 +8,42 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Group Schedule
         /// </summary>
-        GroupSchedule = 0;
+        GroupSchedule = 0,
 
         /// <summary>
         ///  Surveillance Intervention
         /// </summary>
-        SurveillanceIntervention = 1;
+        SurveillanceIntervention = 1,
 
         /// <summary>
         ///  Market Event
         /// </summary>
-        MarketEvent = 2;
+        MarketEvent = 2,
 
         /// <summary>
         ///  Instrument Activation
         /// </summary>
-        InstrumentActivation = 3;
+        InstrumentActivation = 3,
 
         /// <summary>
         ///  Instrument Expiration
         /// </summary>
-        InstrumentExpiration = 4;
+        InstrumentExpiration = 4,
 
         /// <summary>
         ///  Unknown
         /// </summary>
-        Unknown = 5;
+        Unknown = 5,
 
         /// <summary>
         ///  Recovery In Process
         /// </summary>
-        RecoveryInProcess = 6;
+        RecoveryInProcess = 6,
 
         /// <summary>
         ///  Trade Date Roll
         /// </summary>
-        TradeDateRoll = 7;
+        TradeDateRoll = 7,
 
     }
 }

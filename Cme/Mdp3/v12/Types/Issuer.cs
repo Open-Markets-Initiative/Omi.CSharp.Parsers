@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 106;
 
         /// <summary>
-        ///  Length of Issuer in bytes
+        ///  Size of Issuer underlying field in bytes
         /// </summary>
         public const int Size = 25;
 

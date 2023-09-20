@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct SubId
     {
         /// <summary>
-        ///  Length of Sub Id in bytes
+        ///  Size of Sub Id underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

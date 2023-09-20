@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Standard = 0;
+        Standard = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        UserDefined = 1;
+        UserDefined = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MultiLegPriceModelMaximumValue = 1;
+        MultiLegPriceModelMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        MultiLegPriceModelMinimumValue = 0;
+        MultiLegPriceModelMinimumValue = 0,
 
     }
 }

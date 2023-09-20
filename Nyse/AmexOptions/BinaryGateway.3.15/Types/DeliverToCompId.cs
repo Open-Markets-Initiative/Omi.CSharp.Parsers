@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct DeliverToCompId
     {
         /// <summary>
-        ///  Length of Deliver To Comp Id in bytes
+        ///  Size of Deliver To Comp Id underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

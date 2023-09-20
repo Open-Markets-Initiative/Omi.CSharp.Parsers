@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Underlying Product Optional: One Byte Fixed Width Integer
+    ///  Underlying Product Optional: Product complex
     /// </summary>
 
     public struct UnderlyingProductOptional
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Underlying Product Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1949;
 
         /// <summary>
-        ///  Length of Coupon Frequency Unit in bytes
+        ///  Size of Coupon Frequency Unit underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

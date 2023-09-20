@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Md Price Level: One Byte Fixed Width Integer
+    ///  Md Price Level: Aggregate book level
     /// </summary>
 
     public struct MdPriceLevel
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Md Price Level as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

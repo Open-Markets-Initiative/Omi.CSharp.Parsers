@@ -8,22 +8,22 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Ready To Trade
         /// </summary>
-        ReadyToTrade = 17;
+        ReadyToTrade = 17,
 
         /// <summary>
         ///  Not Available For Trading
         /// </summary>
-        NotAvailableForTrading = 18;
+        NotAvailableForTrading = 18,
 
         /// <summary>
         ///  Private Workup
         /// </summary>
-        PrivateWorkup = 201;
+        PrivateWorkup = 201,
 
         /// <summary>
         ///  Public Workup
         /// </summary>
-        PublicWorkup = 202;
+        PublicWorkup = 202,
 
     }
 }

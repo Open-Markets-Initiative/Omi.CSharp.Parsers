@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 996;
 
         /// <summary>
-        ///  Length of Unit Of Measure in bytes
+        ///  Size of Unit Of Measure underlying field in bytes
         /// </summary>
         public const int Size = 30;
 

@@ -8,37 +8,37 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        Day = 1;
+        Day = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        Morning = 3;
+        Morning = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        Evening = 5;
+        Evening = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        AfterHours = 6;
+        AfterHours = 6,
 
         /// <summary>
         ///  
         /// </summary>
-        Holiday = 7;
+        Holiday = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        TradingSessionIDMaximumValue = 7;
+        TradingSessionIDMaximumValue = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        TradingSessionIDMinimumValue = 1;
+        TradingSessionIDMinimumValue = 1,
 
     }
 }

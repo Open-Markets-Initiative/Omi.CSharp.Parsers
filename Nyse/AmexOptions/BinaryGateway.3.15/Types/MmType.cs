@@ -8,32 +8,32 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Nyse American Options Market Maker
         /// </summary>
-        NyseAmericanOptionsMarketMaker = 1;
+        NyseAmericanOptionsMarketMaker = 1,
 
         /// <summary>
         ///  Nyse American Options Specialist
         /// </summary>
-        NyseAmericanOptionsSpecialist = 2;
+        NyseAmericanOptionsSpecialist = 2,
 
         /// <summary>
         ///  Nyse American Options E Specialist
         /// </summary>
-        NyseAmericanOptionsESpecialist = 3;
+        NyseAmericanOptionsESpecialist = 3,
 
         /// <summary>
         ///  Nyse American Options Domm
         /// </summary>
-        NyseAmericanOptionsDomm = 4;
+        NyseAmericanOptionsDomm = 4,
 
         /// <summary>
         ///  Nyse American Options Specialist And Domm
         /// </summary>
-        NyseAmericanOptionsSpecialistAndDomm = 5;
+        NyseAmericanOptionsSpecialistAndDomm = 5,
 
         /// <summary>
         ///  Nyse American Options E Specialist And Domm
         /// </summary>
-        NyseAmericanOptionsESpecialistAndDomm = 6;
+        NyseAmericanOptionsESpecialistAndDomm = 6,
 
     }
 }

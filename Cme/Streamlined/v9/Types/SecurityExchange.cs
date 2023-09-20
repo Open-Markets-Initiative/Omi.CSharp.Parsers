@@ -13,7 +13,7 @@ namespace Cme.Streamlined
         public const ushort FixTag = 207;
 
         /// <summary>
-        ///  Length of Security Exchange in bytes
+        ///  Size of Security Exchange underlying field in bytes
         /// </summary>
         public const int Size = 4;
 

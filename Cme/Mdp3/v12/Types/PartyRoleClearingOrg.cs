@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 9736;
 
         /// <summary>
-        ///  Length of Party Role Clearing Org in bytes
+        ///  Size of Party Role Clearing Org underlying field in bytes
         /// </summary>
         public const int Size = 5;
 

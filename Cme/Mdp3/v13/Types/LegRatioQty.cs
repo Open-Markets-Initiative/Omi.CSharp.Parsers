@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Leg Ratio Qty: One Byte Fixed Width Integer
+    ///  Leg Ratio Qty: Leg ratio of quantity for this individual leg relative to the entire multi-leg instrument
     /// </summary>
 
     public struct LegRatioQty
@@ -14,7 +14,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 623;
 
         /// <summary>
-        ///  Length of Leg Ratio Qty in bytes
+        ///  Size of Leg Ratio Qty in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Leg Ratio Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Leg Ratio Qty as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

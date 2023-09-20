@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Side Optional: One Byte Fixed Width Integer
+    ///  Side Optional: Side requested
     /// </summary>
 
     public struct SideOptional
@@ -14,7 +14,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 54;
 
         /// <summary>
-        ///  Length of Side Optional in bytes
+        ///  Size of Side Optional in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Side Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Side Optional as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

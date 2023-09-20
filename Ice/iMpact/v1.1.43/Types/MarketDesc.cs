@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct MarketDesc
     {
         /// <summary>
-        ///  Length of Market Desc in bytes
+        ///  Size of Market Desc underlying field in bytes
         /// </summary>
         public const int Size = 120;
 

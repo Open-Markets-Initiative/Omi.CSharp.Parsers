@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct NyseSymbol
     {
         /// <summary>
-        ///  Length of Nyse Symbol in bytes
+        ///  Size of Nyse Symbol underlying field in bytes
         /// </summary>
         public const int Size = 24;
 

@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Inst Attrib Type: One Byte Fixed Width Integer
+    ///  Inst Attrib Type: Code to represent the type of instrument attribute.
     /// </summary>
 
     public struct InstAttribType
@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Inst Attrib Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        LegSecurityMultiLeg = 1;
+        LegSecurityMultiLeg = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        LegSecurityUnderlyingLeg = 2;
+        LegSecurityUnderlyingLeg = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        LegSecurityTypeMaximumValue = 2;
+        LegSecurityTypeMaximumValue = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        LegSecurityTypeMinimumValue = 1;
+        LegSecurityTypeMinimumValue = 1,
 
     }
 }

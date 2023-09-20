@@ -8,7 +8,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     public unsafe struct Version
     {
         /// <summary>
-        ///  Length of Version in bytes
+        ///  Size of Version underlying field in bytes
         /// </summary>
         public const int Size = 20;
 

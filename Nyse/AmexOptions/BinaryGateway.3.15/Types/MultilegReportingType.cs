@@ -8,22 +8,22 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Not Applicable
         /// </summary>
-        NotApplicable = 0;
+        NotApplicable = 0,
 
         /// <summary>
         ///  Singleleg Security
         /// </summary>
-        SinglelegSecurity = 1;
+        SinglelegSecurity = 1,
 
         /// <summary>
         ///  Individual Leg Of A Multileg Security
         /// </summary>
-        IndividualLegOfAMultilegSecurity = 2;
+        IndividualLegOfAMultilegSecurity = 2,
 
         /// <summary>
         ///  Multileg Security
         /// </summary>
-        MultilegSecurity = 3;
+        MultilegSecurity = 3,
 
     }
 }

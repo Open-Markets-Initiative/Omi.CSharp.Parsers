@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Lot Type: One Byte Fixed Width Integer
+    ///  Lot Type: This tag is required to interpret the value in tag 1231-MinLotSize
     /// </summary>
 
     public struct LotType
@@ -14,7 +14,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1093;
 
         /// <summary>
-        ///  Length of Lot Type in bytes
+        ///  Size of Lot Type in bytes
         /// </summary>
         public const int Size = 1;
 
@@ -23,20 +23,20 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public sbyte Decode()
-            => Byte;
+            => (sbyte)Byte;
 
         /// <summary>
         ///  Write Lot Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(sbyte value)
-            => Byte = value;
+            => Byte = (byte)value;
 
         /// <summary>
         ///  Lot Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

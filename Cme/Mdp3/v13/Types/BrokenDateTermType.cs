@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Broken Date Term Type: One Byte Fixed Width Integer
+    ///  Broken Date Term Type: Optionally used in tailor made repo contracts and defines the type of broken dates as requested by trader. Null = Not applicable, 0 = Custom, 1 = Quarterly,  2 = Monthly
     /// </summary>
 
     public struct BrokenDateTermType
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Broken Date Term Type as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

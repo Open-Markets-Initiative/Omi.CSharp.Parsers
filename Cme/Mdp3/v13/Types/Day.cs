@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Day: One Byte Fixed Width Integer
+    ///  Day: DD
     /// </summary>
 
     public struct Day
@@ -31,7 +31,7 @@ namespace Cme.Mdp3
         ///  Day as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

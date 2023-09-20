@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct ShortName
     {
         /// <summary>
-        ///  Length of Short Name in bytes
+        ///  Size of Short Name underlying field in bytes
         /// </summary>
         public const int Size = 30;
 

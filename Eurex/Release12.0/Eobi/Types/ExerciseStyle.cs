@@ -8,22 +8,22 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        European = 0;
+        European = 0,
 
         /// <summary>
         ///  
         /// </summary>
-        American = 1;
+        American = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        ExerciseStyleMaximumValue = 1;
+        ExerciseStyleMaximumValue = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        ExerciseStyleMinimumValue = 0;
+        ExerciseStyleMinimumValue = 0,
 
     }
 }

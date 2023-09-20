@@ -1,9 +1,9 @@
-using System.Runtime.CompilerServices;;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Price Precision: One Byte Fixed Width Integer
+    ///  Price Precision: Specifies price decimal precision for EBS instrument
     /// </summary>
 
     public struct PricePrecision
@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Price Precision as string
         /// </summary>
         public override string ToString()
-            => $"{Decode()}";
+            => $"{{Decode()}}";
 
         /// <summary>
         ///  Underlying byte

@@ -8,67 +8,67 @@ namespace Eurex.Eobi
         /// <summary>
         ///  
         /// </summary>
-        SimpleInstrument = 1;
+        SimpleInstrument = 1,
 
         /// <summary>
         ///  
         /// </summary>
-        StandardOptionStrategy = 2;
+        StandardOptionStrategy = 2,
 
         /// <summary>
         ///  
         /// </summary>
-        NonStandardOptionStrategy = 3;
+        NonStandardOptionStrategy = 3,
 
         /// <summary>
         ///  
         /// </summary>
-        VolatilityStrategy = 4;
+        VolatilityStrategy = 4,
 
         /// <summary>
         ///  
         /// </summary>
-        FuturesSpread = 5;
+        FuturesSpread = 5,
 
         /// <summary>
         ///  
         /// </summary>
-        InterProductSpread = 6;
+        InterProductSpread = 6,
 
         /// <summary>
         ///  
         /// </summary>
-        StandardFuturesStrategy = 7;
+        StandardFuturesStrategy = 7,
 
         /// <summary>
         ///  
         /// </summary>
-        PackAndBundle = 8;
+        PackAndBundle = 8,
 
         /// <summary>
         ///  
         /// </summary>
-        Strip = 9;
+        Strip = 9,
 
         /// <summary>
         ///  
         /// </summary>
-        FlexibleInstrument = 10;
+        FlexibleInstrument = 10,
 
         /// <summary>
         ///  
         /// </summary>
-        CommodityStrip = 11;
+        CommodityStrip = 11,
 
         /// <summary>
         ///  
         /// </summary>
-        ProductComplexMaximumValue = 11;
+        ProductComplexMaximumValue = 11,
 
         /// <summary>
         ///  
         /// </summary>
-        ProductComplexMinimumValue = 1;
+        ProductComplexMinimumValue = 1,
 
     }
 }

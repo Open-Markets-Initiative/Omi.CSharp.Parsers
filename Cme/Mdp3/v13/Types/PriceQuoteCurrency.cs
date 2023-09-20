@@ -13,7 +13,7 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1524;
 
         /// <summary>
-        ///  Length of Price Quote Currency in bytes
+        ///  Size of Price Quote Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 

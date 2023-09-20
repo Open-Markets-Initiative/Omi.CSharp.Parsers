@@ -8,32 +8,32 @@ namespace Cme.Mdp3
         /// <summary>
         ///  No Event
         /// </summary>
-        NoEvent = 0;
+        NoEvent = 0,
 
         /// <summary>
         ///  No Cancel
         /// </summary>
-        NoCancel = 1;
+        NoCancel = 1,
 
         /// <summary>
         ///  Reset Statistics
         /// </summary>
-        ResetStatistics = 4;
+        ResetStatistics = 4,
 
         /// <summary>
         ///  Implied Matching ON
         /// </summary>
-        ImpliedMatchingOn = 5;
+        ImpliedMatchingOn = 5,
 
         /// <summary>
         ///  Implied Matching OFF
         /// </summary>
-        ImpliedMatchingOff = 6;
+        ImpliedMatchingOff = 6,
 
         /// <summary>
         ///  End Of Workup
         /// </summary>
-        EndOfWorkup = 7;
+        EndOfWorkup = 7,
 
     }
 }

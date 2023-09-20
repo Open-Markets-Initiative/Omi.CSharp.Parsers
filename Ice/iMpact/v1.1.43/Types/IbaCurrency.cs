@@ -8,7 +8,7 @@ namespace Ice.iMpact
     public unsafe struct IbaCurrency
     {
         /// <summary>
-        ///  Length of Iba Currency in bytes
+        ///  Size of Iba Currency underlying field in bytes
         /// </summary>
         public const int Size = 3;
 
