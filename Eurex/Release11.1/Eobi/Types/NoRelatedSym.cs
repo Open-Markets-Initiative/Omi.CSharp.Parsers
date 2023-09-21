@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  No Related Sym as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

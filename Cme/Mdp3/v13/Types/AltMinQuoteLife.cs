@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37738;
 
         /// <summary>
-        ///  Length of Alt Min Quote Life in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Alt Min Quote Life
         /// </summary>
         public const uint NoValue = 4294967295;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Alt Min Quote Life as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

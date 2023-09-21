@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Special Field Id as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

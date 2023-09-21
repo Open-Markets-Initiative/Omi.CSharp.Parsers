@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Dirty Price: 8 Byte Fixed Width Integer with 9 Decimal Place Precision
+    ///  Dirty Price: Dirty Price
     /// </summary>
 
-    public struct DirtyPrice
+    public unsafe struct DirtyPrice
     {
         /// <summary>
         ///  Fix Tag for Dirty Price
@@ -14,13 +14,42 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37001;
 
         /// <summary>
-        ///  Length of Dirty Price in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Decimal place factor for Dirty Price
         /// </summary>
-        public const int Factor = 1000000000;
+        public const long Factor = 1000000000;
+
+        /// <summary>
+        ///  Size of Dirty Price in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Dirty Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public long Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((long)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Dirty Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(long value)
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Dirty Price as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

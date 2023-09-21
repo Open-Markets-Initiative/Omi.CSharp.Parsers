@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1948;
 
         /// <summary>
-        ///  Length of Coupon Frequency Period in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Coupon Frequency Period
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Coupon Frequency Period as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Legal Width Multiplier as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

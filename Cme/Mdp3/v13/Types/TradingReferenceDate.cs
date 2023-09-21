@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 5796;
 
         /// <summary>
-        ///  Length of Trading Reference Date in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Trading Reference Date
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Trading Reference Date as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 50001;
 
         /// <summary>
-        ///  Length of Batch Total Messages Optional in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Batch Total Messages Optional
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Batch Total Messages Optional as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

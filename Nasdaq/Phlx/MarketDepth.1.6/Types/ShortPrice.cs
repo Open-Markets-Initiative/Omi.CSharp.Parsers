@@ -1,21 +1,59 @@
+using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth
 {
     /// <summary>
-    ///  Short Price: 2 Byte Fixed Width Integer with 2 Decimal Place Precision
+    ///  Short Price: The display price of the new order being added to the book. NOTE: When converted to a decimal format, this price is in fixed point format with 3 whole number places followed by 2 decimal digits.
     /// </summary>
 
-    public struct ShortPrice
+    public unsafe struct ShortPrice
     {
         /// <summary>
-        ///  Length of Short Price in bytes
+        ///  Size of Short Price in bytes
         /// </summary>
-        public const int Length = 2;
+        public const int Size = 2;
+
 
         /// <summary>
         ///  Decimal place factor for Short Price
         /// </summary>
-        public const int Factor = 100;
+        public const short Factor = 100;
+
+        /// <summary>
+        ///  Read Short Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public short Decode()
+        {
+            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
+        }
+
+        /// <summary>
+        ///  Write Short Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(short value)
+        {
+            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
+        }
+
+        /// <summary>
+        ///  Set Short Price to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
+        ///  Short Price as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Bit Field Quote Inst as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

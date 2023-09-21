@@ -3,19 +3,48 @@ using System.Runtime.CompilerServices;
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Luldmpv: 8 Byte Fixed Width Integer with 8 Decimal Place Precision
+    ///  Luldmpv: Numeric value of the Minimum Price Variation for LULD bands for securities belonging to the MPVClass.
     /// </summary>
 
-    public struct Luldmpv
+    public unsafe struct Luldmpv
     {
-        /// <summary>
-        ///  Length of Luldmpv in bytes
-        /// </summary>
-        public const int Length = 8;
-
         /// <summary>
         ///  Decimal place factor for Luldmpv
         /// </summary>
-        public const int Factor = 100000000;
+        public const ulong Factor = 100000000;
+
+        /// <summary>
+        ///  Size of Luldmpv in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Luldmpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Luldmpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Luldmpv as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

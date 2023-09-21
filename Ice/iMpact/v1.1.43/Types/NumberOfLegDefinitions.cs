@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Number Of Leg Definitions as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

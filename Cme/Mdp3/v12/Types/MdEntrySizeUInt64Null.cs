@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 271;
 
         /// <summary>
-        ///  Length of Md Entry Size u Int 64 Null in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Sentinel null value for Md Entry Size u Int 64 Null
         /// </summary>
         public const ulong NoValue = 18446744073709551615;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Md Entry Size u Int 64 Null as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

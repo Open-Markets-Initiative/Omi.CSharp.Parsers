@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 231;
 
         /// <summary>
-        ///  Length of Contract Multiplier in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Contract Multiplier
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Contract Multiplier as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

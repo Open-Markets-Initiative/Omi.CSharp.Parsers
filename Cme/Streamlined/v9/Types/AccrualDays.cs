@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 7337;
 
         /// <summary>
-        ///  Length of Accrual Days in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Accrual Days
         /// </summary>
         public const uint NoValue = 4294967295;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Accrual Days as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

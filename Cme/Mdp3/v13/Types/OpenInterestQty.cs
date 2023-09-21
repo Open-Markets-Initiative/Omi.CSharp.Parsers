@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 5792;
 
         /// <summary>
-        ///  Length of Open Interest Qty in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Open Interest Qty
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Open Interest Qty as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37706;
 
         /// <summary>
-        ///  Length of Md Display Qty Optional in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Md Display Qty Optional
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Md Display Qty Optional as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

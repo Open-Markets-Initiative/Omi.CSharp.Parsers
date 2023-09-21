@@ -31,7 +31,7 @@ namespace Eurex.Eobi
         ///  Trading Hhi Indicator as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

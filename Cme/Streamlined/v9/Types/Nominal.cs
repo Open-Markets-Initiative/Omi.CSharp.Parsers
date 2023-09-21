@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 9280;
 
         /// <summary>
-        ///  Length of Nominal in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Sentinel null value for Nominal
         /// </summary>
         public const ulong NoValue = 18446744073709551615;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Nominal as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

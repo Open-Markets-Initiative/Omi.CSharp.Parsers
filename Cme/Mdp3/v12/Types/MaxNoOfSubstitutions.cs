@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Max No Of Substitutions as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

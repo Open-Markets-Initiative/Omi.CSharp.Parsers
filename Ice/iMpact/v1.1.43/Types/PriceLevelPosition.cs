@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Price Level Position as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

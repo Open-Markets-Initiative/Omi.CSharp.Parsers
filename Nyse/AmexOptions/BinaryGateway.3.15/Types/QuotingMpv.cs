@@ -3,19 +3,48 @@ using System.Runtime.CompilerServices;
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Quoting Mpv: 8 Byte Fixed Width Integer with 8 Decimal Place Precision
+    ///  Quoting Mpv: Numeric value of the Quoting Minimum Price Variation for the
     /// </summary>
 
-    public struct QuotingMpv
+    public unsafe struct QuotingMpv
     {
-        /// <summary>
-        ///  Length of Quoting Mpv in bytes
-        /// </summary>
-        public const int Length = 8;
-
         /// <summary>
         ///  Decimal place factor for Quoting Mpv
         /// </summary>
-        public const int Factor = 100000000;
+        public const ulong Factor = 100000000;
+
+        /// <summary>
+        ///  Size of Quoting Mpv in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Quoting Mpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Quoting Mpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Quoting Mpv as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

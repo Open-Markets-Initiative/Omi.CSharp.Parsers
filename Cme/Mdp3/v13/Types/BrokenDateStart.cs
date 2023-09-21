@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 6748;
 
         /// <summary>
-        ///  Length of Broken Date Start in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Broken Date Start
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Broken Date Start as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

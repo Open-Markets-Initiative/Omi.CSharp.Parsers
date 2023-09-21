@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Num Decimals Price In Gram as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

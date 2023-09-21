@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 272;
 
         /// <summary>
-        ///  Length of Md Entry Date in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Md Entry Date
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Md Entry Date as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

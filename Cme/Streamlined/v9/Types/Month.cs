@@ -31,7 +31,7 @@ namespace Cme.Streamlined
         ///  Month as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

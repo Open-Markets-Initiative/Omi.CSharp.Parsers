@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 38010;
 
         /// <summary>
-        ///  Length of Fed Funds Date in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Fed Funds Date
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Fed Funds Date as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

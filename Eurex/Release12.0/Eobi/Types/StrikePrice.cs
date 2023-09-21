@@ -3,19 +3,48 @@ using System.Runtime.CompilerServices;
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Strike Price: 8 Byte Fixed Width Integer with 8 Decimal Place Precision
+    ///  Strike Price
     /// </summary>
 
-    public struct StrikePrice
+    public unsafe struct StrikePrice
     {
-        /// <summary>
-        ///  Length of Strike Price in bytes
-        /// </summary>
-        public const int Length = 8;
-
         /// <summary>
         ///  Decimal place factor for Strike Price
         /// </summary>
-        public const int Factor = 100000000;
+        public const ulong Factor = 100000000;
+
+        /// <summary>
+        ///  Size of Strike Price in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Strike Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Strike Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Strike Price as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 623;
 
         /// <summary>
-        ///  Length of Leg Ratio Qty in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Leg Ratio Qty
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Leg Ratio Qty as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

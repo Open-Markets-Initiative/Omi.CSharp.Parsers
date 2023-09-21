@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Side U 81 as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

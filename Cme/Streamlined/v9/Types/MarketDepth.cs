@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Market Depth as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

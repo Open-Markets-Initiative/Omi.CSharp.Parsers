@@ -31,7 +31,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Channel Id as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

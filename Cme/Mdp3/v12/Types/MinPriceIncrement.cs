@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 namespace Cme.Mdp3
 {
     /// <summary>
-    ///  Min Price Increment: 8 Byte Fixed Width Integer with 9 Decimal Place Precision
+    ///  Min Price Increment: Minimum constant tick for the instrument, sent only if instrument is non-VTT (Variable Tick table) eligible
     /// </summary>
 
-    public struct MinPriceIncrement
+    public unsafe struct MinPriceIncrement
     {
         /// <summary>
         ///  Fix Tag for Min Price Increment
@@ -14,13 +14,42 @@ namespace Cme.Mdp3
         public const ushort FixTag = 969;
 
         /// <summary>
-        ///  Length of Min Price Increment in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Decimal place factor for Min Price Increment
         /// </summary>
-        public const int Factor = 1000000000;
+        public const long Factor = 1000000000;
+
+        /// <summary>
+        ///  Size of Min Price Increment in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Min Price Increment
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public long Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((long)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Min Price Increment
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(long value)
+        {
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Min Price Increment as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

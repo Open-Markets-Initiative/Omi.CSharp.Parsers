@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37711;
 
         /// <summary>
-        ///  Length of Md Trade Entry I D u Int 32 Null in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Md Trade Entry I D u Int 32 Null
         /// </summary>
         public const uint NoValue = 4294967295;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Md Trade Entry I D u Int 32 Null as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

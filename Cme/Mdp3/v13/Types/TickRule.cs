@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Tick Rule as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

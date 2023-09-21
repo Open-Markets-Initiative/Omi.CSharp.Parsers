@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 48;
 
         /// <summary>
-        ///  Length of Security Id Optional in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Security Id Optional
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Security Id Optional as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

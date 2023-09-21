@@ -31,7 +31,7 @@ namespace Cme.Streamlined
         ///  Num In Group uint 8 as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

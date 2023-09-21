@@ -31,7 +31,7 @@ namespace Cme.Mdp3
         ///  Day as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

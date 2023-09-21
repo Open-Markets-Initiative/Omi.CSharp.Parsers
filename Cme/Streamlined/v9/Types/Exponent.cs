@@ -31,7 +31,7 @@ namespace Cme.Streamlined
         ///  Exponent as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

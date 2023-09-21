@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 423;
 
         /// <summary>
-        ///  Length of Price Type in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Price Type
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Price Type as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

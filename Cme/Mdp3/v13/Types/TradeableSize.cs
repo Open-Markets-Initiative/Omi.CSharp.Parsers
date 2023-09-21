@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37719;
 
         /// <summary>
-        ///  Length of Tradeable Size in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Tradeable Size
         /// </summary>
         public const int NoValue = 2147483647;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Tradeable Size as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

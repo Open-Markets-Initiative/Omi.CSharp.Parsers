@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 38018;
 
         /// <summary>
-        ///  Length of Next Floating Payment Date in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Next Floating Payment Date
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Next Floating Payment Date as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

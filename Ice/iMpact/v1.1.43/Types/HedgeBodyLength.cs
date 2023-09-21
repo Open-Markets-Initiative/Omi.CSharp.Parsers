@@ -31,7 +31,7 @@ namespace Ice.iMpact
         ///  Hedge Body Length as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

@@ -31,7 +31,7 @@ namespace Nasdaq.MarketDepth
         ///  Expiration Month as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 911;
 
         /// <summary>
-        ///  Length of Tot Num Reports Optional in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Sentinel null value for Tot Num Reports Optional
         /// </summary>
         public const uint NoValue = 4294967295;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Tot Num Reports Optional as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

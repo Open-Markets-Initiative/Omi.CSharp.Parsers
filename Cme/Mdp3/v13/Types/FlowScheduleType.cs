@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Flow Schedule Type as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

@@ -36,7 +36,7 @@ namespace Cme.Streamlined
         ///  Heart Bt Int as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

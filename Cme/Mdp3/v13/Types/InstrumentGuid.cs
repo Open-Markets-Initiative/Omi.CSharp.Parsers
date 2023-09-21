@@ -14,11 +14,6 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37513;
 
         /// <summary>
-        ///  Length of Instrument Guid in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Sentinel null value for Instrument Guid
         /// </summary>
         public const ulong NoValue = 18446744073709551615;
@@ -67,7 +62,7 @@ namespace Cme.Mdp3
         ///  Instrument Guid as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

@@ -3,19 +3,48 @@ using System.Runtime.CompilerServices;
 namespace Nyse.AmexOptions.BinaryGateway
 {
     /// <summary>
-    ///  Rpimpv: 8 Byte Fixed Width Integer with 8 Decimal Place Precision
+    ///  Rpimpv: Numeric value of the Minimum Price Variation for Retail Price Improvement (RPI) orders for securities belonging to the MPVClass.
     /// </summary>
 
-    public struct Rpimpv
+    public unsafe struct Rpimpv
     {
-        /// <summary>
-        ///  Length of Rpimpv in bytes
-        /// </summary>
-        public const int Length = 8;
-
         /// <summary>
         ///  Decimal place factor for Rpimpv
         /// </summary>
-        public const int Factor = 100000000;
+        public const ulong Factor = 100000000;
+
+        /// <summary>
+        ///  Size of Rpimpv in bytes
+        /// </summary>
+        public const int Size = 8;
+
+        /// <summary>
+        ///  Read Rpimpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public ulong Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
+        }
+
+        /// <summary>
+        ///  Write Rpimpv
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(ulong value)
+        {
+            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Rpimpv as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

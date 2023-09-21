@@ -9,11 +9,6 @@ namespace Cme.Streamlined
     public unsafe struct Mantissa
     {
         /// <summary>
-        ///  Length of Mantissa in bytes
-        /// </summary>
-        public const int Length = 8;
-
-        /// <summary>
         ///  Sentinel null value for Mantissa
         /// </summary>
         public const long NoValue = 9223372036854775807;
@@ -62,7 +57,7 @@ namespace Cme.Streamlined
         ///  Mantissa as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes

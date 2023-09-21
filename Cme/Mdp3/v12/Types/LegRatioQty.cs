@@ -36,7 +36,7 @@ namespace Cme.Mdp3
         ///  Leg Ratio Qty as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying byte

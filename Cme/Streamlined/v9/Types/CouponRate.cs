@@ -3,10 +3,10 @@ using System.Runtime.CompilerServices;
 namespace Cme.Streamlined
 {
     /// <summary>
-    ///  Coupon Rate: 4 Byte Fixed Width Nullable Integer with 4 Decimal Place Precision
+    ///  Coupon Rate: Coupon Rate of the Swap.
     /// </summary>
 
-    public struct CouponRate
+    public unsafe struct CouponRate
     {
         /// <summary>
         ///  Fix Tag for Coupon Rate
@@ -14,18 +14,64 @@ namespace Cme.Streamlined
         public const ushort FixTag = 223;
 
         /// <summary>
-        ///  Length of Coupon Rate in bytes
-        /// </summary>
-        public const int Length = 4;
-
-        /// <summary>
         ///  Decimal place factor for Coupon Rate
         /// </summary>
         public const int Factor = 10000;
 
         /// <summary>
-        ///  Null value for Coupon Rate
+        ///  Sentinel null value for Coupon Rate
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Size of Coupon Rate in bytes
+        /// </summary>
+        public const int Size = 4;
+
+        /// <summary>
+        ///  Read Coupon Rate
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int Decode()
+        {
+            fixed (byte* pointer = Bytes) { return ((int)pointer) / Factor; }
+        }
+
+        /// <summary>
+        ///  Try Read Coupon Rate
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryRead(out int value)
+        {
+            value = Decode();
+            return value != NoValue;
+        }
+
+        /// <summary>
+        ///  Write Coupon Rate
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(int value)
+        {
+            fixed (byte* pointer = Bytes) { *(int *)pointer = value * Factor; }
+        }
+
+        /// <summary>
+        ///  Set Coupon Rate to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
+        ///  Coupon Rate as string
+        /// </summary>
+        public override string ToString()
+            => $"{Decode()}";
+
+        /// <summary>
+        ///  Underlying bytes
+        /// </summary>
+        internal unsafe fixed byte Bytes[Size];
     }
 }

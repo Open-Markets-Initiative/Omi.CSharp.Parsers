@@ -14,11 +14,6 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1180;
 
         /// <summary>
-        ///  Length of Appl Id in bytes
-        /// </summary>
-        public const int Length = 2;
-
-        /// <summary>
         ///  Sentinel null value for Appl Id
         /// </summary>
         public const ushort NoValue = 65535;
@@ -67,7 +62,7 @@ namespace Cme.Streamlined
         ///  Appl Id as string
         /// </summary>
         public override string ToString()
-            => $"{{Decode()}}";
+            => $"{Decode()}";
 
         /// <summary>
         ///  Underlying bytes
