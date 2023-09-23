@@ -20,31 +20,38 @@ namespace Nasdaq.MarketDepth
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get
             {
-                if (Bytes[0] == 0) { return 0; }
-                if (Bytes[1] == 0) { return 1; }
-                if (Bytes[2] == 0) { return 2; }
-                if (Bytes[3] == 0) { return 3; }
-                if (Bytes[4] == 0) { return 4; }
-                if (Bytes[5] == 0) { return 5; }
+                if (Bytes[0] == (byte)' ') { return 0; }
+                if (Bytes[1] == (byte)' ') { return 1; }
+                if (Bytes[2] == (byte)' ') { return 2; }
+                if (Bytes[3] == (byte)' ') { return 3; }
+                if (Bytes[4] == (byte)' ') { return 4; }
+                if (Bytes[5] == (byte)' ') { return 5; }
 
                 return 6;
             }
         }
 
         /// <summary>
+        ///  Security Symbol value
+        /// </summary>
+        public readonly string Value
+            => Decode(this);
+
+        /// <summary>
         ///  Does Security Symbol field contain a value?
         /// </summary>
         public bool HasValue
-            => Bytes[0] != 0;
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get { return Bytes[0] != (byte)' '; }
+        }
 
         /// <summary>
-        ///  Read Security Symbol from buffer
+        ///  Read Security Symbol
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string Decode()
-        {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
-        }
+        public static string Decode(SecuritySymbol value)
+            => new string((sbyte*)value.Bytes, 0, value.Length);
 
         /// <summary>
         ///  Try Read Security Symbol
@@ -52,8 +59,14 @@ namespace Nasdaq.MarketDepth
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out string value)
         {
-            value = Decode();
-            return HasValue;
+            if (HasValue)
+            {
+                value = Decode(this);
+                return true;
+            }
+
+            value = string.Empty;
+            return false;
         }
 
         /// <summary>
@@ -62,28 +75,24 @@ namespace Nasdaq.MarketDepth
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(string value)
         {
-            var end = Math.Min(value.Length, Size);
-
-            for (var i = 0; i < end; i++)
-            {
-                Bytes[i] = (byte)value[i];
-            }
-
-            for (var i = end; i < Size; i++)
-            {
-                Bytes[i] = 0;
-            }
+            var length = value.Length;
+            Bytes[0] = length > 0 ? (byte)value[0] : (byte)' ';
+            Bytes[1] = length > 1 ? (byte)value[1] : (byte)' ';
+            Bytes[2] = length > 2 ? (byte)value[2] : (byte)' ';
+            Bytes[3] = length > 3 ? (byte)value[3] : (byte)' ';
+            Bytes[4] = length > 4 ? (byte)value[4] : (byte)' ';
+            Bytes[5] = length > 5 ? (byte)value[5] : (byte)' ';
         }
 
         /// <summary>
         ///  Security Symbol as string
         /// </summary>
         public override string ToString()
-            => Decode();
+            => Value;
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal fixed byte Bytes[Size];
     }
 }

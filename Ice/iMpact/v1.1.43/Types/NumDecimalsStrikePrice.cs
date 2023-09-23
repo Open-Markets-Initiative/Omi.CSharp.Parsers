@@ -1,16 +1,39 @@
-using System.Runtime.CompilerServices;
+using using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Num Decimals Strike Price: Character Type
+    ///  Num Decimals Strike Price: Denominator for the strike price field.
     /// </summary>
 
     public struct NumDecimalsStrikePrice
     {
         /// <summary>
-        ///  Length of Num Decimals Strike Price in bytes
+        ///  Size of Num Decimals Strike Price in bytes
         /// </summary>
-        public const int Length = 1;
+        public const int Size = 1;
+
+        /// <summary>
+        ///  Num Decimals Strike Price value
+        /// </summary>
+        public readonly string Value
+            => (char)Byte;
+
+        /// <summary>
+        ///  Write Num Decimals Strike Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(char value)
+            => Byte = (byte)value;
+        /// <summary>
+        ///  Num Decimals Strike Price as string
+        /// </summary>
+        public override string ToString()
+            => Value;
+
+        /// <summary>
+        ///  Underlying byte
+        /// </summary>
+        internal byte Byte;
     }
 }

@@ -211,19 +211,26 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Text value
+        /// </summary>
+        public readonly string Value
+            => Decode(this);
+
+        /// <summary>
         ///  Does Text field contain a value?
         /// </summary>
         public bool HasValue
-            => Bytes[0] != 0;
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get { return Bytes[0] != 0; }
+        }
 
         /// <summary>
-        ///  Read Text from buffer
+        ///  Read Text
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string Decode()
-        {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
-        }
+        public static string Decode(Text value)
+            => new string((sbyte*)value.Bytes, 0, value.Length);
 
         /// <summary>
         ///  Try Read Text
@@ -231,8 +238,14 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out string value)
         {
-            value = Decode();
-            return HasValue;
+            if (HasValue)
+            {
+                value = Decode(this);
+                return true;
+            }
+
+            value = string.Empty;
+            return false;
         }
 
         /// <summary>
@@ -241,28 +254,198 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(string value)
         {
-            var end = Math.Min(value.Length, Size);
-
-            for (var i = 0; i < end; i++)
-            {
-                Bytes[i] = (byte)value[i];
-            }
-
-            for (var i = end; i < Size; i++)
-            {
-                Bytes[i] = 0;
-            }
+            var length = value.Length;
+            Bytes[0] = length > 0 ? (byte)value[0] : (byte)0;
+            Bytes[1] = length > 1 ? (byte)value[1] : (byte)0;
+            Bytes[2] = length > 2 ? (byte)value[2] : (byte)0;
+            Bytes[3] = length > 3 ? (byte)value[3] : (byte)0;
+            Bytes[4] = length > 4 ? (byte)value[4] : (byte)0;
+            Bytes[5] = length > 5 ? (byte)value[5] : (byte)0;
+            Bytes[6] = length > 6 ? (byte)value[6] : (byte)0;
+            Bytes[7] = length > 7 ? (byte)value[7] : (byte)0;
+            Bytes[8] = length > 8 ? (byte)value[8] : (byte)0;
+            Bytes[9] = length > 9 ? (byte)value[9] : (byte)0;
+            Bytes[10] = length > 10 ? (byte)value[10] : (byte)0;
+            Bytes[11] = length > 11 ? (byte)value[11] : (byte)0;
+            Bytes[12] = length > 12 ? (byte)value[12] : (byte)0;
+            Bytes[13] = length > 13 ? (byte)value[13] : (byte)0;
+            Bytes[14] = length > 14 ? (byte)value[14] : (byte)0;
+            Bytes[15] = length > 15 ? (byte)value[15] : (byte)0;
+            Bytes[16] = length > 16 ? (byte)value[16] : (byte)0;
+            Bytes[17] = length > 17 ? (byte)value[17] : (byte)0;
+            Bytes[18] = length > 18 ? (byte)value[18] : (byte)0;
+            Bytes[19] = length > 19 ? (byte)value[19] : (byte)0;
+            Bytes[20] = length > 20 ? (byte)value[20] : (byte)0;
+            Bytes[21] = length > 21 ? (byte)value[21] : (byte)0;
+            Bytes[22] = length > 22 ? (byte)value[22] : (byte)0;
+            Bytes[23] = length > 23 ? (byte)value[23] : (byte)0;
+            Bytes[24] = length > 24 ? (byte)value[24] : (byte)0;
+            Bytes[25] = length > 25 ? (byte)value[25] : (byte)0;
+            Bytes[26] = length > 26 ? (byte)value[26] : (byte)0;
+            Bytes[27] = length > 27 ? (byte)value[27] : (byte)0;
+            Bytes[28] = length > 28 ? (byte)value[28] : (byte)0;
+            Bytes[29] = length > 29 ? (byte)value[29] : (byte)0;
+            Bytes[30] = length > 30 ? (byte)value[30] : (byte)0;
+            Bytes[31] = length > 31 ? (byte)value[31] : (byte)0;
+            Bytes[32] = length > 32 ? (byte)value[32] : (byte)0;
+            Bytes[33] = length > 33 ? (byte)value[33] : (byte)0;
+            Bytes[34] = length > 34 ? (byte)value[34] : (byte)0;
+            Bytes[35] = length > 35 ? (byte)value[35] : (byte)0;
+            Bytes[36] = length > 36 ? (byte)value[36] : (byte)0;
+            Bytes[37] = length > 37 ? (byte)value[37] : (byte)0;
+            Bytes[38] = length > 38 ? (byte)value[38] : (byte)0;
+            Bytes[39] = length > 39 ? (byte)value[39] : (byte)0;
+            Bytes[40] = length > 40 ? (byte)value[40] : (byte)0;
+            Bytes[41] = length > 41 ? (byte)value[41] : (byte)0;
+            Bytes[42] = length > 42 ? (byte)value[42] : (byte)0;
+            Bytes[43] = length > 43 ? (byte)value[43] : (byte)0;
+            Bytes[44] = length > 44 ? (byte)value[44] : (byte)0;
+            Bytes[45] = length > 45 ? (byte)value[45] : (byte)0;
+            Bytes[46] = length > 46 ? (byte)value[46] : (byte)0;
+            Bytes[47] = length > 47 ? (byte)value[47] : (byte)0;
+            Bytes[48] = length > 48 ? (byte)value[48] : (byte)0;
+            Bytes[49] = length > 49 ? (byte)value[49] : (byte)0;
+            Bytes[50] = length > 50 ? (byte)value[50] : (byte)0;
+            Bytes[51] = length > 51 ? (byte)value[51] : (byte)0;
+            Bytes[52] = length > 52 ? (byte)value[52] : (byte)0;
+            Bytes[53] = length > 53 ? (byte)value[53] : (byte)0;
+            Bytes[54] = length > 54 ? (byte)value[54] : (byte)0;
+            Bytes[55] = length > 55 ? (byte)value[55] : (byte)0;
+            Bytes[56] = length > 56 ? (byte)value[56] : (byte)0;
+            Bytes[57] = length > 57 ? (byte)value[57] : (byte)0;
+            Bytes[58] = length > 58 ? (byte)value[58] : (byte)0;
+            Bytes[59] = length > 59 ? (byte)value[59] : (byte)0;
+            Bytes[60] = length > 60 ? (byte)value[60] : (byte)0;
+            Bytes[61] = length > 61 ? (byte)value[61] : (byte)0;
+            Bytes[62] = length > 62 ? (byte)value[62] : (byte)0;
+            Bytes[63] = length > 63 ? (byte)value[63] : (byte)0;
+            Bytes[64] = length > 64 ? (byte)value[64] : (byte)0;
+            Bytes[65] = length > 65 ? (byte)value[65] : (byte)0;
+            Bytes[66] = length > 66 ? (byte)value[66] : (byte)0;
+            Bytes[67] = length > 67 ? (byte)value[67] : (byte)0;
+            Bytes[68] = length > 68 ? (byte)value[68] : (byte)0;
+            Bytes[69] = length > 69 ? (byte)value[69] : (byte)0;
+            Bytes[70] = length > 70 ? (byte)value[70] : (byte)0;
+            Bytes[71] = length > 71 ? (byte)value[71] : (byte)0;
+            Bytes[72] = length > 72 ? (byte)value[72] : (byte)0;
+            Bytes[73] = length > 73 ? (byte)value[73] : (byte)0;
+            Bytes[74] = length > 74 ? (byte)value[74] : (byte)0;
+            Bytes[75] = length > 75 ? (byte)value[75] : (byte)0;
+            Bytes[76] = length > 76 ? (byte)value[76] : (byte)0;
+            Bytes[77] = length > 77 ? (byte)value[77] : (byte)0;
+            Bytes[78] = length > 78 ? (byte)value[78] : (byte)0;
+            Bytes[79] = length > 79 ? (byte)value[79] : (byte)0;
+            Bytes[80] = length > 80 ? (byte)value[80] : (byte)0;
+            Bytes[81] = length > 81 ? (byte)value[81] : (byte)0;
+            Bytes[82] = length > 82 ? (byte)value[82] : (byte)0;
+            Bytes[83] = length > 83 ? (byte)value[83] : (byte)0;
+            Bytes[84] = length > 84 ? (byte)value[84] : (byte)0;
+            Bytes[85] = length > 85 ? (byte)value[85] : (byte)0;
+            Bytes[86] = length > 86 ? (byte)value[86] : (byte)0;
+            Bytes[87] = length > 87 ? (byte)value[87] : (byte)0;
+            Bytes[88] = length > 88 ? (byte)value[88] : (byte)0;
+            Bytes[89] = length > 89 ? (byte)value[89] : (byte)0;
+            Bytes[90] = length > 90 ? (byte)value[90] : (byte)0;
+            Bytes[91] = length > 91 ? (byte)value[91] : (byte)0;
+            Bytes[92] = length > 92 ? (byte)value[92] : (byte)0;
+            Bytes[93] = length > 93 ? (byte)value[93] : (byte)0;
+            Bytes[94] = length > 94 ? (byte)value[94] : (byte)0;
+            Bytes[95] = length > 95 ? (byte)value[95] : (byte)0;
+            Bytes[96] = length > 96 ? (byte)value[96] : (byte)0;
+            Bytes[97] = length > 97 ? (byte)value[97] : (byte)0;
+            Bytes[98] = length > 98 ? (byte)value[98] : (byte)0;
+            Bytes[99] = length > 99 ? (byte)value[99] : (byte)0;
+            Bytes[100] = length > 100 ? (byte)value[100] : (byte)0;
+            Bytes[101] = length > 101 ? (byte)value[101] : (byte)0;
+            Bytes[102] = length > 102 ? (byte)value[102] : (byte)0;
+            Bytes[103] = length > 103 ? (byte)value[103] : (byte)0;
+            Bytes[104] = length > 104 ? (byte)value[104] : (byte)0;
+            Bytes[105] = length > 105 ? (byte)value[105] : (byte)0;
+            Bytes[106] = length > 106 ? (byte)value[106] : (byte)0;
+            Bytes[107] = length > 107 ? (byte)value[107] : (byte)0;
+            Bytes[108] = length > 108 ? (byte)value[108] : (byte)0;
+            Bytes[109] = length > 109 ? (byte)value[109] : (byte)0;
+            Bytes[110] = length > 110 ? (byte)value[110] : (byte)0;
+            Bytes[111] = length > 111 ? (byte)value[111] : (byte)0;
+            Bytes[112] = length > 112 ? (byte)value[112] : (byte)0;
+            Bytes[113] = length > 113 ? (byte)value[113] : (byte)0;
+            Bytes[114] = length > 114 ? (byte)value[114] : (byte)0;
+            Bytes[115] = length > 115 ? (byte)value[115] : (byte)0;
+            Bytes[116] = length > 116 ? (byte)value[116] : (byte)0;
+            Bytes[117] = length > 117 ? (byte)value[117] : (byte)0;
+            Bytes[118] = length > 118 ? (byte)value[118] : (byte)0;
+            Bytes[119] = length > 119 ? (byte)value[119] : (byte)0;
+            Bytes[120] = length > 120 ? (byte)value[120] : (byte)0;
+            Bytes[121] = length > 121 ? (byte)value[121] : (byte)0;
+            Bytes[122] = length > 122 ? (byte)value[122] : (byte)0;
+            Bytes[123] = length > 123 ? (byte)value[123] : (byte)0;
+            Bytes[124] = length > 124 ? (byte)value[124] : (byte)0;
+            Bytes[125] = length > 125 ? (byte)value[125] : (byte)0;
+            Bytes[126] = length > 126 ? (byte)value[126] : (byte)0;
+            Bytes[127] = length > 127 ? (byte)value[127] : (byte)0;
+            Bytes[128] = length > 128 ? (byte)value[128] : (byte)0;
+            Bytes[129] = length > 129 ? (byte)value[129] : (byte)0;
+            Bytes[130] = length > 130 ? (byte)value[130] : (byte)0;
+            Bytes[131] = length > 131 ? (byte)value[131] : (byte)0;
+            Bytes[132] = length > 132 ? (byte)value[132] : (byte)0;
+            Bytes[133] = length > 133 ? (byte)value[133] : (byte)0;
+            Bytes[134] = length > 134 ? (byte)value[134] : (byte)0;
+            Bytes[135] = length > 135 ? (byte)value[135] : (byte)0;
+            Bytes[136] = length > 136 ? (byte)value[136] : (byte)0;
+            Bytes[137] = length > 137 ? (byte)value[137] : (byte)0;
+            Bytes[138] = length > 138 ? (byte)value[138] : (byte)0;
+            Bytes[139] = length > 139 ? (byte)value[139] : (byte)0;
+            Bytes[140] = length > 140 ? (byte)value[140] : (byte)0;
+            Bytes[141] = length > 141 ? (byte)value[141] : (byte)0;
+            Bytes[142] = length > 142 ? (byte)value[142] : (byte)0;
+            Bytes[143] = length > 143 ? (byte)value[143] : (byte)0;
+            Bytes[144] = length > 144 ? (byte)value[144] : (byte)0;
+            Bytes[145] = length > 145 ? (byte)value[145] : (byte)0;
+            Bytes[146] = length > 146 ? (byte)value[146] : (byte)0;
+            Bytes[147] = length > 147 ? (byte)value[147] : (byte)0;
+            Bytes[148] = length > 148 ? (byte)value[148] : (byte)0;
+            Bytes[149] = length > 149 ? (byte)value[149] : (byte)0;
+            Bytes[150] = length > 150 ? (byte)value[150] : (byte)0;
+            Bytes[151] = length > 151 ? (byte)value[151] : (byte)0;
+            Bytes[152] = length > 152 ? (byte)value[152] : (byte)0;
+            Bytes[153] = length > 153 ? (byte)value[153] : (byte)0;
+            Bytes[154] = length > 154 ? (byte)value[154] : (byte)0;
+            Bytes[155] = length > 155 ? (byte)value[155] : (byte)0;
+            Bytes[156] = length > 156 ? (byte)value[156] : (byte)0;
+            Bytes[157] = length > 157 ? (byte)value[157] : (byte)0;
+            Bytes[158] = length > 158 ? (byte)value[158] : (byte)0;
+            Bytes[159] = length > 159 ? (byte)value[159] : (byte)0;
+            Bytes[160] = length > 160 ? (byte)value[160] : (byte)0;
+            Bytes[161] = length > 161 ? (byte)value[161] : (byte)0;
+            Bytes[162] = length > 162 ? (byte)value[162] : (byte)0;
+            Bytes[163] = length > 163 ? (byte)value[163] : (byte)0;
+            Bytes[164] = length > 164 ? (byte)value[164] : (byte)0;
+            Bytes[165] = length > 165 ? (byte)value[165] : (byte)0;
+            Bytes[166] = length > 166 ? (byte)value[166] : (byte)0;
+            Bytes[167] = length > 167 ? (byte)value[167] : (byte)0;
+            Bytes[168] = length > 168 ? (byte)value[168] : (byte)0;
+            Bytes[169] = length > 169 ? (byte)value[169] : (byte)0;
+            Bytes[170] = length > 170 ? (byte)value[170] : (byte)0;
+            Bytes[171] = length > 171 ? (byte)value[171] : (byte)0;
+            Bytes[172] = length > 172 ? (byte)value[172] : (byte)0;
+            Bytes[173] = length > 173 ? (byte)value[173] : (byte)0;
+            Bytes[174] = length > 174 ? (byte)value[174] : (byte)0;
+            Bytes[175] = length > 175 ? (byte)value[175] : (byte)0;
+            Bytes[176] = length > 176 ? (byte)value[176] : (byte)0;
+            Bytes[177] = length > 177 ? (byte)value[177] : (byte)0;
+            Bytes[178] = length > 178 ? (byte)value[178] : (byte)0;
+            Bytes[179] = length > 179 ? (byte)value[179] : (byte)0;
         }
 
         /// <summary>
         ///  Text as string
         /// </summary>
         public override string ToString()
-            => Decode();
+            => Value;
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal fixed byte Bytes[Size];
     }
 }

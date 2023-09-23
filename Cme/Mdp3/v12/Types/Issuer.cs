@@ -56,19 +56,26 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Issuer value
+        /// </summary>
+        public readonly string Value
+            => Decode(this);
+
+        /// <summary>
         ///  Does Issuer field contain a value?
         /// </summary>
         public bool HasValue
-            => Bytes[0] != 0;
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get { return Bytes[0] != 0; }
+        }
 
         /// <summary>
-        ///  Read Issuer from buffer
+        ///  Read Issuer
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string Decode()
-        {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
-        }
+        public static string Decode(Issuer value)
+            => new string((sbyte*)value.Bytes, 0, value.Length);
 
         /// <summary>
         ///  Try Read Issuer
@@ -76,8 +83,14 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out string value)
         {
-            value = Decode();
-            return HasValue;
+            if (HasValue)
+            {
+                value = Decode(this);
+                return true;
+            }
+
+            value = string.Empty;
+            return false;
         }
 
         /// <summary>
@@ -86,28 +99,43 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(string value)
         {
-            var end = Math.Min(value.Length, Size);
-
-            for (var i = 0; i < end; i++)
-            {
-                Bytes[i] = (byte)value[i];
-            }
-
-            for (var i = end; i < Size; i++)
-            {
-                Bytes[i] = 0;
-            }
+            var length = value.Length;
+            Bytes[0] = length > 0 ? (byte)value[0] : (byte)0;
+            Bytes[1] = length > 1 ? (byte)value[1] : (byte)0;
+            Bytes[2] = length > 2 ? (byte)value[2] : (byte)0;
+            Bytes[3] = length > 3 ? (byte)value[3] : (byte)0;
+            Bytes[4] = length > 4 ? (byte)value[4] : (byte)0;
+            Bytes[5] = length > 5 ? (byte)value[5] : (byte)0;
+            Bytes[6] = length > 6 ? (byte)value[6] : (byte)0;
+            Bytes[7] = length > 7 ? (byte)value[7] : (byte)0;
+            Bytes[8] = length > 8 ? (byte)value[8] : (byte)0;
+            Bytes[9] = length > 9 ? (byte)value[9] : (byte)0;
+            Bytes[10] = length > 10 ? (byte)value[10] : (byte)0;
+            Bytes[11] = length > 11 ? (byte)value[11] : (byte)0;
+            Bytes[12] = length > 12 ? (byte)value[12] : (byte)0;
+            Bytes[13] = length > 13 ? (byte)value[13] : (byte)0;
+            Bytes[14] = length > 14 ? (byte)value[14] : (byte)0;
+            Bytes[15] = length > 15 ? (byte)value[15] : (byte)0;
+            Bytes[16] = length > 16 ? (byte)value[16] : (byte)0;
+            Bytes[17] = length > 17 ? (byte)value[17] : (byte)0;
+            Bytes[18] = length > 18 ? (byte)value[18] : (byte)0;
+            Bytes[19] = length > 19 ? (byte)value[19] : (byte)0;
+            Bytes[20] = length > 20 ? (byte)value[20] : (byte)0;
+            Bytes[21] = length > 21 ? (byte)value[21] : (byte)0;
+            Bytes[22] = length > 22 ? (byte)value[22] : (byte)0;
+            Bytes[23] = length > 23 ? (byte)value[23] : (byte)0;
+            Bytes[24] = length > 24 ? (byte)value[24] : (byte)0;
         }
 
         /// <summary>
         ///  Issuer as string
         /// </summary>
         public override string ToString()
-            => Decode();
+            => Value;
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal fixed byte Bytes[Size];
     }
 }

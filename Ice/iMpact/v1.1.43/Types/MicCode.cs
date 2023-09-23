@@ -1,87 +1,12 @@
-using System.Runtime.CompilerServices;
+using using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Mic Code: Market Identifier Code for the market.
+    ///  Mic Code: Optional Fixed Length String Field
     /// </summary>
+
     public unsafe struct MicCode
     {
-        /// <summary>
-        ///  Size of Mic Code underlying field in bytes
-        /// </summary>
-        public const int Size = 4;
-
-        /// <summary>
-        ///  Length of Mic Code field
-        /// </summary>
-        public int Length
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                if (Bytes[0] == 0) { return 0; }
-                if (Bytes[1] == 0) { return 1; }
-                if (Bytes[2] == 0) { return 2; }
-                if (Bytes[3] == 0) { return 3; }
-
-                return 4;
-            }
-        }
-
-        /// <summary>
-        ///  Does Mic Code field contain a value?
-        /// </summary>
-        public bool HasValue
-            => Bytes[0] != 0;
-
-        /// <summary>
-        ///  Read Mic Code from buffer
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string Decode()
-        {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
-        }
-
-        /// <summary>
-        ///  Try Read Mic Code
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out string value)
-        {
-            value = Decode();
-            return HasValue;
-        }
-
-        /// <summary>
-        ///  Encode Mic Code
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(string value)
-        {
-            var end = Math.Min(value.Length, Size);
-
-            for (var i = 0; i < end; i++)
-            {
-                Bytes[i] = (byte)value[i];
-            }
-
-            for (var i = end; i < Size; i++)
-            {
-                Bytes[i] = 0;
-            }
-        }
-
-        /// <summary>
-        ///  Mic Code as string
-        /// </summary>
-        public override string ToString()
-            => Decode();
-
-        /// <summary>
-        ///  Underlying bytes
-        /// </summary>
-        internal unsafe fixed byte Bytes[Size];
     }
 }

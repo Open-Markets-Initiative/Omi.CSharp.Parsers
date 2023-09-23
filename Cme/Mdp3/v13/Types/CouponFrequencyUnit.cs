@@ -34,19 +34,26 @@ namespace Cme.Mdp3
         }
 
         /// <summary>
+        ///  Coupon Frequency Unit value
+        /// </summary>
+        public readonly string Value
+            => Decode(this);
+
+        /// <summary>
         ///  Does Coupon Frequency Unit field contain a value?
         /// </summary>
         public bool HasValue
-            => Bytes[0] != 0;
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get { return Bytes[0] != 0; }
+        }
 
         /// <summary>
-        ///  Read Coupon Frequency Unit from buffer
+        ///  Read Coupon Frequency Unit
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string Decode()
-        {
-            fixed (byte* pointer = Bytes) { return new string((sbyte*)pointer, 0, Length); }
-        }
+        public static string Decode(CouponFrequencyUnit value)
+            => new string((sbyte*)value.Bytes, 0, value.Length);
 
         /// <summary>
         ///  Try Read Coupon Frequency Unit
@@ -54,8 +61,14 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out string value)
         {
-            value = Decode();
-            return HasValue;
+            if (HasValue)
+            {
+                value = Decode(this);
+                return true;
+            }
+
+            value = string.Empty;
+            return false;
         }
 
         /// <summary>
@@ -64,28 +77,21 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(string value)
         {
-            var end = Math.Min(value.Length, Size);
-
-            for (var i = 0; i < end; i++)
-            {
-                Bytes[i] = (byte)value[i];
-            }
-
-            for (var i = end; i < Size; i++)
-            {
-                Bytes[i] = 0;
-            }
+            var length = value.Length;
+            Bytes[0] = length > 0 ? (byte)value[0] : (byte)0;
+            Bytes[1] = length > 1 ? (byte)value[1] : (byte)0;
+            Bytes[2] = length > 2 ? (byte)value[2] : (byte)0;
         }
 
         /// <summary>
         ///  Coupon Frequency Unit as string
         /// </summary>
         public override string ToString()
-            => Decode();
+            => Value;
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal fixed byte Bytes[Size];
     }
 }
