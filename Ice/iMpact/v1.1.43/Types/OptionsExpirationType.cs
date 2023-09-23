@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Options Expiration Type
+    ///  Options Expiration Type: Zeroed Character Enum
     /// </summary>
 
     public struct OptionsExpirationType

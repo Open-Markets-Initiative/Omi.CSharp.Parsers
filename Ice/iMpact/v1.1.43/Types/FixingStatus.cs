@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Fixing Status
+    ///  Fixing Status: Zeroed Character Enum
     /// </summary>
 
     public struct FixingStatus

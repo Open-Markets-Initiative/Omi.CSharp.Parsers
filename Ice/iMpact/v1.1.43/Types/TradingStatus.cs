@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Trading Status
+    ///  Trading Status: Zeroed Character Enum
     /// </summary>
 
     public struct TradingStatus

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Transaction End
+    ///  Is Transaction End: Zeroed Character Enum
     /// </summary>
 
     public struct IsTransactionEnd

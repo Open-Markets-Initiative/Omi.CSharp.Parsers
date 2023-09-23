@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Cross Order Supported
+    ///  Cross Order Supported: Zeroed Character Enum
     /// </summary>
 
     public struct CrossOrderSupported

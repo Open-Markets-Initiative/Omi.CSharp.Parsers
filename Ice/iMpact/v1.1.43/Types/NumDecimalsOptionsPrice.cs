@@ -1,39 +1,12 @@
-using using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Num Decimals Options Price: Only used for OffExchangeIncrementOptionPrice.
+    ///  Num Decimals Options Price: Optional Zeroed Character Field
     /// </summary>
 
     public struct NumDecimalsOptionsPrice
     {
-        /// <summary>
-        ///  Size of Num Decimals Options Price in bytes
-        /// </summary>
-        public const int Size = 1;
-
-        /// <summary>
-        ///  Num Decimals Options Price value
-        /// </summary>
-        public readonly string Value
-            => (char)Byte;
-
-        /// <summary>
-        ///  Write Num Decimals Options Price
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(char value)
-            => Byte = (byte)value;
-        /// <summary>
-        ///  Num Decimals Options Price as string
-        /// </summary>
-        public override string ToString()
-            => Value;
-
-        /// <summary>
-        ///  Underlying byte
-        /// </summary>
-        internal byte Byte;
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Ipl Hold Type
+    ///  Ipl Hold Type: Zeroed Character Enum
     /// </summary>
 
     public struct IplHoldType

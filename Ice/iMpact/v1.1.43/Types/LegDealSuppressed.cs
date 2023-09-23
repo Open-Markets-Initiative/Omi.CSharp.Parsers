@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Leg Deal Suppressed
+    ///  Leg Deal Suppressed: Zeroed Character Enum
     /// </summary>
 
     public struct LegDealSuppressed

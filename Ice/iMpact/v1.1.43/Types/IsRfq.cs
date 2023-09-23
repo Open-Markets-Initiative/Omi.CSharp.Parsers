@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Rfq
+    ///  Is Rfq: Zeroed Character Enum
     /// </summary>
 
     public struct IsRfq

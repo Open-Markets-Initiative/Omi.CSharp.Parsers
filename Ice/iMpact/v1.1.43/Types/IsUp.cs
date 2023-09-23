@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Up
+    ///  Is Up: Zeroed Character Enum
     /// </summary>
 
     public struct IsUp

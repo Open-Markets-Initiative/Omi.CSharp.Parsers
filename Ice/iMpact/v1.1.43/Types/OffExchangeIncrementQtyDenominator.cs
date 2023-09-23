@@ -1,39 +1,12 @@
-using using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Off Exchange Increment Qty Denominator: Denominator for OffExchangeIncrementQty.
+    ///  Off Exchange Increment Qty Denominator: Optional Zeroed Character Field
     /// </summary>
 
     public struct OffExchangeIncrementQtyDenominator
     {
-        /// <summary>
-        ///  Size of Off Exchange Increment Qty Denominator in bytes
-        /// </summary>
-        public const int Size = 1;
-
-        /// <summary>
-        ///  Off Exchange Increment Qty Denominator value
-        /// </summary>
-        public readonly string Value
-            => (char)Byte;
-
-        /// <summary>
-        ///  Write Off Exchange Increment Qty Denominator
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(char value)
-            => Byte = (byte)value;
-        /// <summary>
-        ///  Off Exchange Increment Qty Denominator as string
-        /// </summary>
-        public override string ToString()
-            => Value;
-
-        /// <summary>
-        ///  Underlying byte
-        /// </summary>
-        internal byte Byte;
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Settle Price Official
+    ///  Is Settle Price Official: Zeroed Character Enum
     /// </summary>
 
     public struct IsSettlePriceOfficial

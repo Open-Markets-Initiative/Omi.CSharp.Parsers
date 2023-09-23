@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Start Or End
+    ///  Start Or End: Zeroed Character Enum
     /// </summary>
 
     public struct StartOrEnd

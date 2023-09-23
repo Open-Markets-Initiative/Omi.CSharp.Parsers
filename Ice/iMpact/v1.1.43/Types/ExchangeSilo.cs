@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Exchange Silo
+    ///  Exchange Silo: Zeroed Character Enum
     /// </summary>
 
     public struct ExchangeSilo

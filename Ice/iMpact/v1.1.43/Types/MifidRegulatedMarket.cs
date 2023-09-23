@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Mifid Regulated Market
+    ///  Mifid Regulated Market: Zeroed Character Enum
     /// </summary>
 
     public struct MifidRegulatedMarket

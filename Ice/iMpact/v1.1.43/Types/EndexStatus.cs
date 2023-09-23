@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Endex Status
+    ///  Endex Status: Zeroed Character Enum
     /// </summary>
 
     public struct EndexStatus

@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Leg Side
+    ///  Leg Side: Zeroed Character Enum
     /// </summary>
 
     public struct LegSide

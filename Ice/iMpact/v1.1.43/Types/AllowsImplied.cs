@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Allows Implied
+    ///  Allows Implied: Zeroed Character Enum
     /// </summary>
 
     public struct AllowsImplied

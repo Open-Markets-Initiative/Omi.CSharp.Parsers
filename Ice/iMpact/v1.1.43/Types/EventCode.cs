@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Event Code
+    ///  Event Code: Zeroed Character Enum
     /// </summary>
 
     public struct EventCode

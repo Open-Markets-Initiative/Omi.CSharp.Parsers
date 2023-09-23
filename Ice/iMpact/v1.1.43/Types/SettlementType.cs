@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Settlement Type
+    ///  Settlement Type: Zeroed Character Enum
     /// </summary>
 
     public struct SettlementType

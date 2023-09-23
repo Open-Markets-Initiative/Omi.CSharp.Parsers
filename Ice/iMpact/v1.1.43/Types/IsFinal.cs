@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Final
+    ///  Is Final: Zeroed Character Enum
     /// </summary>
 
     public struct IsFinal

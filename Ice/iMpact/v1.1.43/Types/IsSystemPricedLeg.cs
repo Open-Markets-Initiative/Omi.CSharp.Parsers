@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is System Priced Leg
+    ///  Is System Priced Leg: Zeroed Character Enum
     /// </summary>
 
     public struct IsSystemPricedLeg

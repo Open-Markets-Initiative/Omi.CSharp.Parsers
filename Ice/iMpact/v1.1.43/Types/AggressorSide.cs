@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Aggressor Side
+    ///  Aggressor Side: Zeroed Character Enum
     /// </summary>
 
     public struct AggressorSide

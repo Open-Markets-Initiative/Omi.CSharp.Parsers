@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Block Only
+    ///  Is Block Only: Zeroed Character Enum
     /// </summary>
 
     public struct IsBlockOnly

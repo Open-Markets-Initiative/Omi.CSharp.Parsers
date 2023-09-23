@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Tradable
+    ///  Is Tradable: Zeroed Character Enum
     /// </summary>
 
     public struct IsTradable

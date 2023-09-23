@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Is Balanced
+    ///  Is Balanced: Zeroed Character Enum
     /// </summary>
 
     public struct IsBalanced

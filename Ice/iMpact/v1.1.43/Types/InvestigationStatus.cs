@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Investigation Status
+    ///  Investigation Status: Zeroed Character Enum
     /// </summary>
 
     public struct InvestigationStatus

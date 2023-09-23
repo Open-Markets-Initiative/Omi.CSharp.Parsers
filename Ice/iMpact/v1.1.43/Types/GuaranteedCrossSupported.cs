@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Guaranteed Cross Supported
+    ///  Guaranteed Cross Supported: Zeroed Character Enum
     /// </summary>
 
     public struct GuaranteedCrossSupported

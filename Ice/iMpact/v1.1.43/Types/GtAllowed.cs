@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Gt Allowed
+    ///  Gt Allowed: Zeroed Character Enum
     /// </summary>
 
     public struct GtAllowed

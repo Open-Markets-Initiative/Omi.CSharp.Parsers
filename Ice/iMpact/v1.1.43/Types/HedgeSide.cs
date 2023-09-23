@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Hedge Side
+    ///  Hedge Side: Zeroed Character Enum
     /// </summary>
 
     public struct HedgeSide

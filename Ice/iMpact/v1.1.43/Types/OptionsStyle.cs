@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Options Style
+    ///  Options Style: Zeroed Character Enum
     /// </summary>
 
     public struct OptionsStyle

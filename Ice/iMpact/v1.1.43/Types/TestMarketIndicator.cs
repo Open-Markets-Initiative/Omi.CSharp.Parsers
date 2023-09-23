@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Test Market Indicator
+    ///  Test Market Indicator: Zeroed Character Enum
     /// </summary>
 
     public struct TestMarketIndicator
