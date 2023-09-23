@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     public enum PotentialSecurityTradingEvent : byte
     {
         /// <summary>
-        ///  No  ne
+        ///  None
         /// </summary>
         None = 0,
 
