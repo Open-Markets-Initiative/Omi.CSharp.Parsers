@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 namespace Nasdaq.MarketDepth
 {
     /// <summary>
-    ///  Sequence: Sequence Number of the first message to follow this header
+    ///  Sequence: Sequence number of the first message to follow this header
     /// </summary>
 
     public unsafe struct Sequence
