@@ -44,7 +44,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Collateral Market Price as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

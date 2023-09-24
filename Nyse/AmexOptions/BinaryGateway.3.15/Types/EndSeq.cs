@@ -34,7 +34,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  End Seq as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Trading Hhi Indicator as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

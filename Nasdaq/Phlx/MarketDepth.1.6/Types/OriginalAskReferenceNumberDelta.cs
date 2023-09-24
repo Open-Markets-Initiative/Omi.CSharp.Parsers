@@ -35,7 +35,7 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Original Ask Reference Number Delta as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

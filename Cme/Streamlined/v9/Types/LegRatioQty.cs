@@ -61,7 +61,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Leg Ratio Qty as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

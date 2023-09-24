@@ -30,7 +30,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Month as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

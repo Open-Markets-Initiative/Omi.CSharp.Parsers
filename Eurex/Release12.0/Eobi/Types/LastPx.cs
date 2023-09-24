@@ -39,7 +39,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Last Px as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

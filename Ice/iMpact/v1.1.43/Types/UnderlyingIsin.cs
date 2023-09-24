@@ -99,7 +99,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Underlying Isin as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

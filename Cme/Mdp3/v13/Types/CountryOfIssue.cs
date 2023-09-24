@@ -84,7 +84,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Country Of Issue as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

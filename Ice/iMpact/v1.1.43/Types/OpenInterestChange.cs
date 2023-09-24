@@ -35,7 +35,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Open Interest Change as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

@@ -215,7 +215,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Futures Contract Symbol as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

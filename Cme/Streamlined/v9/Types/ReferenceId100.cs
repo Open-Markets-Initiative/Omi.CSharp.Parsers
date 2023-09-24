@@ -280,7 +280,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Reference Id 100 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

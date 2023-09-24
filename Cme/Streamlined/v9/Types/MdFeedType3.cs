@@ -86,7 +86,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Md Feed Type 3 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

@@ -34,7 +34,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Num In Group 16 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

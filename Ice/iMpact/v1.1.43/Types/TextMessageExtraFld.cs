@@ -1675,7 +1675,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Text Message Extra Fld as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

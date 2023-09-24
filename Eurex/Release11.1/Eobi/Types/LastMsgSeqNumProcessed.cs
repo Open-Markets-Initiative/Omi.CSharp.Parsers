@@ -34,7 +34,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Last Msg Seq Num Processed as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

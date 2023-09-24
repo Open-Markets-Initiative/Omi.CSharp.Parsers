@@ -34,7 +34,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Message Sequence Number as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

@@ -150,7 +150,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Financial Instrument Full Name as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

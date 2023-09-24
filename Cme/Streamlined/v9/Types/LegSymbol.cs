@@ -180,7 +180,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Leg Symbol as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

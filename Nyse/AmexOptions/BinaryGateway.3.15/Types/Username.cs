@@ -107,7 +107,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Username as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

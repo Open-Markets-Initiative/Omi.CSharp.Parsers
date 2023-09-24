@@ -155,7 +155,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Security Desc as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

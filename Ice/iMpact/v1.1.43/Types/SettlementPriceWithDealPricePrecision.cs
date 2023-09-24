@@ -35,7 +35,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Settlement Price With Deal Price Precision as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

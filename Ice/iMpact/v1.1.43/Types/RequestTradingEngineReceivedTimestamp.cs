@@ -35,7 +35,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Request Trading Engine Received Timestamp as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

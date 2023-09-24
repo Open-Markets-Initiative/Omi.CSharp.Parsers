@@ -96,7 +96,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Rate Descriptor as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

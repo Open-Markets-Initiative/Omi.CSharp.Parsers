@@ -84,7 +84,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Seniority as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

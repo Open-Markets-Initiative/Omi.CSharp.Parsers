@@ -35,7 +35,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Reserved Bytes 4 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

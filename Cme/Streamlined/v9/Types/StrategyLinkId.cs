@@ -132,7 +132,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Strategy Link Id as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

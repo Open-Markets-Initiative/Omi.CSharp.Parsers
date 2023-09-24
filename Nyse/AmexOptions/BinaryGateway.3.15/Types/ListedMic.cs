@@ -83,7 +83,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Listed Mic as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

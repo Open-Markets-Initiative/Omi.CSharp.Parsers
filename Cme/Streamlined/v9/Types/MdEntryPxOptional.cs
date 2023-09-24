@@ -66,7 +66,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Md Entry Px Optional as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

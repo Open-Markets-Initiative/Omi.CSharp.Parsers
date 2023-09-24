@@ -35,7 +35,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Leg Date Offset as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

@@ -96,7 +96,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Fix Rate Local Time as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

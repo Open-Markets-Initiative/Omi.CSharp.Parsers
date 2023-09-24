@@ -34,7 +34,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Appl Seq Num as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

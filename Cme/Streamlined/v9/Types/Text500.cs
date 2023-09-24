@@ -1080,7 +1080,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Text 500 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

@@ -132,7 +132,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Md Entry Id as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

@@ -61,7 +61,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Md Entry Size Optional as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

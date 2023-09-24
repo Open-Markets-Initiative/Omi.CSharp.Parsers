@@ -56,7 +56,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Mantissa 32 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

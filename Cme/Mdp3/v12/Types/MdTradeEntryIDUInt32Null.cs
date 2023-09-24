@@ -61,7 +61,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Md Trade Entry I D u Int 32 Null as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

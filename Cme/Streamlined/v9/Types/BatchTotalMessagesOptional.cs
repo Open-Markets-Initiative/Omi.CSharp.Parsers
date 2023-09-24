@@ -61,7 +61,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Batch Total Messages Optional as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

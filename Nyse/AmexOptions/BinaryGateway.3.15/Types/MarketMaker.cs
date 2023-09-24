@@ -95,7 +95,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Market Maker as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

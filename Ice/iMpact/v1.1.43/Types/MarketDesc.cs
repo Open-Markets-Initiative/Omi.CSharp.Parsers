@@ -315,7 +315,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Market Desc as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

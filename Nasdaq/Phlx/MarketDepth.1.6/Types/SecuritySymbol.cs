@@ -87,7 +87,7 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Security Symbol as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

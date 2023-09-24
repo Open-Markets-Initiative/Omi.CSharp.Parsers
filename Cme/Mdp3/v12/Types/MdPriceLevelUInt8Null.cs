@@ -35,7 +35,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Md Price Level u Int 8 Null as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

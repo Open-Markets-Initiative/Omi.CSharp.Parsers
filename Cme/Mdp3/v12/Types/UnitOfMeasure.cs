@@ -140,7 +140,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Unit Of Measure as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

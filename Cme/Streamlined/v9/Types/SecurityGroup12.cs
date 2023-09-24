@@ -104,7 +104,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Security Group 12 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

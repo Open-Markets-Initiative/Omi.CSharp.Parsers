@@ -34,7 +34,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Count Calculation as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

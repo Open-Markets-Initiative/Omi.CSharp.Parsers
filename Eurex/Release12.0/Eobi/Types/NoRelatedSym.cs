@@ -30,7 +30,7 @@ namespace Eurex.Eobi
         /// <summary>
         ///  No Related Sym as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

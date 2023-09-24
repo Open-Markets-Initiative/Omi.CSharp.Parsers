@@ -30,7 +30,7 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Source as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

@@ -35,7 +35,7 @@ namespace Nasdaq.MarketDepth
         /// <summary>
         ///  Base Reference Number as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

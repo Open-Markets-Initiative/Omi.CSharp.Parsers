@@ -88,7 +88,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Security Exchange 4 as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

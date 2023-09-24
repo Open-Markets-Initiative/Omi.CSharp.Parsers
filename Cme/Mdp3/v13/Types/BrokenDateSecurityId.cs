@@ -39,7 +39,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Broken Date Security Id as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

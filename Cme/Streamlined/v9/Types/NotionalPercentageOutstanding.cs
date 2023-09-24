@@ -66,7 +66,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Notional Percentage Outstanding as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

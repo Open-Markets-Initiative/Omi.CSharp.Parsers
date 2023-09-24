@@ -35,7 +35,7 @@ namespace Cme.Streamlined
         /// <summary>
         ///  Open Close Settl Flag as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>

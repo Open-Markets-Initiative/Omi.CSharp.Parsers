@@ -85,7 +85,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Deliver To Comp Id as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => Value;
 
         /// <summary>

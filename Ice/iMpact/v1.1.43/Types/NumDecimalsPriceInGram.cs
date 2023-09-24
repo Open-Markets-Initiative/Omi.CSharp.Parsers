@@ -30,7 +30,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Num Decimals Price In Gram as string
         /// </summary>
-        public override string ToString()
+        public readonly override string ToString()
             => $"{Decode()}";
 
         /// <summary>
