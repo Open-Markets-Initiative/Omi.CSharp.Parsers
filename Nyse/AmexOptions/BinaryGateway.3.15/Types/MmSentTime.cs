@@ -14,28 +14,32 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Mm Sent Time value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode(this);
+
+        /// <summary>
         ///  Read Mm Sent Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public static DateTime Decode(MmSentTime value)
+            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
         ///  Write Mm Sent Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(ulong value)
+        public void Encode(DateTime value)
         {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
         }
 
         /// <summary>
         ///  Mm Sent Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes

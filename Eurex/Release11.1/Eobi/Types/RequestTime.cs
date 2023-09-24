@@ -14,28 +14,32 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Request Time value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode(this);
+
+        /// <summary>
         ///  Read Request Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public static DateTime Decode(RequestTime value)
+            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
         ///  Write Request Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(ulong value)
+        public void Encode(DateTime value)
         {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
         }
 
         /// <summary>
         ///  Request Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes

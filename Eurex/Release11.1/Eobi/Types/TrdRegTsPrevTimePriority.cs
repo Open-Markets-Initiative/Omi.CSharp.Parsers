@@ -14,28 +14,32 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Trd Reg Ts Prev Time Priority value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode(this);
+
+        /// <summary>
         ///  Read Trd Reg Ts Prev Time Priority
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public static DateTime Decode(TrdRegTsPrevTimePriority value)
+            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
         ///  Write Trd Reg Ts Prev Time Priority
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(ulong value)
+        public void Encode(DateTime value)
         {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
+            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
         }
 
         /// <summary>
         ///  Trd Reg Ts Prev Time Priority as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
