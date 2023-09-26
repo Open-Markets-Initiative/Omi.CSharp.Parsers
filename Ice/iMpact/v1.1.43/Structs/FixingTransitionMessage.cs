@@ -16,7 +16,7 @@ namespace Ice.iMpact
             FixingStatus FixingStatus;
             AuctionEndTime AuctionEndTime;
             ThresholdImbalanceQty ThresholdImbalanceQty;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
         };
     };
 }

@@ -17,7 +17,7 @@ namespace Ice.iMpact
             Price Price;
             Quantity Quantity;
             FfMarketTradeIndicator FfMarketTradeIndicator;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             InvestigationStatus InvestigationStatus;
             OffMarketTradeType OffMarketTradeType;
         };

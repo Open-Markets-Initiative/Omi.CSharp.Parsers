@@ -15,7 +15,7 @@ namespace Ice.iMpact
             MarketId MarketId;
             OpenInterest OpenInterest;
             OpenInterestChange OpenInterestChange;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             OpenInterestDate OpenInterestDate;
         };
     };

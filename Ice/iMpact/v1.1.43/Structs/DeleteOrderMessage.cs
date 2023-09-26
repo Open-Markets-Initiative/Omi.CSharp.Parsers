@@ -14,7 +14,7 @@ namespace Ice.iMpact
         {
             MarketId MarketId;
             OrderId OrderId;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             SequenceWithinMillis SequenceWithinMillis;
             RequestTradingEngineReceivedTimestamp RequestTradingEngineReceivedTimestamp;
         };

@@ -4,18 +4,18 @@ using System.Runtime.CompilerServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Date Time: Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    ///  Message Date Time: Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>
 
-    public unsafe struct DateTime
+    public unsafe struct MessageDateTime
     {
         /// <summary>
-        ///  Length of Date Time in bytes
+        ///  Length of Message Date Time in bytes
         /// </summary>
         public const int Size = 8;
 
         /// <summary>
-        ///  Read Date Time
+        ///  Read Message Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long Decode()
@@ -24,7 +24,7 @@ namespace Ice.iMpact
         }
 
         /// <summary>
-        ///  Write Date Time
+        ///  Write Message Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
@@ -33,7 +33,7 @@ namespace Ice.iMpact
         }
 
         /// <summary>
-        ///  Date Time as string
+        ///  Message Date Time as string
         /// </summary>
         public readonly override string ToString()
             => $"{Decode()}";

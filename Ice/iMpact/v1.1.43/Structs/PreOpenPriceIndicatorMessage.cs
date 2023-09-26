@@ -14,7 +14,7 @@ namespace Ice.iMpact
         {
             MarketId MarketId;
             PreOpenPrice PreOpenPrice;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             HasPreOpenVolume HasPreOpenVolume;
             PreOpenVolume PreOpenVolume;
         };

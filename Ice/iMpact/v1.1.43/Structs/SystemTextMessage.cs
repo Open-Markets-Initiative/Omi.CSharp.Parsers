@@ -13,7 +13,7 @@ namespace Ice.iMpact
         public unsafe struct Layout
         {
             TextMessage TextMessage;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             TextMessageExtraFld TextMessageExtraFld;
         };
     };

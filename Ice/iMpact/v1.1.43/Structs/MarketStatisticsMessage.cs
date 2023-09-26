@@ -20,7 +20,7 @@ namespace Ice.iMpact
             High High;
             Low Low;
             Vwap Vwap;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
         };
     };
 }

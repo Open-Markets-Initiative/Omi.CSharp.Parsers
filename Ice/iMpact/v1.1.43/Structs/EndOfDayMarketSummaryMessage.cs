@@ -23,7 +23,7 @@ namespace Ice.iMpact
             Vwap Vwap;
             SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
             OpenInterest OpenInterest;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             SettlementPrice SettlementPrice;
         };
     };

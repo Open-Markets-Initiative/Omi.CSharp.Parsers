@@ -14,7 +14,7 @@ namespace Ice.iMpact
         {
             MarketId MarketId;
             TradingStatus TradingStatus;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
         };
     };
 }

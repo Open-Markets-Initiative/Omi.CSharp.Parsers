@@ -14,7 +14,7 @@ namespace Ice.iMpact
         {
             MarketId MarketId;
             EventType EventType;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
         };
     };
 }

@@ -17,7 +17,7 @@ namespace Ice.iMpact
             Price Price;
             Quantity Quantity;
             OldOffMarketTradeType OldOffMarketTradeType;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             OffMarketTradeType OffMarketTradeType;
         };
     };

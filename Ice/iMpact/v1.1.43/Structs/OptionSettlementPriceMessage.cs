@@ -14,7 +14,7 @@ namespace Ice.iMpact
         {
             MarketId MarketId;
             SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
-            DateTime DateTime;
+            MessageDateTime MessageDateTime;
             IsOfficial IsOfficial;
             ValuationDateTime ValuationDateTime;
             Volatility Volatility;
