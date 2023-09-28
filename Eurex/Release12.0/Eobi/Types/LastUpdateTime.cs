@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Last Update Time
     /// </summary>
 
-    public unsafe struct LastUpdateTime
+    public struct LastUpdateTime
     {
         /// <summary>
         ///  Size of Last Update Time in bytes
@@ -17,23 +17,21 @@ namespace Eurex.Eobi
         ///  Last Update Time value
         /// </summary>
         public readonly DateTime Value
-            => Decode(this);
+            => Decode();
 
         /// <summary>
         ///  Read Last Update Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static DateTime Decode(LastUpdateTime value)
-            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
+        public readonly DateTime Decode()
+            => DateTime.UnixEpoch.AddTicks(Underlying / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
-        ///  Write Last Update Time
+        ///  Write Last Update Time as Nanoseconds since Jan 1st, 1970, 00:00:00 GMT
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(DateTime value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
-        }
+        public void Encode(DateTime timestamp)
+            => Underlying = timestamp.Ticks * TimeSpan.NanosecondsPerTick;
 
         /// <summary>
         ///  Last Update Time as string
@@ -44,6 +42,6 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

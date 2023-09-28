@@ -7,40 +7,52 @@ namespace Ice.iMpact
     ///  Valuation Date Time: Date time the settlement price is for. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>
 
-    public unsafe struct ValuationDateTime
+    public struct ValuationDateTime
     {
         /// <summary>
-        ///  Length of Valuation Date Time in bytes
+        ///  Size of Valuation Date Time in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Valuation Date Time value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode();
 
         /// <summary>
         ///  Read Valuation Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
+        public readonly DateTime Decode()
         {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
+            var milliseconds = BinaryPrimitives.ReverseEndianness(Underlying);
+            return DateTime.UnixEpoch.AddMilliseconds(milliseconds);;
         }
+
+        /// <summary>
+        ///  Write Valuation Date Time using Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(long milliseconds)
+            => Underlying = BinaryPrimitives.ReverseEndianness(milliseconds);
 
         /// <summary>
         ///  Write Valuation Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+        public void Encode(DateTime timestamp)
+            => Encode(timestamp.Millisecond);
 
         /// <summary>
         ///  Valuation Date Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

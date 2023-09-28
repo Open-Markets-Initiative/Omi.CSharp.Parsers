@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Request Time
     /// </summary>
 
-    public unsafe struct RequestTime
+    public struct RequestTime
     {
         /// <summary>
         ///  Size of Request Time in bytes
@@ -17,23 +17,21 @@ namespace Eurex.Eobi
         ///  Request Time value
         /// </summary>
         public readonly DateTime Value
-            => Decode(this);
+            => Decode();
 
         /// <summary>
         ///  Read Request Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static DateTime Decode(RequestTime value)
-            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
+        public readonly DateTime Decode()
+            => DateTime.UnixEpoch.AddTicks(Underlying / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
-        ///  Write Request Time
+        ///  Write Request Time as Nanoseconds since Jan 1st, 1970, 00:00:00 GMT
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(DateTime value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
-        }
+        public void Encode(DateTime timestamp)
+            => Underlying = timestamp.Ticks * TimeSpan.NanosecondsPerTick;
 
         /// <summary>
         ///  Request Time as string
@@ -44,6 +42,6 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

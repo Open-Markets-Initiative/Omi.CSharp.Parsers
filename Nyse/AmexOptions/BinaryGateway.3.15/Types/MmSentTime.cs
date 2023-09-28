@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Mm Sent Time: Customer provided sending time. CAT compliance Number of nanoseconds since Epoch.
     /// </summary>
 
-    public unsafe struct MmSentTime
+    public struct MmSentTime
     {
         /// <summary>
         ///  Size of Mm Sent Time in bytes
@@ -17,23 +17,21 @@ namespace Nyse.AmexOptions.BinaryGateway
         ///  Mm Sent Time value
         /// </summary>
         public readonly DateTime Value
-            => Decode(this);
+            => Decode();
 
         /// <summary>
         ///  Read Mm Sent Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static DateTime Decode(MmSentTime value)
-            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
+        public readonly DateTime Decode()
+            => DateTime.UnixEpoch.AddTicks(Underlying / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
-        ///  Write Mm Sent Time
+        ///  Write Mm Sent Time as Nanoseconds since Jan 1st, 1970, 00:00:00 GMT
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(DateTime value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
-        }
+        public void Encode(DateTime timestamp)
+            => Underlying = timestamp.Ticks * TimeSpan.NanosecondsPerTick;
 
         /// <summary>
         ///  Mm Sent Time as string
@@ -44,6 +42,6 @@ namespace Nyse.AmexOptions.BinaryGateway
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

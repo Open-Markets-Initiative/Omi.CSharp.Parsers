@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Trd Reg Ts Time Priority
     /// </summary>
 
-    public unsafe struct TrdRegTsTimePriority
+    public struct TrdRegTsTimePriority
     {
         /// <summary>
         ///  Size of Trd Reg Ts Time Priority in bytes
@@ -17,23 +17,21 @@ namespace Eurex.Eobi
         ///  Trd Reg Ts Time Priority value
         /// </summary>
         public readonly DateTime Value
-            => Decode(this);
+            => Decode();
 
         /// <summary>
         ///  Read Trd Reg Ts Time Priority
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static DateTime Decode(TrdRegTsTimePriority value)
-            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
+        public readonly DateTime Decode()
+            => DateTime.UnixEpoch.AddTicks(Underlying / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
-        ///  Write Trd Reg Ts Time Priority
+        ///  Write Trd Reg Ts Time Priority as Nanoseconds since Jan 1st, 1970, 00:00:00 GMT
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(DateTime value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
-        }
+        public void Encode(DateTime timestamp)
+            => Underlying = timestamp.Ticks * TimeSpan.NanosecondsPerTick;
 
         /// <summary>
         ///  Trd Reg Ts Time Priority as string
@@ -44,6 +42,6 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

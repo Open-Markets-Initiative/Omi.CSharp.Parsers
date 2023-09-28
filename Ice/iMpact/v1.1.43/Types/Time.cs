@@ -7,40 +7,52 @@ namespace Ice.iMpact
     ///  Time: Date time the message was sent. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>
 
-    public unsafe struct Time
+    public struct Time
     {
         /// <summary>
-        ///  Length of Time in bytes
+        ///  Size of Time in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Time value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode();
 
         /// <summary>
         ///  Read Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
+        public readonly DateTime Decode()
         {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
+            var milliseconds = BinaryPrimitives.ReverseEndianness(Underlying);
+            return DateTime.UnixEpoch.AddMilliseconds(milliseconds);;
         }
+
+        /// <summary>
+        ///  Write Time using Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(long milliseconds)
+            => Underlying = BinaryPrimitives.ReverseEndianness(milliseconds);
 
         /// <summary>
         ///  Write Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+        public void Encode(DateTime timestamp)
+            => Encode(timestamp.Millisecond);
 
         /// <summary>
         ///  Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

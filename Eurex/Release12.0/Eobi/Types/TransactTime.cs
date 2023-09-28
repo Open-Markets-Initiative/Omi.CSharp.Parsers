@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Transact Time
     /// </summary>
 
-    public unsafe struct TransactTime
+    public struct TransactTime
     {
         /// <summary>
         ///  Size of Transact Time in bytes
@@ -17,23 +17,21 @@ namespace Eurex.Eobi
         ///  Transact Time value
         /// </summary>
         public readonly DateTime Value
-            => Decode(this);
+            => Decode();
 
         /// <summary>
         ///  Read Transact Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static DateTime Decode(TransactTime value)
-            => DateTime.UnixEpoch.AddTicks((long)value.Bytes / TimeSpan.NanosecondsPerTick);
+        public readonly DateTime Decode()
+            => DateTime.UnixEpoch.AddTicks(Underlying / TimeSpan.NanosecondsPerTick);
 
         /// <summary>
-        ///  Write Transact Time
+        ///  Write Transact Time as Nanoseconds since Jan 1st, 1970, 00:00:00 GMT
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(DateTime value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value.Ticks * TimeSpan.NanosecondsPerTick; }
-        }
+        public void Encode(DateTime timestamp)
+            => Underlying = timestamp.Ticks * TimeSpan.NanosecondsPerTick;
 
         /// <summary>
         ///  Transact Time as string
@@ -44,6 +42,6 @@ namespace Eurex.Eobi
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

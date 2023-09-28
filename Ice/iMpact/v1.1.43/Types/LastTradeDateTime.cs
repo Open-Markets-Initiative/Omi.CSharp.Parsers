@@ -7,40 +7,52 @@ namespace Ice.iMpact
     ///  Last Trade Date Time: Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>
 
-    public unsafe struct LastTradeDateTime
+    public struct LastTradeDateTime
     {
         /// <summary>
-        ///  Length of Last Trade Date Time in bytes
+        ///  Size of Last Trade Date Time in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Last Trade Date Time value
+        /// </summary>
+        public readonly DateTime Value
+            => Decode();
 
         /// <summary>
         ///  Read Last Trade Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
+        public readonly DateTime Decode()
         {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
+            var milliseconds = BinaryPrimitives.ReverseEndianness(Underlying);
+            return DateTime.UnixEpoch.AddMilliseconds(milliseconds);;
         }
+
+        /// <summary>
+        ///  Write Last Trade Date Time using Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Encode(long milliseconds)
+            => Underlying = BinaryPrimitives.ReverseEndianness(milliseconds);
 
         /// <summary>
         ///  Write Last Trade Date Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+        public void Encode(DateTime timestamp)
+            => Encode(timestamp.Millisecond);
 
         /// <summary>
         ///  Last Trade Date Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }
