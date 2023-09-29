@@ -35,6 +35,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Min Cab Price field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Min Cab Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,8 +53,14 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out long value)
         {
-            value = Decode();
-            return value != NoValue;
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         /// <summary>

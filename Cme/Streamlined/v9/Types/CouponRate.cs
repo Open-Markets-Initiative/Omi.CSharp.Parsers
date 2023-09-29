@@ -35,6 +35,12 @@ namespace Cme.Streamlined
             => Decode();
 
         /// <summary>
+        ///  Does Coupon Rate field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Coupon Rate
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,8 +53,14 @@ namespace Cme.Streamlined
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out int value)
         {
-            value = Decode();
-            return value != NoValue;
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         /// <summary>

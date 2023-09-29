@@ -35,6 +35,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Min Lot Size Decimal Qty field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Min Lot Size Decimal Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,8 +53,14 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out int value)
         {
-            value = Decode();
-            return value != NoValue;
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         /// <summary>

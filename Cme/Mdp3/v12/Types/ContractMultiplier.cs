@@ -30,6 +30,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Contract Multiplier field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Contract Multiplier
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Mdp3
         public readonly bool TryRead(out int value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

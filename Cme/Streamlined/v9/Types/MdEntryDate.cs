@@ -30,6 +30,12 @@ namespace Cme.Streamlined
             => Decode();
 
         /// <summary>
+        ///  Does Md Entry Date field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Md Entry Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Streamlined
         public readonly bool TryRead(out int value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

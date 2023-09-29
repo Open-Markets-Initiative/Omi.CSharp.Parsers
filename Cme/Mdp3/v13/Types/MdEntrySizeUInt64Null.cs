@@ -30,6 +30,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Md Entry Size u Int 64 Null field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Md Entry Size u Int 64 Null
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Mdp3
         public readonly bool TryRead(out ulong value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

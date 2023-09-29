@@ -30,6 +30,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Issue Date field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Issue Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Mdp3
         public readonly bool TryRead(out ushort value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

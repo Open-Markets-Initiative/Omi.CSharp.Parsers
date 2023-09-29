@@ -30,6 +30,12 @@ namespace Cme.Mdp3
             => Decode();
 
         /// <summary>
+        ///  Does Coupon Frequency Period field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Coupon Frequency Period
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Mdp3
         public readonly bool TryRead(out ushort value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

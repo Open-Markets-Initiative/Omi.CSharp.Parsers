@@ -35,6 +35,12 @@ namespace Cme.Streamlined
             => Decode();
 
         /// <summary>
+        ///  Does Md Entry Px Optional field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Md Entry Px Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,8 +53,14 @@ namespace Cme.Streamlined
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryRead(out long value)
         {
-            value = Decode();
-            return value != NoValue;
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
         }
 
         /// <summary>

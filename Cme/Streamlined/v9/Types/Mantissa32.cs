@@ -25,6 +25,12 @@ namespace Cme.Streamlined
             => Decode();
 
         /// <summary>
+        ///  Does Mantissa 32 field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Mantissa 32
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -38,7 +44,7 @@ namespace Cme.Streamlined
         public readonly bool TryRead(out int value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>

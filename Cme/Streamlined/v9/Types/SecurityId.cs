@@ -30,6 +30,12 @@ namespace Cme.Streamlined
             => Decode();
 
         /// <summary>
+        ///  Does Security Id field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -43,7 +49,7 @@ namespace Cme.Streamlined
         public readonly bool TryRead(out ulong value)
         {
             value = Decode();
-            return value != NoValue;
+            return HasValue;
         }
 
         /// <summary>
