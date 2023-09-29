@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Nominal: This is the notional value used to calculate NPV and Fixed and Floating Payment amounts
     /// </summary>
 
-    public unsafe struct Nominal
+    public struct Nominal
     {
         /// <summary>
         ///  Fix Tag for Nominal
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Nominal value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Nominal
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Nominal
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ulong value)
+        public readonly bool TryRead(out ulong value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Nominal to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Nominal as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

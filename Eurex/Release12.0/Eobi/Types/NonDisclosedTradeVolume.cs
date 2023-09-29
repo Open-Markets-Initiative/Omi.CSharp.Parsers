@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Non Disclosed Trade Volume
     /// </summary>
 
-    public unsafe struct NonDisclosedTradeVolume
+    public struct NonDisclosedTradeVolume
     {
         /// <summary>
         ///  Decimal place factor for Non Disclosed Trade Volume
@@ -19,32 +19,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Non Disclosed Trade Volume value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Non Disclosed Trade Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
-        }
+        public readonly ulong Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Non Disclosed Trade Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Non Disclosed Trade Volume as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

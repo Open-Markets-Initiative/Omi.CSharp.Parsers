@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Cross Id: Unique ID of the Cross as assigned by the firm.
     /// </summary>
 
-    public unsafe struct CrossId
+    public struct CrossId
     {
         /// <summary>
         ///  Size of Cross Id in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Cross Id value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Cross Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Cross Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Cross Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

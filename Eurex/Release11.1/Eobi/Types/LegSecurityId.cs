@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Leg Security Id
     /// </summary>
 
-    public unsafe struct LegSecurityId
+    public struct LegSecurityId
     {
         /// <summary>
         ///  Size of Leg Security Id in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Leg Security Id value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Leg Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (long)pointer; }
-        }
+        public readonly long Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Leg Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Leg Security Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

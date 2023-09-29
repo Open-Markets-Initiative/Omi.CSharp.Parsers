@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Min Price Increment Amount: Monetary value equivalent to the minimum price fluctuation
     /// </summary>
 
-    public unsafe struct MinPriceIncrementAmount
+    public struct MinPriceIncrementAmount
     {
         /// <summary>
         ///  Fix Tag for Min Price Increment Amount
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Min Price Increment Amount value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Min Price Increment Amount
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Min Price Increment Amount
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Min Price Increment Amount to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Min Price Increment Amount as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

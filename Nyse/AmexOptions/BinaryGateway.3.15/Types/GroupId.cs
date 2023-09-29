@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Group Id: User-defined takedown group. Applies to all Quote messages in repeating group.
     /// </summary>
 
-    public unsafe struct GroupId
+    public struct GroupId
     {
         /// <summary>
         ///  Size of Group Id in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 4;
 
         /// <summary>
+        ///  Group Id value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Group Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Group Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Group Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

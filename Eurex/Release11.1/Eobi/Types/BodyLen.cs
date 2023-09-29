@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Body Len
     /// </summary>
 
-    public unsafe struct BodyLen
+    public struct BodyLen
     {
         /// <summary>
         ///  Size of Body Len in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 2;
 
         /// <summary>
+        ///  Body Len value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Body Len
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Body Len
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Body Len as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

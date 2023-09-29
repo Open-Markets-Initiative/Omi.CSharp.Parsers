@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market Snapshot Order Message
+    ///  Market Snapshot Order Message: This message is for orders in snapshot only. It is different from the order message for incremental updates.
     /// </summary>
 
     public partial class MarketSnapshotOrderMessage

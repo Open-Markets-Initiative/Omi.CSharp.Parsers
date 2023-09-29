@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Delete Order Message
+    ///  Delete Order Message: Upon receipt of this message, client should remove the order from its local book.
     /// </summary>
 
     public partial class DeleteOrderMessage

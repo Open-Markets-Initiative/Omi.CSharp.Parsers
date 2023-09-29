@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Last Qty: Quantity of current partial fill or fill message 1 - 999,999
     /// </summary>
 
-    public unsafe struct LastQty
+    public struct LastQty
     {
         /// <summary>
         ///  Size of Last Qty in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 4;
 
         /// <summary>
+        ///  Last Qty value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Last Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Last Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Last Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

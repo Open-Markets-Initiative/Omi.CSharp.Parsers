@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Max Floor: 0 = No MaxFloor
     /// </summary>
 
-    public unsafe struct MaxFloor
+    public struct MaxFloor
     {
         /// <summary>
         ///  Size of Max Floor in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 4;
 
         /// <summary>
+        ///  Max Floor value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Max Floor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Max Floor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Max Floor as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

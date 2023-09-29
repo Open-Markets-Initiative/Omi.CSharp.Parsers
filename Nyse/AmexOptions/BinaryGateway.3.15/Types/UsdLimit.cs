@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Usd Limit: Integer US Dollar limit.
     /// </summary>
 
-    public unsafe struct UsdLimit
+    public struct UsdLimit
     {
         /// <summary>
         ///  Size of Usd Limit in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Usd Limit value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Usd Limit
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (long)pointer; }
-        }
+        public readonly long Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Usd Limit
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Usd Limit as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Message Bundle Marker
+    ///  Message Bundle Marker: This message indicates where a bundle of messages starts or ends.
     /// </summary>
 
     public partial class MessageBundleMarker

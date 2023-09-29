@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Security Id
     /// </summary>
 
-    public unsafe struct SecurityId
+    public struct SecurityId
     {
         /// <summary>
         ///  Size of Security Id in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Security Id value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (long)pointer; }
-        }
+        public readonly long Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Security Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

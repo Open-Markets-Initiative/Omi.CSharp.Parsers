@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Rpt Seq: Sequence number of the last Market Data entry processed for the instrument
     /// </summary>
 
-    public unsafe struct RptSeq
+    public struct RptSeq
     {
         /// <summary>
         ///  Fix Tag for Rpt Seq
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Rpt Seq value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Rpt Seq
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Rpt Seq
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Rpt Seq as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

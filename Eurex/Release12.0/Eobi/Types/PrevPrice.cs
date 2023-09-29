@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Prev Price
     /// </summary>
 
-    public unsafe struct PrevPrice
+    public struct PrevPrice
     {
         /// <summary>
         ///  Decimal place factor for Prev Price
@@ -19,32 +19,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Prev Price value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Prev Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
-        }
+        public readonly ulong Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Prev Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Prev Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

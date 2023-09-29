@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Cancelled Trade Message
+    ///  Cancelled Trade Message: This message is sent when a trade is cancelled.
     /// </summary>
 
     public partial class CancelledTradeMessage

@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Bid Px
     /// </summary>
 
-    public unsafe struct BidPx
+    public struct BidPx
     {
         /// <summary>
         ///  Decimal place factor for Bid Px
@@ -19,32 +19,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Bid Px value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Bid Px
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
-        }
+        public readonly ulong Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Bid Px
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Bid Px as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

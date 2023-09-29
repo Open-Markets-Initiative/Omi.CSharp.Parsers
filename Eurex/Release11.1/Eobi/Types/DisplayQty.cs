@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Display Qty
     /// </summary>
 
-    public unsafe struct DisplayQty
+    public struct DisplayQty
     {
         /// <summary>
         ///  Decimal place factor for Display Qty
@@ -19,32 +19,34 @@ namespace Eurex.Eobi
         public const int Size = 8;
 
         /// <summary>
+        ///  Display Qty value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Display Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
-        }
+        public readonly ulong Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Display Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Display Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Trading Mpv: Numeric value of the Trading Minimum Price Variation for the
     /// </summary>
 
-    public unsafe struct TradingMpv
+    public struct TradingMpv
     {
         /// <summary>
         ///  Decimal place factor for Trading Mpv
@@ -19,32 +19,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Trading Mpv value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Trading Mpv
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((ulong)pointer)/Factor; }
-        }
+        public readonly ulong Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Trading Mpv
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Trading Mpv as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

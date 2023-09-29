@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Change Price Level Message
+    ///  Change Price Level Message: Upon receipt of this message, client should update the price level at the specified position in its book for the given market.
     /// </summary>
 
     public partial class ChangePriceLevelMessage

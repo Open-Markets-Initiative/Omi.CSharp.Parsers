@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Seq Msg Length: Length of sequenced data message including this field
     /// </summary>
 
-    public unsafe struct SeqMsgLength
+    public struct SeqMsgLength
     {
         /// <summary>
         ///  Size of Seq Msg Length in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 2;
 
         /// <summary>
+        ///  Seq Msg Length value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Seq Msg Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Seq Msg Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Seq Msg Length as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

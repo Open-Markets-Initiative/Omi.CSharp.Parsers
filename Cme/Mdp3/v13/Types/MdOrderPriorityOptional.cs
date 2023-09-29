@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Md Order Priority Optional: Order priority for execution on the order book
     /// </summary>
 
-    public unsafe struct MdOrderPriorityOptional
+    public struct MdOrderPriorityOptional
     {
         /// <summary>
         ///  Fix Tag for Md Order Priority Optional
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Md Order Priority Optional value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Order Priority Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Md Order Priority Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ulong value)
+        public readonly bool TryRead(out ulong value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Md Order Priority Optional to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Md Order Priority Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

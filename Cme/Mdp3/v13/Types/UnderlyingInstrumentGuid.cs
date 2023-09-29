@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Underlying Instrument Guid: Underlying Instrument GUID. Collateral security identifier in REF Data API services
     /// </summary>
 
-    public unsafe struct UnderlyingInstrumentGuid
+    public struct UnderlyingInstrumentGuid
     {
         /// <summary>
         ///  Fix Tag for Underlying Instrument Guid
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Underlying Instrument Guid value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Underlying Instrument Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Underlying Instrument Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Underlying Instrument Guid as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

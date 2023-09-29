@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Cl Ord Id: Unique ID of the message as assigned by the firm.
     /// </summary>
 
-    public unsafe struct ClOrdId
+    public struct ClOrdId
     {
         /// <summary>
         ///  Size of Cl Ord Id in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Cl Ord Id value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Cl Ord Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Cl Ord Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Cl Ord Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

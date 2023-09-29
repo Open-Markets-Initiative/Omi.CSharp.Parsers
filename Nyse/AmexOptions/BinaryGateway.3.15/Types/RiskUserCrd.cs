@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Risk User Crd: Risk User – CRD of the firm that owns the risk control represented by this message.
     /// </summary>
 
-    public unsafe struct RiskUserCrd
+    public struct RiskUserCrd
     {
         /// <summary>
         ///  Size of Risk User Crd in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 4;
 
         /// <summary>
+        ///  Risk User Crd value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Risk User Crd
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Risk User Crd
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Risk User Crd as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

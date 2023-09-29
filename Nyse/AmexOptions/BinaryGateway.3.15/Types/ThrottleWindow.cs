@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Throttle Window: Time period over which the ThrottleThreshold is enforced.
     /// </summary>
 
-    public unsafe struct ThrottleWindow
+    public struct ThrottleWindow
     {
         /// <summary>
         ///  Size of Throttle Window in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 2;
 
         /// <summary>
+        ///  Throttle Window value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Throttle Window
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Throttle Window
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Throttle Window as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Min Lot Size Decimal Qty: Minimum quantity accepted for order entry. If tag 1093-LotType=4, this value is the minimum quantity for order entry expressed in the applicable units, specified in tag 996-UnitOfMeasure, e.g. megawatts
     /// </summary>
 
-    public unsafe struct MinLotSizeDecimalQty
+    public struct MinLotSizeDecimalQty
     {
         /// <summary>
         ///  Fix Tag for Min Lot Size Decimal Qty
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Min Lot Size Decimal Qty value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Min Lot Size Decimal Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((int)pointer) / Factor; }
-        }
+        public readonly int Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Min Lot Size Decimal Qty
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Min Lot Size Decimal Qty to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Min Lot Size Decimal Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

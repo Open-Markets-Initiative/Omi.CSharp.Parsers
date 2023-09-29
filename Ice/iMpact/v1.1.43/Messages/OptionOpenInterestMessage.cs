@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Option Open Interest Message
+    ///  Option Open Interest Message: Option Open Interest Message
     /// </summary>
 
     public partial class OptionOpenInterestMessage

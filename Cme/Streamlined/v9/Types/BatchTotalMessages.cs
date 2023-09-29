@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Batch Total Messages: Total number of messages contained within batch which is defined by match event indicator (5799)
     /// </summary>
 
-    public unsafe struct BatchTotalMessages
+    public struct BatchTotalMessages
     {
         /// <summary>
         ///  Fix Tag for Batch Total Messages
@@ -19,32 +19,34 @@ namespace Cme.Streamlined
         public const int Size = 2;
 
         /// <summary>
+        ///  Batch Total Messages value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Batch Total Messages
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Batch Total Messages
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Batch Total Messages as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

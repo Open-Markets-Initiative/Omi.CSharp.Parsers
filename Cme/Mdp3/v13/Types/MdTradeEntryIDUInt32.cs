@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Md Trade Entry I D u Int 32: Market Data Trade Entry ID
     /// </summary>
 
-    public unsafe struct MdTradeEntryIDUInt32
+    public struct MdTradeEntryIDUInt32
     {
         /// <summary>
         ///  Fix Tag for Md Trade Entry I D u Int 32
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Md Trade Entry I D u Int 32 value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Trade Entry I D u Int 32
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Md Trade Entry I D u Int 32
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Md Trade Entry I D u Int 32 as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

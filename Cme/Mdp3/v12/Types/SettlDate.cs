@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Settl Date: Settle (Value) Date corresponding to Trade Date
     /// </summary>
 
-    public unsafe struct SettlDate
+    public struct SettlDate
     {
         /// <summary>
         ///  Fix Tag for Settl Date
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 2;
 
         /// <summary>
+        ///  Settl Date value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Settl Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Settl Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Settl Date to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Settl Date as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

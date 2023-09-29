@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Md Display Qty: Visible order qty
     /// </summary>
 
-    public unsafe struct MdDisplayQty
+    public struct MdDisplayQty
     {
         /// <summary>
         ///  Fix Tag for Md Display Qty
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Md Display Qty value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Display Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (int)pointer; }
-        }
+        public readonly int Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Md Display Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Md Display Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

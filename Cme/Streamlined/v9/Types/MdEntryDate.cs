@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Md Entry Date: Indicates Market Data Entry Date
     /// </summary>
 
-    public unsafe struct MdEntryDate
+    public struct MdEntryDate
     {
         /// <summary>
         ///  Fix Tag for Md Entry Date
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 4;
 
         /// <summary>
+        ///  Md Entry Date value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Entry Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (int)pointer; }
-        }
+        public readonly int Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Md Entry Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out int value)
+        public readonly bool TryRead(out int value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Md Entry Date to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Md Entry Date as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

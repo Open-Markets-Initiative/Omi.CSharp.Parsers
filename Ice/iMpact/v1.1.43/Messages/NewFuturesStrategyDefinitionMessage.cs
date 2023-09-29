@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  New Futures Strategy Definition Message
+    ///  New Futures Strategy Definition Message: New Futures Strategy Definition messages will be sent out when new UDS markets for futures are created.
     /// </summary>
 
     public partial class NewFuturesStrategyDefinitionMessage

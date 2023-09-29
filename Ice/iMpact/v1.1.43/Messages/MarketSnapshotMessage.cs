@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market Snapshot Message
+    ///  Market Snapshot Message: The market snapshot message is the same for full order depth and price level snapshot channel.
     /// </summary>
 
     public partial class MarketSnapshotMessage

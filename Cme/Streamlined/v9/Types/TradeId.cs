@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Trade Id: Unique Trade Entry ID per Instrument  and Trading Date
     /// </summary>
 
-    public unsafe struct TradeId
+    public struct TradeId
     {
         /// <summary>
         ///  Fix Tag for Trade Id
@@ -19,32 +19,34 @@ namespace Cme.Streamlined
         public const int Size = 4;
 
         /// <summary>
+        ///  Trade Id value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Trade Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (int)pointer; }
-        }
+        public readonly int Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Trade Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Trade Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Display Factor: Contains the multiplier to convert the CME Globex display price to the conventional price
     /// </summary>
 
-    public unsafe struct DisplayFactor
+    public struct DisplayFactor
     {
         /// <summary>
         ///  Fix Tag for Display Factor
@@ -24,32 +24,34 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Display Factor value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Display Factor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer)/Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Display Factor
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Display Factor as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

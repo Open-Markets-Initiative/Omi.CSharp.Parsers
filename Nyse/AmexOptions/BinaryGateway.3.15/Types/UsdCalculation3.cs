@@ -6,7 +6,7 @@ namespace Nyse.AmexOptions.BinaryGateway
     ///  Usd Calculation 3: Integer US Dollar calculation.  For the following RiskControlTypes – will be populated with the
     /// </summary>
 
-    public unsafe struct UsdCalculation3
+    public struct UsdCalculation3
     {
         /// <summary>
         ///  Size of Usd Calculation 3 in bytes
@@ -14,32 +14,34 @@ namespace Nyse.AmexOptions.BinaryGateway
         public const int Size = 8;
 
         /// <summary>
+        ///  Usd Calculation 3 value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Usd Calculation 3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (long)pointer; }
-        }
+        public readonly long Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Usd Calculation 3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Usd Calculation 3 as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

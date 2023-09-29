@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Unit Of Measure Qty: This field contains the contract size for each instrument. Used in combination with tag 996-UnitofMeasure
     /// </summary>
 
-    public unsafe struct UnitOfMeasureQty
+    public struct UnitOfMeasureQty
     {
         /// <summary>
         ///  Fix Tag for Unit Of Measure Qty
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Unit Of Measure Qty value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Unit Of Measure Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Unit Of Measure Qty
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Unit Of Measure Qty to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Unit Of Measure Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

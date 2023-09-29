@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Min Trade Vol: The minimum trading volume for a security
     /// </summary>
 
-    public unsafe struct MinTradeVol
+    public struct MinTradeVol
     {
         /// <summary>
         ///  Fix Tag for Min Trade Vol
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Min Trade Vol value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Min Trade Vol
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Min Trade Vol
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Min Trade Vol as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

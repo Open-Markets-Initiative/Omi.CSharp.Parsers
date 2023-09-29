@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Number Of Orders Optional: In Book entry - aggregate number of orders at given price level
     /// </summary>
 
-    public unsafe struct NumberOfOrdersOptional
+    public struct NumberOfOrdersOptional
     {
         /// <summary>
         ///  Fix Tag for Number Of Orders Optional
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Number Of Orders Optional value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Number Of Orders Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (int)pointer; }
-        }
+        public readonly int Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Number Of Orders Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out int value)
+        public readonly bool TryRead(out int value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Number Of Orders Optional to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Number Of Orders Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

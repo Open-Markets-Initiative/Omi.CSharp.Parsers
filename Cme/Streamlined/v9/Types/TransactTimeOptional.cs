@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Transact Time Optional: Start of event processing time in number of nanoseconds since Unix epoch. Not present for EFP (828=2) and EFR (828=11) transactions
     /// </summary>
 
-    public unsafe struct TransactTimeOptional
+    public struct TransactTimeOptional
     {
         /// <summary>
         ///  Fix Tag for Transact Time Optional
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Transact Time Optional value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Transact Time Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Transact Time Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ulong value)
+        public readonly bool TryRead(out ulong value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Transact Time Optional to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Transact Time Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

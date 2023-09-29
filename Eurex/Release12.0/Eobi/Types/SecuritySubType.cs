@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Security Sub Type
     /// </summary>
 
-    public unsafe struct SecuritySubType
+    public struct SecuritySubType
     {
         /// <summary>
         ///  Size of Security Sub Type in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 4;
 
         /// <summary>
+        ///  Security Sub Type value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Security Sub Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (int)pointer; }
-        }
+        public readonly int Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Security Sub Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Security Sub Type as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

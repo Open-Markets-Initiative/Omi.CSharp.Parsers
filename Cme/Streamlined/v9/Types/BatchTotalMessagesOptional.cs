@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Batch Total Messages Optional: Total number of messages contained within batch which is defined by match event indicator (5799)
     /// </summary>
 
-    public unsafe struct BatchTotalMessagesOptional
+    public struct BatchTotalMessagesOptional
     {
         /// <summary>
         ///  Fix Tag for Batch Total Messages Optional
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 2;
 
         /// <summary>
+        ///  Batch Total Messages Optional value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Batch Total Messages Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Batch Total Messages Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Batch Total Messages Optional to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Batch Total Messages Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

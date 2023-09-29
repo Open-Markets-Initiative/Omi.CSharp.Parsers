@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Coupon Rate: The rate of interest that, when multiplied by the principal, par value, or face value of a bond, provides the currency amount of the periodic interest payment
     /// </summary>
 
-    public unsafe struct CouponRate
+    public struct CouponRate
     {
         /// <summary>
         ///  Fix Tag for Coupon Rate
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Coupon Rate value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Coupon Rate
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Coupon Rate
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Coupon Rate to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Coupon Rate as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

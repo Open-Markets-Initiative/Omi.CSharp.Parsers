@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Strike Price: Strike Price for an option instrument
     /// </summary>
 
-    public unsafe struct StrikePrice
+    public struct StrikePrice
     {
         /// <summary>
         ///  Fix Tag for Strike Price
@@ -29,13 +29,17 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Strike Price value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Strike Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Strike Price
@@ -52,9 +56,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Strike Price to unused
@@ -67,11 +69,11 @@ namespace Cme.Streamlined
         ///  Strike Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

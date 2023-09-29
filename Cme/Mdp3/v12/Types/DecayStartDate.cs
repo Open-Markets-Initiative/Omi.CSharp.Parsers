@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Decay Start Date: Indicates the date at which a decaying contract will begin to decay
     /// </summary>
 
-    public unsafe struct DecayStartDate
+    public struct DecayStartDate
     {
         /// <summary>
         ///  Fix Tag for Decay Start Date
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 2;
 
         /// <summary>
+        ///  Decay Start Date value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Decay Start Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Decay Start Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Decay Start Date to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Decay Start Date as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

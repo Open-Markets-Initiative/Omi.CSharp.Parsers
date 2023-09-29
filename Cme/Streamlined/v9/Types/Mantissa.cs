@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Mantissa: mantissa
     /// </summary>
 
-    public unsafe struct Mantissa
+    public struct Mantissa
     {
         /// <summary>
         ///  Sentinel null value for Mantissa
@@ -19,19 +19,23 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Mantissa value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Mantissa
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (long)pointer; }
-        }
+        public readonly long Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Mantissa
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out long value)
+        public readonly bool TryRead(out long value)
         {
             value = Decode();
             return value != NoValue;
@@ -42,9 +46,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Mantissa to unused
@@ -57,11 +59,11 @@ namespace Cme.Streamlined
         ///  Mantissa as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

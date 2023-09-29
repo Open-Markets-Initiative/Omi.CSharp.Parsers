@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Md Entry Px 9: Price of the Market Data Entry
     /// </summary>
 
-    public unsafe struct MdEntryPx9
+    public struct MdEntryPx9
     {
         /// <summary>
         ///  Fix Tag for Md Entry Px 9
@@ -29,13 +29,17 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Md Entry Px 9 value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Entry Px 9
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Md Entry Px 9
@@ -52,9 +56,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Md Entry Px 9 to unused
@@ -67,11 +69,11 @@ namespace Cme.Streamlined
         ///  Md Entry Px 9 as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  System Text Message
+    ///  System Text Message: System Text Message
     /// </summary>
 
     public partial class SystemTextMessage

@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Appl Id: The channel ID as defined in the XML Configuration file
     /// </summary>
 
-    public unsafe struct ApplId
+    public struct ApplId
     {
         /// <summary>
         ///  Fix Tag for Appl Id
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 2;
 
         /// <summary>
+        ///  Appl Id value
+        /// </summary>
+        public readonly short Value
+            => Decode();
+
+        /// <summary>
         ///  Read Appl Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (short)pointer; }
-        }
+        public readonly short Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Appl Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Appl Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Max Price Variation: Differential value for price banding
     /// </summary>
 
-    public unsafe struct MaxPriceVariation
+    public struct MaxPriceVariation
     {
         /// <summary>
         ///  Fix Tag for Max Price Variation
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Max Price Variation value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Max Price Variation
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Max Price Variation
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Max Price Variation to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Max Price Variation as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Spot Market Trade Message
+    ///  Spot Market Trade Message: This message will be sent only upon trade in spot markets and it will be rendered on spot market channels.
     /// </summary>
 
     public partial class SpotMarketTradeMessage

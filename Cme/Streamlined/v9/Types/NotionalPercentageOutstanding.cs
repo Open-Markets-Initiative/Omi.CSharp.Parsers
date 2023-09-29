@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Notional Percentage Outstanding: Indicates the notional percentage of the deal that is still outstanding based on the remaining components of the index
     /// </summary>
 
-    public unsafe struct NotionalPercentageOutstanding
+    public struct NotionalPercentageOutstanding
     {
         /// <summary>
         ///  Fix Tag for Notional Percentage Outstanding
@@ -29,13 +29,17 @@ namespace Cme.Streamlined
         public const int Size = 4;
 
         /// <summary>
+        ///  Notional Percentage Outstanding value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Notional Percentage Outstanding
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((int)pointer) / Factor; }
-        }
+        public readonly int Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Notional Percentage Outstanding
@@ -52,9 +56,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Notional Percentage Outstanding to unused
@@ -67,11 +69,11 @@ namespace Cme.Streamlined
         ///  Notional Percentage Outstanding as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

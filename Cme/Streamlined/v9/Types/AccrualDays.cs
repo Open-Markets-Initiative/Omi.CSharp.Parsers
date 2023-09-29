@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Accrual Days: How many days have passed since settlement price was last calculated
     /// </summary>
 
-    public unsafe struct AccrualDays
+    public struct AccrualDays
     {
         /// <summary>
         ///  Fix Tag for Accrual Days
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 4;
 
         /// <summary>
+        ///  Accrual Days value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Accrual Days
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Accrual Days
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out uint value)
+        public readonly bool TryRead(out uint value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Accrual Days to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Accrual Days as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

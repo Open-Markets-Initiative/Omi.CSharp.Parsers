@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Md Entry Px: Trade price
     /// </summary>
 
-    public unsafe struct MdEntryPx
+    public struct MdEntryPx
     {
         /// <summary>
         ///  Fix Tag for Md Entry Px
@@ -24,32 +24,34 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Md Entry Px value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Entry Px
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer)/Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Md Entry Px
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Md Entry Px as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

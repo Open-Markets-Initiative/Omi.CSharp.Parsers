@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  No Chunks: Total number of packets that constitutes a single instrument order book
     /// </summary>
 
-    public unsafe struct NoChunks
+    public struct NoChunks
     {
         /// <summary>
         ///  Fix Tag for No Chunks
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  No Chunks value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read No Chunks
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write No Chunks
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  No Chunks as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

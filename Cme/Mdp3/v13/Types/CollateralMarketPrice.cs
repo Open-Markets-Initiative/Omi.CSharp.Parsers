@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Collateral Market Price: Market price of the collateral, either from external market sources or a result of trading activity on the platform. Clean price
     /// </summary>
 
-    public unsafe struct CollateralMarketPrice
+    public struct CollateralMarketPrice
     {
         /// <summary>
         ///  Fix Tag for Collateral Market Price
@@ -24,32 +24,34 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Collateral Market Price value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Collateral Market Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer)/Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Write Collateral Market Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Collateral Market Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

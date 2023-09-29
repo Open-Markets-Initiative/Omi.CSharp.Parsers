@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Transact Time: Start of event processing time in number of nanoseconds since Unix epoch
     /// </summary>
 
-    public unsafe struct TransactTime
+    public struct TransactTime
     {
         /// <summary>
         ///  Fix Tag for Transact Time
@@ -19,32 +19,34 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Transact Time value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Transact Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Transact Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Transact Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

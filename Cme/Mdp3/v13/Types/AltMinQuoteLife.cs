@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Alt Min Quote Life: MQL duration in number of microseconds applied to orders at AltMinPriceIncrement
     /// </summary>
 
-    public unsafe struct AltMinQuoteLife
+    public struct AltMinQuoteLife
     {
         /// <summary>
         ///  Fix Tag for Alt Min Quote Life
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Alt Min Quote Life value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Alt Min Quote Life
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Alt Min Quote Life
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out uint value)
+        public readonly bool TryRead(out uint value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Alt Min Quote Life to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Alt Min Quote Life as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

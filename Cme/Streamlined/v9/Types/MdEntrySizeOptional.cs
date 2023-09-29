@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Md Entry Size Optional: Quantity or volume represented by the Market Data Entry
     /// </summary>
 
-    public unsafe struct MdEntrySizeOptional
+    public struct MdEntrySizeOptional
     {
         /// <summary>
         ///  Fix Tag for Md Entry Size Optional
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Md Entry Size Optional value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Md Entry Size Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Md Entry Size Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ulong value)
+        public readonly bool TryRead(out ulong value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Md Entry Size Optional to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Md Entry Size Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

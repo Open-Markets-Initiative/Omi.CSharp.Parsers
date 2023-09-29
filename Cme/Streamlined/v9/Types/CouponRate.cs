@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Coupon Rate: Coupon Rate of the Swap.
     /// </summary>
 
-    public unsafe struct CouponRate
+    public struct CouponRate
     {
         /// <summary>
         ///  Fix Tag for Coupon Rate
@@ -29,13 +29,17 @@ namespace Cme.Streamlined
         public const int Size = 4;
 
         /// <summary>
+        ///  Coupon Rate value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Coupon Rate
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((int)pointer) / Factor; }
-        }
+        public readonly int Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Coupon Rate
@@ -52,9 +56,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Coupon Rate to unused
@@ -67,11 +69,11 @@ namespace Cme.Streamlined
         ///  Coupon Rate as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

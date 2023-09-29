@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Unit Of Measure Qty Optional: This field contains the notional value for each instrument. The notional value is equivalent to the corresponding premium-quoted contract
     /// </summary>
 
-    public unsafe struct UnitOfMeasureQtyOptional
+    public struct UnitOfMeasureQtyOptional
     {
         /// <summary>
         ///  Fix Tag for Unit Of Measure Qty Optional
@@ -29,13 +29,17 @@ namespace Cme.Streamlined
         public const int Size = 8;
 
         /// <summary>
+        ///  Unit Of Measure Qty Optional value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Unit Of Measure Qty Optional
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Unit Of Measure Qty Optional
@@ -52,9 +56,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Unit Of Measure Qty Optional to unused
@@ -67,11 +69,11 @@ namespace Cme.Streamlined
         ///  Unit Of Measure Qty Optional as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

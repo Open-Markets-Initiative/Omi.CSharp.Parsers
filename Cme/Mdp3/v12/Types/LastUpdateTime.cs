@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Last Update Time: UTC Date and time of last Security Definition add, update or delete on a given Market Data channel
     /// </summary>
 
-    public unsafe struct LastUpdateTime
+    public struct LastUpdateTime
     {
         /// <summary>
         ///  Fix Tag for Last Update Time
@@ -19,32 +19,34 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Last Update Time value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Last Update Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Last Update Time
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Last Update Time as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

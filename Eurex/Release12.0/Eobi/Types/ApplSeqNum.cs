@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Appl Seq Num
     /// </summary>
 
-    public unsafe struct ApplSeqNum
+    public struct ApplSeqNum
     {
         /// <summary>
         ///  Size of Appl Seq Num in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 4;
 
         /// <summary>
+        ///  Appl Seq Num value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Appl Seq Num
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Appl Seq Num
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Appl Seq Num as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

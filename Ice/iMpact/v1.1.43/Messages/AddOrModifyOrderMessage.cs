@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Add Or Modify Order Message
+    ///  Add Or Modify Order Message: Client should add the order to book if it is not there already. Otherwise, just overwrite the existing order.
     /// </summary>
 
     public partial class AddOrModifyOrderMessage

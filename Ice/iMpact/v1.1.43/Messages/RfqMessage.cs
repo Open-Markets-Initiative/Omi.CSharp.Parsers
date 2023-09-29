@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Rfq Message
+    ///  Rfq Message: Request for Quote Message.
     /// </summary>
 
     public partial class RfqMessage

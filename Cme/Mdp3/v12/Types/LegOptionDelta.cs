@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Leg Option Delta: Delta used to calculate the quantity of futures used to cover the option or option strategy
     /// </summary>
 
-    public unsafe struct LegOptionDelta
+    public struct LegOptionDelta
     {
         /// <summary>
         ///  Fix Tag for Leg Option Delta
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 4;
 
         /// <summary>
+        ///  Leg Option Delta value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Leg Option Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((int)pointer) / Factor; }
-        }
+        public readonly int Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Leg Option Delta
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Leg Option Delta to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Leg Option Delta as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

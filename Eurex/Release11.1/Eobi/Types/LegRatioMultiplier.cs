@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Leg Ratio Multiplier
     /// </summary>
 
-    public unsafe struct LegRatioMultiplier
+    public struct LegRatioMultiplier
     {
         /// <summary>
         ///  Size of Leg Ratio Multiplier in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 4;
 
         /// <summary>
+        ///  Leg Ratio Multiplier value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
+
+        /// <summary>
         ///  Read Leg Ratio Multiplier
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (uint)pointer; }
-        }
+        public readonly uint Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Leg Ratio Multiplier
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Leg Ratio Multiplier as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

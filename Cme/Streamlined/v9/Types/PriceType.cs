@@ -6,7 +6,7 @@ namespace Cme.Streamlined
     ///  Price Type: Valid price types for intraday trade
     /// </summary>
 
-    public unsafe struct PriceType
+    public struct PriceType
     {
         /// <summary>
         ///  Fix Tag for Price Type
@@ -24,19 +24,23 @@ namespace Cme.Streamlined
         public const int Size = 2;
 
         /// <summary>
+        ///  Price Type value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Price Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Price Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Streamlined
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Price Type to unused
@@ -62,11 +64,11 @@ namespace Cme.Streamlined
         ///  Price Type as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

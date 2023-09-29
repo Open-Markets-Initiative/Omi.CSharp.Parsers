@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market Snapshot Price Level Message
+    ///  Market Snapshot Price Level Message: This message is for price level in snapshot only.
     /// </summary>
 
     public partial class MarketSnapshotPriceLevelMessage

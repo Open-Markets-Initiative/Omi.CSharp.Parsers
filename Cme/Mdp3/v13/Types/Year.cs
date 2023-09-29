@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Year: YYYY
     /// </summary>
 
-    public unsafe struct Year
+    public struct Year
     {
         /// <summary>
         ///  Sentinel null value for Year
@@ -19,19 +19,23 @@ namespace Cme.Mdp3
         public const int Size = 2;
 
         /// <summary>
+        ///  Year value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Year
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Year
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -42,9 +46,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Year to unused
@@ -57,11 +59,11 @@ namespace Cme.Mdp3
         ///  Year as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

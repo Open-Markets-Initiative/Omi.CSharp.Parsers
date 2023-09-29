@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Tot No Orders
     /// </summary>
 
-    public unsafe struct TotNoOrders
+    public struct TotNoOrders
     {
         /// <summary>
         ///  Size of Tot No Orders in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 2;
 
         /// <summary>
+        ///  Tot No Orders value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Tot No Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Tot No Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Tot No Orders as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

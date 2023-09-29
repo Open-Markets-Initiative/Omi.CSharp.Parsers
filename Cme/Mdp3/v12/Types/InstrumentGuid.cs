@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Instrument Guid: External unique instrument ID
     /// </summary>
 
-    public unsafe struct InstrumentGuid
+    public struct InstrumentGuid
     {
         /// <summary>
         ///  Fix Tag for Instrument Guid
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Instrument Guid value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
+
+        /// <summary>
         ///  Read Instrument Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ulong)pointer; }
-        }
+        public readonly ulong Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Instrument Guid
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ulong value)
+        public readonly bool TryRead(out ulong value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Instrument Guid to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Instrument Guid as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

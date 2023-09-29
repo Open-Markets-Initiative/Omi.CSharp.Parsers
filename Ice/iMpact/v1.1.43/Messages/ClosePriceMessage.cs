@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Close Price Message
+    ///  Close Price Message: Close Price Message
     /// </summary>
 
     public partial class ClosePriceMessage

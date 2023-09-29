@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  New Options Strategy Definition Message
+    ///  New Options Strategy Definition Message: New Options Strategy Definition messages will be sent out when new UDS markets for options are created.
     /// </summary>
 
     public partial class NewOptionsStrategyDefinitionMessage

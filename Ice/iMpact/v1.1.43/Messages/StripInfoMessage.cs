@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Strip Info Message
+    ///  Strip Info Message: This message will be sent out if there is strip date change during the trading session. If client does not care about strip date changes, client should ignore these messages.
     /// </summary>
 
     public partial class StripInfoMessage

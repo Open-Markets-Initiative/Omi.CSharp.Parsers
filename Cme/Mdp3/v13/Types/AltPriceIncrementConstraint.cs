@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Alt Price Increment Constraint: Minimum price offset better than the best Standard Tick order for an order to be allowed into the market
     /// </summary>
 
-    public unsafe struct AltPriceIncrementConstraint
+    public struct AltPriceIncrementConstraint
     {
         /// <summary>
         ///  Fix Tag for Alt Price Increment Constraint
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Alt Price Increment Constraint value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Alt Price Increment Constraint
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Alt Price Increment Constraint
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Alt Price Increment Constraint to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Alt Price Increment Constraint as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

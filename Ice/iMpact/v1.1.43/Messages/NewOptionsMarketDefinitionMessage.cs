@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  New Options Market Definition Message
+    ///  New Options Market Definition Message: New Options Market Definition messages will be sent out when new options markets are created.
     /// </summary>
 
     public partial class NewOptionsMarketDefinitionMessage

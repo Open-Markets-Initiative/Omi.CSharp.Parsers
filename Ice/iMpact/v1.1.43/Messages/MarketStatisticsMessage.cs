@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market Statistics Message
+    ///  Market Statistics Message: This is usually sent after a trade or cancelled trade message.
     /// </summary>
 
     public partial class MarketStatisticsMessage

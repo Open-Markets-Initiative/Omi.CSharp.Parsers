@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Market State Change Message
+    ///  Market State Change Message: Market State Change Message
     /// </summary>
 
     public partial class MarketStateChangeMessage

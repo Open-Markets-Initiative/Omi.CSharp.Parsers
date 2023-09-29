@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  End Of Day Market Summary Message
+    ///  End Of Day Market Summary Message: The message is streamed to client when market is closed and settlement price is available for the current trading day.
     /// </summary>
 
     public partial class EndOfDayMarketSummaryMessage

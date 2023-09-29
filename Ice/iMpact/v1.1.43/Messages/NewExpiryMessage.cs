@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  New Expiry Message
+    ///  New Expiry Message: New Expiry message will be sent out when a new equity market is created during the day.
     /// </summary>
 
     public partial class NewExpiryMessage

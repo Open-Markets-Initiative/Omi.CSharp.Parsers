@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Start Date: Start date of a financing deal, i.e. the date the buyer pays the seller cash and takes control of the collateral
     /// </summary>
 
-    public unsafe struct StartDate
+    public struct StartDate
     {
         /// <summary>
         ///  Fix Tag for Start Date
@@ -24,19 +24,23 @@ namespace Cme.Mdp3
         public const int Size = 2;
 
         /// <summary>
+        ///  Start Date value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Start Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Try Read Start Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out ushort value)
+        public readonly bool TryRead(out ushort value)
         {
             value = Decode();
             return value != NoValue;
@@ -47,9 +51,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Set Start Date to unused
@@ -62,11 +64,11 @@ namespace Cme.Mdp3
         ///  Start Date as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

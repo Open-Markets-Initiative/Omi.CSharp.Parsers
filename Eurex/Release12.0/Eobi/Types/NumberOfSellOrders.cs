@@ -6,7 +6,7 @@ namespace Eurex.Eobi
     ///  Number Of Sell Orders
     /// </summary>
 
-    public unsafe struct NumberOfSellOrders
+    public struct NumberOfSellOrders
     {
         /// <summary>
         ///  Size of Number Of Sell Orders in bytes
@@ -14,32 +14,34 @@ namespace Eurex.Eobi
         public const int Size = 2;
 
         /// <summary>
+        ///  Number Of Sell Orders value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
+
+        /// <summary>
         ///  Read Number Of Sell Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return (ushort)pointer; }
-        }
+        public readonly ushort Decode()
+            => Underlying;
 
         /// <summary>
         ///  Write Number Of Sell Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = value; }
-        }
+            => Underlying = value;
 
         /// <summary>
         ///  Number Of Sell Orders as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

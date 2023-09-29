@@ -6,7 +6,7 @@ namespace Cme.Mdp3
     ///  Alt Min Price Increment: New sub-tick which is only available for order entry when certain conditions are met, tick value which corresponds to the Alt Min Quote Life
     /// </summary>
 
-    public unsafe struct AltMinPriceIncrement
+    public struct AltMinPriceIncrement
     {
         /// <summary>
         ///  Fix Tag for Alt Min Price Increment
@@ -29,13 +29,17 @@ namespace Cme.Mdp3
         public const int Size = 8;
 
         /// <summary>
+        ///  Alt Min Price Increment value
+        /// </summary>
+        public readonly long Value
+            => Decode();
+
+        /// <summary>
         ///  Read Alt Min Price Increment
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return ((long)pointer) / Factor; }
-        }
+        public readonly long Decode()
+            => Underlying / Factor;
 
         /// <summary>
         ///  Try Read Alt Min Price Increment
@@ -52,9 +56,7 @@ namespace Cme.Mdp3
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = value * Factor; }
-        }
+            => Underlying = value * Factor;
 
         /// <summary>
         ///  Set Alt Min Price Increment to unused
@@ -67,11 +69,11 @@ namespace Cme.Mdp3
         ///  Alt Min Price Increment as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

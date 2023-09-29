@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 namespace Ice.iMpact
 {
     /// <summary>
-    ///  Index Prices Message
+    ///  Index Prices Message: The exchange sends out Marker/Index Prices when there is an update.
     /// </summary>
 
     public partial class IndexPricesMessage
