@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Leg Ratio Price Denominator: Leg Ratio Price Denominator
     /// </summary>
 
-    public unsafe struct LegRatioPriceDenominator
+    public struct LegRatioPriceDenominator
     {
         /// <summary>
-        ///  Length of Leg Ratio Price Denominator in bytes
+        ///  Size of Leg Ratio Price Denominator in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Leg Ratio Price Denominator value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Leg Ratio Price Denominator
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Leg Ratio Price Denominator
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Leg Ratio Price Denominator to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Leg Ratio Price Denominator as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Timestamp: Timestamp of last update used to derive the price level message. The format is nanoseconds since
     /// </summary>
 
-    public unsafe struct Timestamp
+    public struct Timestamp
     {
         /// <summary>
-        ///  Length of Timestamp in bytes
+        ///  Size of Timestamp in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Timestamp value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Timestamp to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Timestamp as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

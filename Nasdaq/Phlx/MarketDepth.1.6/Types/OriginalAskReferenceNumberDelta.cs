@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Original Ask Reference Number Delta: The original ask reference number delta associated with the order being replaced.
     /// </summary>
 
-    public unsafe struct OriginalAskReferenceNumberDelta
+    public struct OriginalAskReferenceNumberDelta
     {
         /// <summary>
-        ///  Length of Original Ask Reference Number Delta in bytes
+        ///  Size of Original Ask Reference Number Delta in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Original Ask Reference Number Delta value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Original Ask Reference Number Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Original Ask Reference Number Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Original Ask Reference Number Delta to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Original Ask Reference Number Delta as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

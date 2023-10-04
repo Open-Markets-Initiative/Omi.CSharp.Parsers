@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Low: DealPriceDenominator for the market should be applied to get the real price.
     /// </summary>
 
-    public unsafe struct Low
+    public struct Low
     {
         /// <summary>
-        ///  Length of Low in bytes
+        ///  Size of Low in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Low value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Low
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Low
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Low to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Low as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

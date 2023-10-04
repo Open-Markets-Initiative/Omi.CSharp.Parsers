@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Sequence Within Millis: Can be used in conjunction with TransactDateTime field for sequence of deals within same milliseconds time.
     /// </summary>
 
-    public unsafe struct SequenceWithinMillis
+    public struct SequenceWithinMillis
     {
         /// <summary>
-        ///  Length of Sequence Within Millis in bytes
+        ///  Size of Sequence Within Millis in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Sequence Within Millis value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Sequence Within Millis
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Sequence Within Millis
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Sequence Within Millis to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Sequence Within Millis as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

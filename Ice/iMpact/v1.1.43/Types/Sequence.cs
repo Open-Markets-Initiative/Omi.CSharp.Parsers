@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Sequence: TODO
     /// </summary>
 
-    public unsafe struct Sequence
+    public struct Sequence
     {
         /// <summary>
-        ///  Length of Sequence in bytes
+        ///  Size of Sequence in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Sequence value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Sequence to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Sequence as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

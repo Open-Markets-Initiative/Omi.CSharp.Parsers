@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Match Number: Execution Id. Identifies the component of an execution. Unique for a given day.  The match number is also referenced in the Trade Break Message.
     /// </summary>
 
-    public unsafe struct MatchNumber
+    public struct MatchNumber
     {
         /// <summary>
-        ///  Length of Match Number in bytes
+        ///  Size of Match Number in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Match Number value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Match Number
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Match Number
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Match Number to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Match Number as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

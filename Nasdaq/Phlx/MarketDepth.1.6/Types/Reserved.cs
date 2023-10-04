@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Reserved: Reserved for future use
     /// </summary>
 
-    public unsafe struct Reserved
+    public struct Reserved
     {
         /// <summary>
-        ///  Length of Reserved in bytes
+        ///  Size of Reserved in bytes
         /// </summary>
         public const int Size = 3;
+
+        /// <summary>
+        ///  Reserved value
+        /// </summary>
+        public readonly fixed byte Value
+            => Decode();
 
         /// <summary>
         ///  Read Reserved
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public fixed byte Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((fixed byte)pointer); }
-        }
+        public readonly fixed byte Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Reserved
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(fixed byte value)
-        {
-            fixed (byte* pointer = Bytes) { *(fixed byte *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Reserved to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Reserved as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal fixed byte Underlying;
     }
 }

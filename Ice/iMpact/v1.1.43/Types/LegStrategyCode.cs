@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Leg Strategy Code: Leg Strategy Code
     /// </summary>
 
-    public unsafe struct LegStrategyCode
+    public struct LegStrategyCode
     {
         /// <summary>
-        ///  Length of Leg Strategy Code in bytes
+        ///  Size of Leg Strategy Code in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Leg Strategy Code value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Leg Strategy Code
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Leg Strategy Code
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Leg Strategy Code to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Leg Strategy Code as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

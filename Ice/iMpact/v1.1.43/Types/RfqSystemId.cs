@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Rfq System Id: System ID of the RFQ
     /// </summary>
 
-    public unsafe struct RfqSystemId
+    public struct RfqSystemId
     {
         /// <summary>
-        ///  Length of Rfq System Id in bytes
+        ///  Size of Rfq System Id in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Rfq System Id value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Rfq System Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Rfq System Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Rfq System Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Rfq System Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

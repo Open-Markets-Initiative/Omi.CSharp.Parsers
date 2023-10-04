@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Strip Id: StripID
     /// </summary>
 
-    public unsafe struct StripId
+    public struct StripId
     {
         /// <summary>
-        ///  Length of Strip Id in bytes
+        ///  Size of Strip Id in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Strip Id value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Strip Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Strip Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Strip Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Strip Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

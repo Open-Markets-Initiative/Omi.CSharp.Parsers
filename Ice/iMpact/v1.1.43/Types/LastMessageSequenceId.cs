@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Last Message Sequence Id: This should be used for synchronization with live update messages. Please see the main tech spec for details on how it can be done.
     /// </summary>
 
-    public unsafe struct LastMessageSequenceId
+    public struct LastMessageSequenceId
     {
         /// <summary>
-        ///  Length of Last Message Sequence Id in bytes
+        ///  Size of Last Message Sequence Id in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Last Message Sequence Id value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Last Message Sequence Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Last Message Sequence Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Last Message Sequence Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Last Message Sequence Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

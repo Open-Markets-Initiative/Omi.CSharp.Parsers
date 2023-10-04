@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Pre Open Volume: Indicative volume that would trade at the preOpenPrice
     /// </summary>
 
-    public unsafe struct PreOpenVolume
+    public struct PreOpenVolume
     {
         /// <summary>
-        ///  Length of Pre Open Volume in bytes
+        ///  Size of Pre Open Volume in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Pre Open Volume value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Pre Open Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Pre Open Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Pre Open Volume to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Pre Open Volume as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

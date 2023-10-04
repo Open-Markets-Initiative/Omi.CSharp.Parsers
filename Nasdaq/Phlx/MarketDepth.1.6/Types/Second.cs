@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Second: Number of seconds since midnight
     /// </summary>
 
-    public unsafe struct Second
+    public struct Second
     {
         /// <summary>
-        ///  Length of Second in bytes
+        ///  Size of Second in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Second value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Second
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Second
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Second to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Second as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

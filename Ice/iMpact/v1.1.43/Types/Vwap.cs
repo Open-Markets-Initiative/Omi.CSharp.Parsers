@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Vwap: Weighted Average Price. DealPriceDenominator for the market should be applied to get the real price.
     /// </summary>
 
-    public unsafe struct Vwap
+    public struct Vwap
     {
         /// <summary>
-        ///  Length of Vwap in bytes
+        ///  Size of Vwap in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Vwap value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Vwap
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Vwap
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Vwap to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Vwap as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Auction Id: Uniquely identifies the Auction for the trading day.
     /// </summary>
 
-    public unsafe struct AuctionId
+    public struct AuctionId
     {
         /// <summary>
-        ///  Length of Auction Id in bytes
+        ///  Size of Auction Id in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Auction Id value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Auction Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Auction Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Auction Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Auction Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

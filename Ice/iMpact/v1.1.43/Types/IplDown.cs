@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Ipl Down: IPL lower bound. OrderPriceDenominator for the market should be applied to get the real price limit. >N/A when IPLHoldNotifyType = ‘E’
     /// </summary>
 
-    public unsafe struct IplDown
+    public struct IplDown
     {
         /// <summary>
-        ///  Length of Ipl Down in bytes
+        ///  Size of Ipl Down in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Ipl Down value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Ipl Down
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Ipl Down
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Ipl Down to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Ipl Down as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

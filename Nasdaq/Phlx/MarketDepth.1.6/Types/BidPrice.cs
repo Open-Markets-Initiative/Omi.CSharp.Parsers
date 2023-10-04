@@ -7,36 +7,37 @@ namespace Nasdaq.MarketDepth
     ///  Bid Price: The display bid price of the new quote.  NOTE: When converted to a decimal format, this price is in fixed point format with 6 whole number places followed by 4 decimal digits.
     /// </summary>
 
-    public unsafe struct BidPrice
+    public struct BidPrice
     {
-        /// <summary>
-        ///  Size of Bid Price in bytes
-        /// </summary>
-        public const int Size = 4;
-
-
         /// <summary>
         ///  Decimal place factor for Bid Price
         /// </summary>
         public const int Factor = 10000;
 
         /// <summary>
+        ///  Size of Bid Price in bytes
+        /// </summary>
+        public const int Size = 4;
+
+        /// <summary>
+        ///  Bid Price value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Bid Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying) / Factor;
 
         /// <summary>
         ///  Write Bid Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
         ///  Set Bid Price to unused
@@ -49,11 +50,11 @@ namespace Nasdaq.MarketDepth
         ///  Bid Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

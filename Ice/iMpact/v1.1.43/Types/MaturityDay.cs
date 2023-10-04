@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Maturity Day
     /// </summary>
 
-    public unsafe struct MaturityDay
+    public struct MaturityDay
     {
         /// <summary>
-        ///  Length of Maturity Day in bytes
+        ///  Size of Maturity Day in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Maturity Day value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Maturity Day
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Maturity Day
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Maturity Day to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Maturity Day as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

@@ -51,7 +51,7 @@ namespace Cme.Mdp3
         ///  Try Read Leg Option Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out int value)
+        public readonly bool TryRead(out int value)
         {
             if (HasValue)
             {

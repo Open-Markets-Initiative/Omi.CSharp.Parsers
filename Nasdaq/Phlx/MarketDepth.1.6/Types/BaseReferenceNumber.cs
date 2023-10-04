@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Base Reference Number: The base reference number
     /// </summary>
 
-    public unsafe struct BaseReferenceNumber
+    public struct BaseReferenceNumber
     {
         /// <summary>
-        ///  Length of Base Reference Number in bytes
+        ///  Size of Base Reference Number in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Base Reference Number value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
 
         /// <summary>
         ///  Read Base Reference Number
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ulong)pointer); }
-        }
+        public readonly ulong Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Base Reference Number
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Base Reference Number to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Base Reference Number as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }

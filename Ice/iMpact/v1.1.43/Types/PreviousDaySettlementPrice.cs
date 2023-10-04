@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Previous Day Settlement Price: SettlePriceDenominator for the market should be applied to get the real previous day settlement price.
     /// </summary>
 
-    public unsafe struct PreviousDaySettlementPrice
+    public struct PreviousDaySettlementPrice
     {
         /// <summary>
-        ///  Length of Previous Day Settlement Price in bytes
+        ///  Size of Previous Day Settlement Price in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Previous Day Settlement Price value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Previous Day Settlement Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Previous Day Settlement Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Previous Day Settlement Price to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Previous Day Settlement Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

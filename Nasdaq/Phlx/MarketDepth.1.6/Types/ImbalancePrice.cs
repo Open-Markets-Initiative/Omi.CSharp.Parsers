@@ -7,36 +7,37 @@ namespace Nasdaq.MarketDepth
     ///  Imbalance Price: The imbalance price.
     /// </summary>
 
-    public unsafe struct ImbalancePrice
+    public struct ImbalancePrice
     {
-        /// <summary>
-        ///  Size of Imbalance Price in bytes
-        /// </summary>
-        public const int Size = 4;
-
-
         /// <summary>
         ///  Decimal place factor for Imbalance Price
         /// </summary>
         public const int Factor = 10000;
 
         /// <summary>
+        ///  Size of Imbalance Price in bytes
+        /// </summary>
+        public const int Size = 4;
+
+        /// <summary>
+        ///  Imbalance Price value
+        /// </summary>
+        public readonly int Value
+            => Decode();
+
+        /// <summary>
         ///  Read Imbalance Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying) / Factor;
 
         /// <summary>
         ///  Write Imbalance Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
         ///  Set Imbalance Price to unused
@@ -49,11 +50,11 @@ namespace Nasdaq.MarketDepth
         ///  Imbalance Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

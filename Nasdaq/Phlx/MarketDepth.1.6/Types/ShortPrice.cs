@@ -7,36 +7,37 @@ namespace Nasdaq.MarketDepth
     ///  Short Price: The display price of the new order being added to the book. NOTE: When converted to a decimal format, this price is in fixed point format with 3 whole number places followed by 2 decimal digits.
     /// </summary>
 
-    public unsafe struct ShortPrice
+    public struct ShortPrice
     {
-        /// <summary>
-        ///  Size of Short Price in bytes
-        /// </summary>
-        public const int Size = 2;
-
-
         /// <summary>
         ///  Decimal place factor for Short Price
         /// </summary>
         public const short Factor = 100;
 
         /// <summary>
+        ///  Size of Short Price in bytes
+        /// </summary>
+        public const int Size = 2;
+
+        /// <summary>
+        ///  Short Price value
+        /// </summary>
+        public readonly short Value
+            => Decode();
+
+        /// <summary>
         ///  Read Short Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying) / Factor;
 
         /// <summary>
         ///  Write Short Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
         ///  Set Short Price to unused
@@ -49,11 +50,11 @@ namespace Nasdaq.MarketDepth
         ///  Short Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

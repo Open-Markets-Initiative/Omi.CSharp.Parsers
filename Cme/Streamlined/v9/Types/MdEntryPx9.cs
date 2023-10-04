@@ -51,7 +51,7 @@ namespace Cme.Streamlined
         ///  Try Read Md Entry Px 9
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out long value)
+        public readonly bool TryRead(out long value)
         {
             if (HasValue)
             {

@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Settlement Price With Deal Price Precision: DealPriceDenominator for the market should be applied to get this price.
     /// </summary>
 
-    public unsafe struct SettlementPriceWithDealPricePrecision
+    public struct SettlementPriceWithDealPricePrecision
     {
         /// <summary>
-        ///  Length of Settlement Price With Deal Price Precision in bytes
+        ///  Size of Settlement Price With Deal Price Precision in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Settlement Price With Deal Price Precision value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Settlement Price With Deal Price Precision
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Settlement Price With Deal Price Precision
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Settlement Price With Deal Price Precision to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Settlement Price With Deal Price Precision as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

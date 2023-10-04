@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Off Exchange Increment Option Price: Off exchange options increment price. NumDecimalsOptionsPrice should be applied to this field
     /// </summary>
 
-    public unsafe struct OffExchangeIncrementOptionPrice
+    public struct OffExchangeIncrementOptionPrice
     {
         /// <summary>
-        ///  Length of Off Exchange Increment Option Price in bytes
+        ///  Size of Off Exchange Increment Option Price in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Off Exchange Increment Option Price value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Off Exchange Increment Option Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Off Exchange Increment Option Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Off Exchange Increment Option Price to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Off Exchange Increment Option Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

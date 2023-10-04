@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Short Ask Size: The ask contracts of the new quote.
     /// </summary>
 
-    public unsafe struct ShortAskSize
+    public struct ShortAskSize
     {
         /// <summary>
-        ///  Length of Short Ask Size in bytes
+        ///  Size of Short Ask Size in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Short Ask Size value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
 
         /// <summary>
         ///  Read Short Ask Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
-        }
+        public readonly ushort Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Short Ask Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Short Ask Size to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Short Ask Size as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

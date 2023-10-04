@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Request Trading Engine Received Timestamp: This field can be used to get the time the trading engine received the request that triggers this message
     /// </summary>
 
-    public unsafe struct RequestTradingEngineReceivedTimestamp
+    public struct RequestTradingEngineReceivedTimestamp
     {
         /// <summary>
-        ///  Length of Request Trading Engine Received Timestamp in bytes
+        ///  Size of Request Trading Engine Received Timestamp in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Request Trading Engine Received Timestamp value
+        /// </summary>
+        public readonly long Value
+            => Decode();
 
         /// <summary>
         ///  Read Request Trading Engine Received Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((long)pointer); }
-        }
+        public readonly long Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Request Trading Engine Received Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(long value)
-        {
-            fixed (byte* pointer = Bytes) { *(long *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Request Trading Engine Received Timestamp to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Request Trading Engine Received Timestamp as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal long Underlying;
     }
 }

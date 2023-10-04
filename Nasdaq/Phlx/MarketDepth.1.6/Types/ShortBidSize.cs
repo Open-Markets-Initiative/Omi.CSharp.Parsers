@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Short Bid Size: The bid contracts of the new quote.
     /// </summary>
 
-    public unsafe struct ShortBidSize
+    public struct ShortBidSize
     {
         /// <summary>
-        ///  Length of Short Bid Size in bytes
+        ///  Size of Short Bid Size in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Short Bid Size value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
 
         /// <summary>
         ///  Read Short Bid Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
-        }
+        public readonly ushort Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Short Bid Size
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Short Bid Size to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Short Bid Size as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

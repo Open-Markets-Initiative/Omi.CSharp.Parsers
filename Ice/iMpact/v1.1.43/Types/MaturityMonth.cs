@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Maturity Month: Month range 1-12
     /// </summary>
 
-    public unsafe struct MaturityMonth
+    public struct MaturityMonth
     {
         /// <summary>
-        ///  Length of Maturity Month in bytes
+        ///  Size of Maturity Month in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Maturity Month value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Maturity Month
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Maturity Month
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Maturity Month to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Maturity Month as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

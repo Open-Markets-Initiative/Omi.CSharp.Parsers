@@ -51,7 +51,7 @@ namespace Cme.Streamlined
         ///  Try Read Notional Percentage Outstanding
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out int value)
+        public readonly bool TryRead(out int value)
         {
             if (HasValue)
             {

@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Special Field Length: Length of this field
     /// </summary>
 
-    public unsafe struct SpecialFieldLength
+    public struct SpecialFieldLength
     {
         /// <summary>
-        ///  Length of Special Field Length in bytes
+        ///  Size of Special Field Length in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Special Field Length value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
 
         /// <summary>
         ///  Read Special Field Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
-        }
+        public readonly ushort Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Special Field Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Special Field Length to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Special Field Length as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

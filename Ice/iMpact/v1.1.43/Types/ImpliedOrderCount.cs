@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Implied Order Count: Number of implied orders at the price level
     /// </summary>
 
-    public unsafe struct ImpliedOrderCount
+    public struct ImpliedOrderCount
     {
         /// <summary>
-        ///  Length of Implied Order Count in bytes
+        ///  Size of Implied Order Count in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Implied Order Count value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Implied Order Count
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Implied Order Count
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Implied Order Count to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Implied Order Count as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

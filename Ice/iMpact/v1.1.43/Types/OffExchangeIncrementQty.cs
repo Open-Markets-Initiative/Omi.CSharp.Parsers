@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Off Exchange Increment Qty: Off exchange increment qty. OffExchangeIncrementQtyDenominator should be applied to this field.
     /// </summary>
 
-    public unsafe struct OffExchangeIncrementQty
+    public struct OffExchangeIncrementQty
     {
         /// <summary>
-        ///  Length of Off Exchange Increment Qty in bytes
+        ///  Size of Off Exchange Increment Qty in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Off Exchange Increment Qty value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Off Exchange Increment Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Off Exchange Increment Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Off Exchange Increment Qty to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Off Exchange Increment Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

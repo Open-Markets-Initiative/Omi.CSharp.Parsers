@@ -51,7 +51,7 @@ namespace Cme.Mdp3
         ///  Try Read High Limit Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out long value)
+        public readonly bool TryRead(out long value)
         {
             if (HasValue)
             {

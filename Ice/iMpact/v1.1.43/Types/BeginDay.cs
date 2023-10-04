@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Begin Day
     /// </summary>
 
-    public unsafe struct BeginDay
+    public struct BeginDay
     {
         /// <summary>
-        ///  Length of Begin Day in bytes
+        ///  Size of Begin Day in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Begin Day value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Begin Day
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Begin Day
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Begin Day to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Begin Day as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

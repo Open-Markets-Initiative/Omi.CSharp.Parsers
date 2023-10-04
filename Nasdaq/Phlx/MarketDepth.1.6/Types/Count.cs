@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Count: Number of messages to follow this header
     /// </summary>
 
-    public unsafe struct Count
+    public struct Count
     {
         /// <summary>
-        ///  Length of Count in bytes
+        ///  Size of Count in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Count value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
 
         /// <summary>
         ///  Read Count
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
-        }
+        public readonly ushort Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Count
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Count to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Count as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

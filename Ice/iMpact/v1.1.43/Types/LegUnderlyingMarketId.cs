@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Leg Underlying Market Id: Futures market id of the underlying futures market
     /// </summary>
 
-    public unsafe struct LegUnderlyingMarketId
+    public struct LegUnderlyingMarketId
     {
         /// <summary>
-        ///  Length of Leg Underlying Market Id in bytes
+        ///  Size of Leg Underlying Market Id in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Leg Underlying Market Id value
+        /// </summary>
+        public readonly int Value
+            => Decode();
 
         /// <summary>
         ///  Read Leg Underlying Market Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((int)pointer); }
-        }
+        public readonly int Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Leg Underlying Market Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(int value)
-        {
-            fixed (byte* pointer = Bytes) { *(int *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Leg Underlying Market Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Leg Underlying Market Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal int Underlying;
     }
 }

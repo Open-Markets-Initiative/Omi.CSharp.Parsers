@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Leg Ratio Obsolete: Number of futures contracts per increment quantity.
     /// </summary>
 
-    public unsafe struct LegRatioObsolete
+    public struct LegRatioObsolete
     {
         /// <summary>
-        ///  Length of Leg Ratio Obsolete in bytes
+        ///  Size of Leg Ratio Obsolete in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Leg Ratio Obsolete value
+        /// </summary>
+        public readonly short Value
+            => Decode();
 
         /// <summary>
         ///  Read Leg Ratio Obsolete
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public short Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((short)pointer); }
-        }
+        public readonly short Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Leg Ratio Obsolete
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(short value)
-        {
-            fixed (byte* pointer = Bytes) { *(short *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Leg Ratio Obsolete to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Leg Ratio Obsolete as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal short Underlying;
     }
 }

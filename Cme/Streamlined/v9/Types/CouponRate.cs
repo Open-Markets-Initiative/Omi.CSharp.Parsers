@@ -51,7 +51,7 @@ namespace Cme.Streamlined
         ///  Try Read Coupon Rate
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool TryRead(out int value)
+        public readonly bool TryRead(out int value)
         {
             if (HasValue)
             {

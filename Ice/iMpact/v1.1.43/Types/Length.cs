@@ -7,40 +7,49 @@ namespace Ice.iMpact
     ///  Length: Length of message
     /// </summary>
 
-    public unsafe struct Length
+    public struct Length
     {
         /// <summary>
-        ///  Length of Length in bytes
+        ///  Size of Length in bytes
         /// </summary>
         public const int Size = 2;
+
+        /// <summary>
+        ///  Length value
+        /// </summary>
+        public readonly ushort Value
+            => Decode();
 
         /// <summary>
         ///  Read Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ushort Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ushort)pointer); }
-        }
+        public readonly ushort Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Length
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ushort value)
-        {
-            fixed (byte* pointer = Bytes) { *(ushort *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Length to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Length as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ushort Underlying;
     }
 }

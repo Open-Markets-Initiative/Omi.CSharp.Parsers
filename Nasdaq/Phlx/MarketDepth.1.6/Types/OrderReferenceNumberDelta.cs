@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Order Reference Number Delta: The unique reference number delta assigned to the new order. The order reference number is Increasing, but not necessarily sequential.
     /// </summary>
 
-    public unsafe struct OrderReferenceNumberDelta
+    public struct OrderReferenceNumberDelta
     {
         /// <summary>
-        ///  Length of Order Reference Number Delta in bytes
+        ///  Size of Order Reference Number Delta in bytes
         /// </summary>
         public const int Size = 4;
+
+        /// <summary>
+        ///  Order Reference Number Delta value
+        /// </summary>
+        public readonly uint Value
+            => Decode();
 
         /// <summary>
         ///  Read Order Reference Number Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((uint)pointer); }
-        }
+        public readonly uint Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Order Reference Number Delta
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(uint value)
-        {
-            fixed (byte* pointer = Bytes) { *(uint *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Order Reference Number Delta to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Order Reference Number Delta as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal uint Underlying;
     }
 }

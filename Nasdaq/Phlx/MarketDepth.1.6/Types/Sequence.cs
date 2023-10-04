@@ -7,40 +7,49 @@ namespace Nasdaq.MarketDepth
     ///  Sequence: Sequence number of the first message to follow this header
     /// </summary>
 
-    public unsafe struct Sequence
+    public struct Sequence
     {
         /// <summary>
-        ///  Length of Sequence in bytes
+        ///  Size of Sequence in bytes
         /// </summary>
         public const int Size = 8;
+
+        /// <summary>
+        ///  Sequence value
+        /// </summary>
+        public readonly ulong Value
+            => Decode();
 
         /// <summary>
         ///  Read Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public ulong Decode()
-        {
-            fixed (byte* pointer = Bytes) { return BinaryPrimitives.ReverseEndianness((ulong)pointer); }
-        }
+        public readonly ulong Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Sequence
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(ulong value)
-        {
-            fixed (byte* pointer = Bytes) { *(ulong *)pointer = BinaryPrimitives.ReverseEndianness(value); }
-        }
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+
+        /// <summary>
+        ///  Set Sequence to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
 
         /// <summary>
         ///  Sequence as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Decode()}";
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal unsafe fixed byte Bytes[Size];
+        internal ulong Underlying;
     }
 }
