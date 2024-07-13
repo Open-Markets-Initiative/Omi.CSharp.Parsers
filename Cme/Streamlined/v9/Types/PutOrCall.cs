@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 201;
 
         /// <summary>
+        ///  Sentinel null value for Put Or Call
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Put Or Call in bytes
         /// </summary>
         public const int Size = 1;

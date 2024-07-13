@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1148;
 
         /// <summary>
-        ///  Decimal place factor for Low Limit Price
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Low Limit Price
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Low Limit Price
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Low Limit Price in bytes

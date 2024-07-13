@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum HaltReason : byte
     {
         /// <summary>
+        ///  HaltReason Fix Tag
+        /// </summary>
+        Fix = 327,
+
+        /// <summary>
         ///  Group Schedule
         /// </summary>
         GroupSchedule = 0,

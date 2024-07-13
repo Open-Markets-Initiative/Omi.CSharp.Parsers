@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1023;
 
         /// <summary>
+        ///  Sentinel null value for Md Price Level Optional
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Md Price Level Optional in bytes
         /// </summary>
         public const int Size = 1;

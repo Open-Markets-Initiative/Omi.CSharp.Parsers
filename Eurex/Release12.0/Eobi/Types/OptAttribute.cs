@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct OptAttribute
     {
         /// <summary>
+        ///  Maximum value for Opt Attribute
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Opt Attribute
+        /// </summary>
+        public const uint Minimum = 0;
+
+        /// <summary>
         ///  Size of Opt Attribute in bytes
         /// </summary>
         public const int Size = 4;

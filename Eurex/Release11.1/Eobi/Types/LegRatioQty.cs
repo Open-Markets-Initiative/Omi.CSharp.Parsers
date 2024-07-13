@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct LegRatioQty
     {
         /// <summary>
+        ///  Maximum value for Leg Ratio Qty
+        /// </summary>
+        public const int Maximum = 2147483647;
+
+        /// <summary>
+        ///  Minimum value for Leg Ratio Qty
+        /// </summary>
+        public const int Minimum = -2147483647;
+
+        /// <summary>
         ///  Size of Leg Ratio Qty in bytes
         /// </summary>
         public const int Size = 4;

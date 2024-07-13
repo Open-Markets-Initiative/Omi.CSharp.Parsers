@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct RelatedSecurityId
     {
         /// <summary>
+        ///  Maximum value for Related Security Id
+        /// </summary>
+        public const long Maximum = 9223372036854775807;
+
+        /// <summary>
+        ///  Minimum value for Related Security Id
+        /// </summary>
+        public const long Minimum = -9223372036854775807;
+
+        /// <summary>
         ///  Size of Related Security Id in bytes
         /// </summary>
         public const int Size = 8;

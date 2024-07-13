@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1017;
 
         /// <summary>
-        ///  Decimal place factor for Leg Option Delta
-        /// </summary>
-        public const int Factor = 10000;
-
-        /// <summary>
         ///  Sentinel null value for Leg Option Delta
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Decimal place factor for Leg Option Delta
+        /// </summary>
+        public const int Factor = 10000;
 
         /// <summary>
         ///  Size of Leg Option Delta in bytes

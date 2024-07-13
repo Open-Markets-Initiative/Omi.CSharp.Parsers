@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct RestingHiddenQty
     {
         /// <summary>
+        ///  Maximum value for Resting Hidden Qty
+        /// </summary>
+        public const ulong Maximum = 922337203685477.5807;
+
+        /// <summary>
+        ///  Minimum value for Resting Hidden Qty
+        /// </summary>
+        public const ulong Minimum = -922337203685477.5807;
+
+        /// <summary>
         ///  Decimal place factor for Resting Hidden Qty
         /// </summary>
         public const ulong Factor = 10000;

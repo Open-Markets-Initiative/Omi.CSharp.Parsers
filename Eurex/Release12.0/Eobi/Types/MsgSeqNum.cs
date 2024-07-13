@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct MsgSeqNum
     {
         /// <summary>
+        ///  Maximum value for Msg Seq Num
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Msg Seq Num
+        /// </summary>
+        public const uint Minimum = 0;
+
+        /// <summary>
         ///  Size of Msg Seq Num in bytes
         /// </summary>
         public const int Size = 4;

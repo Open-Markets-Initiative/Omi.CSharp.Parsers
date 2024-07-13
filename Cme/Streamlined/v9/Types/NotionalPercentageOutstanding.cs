@@ -14,14 +14,14 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1451;
 
         /// <summary>
-        ///  Decimal place factor for Notional Percentage Outstanding
-        /// </summary>
-        public const int Factor = 10000;
-
-        /// <summary>
         ///  Sentinel null value for Notional Percentage Outstanding
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Decimal place factor for Notional Percentage Outstanding
+        /// </summary>
+        public const int Factor = 10000;
 
         /// <summary>
         ///  Size of Notional Percentage Outstanding in bytes

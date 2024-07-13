@@ -14,14 +14,14 @@ namespace Cme.Streamlined
         public const ushort FixTag = 223;
 
         /// <summary>
-        ///  Decimal place factor for Coupon Rate
-        /// </summary>
-        public const int Factor = 10000;
-
-        /// <summary>
         ///  Sentinel null value for Coupon Rate
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Decimal place factor for Coupon Rate
+        /// </summary>
+        public const int Factor = 10000;
 
         /// <summary>
         ///  Size of Coupon Rate in bytes

@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 264;
 
         /// <summary>
+        ///  Sentinel null value for Market Depth
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Market Depth in bytes
         /// </summary>
         public const int Size = 1;

@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 286;
 
         /// <summary>
+        ///  Sentinel null value for Open Close Settl Flag
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Open Close Settl Flag in bytes
         /// </summary>
         public const int Size = 1;

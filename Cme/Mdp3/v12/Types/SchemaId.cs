@@ -9,6 +9,11 @@ namespace Cme.Mdp3
     public struct SchemaId
     {
         /// <summary>
+        ///  Required value for Schema Id
+        /// </summary>
+        public const ushort StaticValue = 1;
+
+        /// <summary>
         ///  Size of Schema Id in bytes
         /// </summary>
         public const int Size = 2;

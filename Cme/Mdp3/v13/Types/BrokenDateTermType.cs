@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 6651;
 
         /// <summary>
+        ///  Sentinel null value for Broken Date Term Type
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Broken Date Term Type in bytes
         /// </summary>
         public const int Size = 1;

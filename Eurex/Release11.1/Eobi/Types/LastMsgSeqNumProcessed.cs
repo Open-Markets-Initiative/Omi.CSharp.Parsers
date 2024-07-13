@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct LastMsgSeqNumProcessed
     {
         /// <summary>
+        ///  Maximum value for Last Msg Seq Num Processed
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Last Msg Seq Num Processed
+        /// </summary>
+        public const uint Minimum = 0;
+
+        /// <summary>
         ///  Size of Last Msg Seq Num Processed in bytes
         /// </summary>
         public const int Size = 4;

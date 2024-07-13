@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 270;
 
         /// <summary>
-        ///  Decimal place factor for Md Entry Px Optional
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Md Entry Px Optional
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Md Entry Px Optional
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Md Entry Px Optional in bytes

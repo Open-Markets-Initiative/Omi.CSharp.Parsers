@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum SecurityTradingEvent : byte
     {
         /// <summary>
+        ///  SecurityTradingEvent Fix Tag
+        /// </summary>
+        Fix = 1174,
+
+        /// <summary>
         ///  No Event
         /// </summary>
         NoEvent = 0,

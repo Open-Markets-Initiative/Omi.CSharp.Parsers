@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct Month
     {
         /// <summary>
+        ///  Sentinel null value for Month
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Month in bytes
         /// </summary>
         public const int Size = 1;

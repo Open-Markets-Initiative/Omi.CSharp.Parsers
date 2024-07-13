@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum EventType : byte
     {
         /// <summary>
+        ///  EventType Fix Tag
+        /// </summary>
+        Fix = 865,
+
+        /// <summary>
         ///  Activation
         /// </summary>
         Activation = 5,

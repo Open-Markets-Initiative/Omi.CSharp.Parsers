@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37743;
 
         /// <summary>
-        ///  Decimal place factor for Max Bid Ask Constraint
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Max Bid Ask Constraint
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Max Bid Ask Constraint
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Max Bid Ask Constraint in bytes

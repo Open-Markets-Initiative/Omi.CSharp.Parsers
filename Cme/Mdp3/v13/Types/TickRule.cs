@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 6350;
 
         /// <summary>
+        ///  Sentinel null value for Tick Rule
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Tick Rule in bytes
         /// </summary>
         public const int Size = 1;

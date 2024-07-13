@@ -3,11 +3,21 @@ using System.Runtime.CompilerServices;
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Last Msg Seq Num Processed
+    ///  Last Msg Seq Num Processed: Last message sequence number that was processed, regardless of message type
     /// </summary>
 
     public struct LastMsgSeqNumProcessed
     {
+        /// <summary>
+        ///  Maximum value for Last Msg Seq Num Processed
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Last Msg Seq Num Processed
+        /// </summary>
+        public const uint Minimum = 0;
+
         /// <summary>
         ///  Size of Last Msg Seq Num Processed in bytes
         /// </summary>

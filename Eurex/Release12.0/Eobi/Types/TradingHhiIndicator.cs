@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct TradingHhiIndicator
     {
         /// <summary>
+        ///  Maximum value for Trading Hhi Indicator
+        /// </summary>
+        public const byte Maximum = 100;
+
+        /// <summary>
+        ///  Minimum value for Trading Hhi Indicator
+        /// </summary>
+        public const byte Minimum = 0;
+
+        /// <summary>
         ///  Length of Trading Hhi Indicator in bytes
         /// </summary>
         public const int Size = 1;

@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct QuantityScalingFactor
     {
         /// <summary>
+        ///  Maximum value for Quantity Scaling Factor
+        /// </summary>
+        public const ushort Maximum = 1000;
+
+        /// <summary>
+        ///  Minimum value for Quantity Scaling Factor
+        /// </summary>
+        public const ushort Minimum = 1;
+
+        /// <summary>
         ///  Size of Quantity Scaling Factor in bytes
         /// </summary>
         public const int Size = 2;

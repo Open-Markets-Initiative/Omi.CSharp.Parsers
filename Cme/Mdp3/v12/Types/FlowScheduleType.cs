@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1439;
 
         /// <summary>
+        ///  Sentinel null value for Flow Schedule Type
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Flow Schedule Type in bytes
         /// </summary>
         public const int Size = 1;

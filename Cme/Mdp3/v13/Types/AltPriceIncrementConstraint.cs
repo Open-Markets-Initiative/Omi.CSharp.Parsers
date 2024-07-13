@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37742;
 
         /// <summary>
-        ///  Decimal place factor for Alt Price Increment Constraint
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Alt Price Increment Constraint
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Alt Price Increment Constraint
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Alt Price Increment Constraint in bytes

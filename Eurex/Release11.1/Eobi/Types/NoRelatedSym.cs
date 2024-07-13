@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct NoRelatedSym
     {
         /// <summary>
+        ///  Maximum value for No Related Sym
+        /// </summary>
+        public const byte Maximum = 24;
+
+        /// <summary>
+        ///  Minimum value for No Related Sym
+        /// </summary>
+        public const byte Minimum = 0;
+
+        /// <summary>
         ///  Length of No Related Sym in bytes
         /// </summary>
         public const int Size = 1;

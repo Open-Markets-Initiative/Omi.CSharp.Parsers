@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct Version
     {
         /// <summary>
+        ///  Required value for Version
+        /// </summary>
+        public const ushort StaticValue = 9;
+
+        /// <summary>
         ///  Size of Version in bytes
         /// </summary>
         public const int Size = 2;

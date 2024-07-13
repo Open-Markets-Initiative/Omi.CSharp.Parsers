@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct Exponent
     {
         /// <summary>
+        ///  Sentinel null value for Exponent
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Exponent in bytes
         /// </summary>
         public const int Size = 1;

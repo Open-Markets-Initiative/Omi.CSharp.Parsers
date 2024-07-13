@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 624;
 
         /// <summary>
+        ///  Sentinel null value for Leg Side
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Leg Side in bytes
         /// </summary>
         public const int Size = 1;

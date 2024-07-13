@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct TrdRegTsPrevTimePriority
     {
         /// <summary>
+        ///  Maximum value for Trd Reg Ts Prev Time Priority
+        /// </summary>
+        public const ulong Maximum = 18446744073709551614;
+
+        /// <summary>
+        ///  Minimum value for Trd Reg Ts Prev Time Priority
+        /// </summary>
+        public const ulong Minimum = 0;
+
+        /// <summary>
         ///  Size of Trd Reg Ts Prev Time Priority in bytes
         /// </summary>
         public const int Size = 8;

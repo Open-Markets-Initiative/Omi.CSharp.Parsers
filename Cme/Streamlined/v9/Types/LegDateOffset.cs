@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 37503;
 
         /// <summary>
+        ///  Sentinel null value for Leg Date Offset
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Leg Date Offset in bytes
         /// </summary>
         public const int Size = 1;

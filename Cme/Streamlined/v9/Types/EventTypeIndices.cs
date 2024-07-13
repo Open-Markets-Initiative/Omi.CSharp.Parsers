@@ -6,6 +6,11 @@ namespace Cme.Streamlined
     public enum EventTypeIndices : byte
     {
         /// <summary>
+        ///  EventType EventTypeIndices Fix Tag
+        /// </summary>
+        Fix = 865,
+
+        /// <summary>
         ///  Activation
         /// </summary>
         Activation = 5,

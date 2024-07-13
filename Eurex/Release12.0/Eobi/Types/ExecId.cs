@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct ExecId
     {
         /// <summary>
+        ///  Maximum value for Exec Id
+        /// </summary>
+        public const ulong Maximum = 18446744073709551614;
+
+        /// <summary>
+        ///  Minimum value for Exec Id
+        /// </summary>
+        public const ulong Minimum = 0;
+
+        /// <summary>
         ///  Size of Exec Id in bytes
         /// </summary>
         public const int Size = 8;

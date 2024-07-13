@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 460;
 
         /// <summary>
+        ///  Sentinel null value for Product Optional
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Product Optional in bytes
         /// </summary>
         public const int Size = 1;

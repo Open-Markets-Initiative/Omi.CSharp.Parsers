@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1070;
 
         /// <summary>
+        ///  Sentinel null value for Md Quote Type
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Md Quote Type in bytes
         /// </summary>
         public const int Size = 1;

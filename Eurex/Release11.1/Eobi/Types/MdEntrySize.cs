@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct MdEntrySize
     {
         /// <summary>
+        ///  Maximum value for Md Entry Size
+        /// </summary>
+        public const ulong Maximum = 922337203685477.5807;
+
+        /// <summary>
+        ///  Minimum value for Md Entry Size
+        /// </summary>
+        public const ulong Minimum = -922337203685477.5807;
+
+        /// <summary>
         ///  Decimal place factor for Md Entry Size
         /// </summary>
         public const ulong Factor = 10000;

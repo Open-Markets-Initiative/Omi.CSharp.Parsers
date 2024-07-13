@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37723;
 
         /// <summary>
-        ///  Decimal place factor for Par Value
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Par Value
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Par Value
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Par Value in bytes

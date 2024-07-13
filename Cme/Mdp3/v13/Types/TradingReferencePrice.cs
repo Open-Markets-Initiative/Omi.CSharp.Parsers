@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1150;
 
         /// <summary>
-        ///  Decimal place factor for Trading Reference Price
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Trading Reference Price
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Trading Reference Price
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Trading Reference Price in bytes

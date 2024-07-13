@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct MarketSegmentId
     {
         /// <summary>
+        ///  Maximum value for Market Segment Id
+        /// </summary>
+        public const int Maximum = 2147483647;
+
+        /// <summary>
+        ///  Minimum value for Market Segment Id
+        /// </summary>
+        public const int Minimum = -2147483647;
+
+        /// <summary>
         ///  Size of Market Segment Id in bytes
         /// </summary>
         public const int Size = 4;

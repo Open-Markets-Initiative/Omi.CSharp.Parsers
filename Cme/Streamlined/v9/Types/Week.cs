@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct Week
     {
         /// <summary>
+        ///  Sentinel null value for Week
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Week in bytes
         /// </summary>
         public const int Size = 1;

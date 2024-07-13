@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum PutOrCall : byte
     {
         /// <summary>
+        ///  PutOrCall Fix Tag
+        /// </summary>
+        Fix = 201,
+
+        /// <summary>
         ///  Put Option
         /// </summary>
         Put = 0,

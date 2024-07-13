@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum Side : byte
     {
         /// <summary>
+        ///  Side Side Fix Tag
+        /// </summary>
+        Fix = 54,
+
+        /// <summary>
         ///  Buy
         /// </summary>
         Buy = 1,

@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct LegSymbol
     {
         /// <summary>
+        ///  Maximum value for Leg Symbol
+        /// </summary>
+        public const int Maximum = 2147483647;
+
+        /// <summary>
+        ///  Minimum value for Leg Symbol
+        /// </summary>
+        public const int Minimum = -2147483647;
+
+        /// <summary>
         ///  Size of Leg Symbol in bytes
         /// </summary>
         public const int Size = 4;

@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct PartitionId
     {
         /// <summary>
+        ///  Maximum value for Partition Id
+        /// </summary>
+        public const byte Maximum = 254;
+
+        /// <summary>
+        ///  Minimum value for Partition Id
+        /// </summary>
+        public const byte Minimum = 0;
+
+        /// <summary>
         ///  Length of Partition Id in bytes
         /// </summary>
         public const int Size = 1;

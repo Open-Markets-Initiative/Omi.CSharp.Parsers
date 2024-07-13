@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct BodyLen
     {
         /// <summary>
+        ///  Maximum value for Body Len
+        /// </summary>
+        public const ushort Maximum = 65534;
+
+        /// <summary>
+        ///  Minimum value for Body Len
+        /// </summary>
+        public const ushort Minimum = 0;
+
+        /// <summary>
         ///  Size of Body Len in bytes
         /// </summary>
         public const int Size = 2;

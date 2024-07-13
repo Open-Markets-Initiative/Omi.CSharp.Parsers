@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 9800;
 
         /// <summary>
+        ///  Sentinel null value for Price Display Format
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Price Display Format in bytes
         /// </summary>
         public const int Size = 1;

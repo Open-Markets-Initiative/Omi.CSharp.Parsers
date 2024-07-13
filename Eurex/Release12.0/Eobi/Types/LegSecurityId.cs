@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct LegSecurityId
     {
         /// <summary>
+        ///  Maximum value for Leg Security Id
+        /// </summary>
+        public const long Maximum = 9223372036854775807;
+
+        /// <summary>
+        ///  Minimum value for Leg Security Id
+        /// </summary>
+        public const long Minimum = -9223372036854775807;
+
+        /// <summary>
         ///  Size of Leg Security Id in bytes
         /// </summary>
         public const int Size = 8;

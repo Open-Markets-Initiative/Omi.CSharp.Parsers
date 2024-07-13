@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1231;
 
         /// <summary>
-        ///  Decimal place factor for Min Lot Size Decimal Qty
-        /// </summary>
-        public const int Factor = 10000;
-
-        /// <summary>
         ///  Sentinel null value for Min Lot Size Decimal Qty
         /// </summary>
         public const int NoValue = 2147483647;
+
+        /// <summary>
+        ///  Decimal place factor for Min Lot Size Decimal Qty
+        /// </summary>
+        public const int Factor = 10000;
 
         /// <summary>
         ///  Size of Min Lot Size Decimal Qty in bytes

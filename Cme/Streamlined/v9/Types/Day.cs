@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct Day
     {
         /// <summary>
+        ///  Sentinel null value for Day
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Day in bytes
         /// </summary>
         public const int Size = 1;

@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct MaturityDate
     {
         /// <summary>
+        ///  Maximum value for Maturity Date
+        /// </summary>
+        public const uint Maximum = 99991231;
+
+        /// <summary>
+        ///  Minimum value for Maturity Date
+        /// </summary>
+        public const uint Minimum = 18000101;
+
+        /// <summary>
         ///  Size of Maturity Date in bytes
         /// </summary>
         public const int Size = 4;

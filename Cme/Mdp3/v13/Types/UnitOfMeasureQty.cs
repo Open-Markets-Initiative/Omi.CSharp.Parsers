@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1147;
 
         /// <summary>
-        ///  Decimal place factor for Unit Of Measure Qty
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Unit Of Measure Qty
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Unit Of Measure Qty
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Unit Of Measure Qty in bytes

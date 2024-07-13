@@ -14,14 +14,14 @@ namespace Cme.Streamlined
         public const ushort FixTag = 1147;
 
         /// <summary>
-        ///  Decimal place factor for Unit Of Measure Qty Optional
-        /// </summary>
-        public const long Factor = 10000000;
-
-        /// <summary>
         ///  Sentinel null value for Unit Of Measure Qty Optional
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Unit Of Measure Qty Optional
+        /// </summary>
+        public const long Factor = 10000000;
 
         /// <summary>
         ///  Size of Unit Of Measure Qty Optional in bytes

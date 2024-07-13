@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct Price
     {
         /// <summary>
+        ///  Maximum value for Price
+        /// </summary>
+        public const ulong Maximum = 92233720368.54775807;
+
+        /// <summary>
+        ///  Minimum value for Price
+        /// </summary>
+        public const ulong Minimum = -92233720368.54775807;
+
+        /// <summary>
         ///  Decimal place factor for Price
         /// </summary>
         public const ulong Factor = 100000000;

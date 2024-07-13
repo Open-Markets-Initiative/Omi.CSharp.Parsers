@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct AggressorTime
     {
         /// <summary>
+        ///  Maximum value for Aggressor Time
+        /// </summary>
+        public const ulong Maximum = 18446744073709551614;
+
+        /// <summary>
+        ///  Minimum value for Aggressor Time
+        /// </summary>
+        public const ulong Minimum = 0;
+
+        /// <summary>
         ///  Size of Aggressor Time in bytes
         /// </summary>
         public const int Size = 8;

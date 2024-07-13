@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct PacketId
     {
         /// <summary>
+        ///  Required value for Packet Id
+        /// </summary>
+        public const ushort StaticValue = 13000;
+
+        /// <summary>
         ///  Size of Packet Id in bytes
         /// </summary>
         public const int Size = 2;

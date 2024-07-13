@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum OrderUpdateAction : byte
     {
         /// <summary>
+        ///  OrderUpdateAction Fix Tag
+        /// </summary>
+        Fix = 37708,
+
+        /// <summary>
         ///  New
         /// </summary>
         New = 0,

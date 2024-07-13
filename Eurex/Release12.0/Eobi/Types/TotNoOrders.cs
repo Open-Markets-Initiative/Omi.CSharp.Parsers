@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct TotNoOrders
     {
         /// <summary>
+        ///  Maximum value for Tot No Orders
+        /// </summary>
+        public const ushort Maximum = 65534;
+
+        /// <summary>
+        ///  Minimum value for Tot No Orders
+        /// </summary>
+        public const ushort Minimum = 0;
+
+        /// <summary>
         ///  Size of Tot No Orders in bytes
         /// </summary>
         public const int Size = 2;

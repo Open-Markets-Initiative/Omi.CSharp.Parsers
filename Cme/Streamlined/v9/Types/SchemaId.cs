@@ -9,6 +9,11 @@ namespace Cme.Streamlined
     public struct SchemaId
     {
         /// <summary>
+        ///  Required value for Schema Id
+        /// </summary>
+        public const ushort StaticValue = 5;
+
+        /// <summary>
         ///  Size of Schema Id in bytes
         /// </summary>
         public const int Size = 2;

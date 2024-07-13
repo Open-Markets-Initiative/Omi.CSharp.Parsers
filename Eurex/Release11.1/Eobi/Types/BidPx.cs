@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct BidPx
     {
         /// <summary>
+        ///  Maximum value for Bid Px
+        /// </summary>
+        public const ulong Maximum = 92233720368.54775807;
+
+        /// <summary>
+        ///  Minimum value for Bid Px
+        /// </summary>
+        public const ulong Minimum = -92233720368.54775807;
+
+        /// <summary>
         ///  Decimal place factor for Bid Px
         /// </summary>
         public const ulong Factor = 100000000;

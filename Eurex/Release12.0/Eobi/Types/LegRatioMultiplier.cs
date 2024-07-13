@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct LegRatioMultiplier
     {
         /// <summary>
+        ///  Maximum value for Leg Ratio Multiplier
+        /// </summary>
+        public const uint Maximum = 2147483647;
+
+        /// <summary>
+        ///  Minimum value for Leg Ratio Multiplier
+        /// </summary>
+        public const uint Minimum = 1;
+
+        /// <summary>
         ///  Size of Leg Ratio Multiplier in bytes
         /// </summary>
         public const int Size = 4;

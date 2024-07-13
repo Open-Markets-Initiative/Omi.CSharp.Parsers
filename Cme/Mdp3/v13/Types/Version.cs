@@ -9,6 +9,11 @@ namespace Cme.Mdp3
     public struct Version
     {
         /// <summary>
+        ///  Required value for Version
+        /// </summary>
+        public const ushort StaticValue = 13;
+
+        /// <summary>
         ///  Size of Version in bytes
         /// </summary>
         public const int Size = 2;

@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 462;
 
         /// <summary>
+        ///  Sentinel null value for Underlying Product Optional
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Underlying Product Optional in bytes
         /// </summary>
         public const int Size = 1;

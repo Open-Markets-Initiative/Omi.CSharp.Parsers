@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 37703;
 
         /// <summary>
+        ///  Sentinel null value for Sub Fraction
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Sub Fraction in bytes
         /// </summary>
         public const int Size = 1;

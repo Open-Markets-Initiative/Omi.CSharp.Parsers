@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct NoMdEntries
     {
         /// <summary>
+        ///  Maximum value for No Md Entries
+        /// </summary>
+        public const byte Maximum = 15;
+
+        /// <summary>
+        ///  Minimum value for No Md Entries
+        /// </summary>
+        public const byte Minimum = 0;
+
+        /// <summary>
         ///  Length of No Md Entries in bytes
         /// </summary>
         public const int Size = 1;

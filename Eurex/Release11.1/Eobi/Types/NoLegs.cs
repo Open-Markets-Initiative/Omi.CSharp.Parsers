@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct NoLegs
     {
         /// <summary>
+        ///  Maximum value for No Legs
+        /// </summary>
+        public const byte Maximum = 20;
+
+        /// <summary>
+        ///  Minimum value for No Legs
+        /// </summary>
+        public const byte Minimum = 2;
+
+        /// <summary>
         ///  Length of No Legs in bytes
         /// </summary>
         public const int Size = 1;

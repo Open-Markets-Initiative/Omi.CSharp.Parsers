@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct ApplSeqNum
     {
         /// <summary>
+        ///  Maximum value for Appl Seq Num
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Appl Seq Num
+        /// </summary>
+        public const uint Minimum = 0;
+
+        /// <summary>
         ///  Size of Appl Seq Num in bytes
         /// </summary>
         public const int Size = 4;

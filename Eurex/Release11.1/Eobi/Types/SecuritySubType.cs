@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct SecuritySubType
     {
         /// <summary>
+        ///  Maximum value for Security Sub Type
+        /// </summary>
+        public const int Maximum = 2147483647;
+
+        /// <summary>
+        ///  Minimum value for Security Sub Type
+        /// </summary>
+        public const int Minimum = -2147483647;
+
+        /// <summary>
         ///  Size of Security Sub Type in bytes
         /// </summary>
         public const int Size = 4;

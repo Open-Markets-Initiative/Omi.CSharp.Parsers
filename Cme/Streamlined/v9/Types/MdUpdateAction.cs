@@ -6,6 +6,11 @@ namespace Cme.Streamlined
     public enum MdUpdateAction : byte
     {
         /// <summary>
+        ///  MDUpdateAction MDUpdateAction Fix Tag
+        /// </summary>
+        Fix = 279,
+
+        /// <summary>
         ///  New
         /// </summary>
         New = 0,

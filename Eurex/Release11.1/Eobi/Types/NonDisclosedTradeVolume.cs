@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct NonDisclosedTradeVolume
     {
         /// <summary>
+        ///  Maximum value for Non Disclosed Trade Volume
+        /// </summary>
+        public const ulong Maximum = 922337203685477.5807;
+
+        /// <summary>
+        ///  Minimum value for Non Disclosed Trade Volume
+        /// </summary>
+        public const ulong Minimum = -922337203685477.5807;
+
+        /// <summary>
         ///  Decimal place factor for Non Disclosed Trade Volume
         /// </summary>
         public const ulong Factor = 10000;

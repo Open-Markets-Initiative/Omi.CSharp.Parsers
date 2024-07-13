@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1435;
 
         /// <summary>
+        ///  Sentinel null value for Contract Multiplier Unit
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Contract Multiplier Unit in bytes
         /// </summary>
         public const int Size = 1;

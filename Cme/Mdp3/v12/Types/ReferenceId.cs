@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 9633;
 
         /// <summary>
+        ///  Sentinel null value for Reference Id
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Reference Id in bytes
         /// </summary>
         public const int Size = 1;

@@ -14,6 +14,11 @@ namespace Cme.Streamlined
         public const ushort FixTag = 828;
 
         /// <summary>
+        ///  Sentinel null value for Trd Type
+        /// </summary>
+        public const byte NoValue = 255;
+
+        /// <summary>
         ///  Length of Trd Type in bytes
         /// </summary>
         public const int Size = 1;

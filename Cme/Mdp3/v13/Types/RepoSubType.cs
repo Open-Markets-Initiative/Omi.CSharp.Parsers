@@ -6,6 +6,11 @@ namespace Cme.Mdp3
     public enum RepoSubType : byte
     {
         /// <summary>
+        ///  SecuritySubType RepoSubType Fix Tag
+        /// </summary>
+        Fix = 762,
+
+        /// <summary>
         ///  Repo on a single underlying instrument
         /// </summary>
         Special = 0,

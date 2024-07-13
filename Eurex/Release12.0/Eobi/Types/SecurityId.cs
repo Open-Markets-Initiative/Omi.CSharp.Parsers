@@ -3,11 +3,21 @@ using System.Runtime.CompilerServices;
 namespace Eurex.Eobi
 {
     /// <summary>
-    ///  Security Id
+    ///  Security Id: Unique instrument identifier
     /// </summary>
 
     public struct SecurityId
     {
+        /// <summary>
+        ///  Maximum value for Security Id
+        /// </summary>
+        public const long Maximum = 9223372036854775807;
+
+        /// <summary>
+        ///  Minimum value for Security Id
+        /// </summary>
+        public const long Minimum = -9223372036854775807;
+
         /// <summary>
         ///  Size of Security Id in bytes
         /// </summary>

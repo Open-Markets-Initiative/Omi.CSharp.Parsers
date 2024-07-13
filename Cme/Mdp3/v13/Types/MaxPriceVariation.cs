@@ -14,14 +14,14 @@ namespace Cme.Mdp3
         public const ushort FixTag = 1143;
 
         /// <summary>
-        ///  Decimal place factor for Max Price Variation
-        /// </summary>
-        public const long Factor = 1000000000;
-
-        /// <summary>
         ///  Sentinel null value for Max Price Variation
         /// </summary>
         public const long NoValue = 9223372036854775807;
+
+        /// <summary>
+        ///  Decimal place factor for Max Price Variation
+        /// </summary>
+        public const long Factor = 1000000000;
 
         /// <summary>
         ///  Size of Max Price Variation in bytes

@@ -14,6 +14,11 @@ namespace Cme.Mdp3
         public const ushort FixTag = 54;
 
         /// <summary>
+        ///  Sentinel null value for Side Optional
+        /// </summary>
+        public const sbyte NoValue = 127;
+
+        /// <summary>
         ///  Size of Side Optional in bytes
         /// </summary>
         public const int Size = 1;

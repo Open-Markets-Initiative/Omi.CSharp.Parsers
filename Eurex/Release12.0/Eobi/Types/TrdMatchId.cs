@@ -9,6 +9,16 @@ namespace Eurex.Eobi
     public struct TrdMatchId
     {
         /// <summary>
+        ///  Maximum value for Trd Match Id
+        /// </summary>
+        public const uint Maximum = 4294967294;
+
+        /// <summary>
+        ///  Minimum value for Trd Match Id
+        /// </summary>
+        public const uint Minimum = 0;
+
+        /// <summary>
         ///  Size of Trd Match Id in bytes
         /// </summary>
         public const int Size = 4;
