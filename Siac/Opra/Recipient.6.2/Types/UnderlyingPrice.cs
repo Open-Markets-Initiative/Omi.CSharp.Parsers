@@ -35,13 +35,6 @@ namespace Siac.Recipient
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Underlying Price to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Underlying Price as string
         /// </summary>
         public readonly override string ToString()

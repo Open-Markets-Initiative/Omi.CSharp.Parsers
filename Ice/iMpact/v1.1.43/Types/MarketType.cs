@@ -35,13 +35,6 @@ namespace Ice.iMpact
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Market Type to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Market Type as string
         /// </summary>
         public readonly override string ToString()

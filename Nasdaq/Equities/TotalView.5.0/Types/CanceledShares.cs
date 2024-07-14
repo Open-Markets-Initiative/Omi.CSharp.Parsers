@@ -35,13 +35,6 @@ namespace Nasdaq.TotalView
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Canceled Shares to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Canceled Shares as string
         /// </summary>
         public readonly override string ToString()

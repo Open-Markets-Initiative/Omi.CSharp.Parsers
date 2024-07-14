@@ -35,13 +35,6 @@ namespace Ice.iMpact
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Open Interest Change to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Open Interest Change as string
         /// </summary>
         public readonly override string ToString()

@@ -35,13 +35,6 @@ namespace Ice.iMpact
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Min Options Price to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Min Options Price as string
         /// </summary>
         public readonly override string ToString()

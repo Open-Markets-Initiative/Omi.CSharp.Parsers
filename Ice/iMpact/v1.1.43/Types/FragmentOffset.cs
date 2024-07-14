@@ -35,13 +35,6 @@ namespace Ice.iMpact
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Fragment Offset to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Fragment Offset as string
         /// </summary>
         public readonly override string ToString()

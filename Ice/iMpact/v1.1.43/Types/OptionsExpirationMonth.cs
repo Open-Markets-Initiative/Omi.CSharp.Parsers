@@ -35,13 +35,6 @@ namespace Ice.iMpact
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Options Expiration Month to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Options Expiration Month as string
         /// </summary>
         public readonly override string ToString()

@@ -35,13 +35,6 @@ namespace Nasdaq.MarketDepth
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Auction Id to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Auction Id as string
         /// </summary>
         public readonly override string ToString()

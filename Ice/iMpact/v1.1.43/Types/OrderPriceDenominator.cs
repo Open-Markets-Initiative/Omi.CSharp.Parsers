@@ -1,4 +1,4 @@
-using using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
@@ -16,7 +16,7 @@ namespace Ice.iMpact
         /// <summary>
         ///  Order Price Denominator value
         /// </summary>
-        public readonly string Value
+        public readonly char Value
             => (char)Byte;
 
         /// <summary>
@@ -25,11 +25,12 @@ namespace Ice.iMpact
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(char value)
             => Byte = (byte)value;
+
         /// <summary>
         ///  Order Price Denominator as string
         /// </summary>
         public readonly override string ToString()
-            => Value;
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying byte

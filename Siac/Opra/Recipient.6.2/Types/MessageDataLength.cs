@@ -35,13 +35,6 @@ namespace Siac.Recipient
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Message Data Length to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Message Data Length as string
         /// </summary>
         public readonly override string ToString()

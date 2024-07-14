@@ -35,13 +35,6 @@ namespace Nasdaq.MarketDepth
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Short Volume to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Short Volume as string
         /// </summary>
         public readonly override string ToString()

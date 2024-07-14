@@ -1,4 +1,4 @@
-using using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient
 {
@@ -16,7 +16,7 @@ namespace Siac.Recipient
         /// <summary>
         ///  Message Data value
         /// </summary>
-        public readonly string Value
+        public readonly char Value
             => (char)Byte;
 
         /// <summary>
@@ -25,11 +25,12 @@ namespace Siac.Recipient
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(char value)
             => Byte = (byte)value;
+
         /// <summary>
         ///  Message Data as string
         /// </summary>
         public readonly override string ToString()
-            => Value;
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying byte

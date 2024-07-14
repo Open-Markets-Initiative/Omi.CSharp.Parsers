@@ -35,13 +35,6 @@ namespace Siac.Recipient
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Nanoseconds to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Nanoseconds as string
         /// </summary>
         public readonly override string ToString()

@@ -40,13 +40,6 @@ namespace Nasdaq.MarketDepth
             => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
-        ///  Set Short Ask Price to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Short Ask Price as string
         /// </summary>
         public readonly override string ToString()

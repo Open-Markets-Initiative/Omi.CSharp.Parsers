@@ -35,13 +35,6 @@ namespace Nasdaq.MarketDepth
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Ask Reference Number Delta to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Ask Reference Number Delta as string
         /// </summary>
         public readonly override string ToString()

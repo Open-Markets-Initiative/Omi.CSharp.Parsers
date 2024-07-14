@@ -35,13 +35,6 @@ namespace Nasdaq.MarketDepth
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Base Reference Number to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Base Reference Number as string
         /// </summary>
         public readonly override string ToString()

@@ -40,13 +40,6 @@ namespace Nasdaq.TotalView
             => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
-        ///  Set Level 1 to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Level 1 as string
         /// </summary>
         public readonly override string ToString()

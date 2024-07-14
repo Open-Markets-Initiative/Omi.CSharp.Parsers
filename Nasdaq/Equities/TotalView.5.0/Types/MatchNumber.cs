@@ -35,13 +35,6 @@ namespace Nasdaq.TotalView
             => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
-        ///  Set Match Number to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Match Number as string
         /// </summary>
         public readonly override string ToString()

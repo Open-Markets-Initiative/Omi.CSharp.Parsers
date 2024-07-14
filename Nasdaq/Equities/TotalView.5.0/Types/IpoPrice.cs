@@ -40,13 +40,6 @@ namespace Nasdaq.TotalView
             => Underlying = BinaryPrimitives.ReverseEndianness(value) * Factor;
 
         /// <summary>
-        ///  Set Ipo Price to unused
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Reset()
-            => Encode(NoValue);
-
-        /// <summary>
         ///  Ipo Price as string
         /// </summary>
         public readonly override string ToString()

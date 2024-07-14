@@ -1,4 +1,4 @@
-using using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
@@ -21,7 +21,7 @@ namespace Cme.Mdp3
         /// <summary>
         ///  Match Algorithm value
         /// </summary>
-        public readonly string Value
+        public readonly char Value
             => (char)Byte;
 
         /// <summary>
@@ -30,11 +30,12 @@ namespace Cme.Mdp3
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Encode(char value)
             => Byte = (byte)value;
+
         /// <summary>
         ///  Match Algorithm as string
         /// </summary>
         public readonly override string ToString()
-            => Value;
+            => $"{Value}";
 
         /// <summary>
         ///  Underlying byte
