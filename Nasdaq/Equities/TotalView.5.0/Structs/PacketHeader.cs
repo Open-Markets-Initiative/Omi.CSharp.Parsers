@@ -6,15 +6,15 @@ namespace Nasdaq.TotalView
     ///  Packet Header
     /// </summary>
 
-    public partial class PacketHeader
+    public sealed partial class PacketHeader
     {
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Session Session;
-            Sequence Sequence;
-            Count Count;
+            public Session Session;
+            public Sequence Sequence;
+            public Count Count;
         };
     };
 }
