@@ -12,8 +12,8 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdFeedType3 MdFeedType3;
-            MarketDepth MarketDepth;
+            public MdFeedType3 MdFeedType3;
+            public MarketDepth MarketDepth;
         };
     };
 }

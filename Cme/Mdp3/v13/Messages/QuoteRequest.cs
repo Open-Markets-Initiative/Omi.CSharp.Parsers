@@ -12,10 +12,10 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TransactTime TransactTime;
-            QuoteReqId QuoteReqId;
-            MatchEventIndicator MatchEventIndicator;
-            Padding3 Padding3;
+            public TransactTime TransactTime;
+            public QuoteReqId QuoteReqId;
+            public MatchEventIndicator MatchEventIndicator;
+            public Padding3 Padding3;
         };
     };
 }

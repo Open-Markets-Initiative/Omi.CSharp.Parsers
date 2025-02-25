@@ -7,7 +7,7 @@ namespace Nasdaq.TotalView
     ///  Timestamp: Nanoseconds since midnight.
     /// </summary>
 
-    public unsafe struct Timestamp
+    public struct Timestamp
     {
         /// <summary>
         ///  Size of Timestamp in bytes
@@ -17,45 +17,22 @@ namespace Nasdaq.TotalView
         /// <summary>
         ///  Timestamp value
         /// </summary>
-        public readonly ulong Value
+        public readonly fixed byte Value
             => Decode();
 
         /// <summary>
         ///  Read Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public readonly ulong Decode()
-        {
-            ulong value = 0;
-            fixed (byte* underlying = Underlying)
-
-            // Read the 6 bytes and construct the ulong
-            for (int i = 0; i < Size; i++)
-            {
-                value |= ((ulong)underlying[i]) << (8 * i);
-            }
-
-            // Reverse endianness of the 6-byte value
-            value = BinaryPrimitives.ReverseEndianness(value << 16) >> 16;
-
-            return value;
-        }
+        public readonly fixed byte Decode()
+            => BinaryPrimitives.ReverseEndianness(Underlying);
 
         /// <summary>
         ///  Write Timestamp
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(ulong value)
-        {
-            value = BinaryPrimitives.ReverseEndianness(value << 16) >> 16;
-            fixed (byte* underlying = Underlying)
-
-            // Write the 6 bytes
-            for (int i = 0; i < Size; i++)
-            {
-                underlying[i] = (byte)(value >> (8 * i));
-            }
-        }
+        public void Encode(fixed byte value)
+            => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
         /// <summary>
         ///  Timestamp as string
@@ -66,6 +43,6 @@ namespace Nasdaq.TotalView
         /// <summary>
         ///  Underlying bytes
         /// </summary>
-        internal fixed byte Underlying[Size];
+        internal fixed byte Underlying;
     }
 }

@@ -12,8 +12,8 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            EventType EventType;
-            EventTime EventTime;
+            public EventType EventType;
+            public EventTime EventTime;
         };
     };
 }

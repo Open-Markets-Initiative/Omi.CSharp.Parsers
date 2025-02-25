@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.MarketDepth
+namespace Nasdaq.MarketDepth;
+
+/// <summary>
+///  Single Side Delete Message: The message is sent when an order or a side of a quote is being cancelled. All remaining contracts are no longer accessible so the side should be removed from the book.
+/// </summary>
+
+public partial class SingleSideDeleteMessage
 {
     /// <summary>
-    ///  Single Side Delete Message: The message is sent when an order or a side of a quote is being cancelled. All remaining contracts are no longer accessible so the side should be removed from the book.
+    ///  Nanoseconds portion of the timestamp.
     /// </summary>
+    public uint Timestamp => Layout.Timestamp.Value;
 
-    public partial class SingleSideDeleteMessage
+    /// <summary>
+    ///  The order/quote reference number delta associated with the executed order.
+    /// </summary>
+    public uint ReferenceNumberDelta => Layout.ReferenceNumberDelta.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Timestamp Timestamp;
-            ReferenceNumberDelta ReferenceNumberDelta;
-        };
+        public Timestamp Timestamp;
+        public ReferenceNumberDelta ReferenceNumberDelta;
     };
-}
+};

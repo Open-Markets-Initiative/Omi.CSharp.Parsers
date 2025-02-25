@@ -12,9 +12,9 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TransactTime TransactTime;
-            MatchEventIndicator MatchEventIndicator;
-            BatchTotalMessagesOptional BatchTotalMessagesOptional;
+            public TransactTime TransactTime;
+            public MatchEventIndicator MatchEventIndicator;
+            public BatchTotalMessagesOptional BatchTotalMessagesOptional;
         };
     };
 }

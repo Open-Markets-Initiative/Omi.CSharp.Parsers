@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Heartbeat
+/// </summary>
+
+public partial class Heartbeat
 {
     /// <summary>
-    ///  Heartbeat
+    ///  Msg Header
     /// </summary>
+    public string MsgHeader => Layout.MsgHeader.Value;
 
-    public partial class Heartbeat
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MsgHeader MsgHeader;
-        };
+        public MsgHeader MsgHeader;
     };
-}
+};

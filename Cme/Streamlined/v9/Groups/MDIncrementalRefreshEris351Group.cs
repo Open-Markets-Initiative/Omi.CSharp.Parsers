@@ -12,23 +12,23 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdUpdateActionChar MdUpdateActionChar;
-            MdEntryType MdEntryType;
-            RptSeq RptSeq;
-            MdEntryPxDecimal MdEntryPxDecimal;
-            MdEntrySizeOptional MdEntrySizeOptional;
-            CalFutPx CalFutPx;
-            MdEntryPositionNo MdEntryPositionNo;
-            NumberOfOrders NumberOfOrders;
-            TradeId TradeId;
-            AggressorSide AggressorSide;
-            Symbol Symbol;
-            SecurityGroup26 SecurityGroup26;
-            SecurityType SecurityType;
-            SecurityExchange SecurityExchange;
-            ProductOptional ProductOptional;
-            MaturityDate MaturityDate;
-            ReferenceId50 ReferenceId50;
+            public MdUpdateActionChar MdUpdateActionChar;
+            public MdEntryType MdEntryType;
+            public RptSeq RptSeq;
+            public MdEntryPxDecimal MdEntryPxDecimal;
+            public MdEntrySizeOptional MdEntrySizeOptional;
+            public CalFutPx CalFutPx;
+            public MdEntryPositionNo MdEntryPositionNo;
+            public NumberOfOrders NumberOfOrders;
+            public TradeId TradeId;
+            public AggressorSide AggressorSide;
+            public Symbol Symbol;
+            public SecurityGroup26 SecurityGroup26;
+            public SecurityType SecurityType;
+            public SecurityExchange SecurityExchange;
+            public ProductOptional ProductOptional;
+            public MaturityDate MaturityDate;
+            public ReferenceId50 ReferenceId50;
         };
     };
 }

@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Security Alt Id Groups: Number of entries in AltID group. Block
+/// </summary>
+
+public partial class SecurityAltIdGroups
 {
     /// <summary>
-    ///  Security Alt Id Groups: Number of entries in AltID group. Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class SecurityAltIdGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

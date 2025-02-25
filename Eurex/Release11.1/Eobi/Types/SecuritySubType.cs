@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct SecuritySubType
     {
         /// <summary>
+        ///  Sentinel null value for Security Sub Type
+        /// </summary>
+        public const int NoValue = 0x80000000;
+
+        /// <summary>
         ///  Maximum value for Security Sub Type
         /// </summary>
         public const int Maximum = 2147483647;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Security Sub Type
         /// </summary>
         public const int Minimum = -2147483647;
+
+        /// <summary>
+        ///  Fix Tag for Security Sub Type
+        /// </summary>
+        public const ushort FixTag = 762;
 
         /// <summary>
         ///  Size of Security Sub Type in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Security Sub Type field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Security Sub Type
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly int Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Security Sub Type
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out int value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Security Sub Type
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Security Sub Type to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Security Sub Type as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

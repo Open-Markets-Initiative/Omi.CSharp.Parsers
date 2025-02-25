@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Seqmsgid
+/// </summary>
+
+public partial class Seqmsgid
 {
     /// <summary>
-    ///  Seqmsgid
+    ///  Stream Id
     /// </summary>
+    public string StreamId => Layout.StreamId.Value;
 
-    public partial class Seqmsgid
+    /// <summary>
+    ///  Sequence number, starting from 1
+    /// </summary>
+    public ulong Seq => Layout.Seq.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            StreamId StreamId;
-            Seq Seq;
-        };
+        public StreamId StreamId;
+        public Seq Seq;
     };
-}
+};

@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct TradingHhiIndicator
     {
         /// <summary>
+        ///  Sentinel null value for Trading Hhi Indicator
+        /// </summary>
+        public const byte NoValue = 0xFF;
+
+        /// <summary>
         ///  Maximum value for Trading Hhi Indicator
         /// </summary>
         public const byte Maximum = 100;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Trading Hhi Indicator
         /// </summary>
         public const byte Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Trading Hhi Indicator
+        /// </summary>
+        public const ushort FixTag = 25230;
 
         /// <summary>
         ///  Length of Trading Hhi Indicator in bytes

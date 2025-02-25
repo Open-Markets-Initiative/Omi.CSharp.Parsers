@@ -12,8 +12,8 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LotType LotType;
-            MinLotSizeDecimalQty MinLotSizeDecimalQty;
+            public LotType LotType;
+            public MinLotSizeDecimalQty MinLotSizeDecimalQty;
         };
     };
 }

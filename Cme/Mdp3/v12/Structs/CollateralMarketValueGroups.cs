@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Collateral Market Value Groups: Number of data blocks listed in the Incremental message Block
+/// </summary>
+
+public partial class CollateralMarketValueGroups
 {
     /// <summary>
-    ///  Collateral Market Value Groups: Number of data blocks listed in the Incremental message Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class CollateralMarketValueGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

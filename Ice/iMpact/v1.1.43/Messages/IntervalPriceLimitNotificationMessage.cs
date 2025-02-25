@@ -12,13 +12,13 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            IplHoldType IplHoldType;
-            NotificationDateTime NotificationDateTime;
-            IsUp IsUp;
-            IplHoldDuration IplHoldDuration;
-            IplUp IplUp;
-            IplDown IplDown;
+            public MarketId MarketId;
+            public IplHoldType IplHoldType;
+            public NotificationDateTime NotificationDateTime;
+            public IsUp IsUp;
+            public IplHoldDuration IplHoldDuration;
+            public IplUp IplUp;
+            public IplDown IplDown;
         };
     };
 }

@@ -12,12 +12,12 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            IbaCurrency IbaCurrency;
-            Price Price;
-            PriceInGram PriceInGram;
-            NumDecimalsPrice NumDecimalsPrice;
-            NumDecimalsPriceInGram NumDecimalsPriceInGram;
+            public MarketId MarketId;
+            public IbaCurrency IbaCurrency;
+            public Price Price;
+            public PriceInGram PriceInGram;
+            public NumDecimalsPrice NumDecimalsPrice;
+            public NumDecimalsPriceInGram NumDecimalsPriceInGram;
         };
     };
 }

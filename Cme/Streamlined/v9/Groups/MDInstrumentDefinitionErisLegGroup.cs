@@ -12,19 +12,19 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LegBenchmarkCurveName LegBenchmarkCurveName;
-            RateDescriptor RateDescriptor;
-            PreviousFixingDate PreviousFixingDate;
-            LegPayFrequencey LegPayFrequencey;
-            PreviousFixingRate PreviousFixingRate;
-            LegSymbol LegSymbol;
-            LegRatioQty LegRatioQty;
-            LegSide LegSide;
-            LegCurrency LegCurrency;
-            LegSecurityType LegSecurityType;
-            LegSecurityGroup LegSecurityGroup;
-            LegDateOffset LegDateOffset;
-            InterpolationFactor InterpolationFactor;
+            public LegBenchmarkCurveName LegBenchmarkCurveName;
+            public RateDescriptor RateDescriptor;
+            public PreviousFixingDate PreviousFixingDate;
+            public LegPayFrequencey LegPayFrequencey;
+            public PreviousFixingRate PreviousFixingRate;
+            public LegSymbol LegSymbol;
+            public LegRatioQty LegRatioQty;
+            public LegSide LegSide;
+            public LegCurrency LegCurrency;
+            public LegSecurityType LegSecurityType;
+            public LegSecurityGroup LegSecurityGroup;
+            public LegDateOffset LegDateOffset;
+            public InterpolationFactor InterpolationFactor;
         };
     };
 }

@@ -12,7 +12,7 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
+            public SeqMsgHeader SeqMsgHeader;
         };
     };
 }

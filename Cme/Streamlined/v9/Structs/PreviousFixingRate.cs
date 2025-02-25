@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Previous Fixing Rate: Number of legs (repeating groups)
+/// </summary>
+
+public partial class PreviousFixingRate
 {
     /// <summary>
-    ///  Previous Fixing Rate: Number of legs (repeating groups)
+    ///  mantissa
     /// </summary>
+    public long Mantissa => Layout.Mantissa.Value;
 
-    public partial class PreviousFixingRate
+    /// <summary>
+    ///  exponent
+    /// </summary>
+    public sbyte Exponent => Layout.Exponent.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Mantissa Mantissa;
-            Exponent Exponent;
-        };
+        public Mantissa Mantissa;
+        public Exponent Exponent;
     };
-}
+};

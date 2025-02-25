@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Ice.iMpact
+namespace Ice.iMpact;
+
+/// <summary>
+///  Message Header
+/// </summary>
+
+public partial class MessageHeader
 {
     /// <summary>
-    ///  Message Header
+    ///  Code identifying this message type
     /// </summary>
+    public MessageType MessageType => Layout.MessageType.Value;
 
-    public partial class MessageHeader
+    /// <summary>
+    ///  Length of message
+    /// </summary>
+    public ushort Length => Layout.Length.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MessageType MessageType;
-            Length Length;
-        };
+        public MessageType MessageType;
+        public Length Length;
     };
-}
+};

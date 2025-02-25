@@ -12,10 +12,10 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            BrokenDateGuid BrokenDateGuid;
-            BrokenDateSecurityId BrokenDateSecurityId;
-            BrokenDateStart BrokenDateStart;
-            BrokenDateEnd BrokenDateEnd;
+            public BrokenDateGuid BrokenDateGuid;
+            public BrokenDateSecurityId BrokenDateSecurityId;
+            public BrokenDateStart BrokenDateStart;
+            public BrokenDateEnd BrokenDateEnd;
         };
     };
 }

@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Msg Header
+/// </summary>
+
+public partial class MsgHeader
 {
     /// <summary>
-    ///  Msg Header
+    ///  Pillar stream message type
     /// </summary>
+    public MsgType MsgType => Layout.MsgType.Value;
 
-    public partial class MsgHeader
+    /// <summary>
+    ///  Total message length, including this header
+    /// </summary>
+    public ushort MsgLength => Layout.MsgLength.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MsgType MsgType;
-            MsgLength MsgLength;
-        };
+        public MsgType MsgType;
+        public MsgLength MsgLength;
     };
-}
+};

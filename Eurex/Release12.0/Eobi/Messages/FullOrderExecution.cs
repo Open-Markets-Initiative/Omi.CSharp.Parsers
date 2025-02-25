@@ -12,16 +12,16 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Side Side;
-            OrdType OrdType;
-            AlgorithmicTradeIndicator AlgorithmicTradeIndicator;
-            HhiIndicator HhiIndicator;
-            TrdMatchId TrdMatchId;
-            Price Price;
-            TrdRegTsTimePriority TrdRegTsTimePriority;
-            SecurityId SecurityId;
-            LastQty LastQty;
-            LastPx LastPx;
+            public Side Side;
+            public OrdType OrdType;
+            public AlgorithmicTradeIndicator AlgorithmicTradeIndicator;
+            public HhiIndicator HhiIndicator;
+            public TrdMatchId TrdMatchId;
+            public Price Price;
+            public TrdRegTsTimePriority TrdRegTsTimePriority;
+            public SecurityId SecurityId;
+            public LastQty LastQty;
+            public LastPx LastPx;
         };
     };
 }

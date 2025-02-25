@@ -12,14 +12,14 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            Price Price;
-            ShortName ShortName;
-            PublishedDateTime PublishedDateTime;
-            ValuationDate ValuationDate;
-            EndexStatus EndexStatus;
-            Reserved2Bytes Reserved2Bytes;
-            IndexPriceDenominator IndexPriceDenominator;
+            public MarketId MarketId;
+            public Price Price;
+            public ShortName ShortName;
+            public PublishedDateTime PublishedDateTime;
+            public ValuationDate ValuationDate;
+            public EndexStatus EndexStatus;
+            public Reserved2Bytes Reserved2Bytes;
+            public IndexPriceDenominator IndexPriceDenominator;
         };
     };
 }

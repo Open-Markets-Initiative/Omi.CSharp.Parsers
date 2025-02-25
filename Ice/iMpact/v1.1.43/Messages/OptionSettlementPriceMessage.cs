@@ -12,14 +12,14 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
-            MessageDateTime MessageDateTime;
-            IsOfficial IsOfficial;
-            ValuationDateTime ValuationDateTime;
-            Volatility Volatility;
-            SettlementPrice SettlementPrice;
-            Delta Delta;
+            public MarketId MarketId;
+            public SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
+            public MessageDateTime MessageDateTime;
+            public IsOfficial IsOfficial;
+            public ValuationDateTime ValuationDateTime;
+            public Volatility Volatility;
+            public SettlementPrice SettlementPrice;
+            public Delta Delta;
         };
     };
 }

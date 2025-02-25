@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Packet
+/// </summary>
+
+public partial class Packet
 {
     /// <summary>
-    ///  Packet
+    ///  Binary Packet Header
     /// </summary>
+    public string BinaryPacketHeader => Layout.BinaryPacketHeader.Value;
 
-    public partial class Packet
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            BinaryPacketHeader BinaryPacketHeader;
-        };
+        public BinaryPacketHeader BinaryPacketHeader;
     };
-}
+};

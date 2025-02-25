@@ -1,20 +1,33 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Complex Leg
+/// </summary>
+
+public partial class ComplexLeg
 {
     /// <summary>
-    ///  Complex Leg
+    ///  Identification number assigned to the security.
     /// </summary>
+    public uint LegSymbolId => Layout.LegSymbolId.Value;
 
-    public partial class ComplexLeg
+    /// <summary>
+    ///  The ratio of quantity for this individual leg.
+    /// </summary>
+    public ushort LegRatioQty => Layout.LegRatioQty.Value;
+
+    /// <summary>
+    ///  Side
+    /// </summary>
+    public LegSide LegSide => Layout.LegSide.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            LegSymbolId LegSymbolId;
-            LegRatioQty LegRatioQty;
-            LegSide LegSide;
-        };
+        public LegSymbolId LegSymbolId;
+        public LegRatioQty LegRatioQty;
+        public LegSide LegSide;
     };
-}
+};

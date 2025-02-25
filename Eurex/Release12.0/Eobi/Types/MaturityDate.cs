@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct MaturityDate
     {
         /// <summary>
+        ///  Sentinel null value for Maturity Date
+        /// </summary>
+        public const uint NoValue = 0xFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Maturity Date
         /// </summary>
         public const uint Maximum = 99991231;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Maturity Date
         /// </summary>
         public const uint Minimum = 18000101;
+
+        /// <summary>
+        ///  Fix Tag for Maturity Date
+        /// </summary>
+        public const ushort FixTag = 541;
 
         /// <summary>
         ///  Size of Maturity Date in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Maturity Date field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Maturity Date
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly uint Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Maturity Date
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out uint value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Maturity Date
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Maturity Date to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Maturity Date as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

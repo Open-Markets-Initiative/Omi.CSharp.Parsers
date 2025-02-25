@@ -12,13 +12,13 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Symbol Symbol;
-            Product Product;
-            SecurityExchange SecurityExchange;
-            Currency Currency;
-            SecurityUpdateAction SecurityUpdateAction;
-            MdFeedType MdFeedType;
-            ApplId ApplId;
+            public Symbol Symbol;
+            public Product Product;
+            public SecurityExchange SecurityExchange;
+            public Currency Currency;
+            public SecurityUpdateAction SecurityUpdateAction;
+            public MdFeedType MdFeedType;
+            public ApplId ApplId;
         };
     };
 }

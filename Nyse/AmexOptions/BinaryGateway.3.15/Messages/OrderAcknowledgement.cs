@@ -12,29 +12,29 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            SymbolId SymbolId;
-            Mpid Mpid;
-            MarketMaker MarketMaker;
-            MpSubId MpSubId;
-            ClOrdId ClOrdId;
-            OrigClOrdId OrigClOrdId;
-            OrderInstructions OrderInstructions;
-            PricePrice8 PricePrice8;
-            OrderQty OrderQty;
-            MinQty MinQty;
-            UserData UserData;
-            TransactTime TransactTime;
-            OrderId OrderId;
-            LeavesQty LeavesQty;
-            WorkingPrice WorkingPrice;
-            WorkingAwayFromDisplay WorkingAwayFromDisplay;
-            PreLiquidityIndicator PreLiquidityIndicator;
-            ReasonCode ReasonCode;
-            AckType AckType;
-            FlowIndicator FlowIndicator;
-            LegOpenClose LegOpenClose;
-            AuctionId AuctionId;
+            public SeqMsgHeader SeqMsgHeader;
+            public SymbolId SymbolId;
+            public Mpid Mpid;
+            public MarketMaker MarketMaker;
+            public MpSubId MpSubId;
+            public ClOrdId ClOrdId;
+            public OrigClOrdId OrigClOrdId;
+            public OrderInstructions OrderInstructions;
+            public PricePrice8 PricePrice8;
+            public OrderQty OrderQty;
+            public MinQty MinQty;
+            public UserData UserData;
+            public TransactTime TransactTime;
+            public OrderId OrderId;
+            public LeavesQty LeavesQty;
+            public WorkingPrice WorkingPrice;
+            public WorkingAwayFromDisplay WorkingAwayFromDisplay;
+            public PreLiquidityIndicator PreLiquidityIndicator;
+            public ReasonCode ReasonCode;
+            public AckType AckType;
+            public FlowIndicator FlowIndicator;
+            public LegOpenClose LegOpenClose;
+            public AuctionId AuctionId;
         };
     };
 }

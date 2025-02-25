@@ -12,9 +12,9 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Headline Headline;
-            OrigTime OrigTime;
-            MdFeedType MdFeedType;
+            public Headline Headline;
+            public OrigTime OrigTime;
+            public MdFeedType MdFeedType;
         };
     };
 }

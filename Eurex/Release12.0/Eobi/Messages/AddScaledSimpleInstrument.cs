@@ -12,14 +12,14 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SecurityId SecurityId;
-            TransactTime TransactTime;
-            SecurityDesc SecurityDesc;
-            SecurityType SecurityType;
-            Pad1 Pad1;
-            QuantityScalingFactor QuantityScalingFactor;
-            Pad4 Pad4;
-            RelatedInstrumentGrpComp RelatedInstrumentGrpComp;
+            public SecurityId SecurityId;
+            public TransactTime TransactTime;
+            public SecurityDesc SecurityDesc;
+            public SecurityType SecurityType;
+            public Pad1 Pad1;
+            public QuantityScalingFactor QuantityScalingFactor;
+            public Pad4 Pad4;
+            public RelatedInstrumentGrpComp RelatedInstrumentGrpComp;
         };
     };
 }

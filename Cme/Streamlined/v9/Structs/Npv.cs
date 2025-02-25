@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Npv: Number of entries in Market Data message.
+/// </summary>
+
+public partial class Npv
 {
     /// <summary>
-    ///  Npv: Number of entries in Market Data message.
+    ///  mantissa
     /// </summary>
+    public long Mantissa => Layout.Mantissa.Value;
 
-    public partial class Npv
+    /// <summary>
+    ///  exponent
+    /// </summary>
+    public sbyte Exponent => Layout.Exponent.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Mantissa Mantissa;
-            Exponent Exponent;
-        };
+        public Mantissa Mantissa;
+        public Exponent Exponent;
     };
-}
+};

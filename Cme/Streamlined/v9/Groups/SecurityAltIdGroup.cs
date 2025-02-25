@@ -12,8 +12,8 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SecurityAltId SecurityAltId;
-            SecurityAltIdSource SecurityAltIdSource;
+            public SecurityAltId SecurityAltId;
+            public SecurityAltIdSource SecurityAltIdSource;
         };
     };
 }

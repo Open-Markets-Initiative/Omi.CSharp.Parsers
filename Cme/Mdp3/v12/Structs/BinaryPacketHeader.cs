@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Binary Packet Header
+/// </summary>
+
+public partial class BinaryPacketHeader
 {
     /// <summary>
-    ///  Binary Packet Header
+    ///  Packet Sequence Number
     /// </summary>
+    public uint MessageSequenceNumber => Layout.MessageSequenceNumber.Value;
 
-    public partial class BinaryPacketHeader
+    /// <summary>
+    ///  Packet Sending Time
+    /// </summary>
+    public ulong SendingTime => Layout.SendingTime.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MessageSequenceNumber MessageSequenceNumber;
-            SendingTime SendingTime;
-        };
+        public MessageSequenceNumber MessageSequenceNumber;
+        public SendingTime SendingTime;
     };
-}
+};

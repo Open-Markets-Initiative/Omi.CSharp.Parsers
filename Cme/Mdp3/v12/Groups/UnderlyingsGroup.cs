@@ -12,8 +12,8 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            UnderlyingSecurityId UnderlyingSecurityId;
-            UnderlyingSymbol UnderlyingSymbol;
+            public UnderlyingSecurityId UnderlyingSecurityId;
+            public UnderlyingSymbol UnderlyingSymbol;
         };
     };
 }

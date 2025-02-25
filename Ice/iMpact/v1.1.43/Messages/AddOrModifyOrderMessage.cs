@@ -12,19 +12,19 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            OrderId OrderId;
-            OrderSequenceId OrderSequenceId;
-            Side Side;
-            Price Price;
-            Quantity Quantity;
-            IsImplied IsImplied;
-            IsRfq IsRfq;
-            OrderEntryDateTime OrderEntryDateTime;
-            ExtraFlags ExtraFlags;
-            SequenceWithinMillis SequenceWithinMillis;
-            ModificationTimestamp ModificationTimestamp;
-            RequestTradingEngineReceivedTimestamp RequestTradingEngineReceivedTimestamp;
+            public MarketId MarketId;
+            public OrderId OrderId;
+            public OrderSequenceId OrderSequenceId;
+            public Side Side;
+            public Price Price;
+            public Quantity Quantity;
+            public IsImplied IsImplied;
+            public IsRfq IsRfq;
+            public OrderEntryDateTime OrderEntryDateTime;
+            public ExtraFlags ExtraFlags;
+            public SequenceWithinMillis SequenceWithinMillis;
+            public ModificationTimestamp ModificationTimestamp;
+            public RequestTradingEngineReceivedTimestamp RequestTradingEngineReceivedTimestamp;
         };
     };
 }

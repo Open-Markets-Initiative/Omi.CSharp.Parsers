@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  M D Feed Types Groups: Number of feed type repeating group entries. Block
+/// </summary>
+
+public partial class MDFeedTypesGroups
 {
     /// <summary>
-    ///  M D Feed Types Groups: Number of feed type repeating group entries. Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class MDFeedTypesGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

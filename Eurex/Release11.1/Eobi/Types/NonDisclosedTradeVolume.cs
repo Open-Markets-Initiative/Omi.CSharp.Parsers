@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct NonDisclosedTradeVolume
     {
         /// <summary>
+        ///  Sentinel null value for Non Disclosed Trade Volume
+        /// </summary>
+        public const ulong NoValue = 0x8000000000000000;
+
+        /// <summary>
         ///  Maximum value for Non Disclosed Trade Volume
         /// </summary>
         public const ulong Maximum = 922337203685477.5807;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Non Disclosed Trade Volume
         /// </summary>
         public const ulong Minimum = -922337203685477.5807;
+
+        /// <summary>
+        ///  Fix Tag for Non Disclosed Trade Volume
+        /// </summary>
+        public const ushort FixTag = 28873;
 
         /// <summary>
         ///  Decimal place factor for Non Disclosed Trade Volume
@@ -35,11 +45,33 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Non Disclosed Trade Volume field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Non Disclosed Trade Volume
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ulong Decode()
             => Underlying / Factor;
+
+        /// <summary>
+        ///  Try Read Non Disclosed Trade Volume
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ulong value)
+        {
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
 
         /// <summary>
         ///  Write Non Disclosed Trade Volume
@@ -49,10 +81,17 @@ namespace Eurex.Eobi
             => Underlying = value * Factor;
 
         /// <summary>
+        ///  Set Non Disclosed Trade Volume to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Non Disclosed Trade Volume as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

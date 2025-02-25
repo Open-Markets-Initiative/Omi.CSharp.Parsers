@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Snapshot Full Refresh Tcp Groups: Number of data blocks listed in the Incremental message Block
+/// </summary>
+
+public partial class SnapshotFullRefreshTcpGroups
 {
     /// <summary>
-    ///  Snapshot Full Refresh Tcp Groups: Number of data blocks listed in the Incremental message Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class SnapshotFullRefreshTcpGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

@@ -12,16 +12,16 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LegBodyLength LegBodyLength;
-            LegMarketId LegMarketId;
-            LegUnderlyingMarketId LegUnderlyingMarketId;
-            Reserved2Bytes Reserved2Bytes;
-            LegSide LegSide;
-            LegStrategyCode LegStrategyCode;
-            LegRatioQtyNumerator LegRatioQtyNumerator;
-            LegRatioQtyDenominator LegRatioQtyDenominator;
-            LegRatioPriceNumerator LegRatioPriceNumerator;
-            LegRatioPriceDenominator LegRatioPriceDenominator;
+            public LegBodyLength LegBodyLength;
+            public LegMarketId LegMarketId;
+            public LegUnderlyingMarketId LegUnderlyingMarketId;
+            public Reserved2Bytes Reserved2Bytes;
+            public LegSide LegSide;
+            public LegStrategyCode LegStrategyCode;
+            public LegRatioQtyNumerator LegRatioQtyNumerator;
+            public LegRatioQtyDenominator LegRatioQtyDenominator;
+            public LegRatioPriceNumerator LegRatioPriceNumerator;
+            public LegRatioPriceDenominator LegRatioPriceDenominator;
         };
     };
 }

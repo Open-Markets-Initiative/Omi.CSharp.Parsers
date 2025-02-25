@@ -5,25 +5,5 @@ namespace Eurex.Eobi
     /// </summary>
     public enum PutOrCall : byte
     {
-        /// <summary>
-        ///  
-        /// </summary>
-        Put = 0,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        Call = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        PutOrCallMaximumValue = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        PutOrCallMinimumValue = 0,
-
     }
 }

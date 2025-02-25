@@ -12,8 +12,8 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdFeedType MdFeedType;
-            MarketDepth MarketDepth;
+            public MdFeedType MdFeedType;
+            public MarketDepth MarketDepth;
         };
     };
 }

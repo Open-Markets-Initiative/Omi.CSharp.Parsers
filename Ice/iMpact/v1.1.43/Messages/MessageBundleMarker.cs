@@ -12,9 +12,9 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            StartOrEnd StartOrEnd;
-            TradeTransactionId TradeTransactionId;
-            IsTransactionEnd IsTransactionEnd;
+            public StartOrEnd StartOrEnd;
+            public TradeTransactionId TradeTransactionId;
+            public IsTransactionEnd IsTransactionEnd;
         };
     };
 }

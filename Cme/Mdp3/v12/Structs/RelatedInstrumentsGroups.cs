@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Related Instruments Groups: Number of related instruments group Block
+/// </summary>
+
+public partial class RelatedInstrumentsGroups
 {
     /// <summary>
-    ///  Related Instruments Groups: Number of related instruments group Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class RelatedInstrumentsGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

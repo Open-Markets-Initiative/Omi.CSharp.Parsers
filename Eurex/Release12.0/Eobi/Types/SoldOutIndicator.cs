@@ -5,20 +5,5 @@ namespace Eurex.Eobi
     /// </summary>
     public enum SoldOutIndicator : byte
     {
-        /// <summary>
-        ///  
-        /// </summary>
-        SoldOut = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        SoldOutIndicatorMaximumValue = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        SoldOutIndicatorMinimumValue = 1,
-
     }
 }

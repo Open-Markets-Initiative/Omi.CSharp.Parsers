@@ -12,19 +12,19 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SecurityGroup12 SecurityGroup12;
-            Symbol Symbol;
-            SecurityType4 SecurityType4;
-            ProductOptional ProductOptional;
-            SecurityExchange SecurityExchange;
-            MaturityDate MaturityDate;
-            Currency Currency;
-            MinPriceIncrement MinPriceIncrement;
-            SecurityUpdateAction SecurityUpdateAction;
-            RateType RateType;
-            CouponRate CouponRate;
-            UserDefinedInstrument UserDefinedInstrument;
-            ApplId ApplId;
+            public SecurityGroup12 SecurityGroup12;
+            public Symbol Symbol;
+            public SecurityType4 SecurityType4;
+            public ProductOptional ProductOptional;
+            public SecurityExchange SecurityExchange;
+            public MaturityDate MaturityDate;
+            public Currency Currency;
+            public MinPriceIncrement MinPriceIncrement;
+            public SecurityUpdateAction SecurityUpdateAction;
+            public RateType RateType;
+            public CouponRate CouponRate;
+            public UserDefinedInstrument UserDefinedInstrument;
+            public ApplId ApplId;
         };
     };
 }

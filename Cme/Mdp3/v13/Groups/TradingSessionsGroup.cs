@@ -12,10 +12,10 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TradeDate TradeDate;
-            SettlDate SettlDate;
-            MaturityDate MaturityDate;
-            SecurityAltId SecurityAltId;
+            public TradeDate TradeDate;
+            public SettlDate SettlDate;
+            public MaturityDate MaturityDate;
+            public SecurityAltId SecurityAltId;
         };
     };
 }

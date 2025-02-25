@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.TotalView
+namespace Nasdaq.TotalView;
+
+/// <summary>
+///  Message Header
+/// </summary>
+
+public partial class MessageHeader
 {
     /// <summary>
-    ///  Message Header
+    ///  Length of data message not including this field
     /// </summary>
+    public ushort Length => Layout.Length.Value;
 
-    public partial class MessageHeader
+    /// <summary>
+    ///  Code identifying this message type
+    /// </summary>
+    public MessageType MessageType => Layout.MessageType.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Length Length;
-            MessageType MessageType;
-        };
+        public Length Length;
+        public MessageType MessageType;
     };
-}
+};

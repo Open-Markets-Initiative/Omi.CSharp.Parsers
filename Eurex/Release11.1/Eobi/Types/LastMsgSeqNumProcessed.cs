@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LastMsgSeqNumProcessed
     {
         /// <summary>
+        ///  Sentinel null value for Last Msg Seq Num Processed
+        /// </summary>
+        public const uint NoValue = 0xFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Last Msg Seq Num Processed
         /// </summary>
         public const uint Maximum = 4294967294;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Last Msg Seq Num Processed
         /// </summary>
         public const uint Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Last Msg Seq Num Processed
+        /// </summary>
+        public const ushort FixTag = 369;
 
         /// <summary>
         ///  Size of Last Msg Seq Num Processed in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Last Msg Seq Num Processed field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Last Msg Seq Num Processed
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly uint Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Last Msg Seq Num Processed
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out uint value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Last Msg Seq Num Processed
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Last Msg Seq Num Processed to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Last Msg Seq Num Processed as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

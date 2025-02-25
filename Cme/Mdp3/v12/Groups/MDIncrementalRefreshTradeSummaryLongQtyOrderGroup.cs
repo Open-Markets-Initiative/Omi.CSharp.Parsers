@@ -12,9 +12,9 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            OrderId OrderId;
-            LastQty LastQty;
-            Padding4 Padding4;
+            public OrderId OrderId;
+            public LastQty LastQty;
+            public Padding4 Padding4;
         };
     };
 }

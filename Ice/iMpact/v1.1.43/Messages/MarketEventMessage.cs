@@ -12,9 +12,9 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            EventType EventType;
-            MessageDateTime MessageDateTime;
+            public MarketId MarketId;
+            public EventType EventType;
+            public MessageDateTime MessageDateTime;
         };
     };
 }

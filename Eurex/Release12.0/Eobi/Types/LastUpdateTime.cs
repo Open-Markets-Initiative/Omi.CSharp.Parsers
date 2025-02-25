@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LastUpdateTime
     {
         /// <summary>
+        ///  Sentinel null value for Last Update Time
+        /// </summary>
+        public const ulong NoValue = 0xFFFFFFFFFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Last Update Time
         /// </summary>
         public const ulong Maximum = 18446744073709551614;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Last Update Time
         /// </summary>
         public const ulong Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Last Update Time
+        /// </summary>
+        public const ushort FixTag = 779;
 
         /// <summary>
         ///  Size of Last Update Time in bytes

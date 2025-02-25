@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.TotalView
+namespace Nasdaq.TotalView;
+
+/// <summary>
+///  Message
+/// </summary>
+
+public partial class Message
 {
     /// <summary>
-    ///  Message
+    ///  Message Header
     /// </summary>
+    public string MessageHeader => Layout.MessageHeader.Value;
 
-    public partial class Message
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MessageHeader MessageHeader;
-        };
+        public MessageHeader MessageHeader;
     };
-}
+};

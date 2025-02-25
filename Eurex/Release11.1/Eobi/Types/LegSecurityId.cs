@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LegSecurityId
     {
         /// <summary>
+        ///  Sentinel null value for Leg Security Id
+        /// </summary>
+        public const long NoValue = 0x8000000000000000;
+
+        /// <summary>
         ///  Maximum value for Leg Security Id
         /// </summary>
         public const long Maximum = 9223372036854775807;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Leg Security Id
         /// </summary>
         public const long Minimum = -9223372036854775807;
+
+        /// <summary>
+        ///  Fix Tag for Leg Security Id
+        /// </summary>
+        public const ushort FixTag = 602;
 
         /// <summary>
         ///  Size of Leg Security Id in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Leg Security Id field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Leg Security Id
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly long Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Leg Security Id
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out long value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Leg Security Id
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Leg Security Id to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Leg Security Id as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

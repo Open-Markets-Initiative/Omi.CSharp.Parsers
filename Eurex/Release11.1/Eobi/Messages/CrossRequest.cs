@@ -12,14 +12,14 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SecurityId SecurityId;
-            LastPx LastPx;
-            LastQty LastQty;
-            Side Side;
-            CrossRequestType CrossRequestType;
-            InputSource InputSource;
-            Pad5 Pad5;
-            TransactTime TransactTime;
+            public SecurityId SecurityId;
+            public LastPx LastPx;
+            public LastQty LastQty;
+            public Side Side;
+            public CrossRequestType CrossRequestType;
+            public InputSource InputSource;
+            public Pad5 Pad5;
+            public TransactTime TransactTime;
         };
     };
 }

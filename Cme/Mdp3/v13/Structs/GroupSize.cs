@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Group Size: Repeating group dimensions
+/// </summary>
+
+public partial class GroupSize
 {
     /// <summary>
-    ///  Group Size: Repeating group dimensions
+    ///  Block Length
     /// </summary>
+    public ushort BlockLength => Layout.BlockLength.Value;
 
-    public partial class GroupSize
+    /// <summary>
+    ///  Num In Group
+    /// </summary>
+    public byte NumInGroup => Layout.NumInGroup.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            BlockLength BlockLength;
-            NumInGroup NumInGroup;
-        };
+        public BlockLength BlockLength;
+        public NumInGroup NumInGroup;
     };
-}
+};

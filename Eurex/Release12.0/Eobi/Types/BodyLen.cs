@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct BodyLen
     {
         /// <summary>
+        ///  Sentinel null value for Body Len
+        /// </summary>
+        public const ushort NoValue = 0xFFFF;
+
+        /// <summary>
         ///  Maximum value for Body Len
         /// </summary>
         public const ushort Maximum = 65534;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Body Len
         /// </summary>
         public const ushort Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Body Len
+        /// </summary>
+        public const ushort FixTag = 9;
 
         /// <summary>
         ///  Size of Body Len in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Body Len field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Body Len
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ushort Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Body Len
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ushort value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Body Len
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Body Len to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Body Len as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

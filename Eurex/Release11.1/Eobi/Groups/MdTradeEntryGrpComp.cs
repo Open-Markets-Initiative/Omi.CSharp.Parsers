@@ -12,10 +12,10 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdEntryPx MdEntryPx;
-            MdEntrySize MdEntrySize;
-            MdEntryType MdEntryType;
-            Pad7 Pad7;
+            public MdEntryPx MdEntryPx;
+            public MdEntrySize MdEntrySize;
+            public MdEntryType MdEntryType;
+            public Pad7 Pad7;
         };
     };
 }

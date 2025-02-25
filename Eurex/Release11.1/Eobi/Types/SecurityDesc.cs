@@ -8,6 +8,11 @@ namespace Eurex.Eobi
     public unsafe struct SecurityDesc
     {
         /// <summary>
+        ///  Fix Tag for Security Desc
+        /// </summary>
+        public const ushort FixTag = 107;
+
+        /// <summary>
         ///  Size of Security Desc underlying field in bytes
         /// </summary>
         public const int Size = 40;

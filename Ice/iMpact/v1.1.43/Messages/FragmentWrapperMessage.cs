@@ -12,10 +12,10 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TotalLength TotalLength;
-            FragmentOffset FragmentOffset;
-            FragmentLength FragmentLength;
-            FragmentBytes FragmentBytes;
+            public TotalLength TotalLength;
+            public FragmentOffset FragmentOffset;
+            public FragmentLength FragmentLength;
+            public FragmentBytes FragmentBytes;
         };
     };
 }

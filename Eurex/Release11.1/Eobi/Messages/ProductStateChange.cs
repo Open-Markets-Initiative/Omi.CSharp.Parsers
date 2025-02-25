@@ -12,14 +12,14 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TradingSessionId TradingSessionId;
-            TradingSessionSubId TradingSessionSubId;
-            TradSesStatus TradSesStatus;
-            MarketCondition MarketCondition;
-            FastMarketIndicator FastMarketIndicator;
-            TesTradSesStatus TesTradSesStatus;
-            Pad2 Pad2;
-            TransactTime TransactTime;
+            public TradingSessionId TradingSessionId;
+            public TradingSessionSubId TradingSessionSubId;
+            public TradSesStatus TradSesStatus;
+            public MarketCondition MarketCondition;
+            public FastMarketIndicator FastMarketIndicator;
+            public TesTradSesStatus TesTradSesStatus;
+            public Pad2 Pad2;
+            public TransactTime TransactTime;
         };
     };
 }

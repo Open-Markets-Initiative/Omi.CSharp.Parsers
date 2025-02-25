@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct NoRelatedSym
     {
         /// <summary>
+        ///  Sentinel null value for No Related Sym
+        /// </summary>
+        public const byte NoValue = 0xFF;
+
+        /// <summary>
         ///  Maximum value for No Related Sym
         /// </summary>
         public const byte Maximum = 24;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for No Related Sym
         /// </summary>
         public const byte Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for No Related Sym
+        /// </summary>
+        public const ushort FixTag = 146;
 
         /// <summary>
         ///  Length of No Related Sym in bytes

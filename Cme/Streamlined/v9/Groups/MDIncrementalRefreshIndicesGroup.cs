@@ -12,21 +12,21 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdEntryTypeIndices MdEntryTypeIndices;
-            RptSeq RptSeq;
-            MdEntryPxDecimal MdEntryPxDecimal;
-            MdEntrySizeOptional MdEntrySizeOptional;
-            Symbol Symbol;
-            OpenCloseSettlFlag OpenCloseSettlFlag;
-            YieldType YieldType;
-            Yield Yield;
-            NetChgPrevDay NetChgPrevDay;
-            NetPctChg NetPctChg;
-            PercentTrading PercentTrading;
-            MdEntryCode MdEntryCode;
-            MdEntryDate MdEntryDate;
-            MdEntryTime MdEntryTime;
-            ReferenceId50 ReferenceId50;
+            public MdEntryTypeIndices MdEntryTypeIndices;
+            public RptSeq RptSeq;
+            public MdEntryPxDecimal MdEntryPxDecimal;
+            public MdEntrySizeOptional MdEntrySizeOptional;
+            public Symbol Symbol;
+            public OpenCloseSettlFlag OpenCloseSettlFlag;
+            public YieldType YieldType;
+            public Yield Yield;
+            public NetChgPrevDay NetChgPrevDay;
+            public NetPctChg NetPctChg;
+            public PercentTrading PercentTrading;
+            public MdEntryCode MdEntryCode;
+            public MdEntryDate MdEntryDate;
+            public MdEntryTime MdEntryTime;
+            public ReferenceId50 ReferenceId50;
         };
     };
 }

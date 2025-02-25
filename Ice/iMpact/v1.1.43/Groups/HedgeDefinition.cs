@@ -12,15 +12,15 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            HedgeBodyLength HedgeBodyLength;
-            HedgeMarketId HedgeMarketId;
-            HedgeSecurityType HedgeSecurityType;
-            HedgeSide HedgeSide;
-            HedgePrice HedgePrice;
-            HedgePriceDenominator HedgePriceDenominator;
-            HedgeDeltaObsolete HedgeDeltaObsolete;
-            HedgeStrategyCode HedgeStrategyCode;
-            HedgeDelta HedgeDelta;
+            public HedgeBodyLength HedgeBodyLength;
+            public HedgeMarketId HedgeMarketId;
+            public HedgeSecurityType HedgeSecurityType;
+            public HedgeSide HedgeSide;
+            public HedgePrice HedgePrice;
+            public HedgePriceDenominator HedgePriceDenominator;
+            public HedgeDeltaObsolete HedgeDeltaObsolete;
+            public HedgeStrategyCode HedgeStrategyCode;
+            public HedgeDelta HedgeDelta;
         };
     };
 }

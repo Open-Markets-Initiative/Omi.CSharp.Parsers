@@ -12,11 +12,11 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            HighLimitPrice HighLimitPrice;
-            LowLimitPrice LowLimitPrice;
-            MaxPriceVariation MaxPriceVariation;
-            SecurityId SecurityId;
-            RptSeq RptSeq;
+            public HighLimitPrice HighLimitPrice;
+            public LowLimitPrice LowLimitPrice;
+            public MaxPriceVariation MaxPriceVariation;
+            public SecurityId SecurityId;
+            public RptSeq RptSeq;
         };
     };
 }

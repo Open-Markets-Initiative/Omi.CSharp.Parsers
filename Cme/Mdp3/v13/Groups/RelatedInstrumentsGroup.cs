@@ -12,8 +12,8 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            RelatedSecurityId RelatedSecurityId;
-            RelatedSymbol RelatedSymbol;
+            public RelatedSecurityId RelatedSecurityId;
+            public RelatedSymbol RelatedSymbol;
         };
     };
 }

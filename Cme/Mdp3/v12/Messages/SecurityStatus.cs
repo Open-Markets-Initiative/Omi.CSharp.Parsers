@@ -12,15 +12,15 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TransactTime TransactTime;
-            SecurityGroup SecurityGroup;
-            Asset Asset;
-            SecurityIdOptional SecurityIdOptional;
-            TradeDate TradeDate;
-            MatchEventIndicator MatchEventIndicator;
-            SecurityTradingStatus SecurityTradingStatus;
-            HaltReason HaltReason;
-            SecurityTradingEvent SecurityTradingEvent;
+            public TransactTime TransactTime;
+            public SecurityGroup SecurityGroup;
+            public Asset Asset;
+            public SecurityIdOptional SecurityIdOptional;
+            public TradeDate TradeDate;
+            public MatchEventIndicator MatchEventIndicator;
+            public SecurityTradingStatus SecurityTradingStatus;
+            public HaltReason HaltReason;
+            public SecurityTradingEvent SecurityTradingEvent;
         };
     };
 }

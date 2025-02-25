@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct ImbalanceQty
     {
         /// <summary>
+        ///  Sentinel null value for Imbalance Qty
+        /// </summary>
+        public const ulong NoValue = 0x8000000000000000;
+
+        /// <summary>
         ///  Maximum value for Imbalance Qty
         /// </summary>
         public const ulong Maximum = 922337203685477.5807;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Imbalance Qty
         /// </summary>
         public const ulong Minimum = -922337203685477.5807;
+
+        /// <summary>
+        ///  Fix Tag for Imbalance Qty
+        /// </summary>
+        public const ushort FixTag = 28893;
 
         /// <summary>
         ///  Decimal place factor for Imbalance Qty
@@ -35,11 +45,33 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Imbalance Qty field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Imbalance Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ulong Decode()
             => Underlying / Factor;
+
+        /// <summary>
+        ///  Try Read Imbalance Qty
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ulong value)
+        {
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
 
         /// <summary>
         ///  Write Imbalance Qty
@@ -49,10 +81,17 @@ namespace Eurex.Eobi
             => Underlying = value * Factor;
 
         /// <summary>
+        ///  Set Imbalance Qty to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Imbalance Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

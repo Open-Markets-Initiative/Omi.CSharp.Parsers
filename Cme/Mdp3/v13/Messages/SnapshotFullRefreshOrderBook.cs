@@ -12,12 +12,12 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
-            TotNumReports TotNumReports;
-            SecurityId SecurityId;
-            NoChunks NoChunks;
-            CurrentChunk CurrentChunk;
-            TransactTime TransactTime;
+            public LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
+            public TotNumReports TotNumReports;
+            public SecurityId SecurityId;
+            public NoChunks NoChunks;
+            public CurrentChunk CurrentChunk;
+            public TransactTime TransactTime;
         };
     };
 }

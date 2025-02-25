@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct NoLegs
     {
         /// <summary>
+        ///  Sentinel null value for No Legs
+        /// </summary>
+        public const byte NoValue = 0xFF;
+
+        /// <summary>
         ///  Maximum value for No Legs
         /// </summary>
         public const byte Maximum = 20;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for No Legs
         /// </summary>
         public const byte Minimum = 2;
+
+        /// <summary>
+        ///  Fix Tag for No Legs
+        /// </summary>
+        public const ushort FixTag = 555;
 
         /// <summary>
         ///  Length of No Legs in bytes

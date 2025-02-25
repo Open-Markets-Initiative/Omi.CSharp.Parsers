@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Coupon Rate Optional: Number of entries in Market Data message.
+/// </summary>
+
+public partial class CouponRateOptional
 {
     /// <summary>
-    ///  Coupon Rate Optional: Number of entries in Market Data message.
+    ///  mantissa
     /// </summary>
+    public int Mantissa32 => Layout.Mantissa32.Value;
 
-    public partial class CouponRateOptional
+    /// <summary>
+    ///  exponent
+    /// </summary>
+    public sbyte Exponent => Layout.Exponent.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Mantissa32 Mantissa32;
-            Exponent Exponent;
-        };
+        public Mantissa32 Mantissa32;
+        public Exponent Exponent;
     };
-}
+};

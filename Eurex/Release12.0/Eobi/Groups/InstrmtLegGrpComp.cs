@@ -12,14 +12,14 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LegSymbol LegSymbol;
-            Pad4 Pad4;
-            LegSecurityId LegSecurityId;
-            LegPrice LegPrice;
-            LegRatioQty LegRatioQty;
-            LegSecurityType LegSecurityType;
-            LegSide LegSide;
-            Pad2 Pad2;
+            public LegSymbol LegSymbol;
+            public Pad4 Pad4;
+            public LegSecurityId LegSecurityId;
+            public LegPrice LegPrice;
+            public LegRatioQty LegRatioQty;
+            public LegSecurityType LegSecurityType;
+            public LegSide LegSide;
+            public Pad2 Pad2;
         };
     };
 }

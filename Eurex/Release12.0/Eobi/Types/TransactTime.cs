@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct TransactTime
     {
         /// <summary>
+        ///  Sentinel null value for Transact Time
+        /// </summary>
+        public const ulong NoValue = 0xFFFFFFFFFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Transact Time
         /// </summary>
         public const ulong Maximum = 18446744073709551614;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Transact Time
         /// </summary>
         public const ulong Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Transact Time
+        /// </summary>
+        public const ushort FixTag = 60;
 
         /// <summary>
         ///  Size of Transact Time in bytes

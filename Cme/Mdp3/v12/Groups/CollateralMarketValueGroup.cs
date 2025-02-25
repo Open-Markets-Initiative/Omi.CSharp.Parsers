@@ -12,13 +12,13 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            UnderlyingSecurityAltId UnderlyingSecurityAltId;
-            UnderlyingSecurityAltIdSource UnderlyingSecurityAltIdSource;
-            CollateralMarketPrice CollateralMarketPrice;
-            DirtyPrice DirtyPrice;
-            UnderlyingInstrumentGuid UnderlyingInstrumentGuid;
-            MdStreamId MdStreamId;
-            Padding2 Padding2;
+            public UnderlyingSecurityAltId UnderlyingSecurityAltId;
+            public UnderlyingSecurityAltIdSource UnderlyingSecurityAltIdSource;
+            public CollateralMarketPrice CollateralMarketPrice;
+            public DirtyPrice DirtyPrice;
+            public UnderlyingInstrumentGuid UnderlyingInstrumentGuid;
+            public MdStreamId MdStreamId;
+            public Padding2 Padding2;
         };
     };
 }

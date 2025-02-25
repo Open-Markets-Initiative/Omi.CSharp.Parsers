@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Message
+/// </summary>
+
+public partial class Message
 {
     /// <summary>
-    ///  Message
+    ///  Message Size
     /// </summary>
+    public ushort MessageSize => Layout.MessageSize.Value;
 
-    public partial class Message
+    /// <summary>
+    ///  Template ID and length of message root
+    /// </summary>
+    public string MessageHeader => Layout.MessageHeader.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MessageSize MessageSize;
-            MessageHeader MessageHeader;
-        };
+        public MessageSize MessageSize;
+        public MessageHeader MessageHeader;
     };
-}
+};

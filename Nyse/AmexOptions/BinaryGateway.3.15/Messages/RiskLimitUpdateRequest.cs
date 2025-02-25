@@ -12,25 +12,25 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            SymbolId SymbolId;
-            Mpid Mpid;
-            MarketMaker MarketMaker;
-            MpSubId MpSubId;
-            FloorBrokerFirmCrd FloorBrokerFirmCrd;
-            ClearingNumber ClearingNumber;
-            ClOrdId ClOrdId;
-            RiskUserCrd RiskUserCrd;
-            RiskUserType RiskUserType;
-            RiskControlType RiskControlType;
-            RiskControlActivation RiskControlActivation;
-            UsdLimit UsdLimit;
-            TimeLimit TimeLimit;
-            PercentageLimit PercentageLimit;
-            CountLimit CountLimit;
-            BreachActionRequest BreachActionRequest;
-            IocAttribution IocAttribution;
-            Reserved200 Reserved200;
+            public SeqMsgHeader SeqMsgHeader;
+            public SymbolId SymbolId;
+            public Mpid Mpid;
+            public MarketMaker MarketMaker;
+            public MpSubId MpSubId;
+            public FloorBrokerFirmCrd FloorBrokerFirmCrd;
+            public ClearingNumber ClearingNumber;
+            public ClOrdId ClOrdId;
+            public RiskUserCrd RiskUserCrd;
+            public RiskUserType RiskUserType;
+            public RiskControlType RiskControlType;
+            public RiskControlActivation RiskControlActivation;
+            public UsdLimit UsdLimit;
+            public TimeLimit TimeLimit;
+            public PercentageLimit PercentageLimit;
+            public CountLimit CountLimit;
+            public BreachActionRequest BreachActionRequest;
+            public IocAttribution IocAttribution;
+            public Reserved200 Reserved200;
         };
     };
 }

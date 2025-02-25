@@ -12,8 +12,8 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
-            Pad4 Pad4;
+            public LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
+            public Pad4 Pad4;
         };
     };
 }

@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  M D Instrument Definition Spread Leg Groups: Number of Leg entries Block
+/// </summary>
+
+public partial class MDInstrumentDefinitionSpreadLegGroups
 {
     /// <summary>
-    ///  M D Instrument Definition Spread Leg Groups: Number of Leg entries Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class MDInstrumentDefinitionSpreadLegGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

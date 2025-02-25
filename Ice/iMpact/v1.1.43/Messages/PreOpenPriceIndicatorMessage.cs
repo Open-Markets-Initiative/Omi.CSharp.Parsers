@@ -12,11 +12,11 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            PreOpenPrice PreOpenPrice;
-            MessageDateTime MessageDateTime;
-            HasPreOpenVolume HasPreOpenVolume;
-            PreOpenVolume PreOpenVolume;
+            public MarketId MarketId;
+            public PreOpenPrice PreOpenPrice;
+            public MessageDateTime MessageDateTime;
+            public HasPreOpenVolume HasPreOpenVolume;
+            public PreOpenVolume PreOpenVolume;
         };
     };
 }

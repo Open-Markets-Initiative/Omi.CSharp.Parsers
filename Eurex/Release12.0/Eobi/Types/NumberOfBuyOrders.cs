@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct NumberOfBuyOrders
     {
         /// <summary>
+        ///  Sentinel null value for Number Of Buy Orders
+        /// </summary>
+        public const ushort NoValue = 0xFFFF;
+
+        /// <summary>
         ///  Maximum value for Number Of Buy Orders
         /// </summary>
         public const ushort Maximum = 65534;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Number Of Buy Orders
         /// </summary>
         public const ushort Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Number Of Buy Orders
+        /// </summary>
+        public const ushort FixTag = 2449;
 
         /// <summary>
         ///  Size of Number Of Buy Orders in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Number Of Buy Orders field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Number Of Buy Orders
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ushort Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Number Of Buy Orders
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ushort value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Number Of Buy Orders
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Number Of Buy Orders to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Number Of Buy Orders as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

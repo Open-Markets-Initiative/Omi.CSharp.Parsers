@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Close
+/// </summary>
+
+public partial class Close
 {
     /// <summary>
-    ///  Close
+    ///  Msg Header
     /// </summary>
+    public string MsgHeader => Layout.MsgHeader.Value;
 
-    public partial class Close
+    /// <summary>
+    ///  Stream Id
+    /// </summary>
+    public string StreamId => Layout.StreamId.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MsgHeader MsgHeader;
-            StreamId StreamId;
-        };
+        public MsgHeader MsgHeader;
+        public StreamId StreamId;
     };
-}
+};

@@ -12,31 +12,31 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            MarketType MarketType;
-            TradingStatus TradingStatus;
-            Volume Volume;
-            BlockVolume BlockVolume;
-            EfsVolume EfsVolume;
-            EfpVolume EfpVolume;
-            OpenInterest OpenInterest;
-            OpeningPrice OpeningPrice;
-            SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
-            High High;
-            Low Low;
-            Vwap Vwap;
-            NumOfBookEntries NumOfBookEntries;
-            LastTradePrice LastTradePrice;
-            LastTradeQuantity LastTradeQuantity;
-            LastTradeDateTime LastTradeDateTime;
-            SettlePriceDateTime SettlePriceDateTime;
-            LastMessageSequenceId LastMessageSequenceId;
-            Reserved2Bytes Reserved2Bytes;
-            OpenInterestDate OpenInterestDate;
-            IsSettlePriceOfficial IsSettlePriceOfficial;
-            SettlementPrice SettlementPrice;
-            HasPreviousDaySettlementPrice HasPreviousDaySettlementPrice;
-            PreviousDaySettlementPrice PreviousDaySettlementPrice;
+            public MarketId MarketId;
+            public MarketType MarketType;
+            public TradingStatus TradingStatus;
+            public Volume Volume;
+            public BlockVolume BlockVolume;
+            public EfsVolume EfsVolume;
+            public EfpVolume EfpVolume;
+            public OpenInterest OpenInterest;
+            public OpeningPrice OpeningPrice;
+            public SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
+            public High High;
+            public Low Low;
+            public Vwap Vwap;
+            public NumOfBookEntries NumOfBookEntries;
+            public LastTradePrice LastTradePrice;
+            public LastTradeQuantity LastTradeQuantity;
+            public LastTradeDateTime LastTradeDateTime;
+            public SettlePriceDateTime SettlePriceDateTime;
+            public LastMessageSequenceId LastMessageSequenceId;
+            public Reserved2Bytes Reserved2Bytes;
+            public OpenInterestDate OpenInterestDate;
+            public IsSettlePriceOfficial IsSettlePriceOfficial;
+            public SettlementPrice SettlementPrice;
+            public HasPreviousDaySettlementPrice HasPreviousDaySettlementPrice;
+            public PreviousDaySettlementPrice PreviousDaySettlementPrice;
         };
     };
 }

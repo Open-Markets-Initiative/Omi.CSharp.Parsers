@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.MarketDepth
+namespace Nasdaq.MarketDepth;
+
+/// <summary>
+///  Seconds Message: This message is sent every second for which at least one PHLX Depth message is being generated.
+/// </summary>
+
+public partial class SecondsMessage
 {
     /// <summary>
-    ///  Seconds Message: This message is sent every second for which at least one PHLX Depth message is being generated.
+    ///  Number of seconds since midnight
     /// </summary>
+    public uint Second => Layout.Second.Value;
 
-    public partial class SecondsMessage
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Second Second;
-        };
+        public Second Second;
     };
-}
+};

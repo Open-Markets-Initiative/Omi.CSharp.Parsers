@@ -12,7 +12,7 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            NumberOfSpecialFields NumberOfSpecialFields;
+            public NumberOfSpecialFields NumberOfSpecialFields;
         };
     };
 }

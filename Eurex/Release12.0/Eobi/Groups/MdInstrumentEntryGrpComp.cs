@@ -12,15 +12,15 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MdEntryPx MdEntryPx;
-            MdEntrySize MdEntrySize;
-            MdOriginType MdOriginType;
-            MdEntryType MdEntryType;
-            TradeCondition TradeCondition;
-            TrdType TrdType;
-            MultiLegReportingType MultiLegReportingType;
-            MultiLegPriceModel MultiLegPriceModel;
-            NonDisclosedTradeVolume NonDisclosedTradeVolume;
+            public MdEntryPx MdEntryPx;
+            public MdEntrySize MdEntrySize;
+            public MdOriginType MdOriginType;
+            public MdEntryType MdEntryType;
+            public TradeCondition TradeCondition;
+            public TrdType TrdType;
+            public MultiLegReportingType MultiLegReportingType;
+            public MultiLegPriceModel MultiLegPriceModel;
+            public NonDisclosedTradeVolume NonDisclosedTradeVolume;
         };
     };
 }

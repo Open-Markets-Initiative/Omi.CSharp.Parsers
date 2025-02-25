@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Siac.Recipient
+namespace Siac.Recipient;
+
+/// <summary>
+///  Block Timestamp
+/// </summary>
+
+public partial class BlockTimestamp
 {
     /// <summary>
-    ///  Block Timestamp
+    ///  Contains The Number Seconds From Epoch 111970000000 Utc
     /// </summary>
+    public uint Seconds => Layout.Seconds.Value;
 
-    public partial class BlockTimestamp
+    /// <summary>
+    ///  The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond
+    /// </summary>
+    public uint Nanoseconds => Layout.Nanoseconds.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Seconds Seconds;
-            Nanoseconds Nanoseconds;
-        };
+        public Seconds Seconds;
+        public Nanoseconds Nanoseconds;
     };
-}
+};

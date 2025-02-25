@@ -12,21 +12,21 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            TradeId TradeId;
-            IsSystemPricedLeg IsSystemPricedLeg;
-            Price Price;
-            Quantity Quantity;
-            OldOffMarketTradeType OldOffMarketTradeType;
-            TransactDateTime TransactDateTime;
-            SystemPricedLegType SystemPricedLegType;
-            IsImpliedSpreadAtMarketOpen IsImpliedSpreadAtMarketOpen;
-            IsAdjustedTrade IsAdjustedTrade;
-            AggressorSide AggressorSide;
-            TradeFlags TradeFlags;
-            OffMarketTradeType OffMarketTradeType;
-            SequenceWithinMillis SequenceWithinMillis;
-            RequestTradingEngineReceivedTimestamp RequestTradingEngineReceivedTimestamp;
+            public MarketId MarketId;
+            public TradeId TradeId;
+            public IsSystemPricedLeg IsSystemPricedLeg;
+            public Price Price;
+            public Quantity Quantity;
+            public OldOffMarketTradeType OldOffMarketTradeType;
+            public TransactDateTime TransactDateTime;
+            public SystemPricedLegType SystemPricedLegType;
+            public IsImpliedSpreadAtMarketOpen IsImpliedSpreadAtMarketOpen;
+            public IsAdjustedTrade IsAdjustedTrade;
+            public AggressorSide AggressorSide;
+            public TradeFlags TradeFlags;
+            public OffMarketTradeType OffMarketTradeType;
+            public SequenceWithinMillis SequenceWithinMillis;
+            public RequestTradingEngineReceivedTimestamp RequestTradingEngineReceivedTimestamp;
         };
     };
 }

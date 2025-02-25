@@ -12,8 +12,8 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            InstAttribType InstAttribType;
-            InstAttribValue InstAttribValue;
+            public InstAttribType InstAttribType;
+            public InstAttribValue InstAttribValue;
         };
     };
 }

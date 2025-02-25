@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Daily Incremental Eris Pai: Number of entries in Market Data message.
+/// </summary>
+
+public partial class DailyIncrementalErisPai
 {
     /// <summary>
-    ///  Daily Incremental Eris Pai: Number of entries in Market Data message.
+    ///  mantissa
     /// </summary>
+    public long Mantissa => Layout.Mantissa.Value;
 
-    public partial class DailyIncrementalErisPai
+    /// <summary>
+    ///  exponent
+    /// </summary>
+    public sbyte Exponent => Layout.Exponent.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Mantissa Mantissa;
-            Exponent Exponent;
-        };
+        public Mantissa Mantissa;
+        public Exponent Exponent;
     };
-}
+};

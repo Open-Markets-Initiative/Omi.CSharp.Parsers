@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LegRatioQty
     {
         /// <summary>
+        ///  Sentinel null value for Leg Ratio Qty
+        /// </summary>
+        public const int NoValue = 0x80000000;
+
+        /// <summary>
         ///  Maximum value for Leg Ratio Qty
         /// </summary>
         public const int Maximum = 2147483647;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Leg Ratio Qty
         /// </summary>
         public const int Minimum = -2147483647;
+
+        /// <summary>
+        ///  Fix Tag for Leg Ratio Qty
+        /// </summary>
+        public const ushort FixTag = 623;
 
         /// <summary>
         ///  Size of Leg Ratio Qty in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Leg Ratio Qty field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Leg Ratio Qty
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly int Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Leg Ratio Qty
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out int value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Leg Ratio Qty
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Leg Ratio Qty to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Leg Ratio Qty as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

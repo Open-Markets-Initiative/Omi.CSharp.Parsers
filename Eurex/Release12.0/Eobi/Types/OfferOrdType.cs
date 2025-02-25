@@ -5,20 +5,5 @@ namespace Eurex.Eobi
     /// </summary>
     public enum OfferOrdType : byte
     {
-        /// <summary>
-        ///  Market Order
-        /// </summary>
-        Market = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        OfferOrdTypeMaximumValue = 1,
-
-        /// <summary>
-        ///  
-        /// </summary>
-        OfferOrdTypeMinimumValue = 1,
-
     }
 }

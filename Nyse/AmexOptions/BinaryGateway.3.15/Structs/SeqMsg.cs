@@ -1,21 +1,39 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Seq Msg
+/// </summary>
+
+public partial class SeqMsg
 {
     /// <summary>
-    ///  Seq Msg
+    ///  Msg Header
     /// </summary>
+    public string MsgHeader => Layout.MsgHeader.Value;
 
-    public partial class SeqMsg
+    /// <summary>
+    ///  Seqmsgid
+    /// </summary>
+    public string Seqmsgid => Layout.Seqmsgid.Value;
+
+    /// <summary>
+    ///  Bytes reserved for future use
+    /// </summary>
+    public string Reserved4 => Layout.Reserved4.Value;
+
+    /// <summary>
+    ///  Message timestamp
+    /// </summary>
+    public ulong Timestamp => Layout.Timestamp.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MsgHeader MsgHeader;
-            Seqmsgid Seqmsgid;
-            Reserved4 Reserved4;
-            Timestamp Timestamp;
-        };
+        public MsgHeader MsgHeader;
+        public Seqmsgid Seqmsgid;
+        public Reserved4 Reserved4;
+        public Timestamp Timestamp;
     };
-}
+};

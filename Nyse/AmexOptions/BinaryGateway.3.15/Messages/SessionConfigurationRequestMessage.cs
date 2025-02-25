@@ -12,14 +12,14 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            Username Username;
-            CancelOnDisconnect CancelOnDisconnect;
-            ThrottlePreference ThrottlePreference;
-            SelfTradePrevention SelfTradePrevention;
-            OrderPriorityUpdateAckSubscription OrderPriorityUpdateAckSubscription;
-            BoldDesignation BoldDesignation;
-            Reserved49 Reserved49;
+            public SeqMsgHeader SeqMsgHeader;
+            public Username Username;
+            public CancelOnDisconnect CancelOnDisconnect;
+            public ThrottlePreference ThrottlePreference;
+            public SelfTradePrevention SelfTradePrevention;
+            public OrderPriorityUpdateAckSubscription OrderPriorityUpdateAckSubscription;
+            public BoldDesignation BoldDesignation;
+            public Reserved49 Reserved49;
         };
     };
 }

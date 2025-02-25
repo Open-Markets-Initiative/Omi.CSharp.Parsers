@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct OptAttribute
     {
         /// <summary>
+        ///  Sentinel null value for Opt Attribute
+        /// </summary>
+        public const uint NoValue = 0xFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Opt Attribute
         /// </summary>
         public const uint Maximum = 4294967294;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Opt Attribute
         /// </summary>
         public const uint Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Opt Attribute
+        /// </summary>
+        public const ushort FixTag = 206;
 
         /// <summary>
         ///  Size of Opt Attribute in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Opt Attribute field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Opt Attribute
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly uint Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Opt Attribute
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out uint value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Opt Attribute
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Opt Attribute to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Opt Attribute as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

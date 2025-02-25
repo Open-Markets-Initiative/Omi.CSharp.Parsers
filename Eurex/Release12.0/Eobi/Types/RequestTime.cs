@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct RequestTime
     {
         /// <summary>
+        ///  Sentinel null value for Request Time
+        /// </summary>
+        public const ulong NoValue = 0xFFFFFFFFFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Request Time
         /// </summary>
         public const ulong Maximum = 18446744073709551614;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Request Time
         /// </summary>
         public const ulong Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Request Time
+        /// </summary>
+        public const ushort FixTag = 5979;
 
         /// <summary>
         ///  Size of Request Time in bytes

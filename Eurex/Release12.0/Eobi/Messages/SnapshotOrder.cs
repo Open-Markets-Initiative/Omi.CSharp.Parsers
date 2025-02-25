@@ -12,7 +12,7 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            OrderDetailsComp OrderDetailsComp;
+            public OrderDetailsComp OrderDetailsComp;
         };
     };
 }

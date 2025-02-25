@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct MsgSeqNum
     {
         /// <summary>
+        ///  Sentinel null value for Msg Seq Num
+        /// </summary>
+        public const uint NoValue = 0xFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Msg Seq Num
         /// </summary>
         public const uint Maximum = 4294967294;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Msg Seq Num
         /// </summary>
         public const uint Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Msg Seq Num
+        /// </summary>
+        public const ushort FixTag = 34;
 
         /// <summary>
         ///  Size of Msg Seq Num in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Msg Seq Num field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Msg Seq Num
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly uint Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Msg Seq Num
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out uint value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Msg Seq Num
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Msg Seq Num to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Msg Seq Num as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

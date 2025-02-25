@@ -12,17 +12,17 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SecurityId SecurityId;
-            TransactTime TransactTime;
-            SecurityDesc SecurityDesc;
-            SecurityType SecurityType;
-            PutOrCall PutOrCall;
-            ExerciseStyle ExerciseStyle;
-            SettlMethod SettlMethod;
-            MaturityDate MaturityDate;
-            StrikePrice StrikePrice;
-            OptAttribute OptAttribute;
-            Pad4 Pad4;
+            public SecurityId SecurityId;
+            public TransactTime TransactTime;
+            public SecurityDesc SecurityDesc;
+            public SecurityType SecurityType;
+            public PutOrCall PutOrCall;
+            public ExerciseStyle ExerciseStyle;
+            public SettlMethod SettlMethod;
+            public MaturityDate MaturityDate;
+            public StrikePrice StrikePrice;
+            public OptAttribute OptAttribute;
+            public Pad4 Pad4;
         };
     };
 }

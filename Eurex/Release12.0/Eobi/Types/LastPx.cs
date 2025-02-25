@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LastPx
     {
         /// <summary>
+        ///  Sentinel null value for Last Px
+        /// </summary>
+        public const ulong NoValue = 0x8000000000000000;
+
+        /// <summary>
         ///  Maximum value for Last Px
         /// </summary>
         public const ulong Maximum = 92233720368.54775807;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Last Px
         /// </summary>
         public const ulong Minimum = -92233720368.54775807;
+
+        /// <summary>
+        ///  Fix Tag for Last Px
+        /// </summary>
+        public const ushort FixTag = 31;
 
         /// <summary>
         ///  Decimal place factor for Last Px
@@ -35,11 +45,33 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Last Px field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Last Px
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ulong Decode()
             => Underlying / Factor;
+
+        /// <summary>
+        ///  Try Read Last Px
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ulong value)
+        {
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
 
         /// <summary>
         ///  Write Last Px
@@ -49,10 +81,17 @@ namespace Eurex.Eobi
             => Underlying = value * Factor;
 
         /// <summary>
+        ///  Set Last Px to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Last Px as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

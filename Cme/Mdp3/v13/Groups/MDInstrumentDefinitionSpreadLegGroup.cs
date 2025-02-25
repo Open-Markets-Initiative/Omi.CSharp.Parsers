@@ -12,11 +12,11 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LegSecurityId LegSecurityId;
-            LegSide LegSide;
-            LegRatioQty LegRatioQty;
-            LegPrice LegPrice;
-            LegOptionDelta LegOptionDelta;
+            public LegSecurityId LegSecurityId;
+            public LegSide LegSide;
+            public LegRatioQty LegRatioQty;
+            public LegPrice LegPrice;
+            public LegOptionDelta LegOptionDelta;
         };
     };
 }

@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct NoMdEntries
     {
         /// <summary>
+        ///  Sentinel null value for No Md Entries
+        /// </summary>
+        public const byte NoValue = 0xFF;
+
+        /// <summary>
         ///  Maximum value for No Md Entries
         /// </summary>
         public const byte Maximum = 15;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for No Md Entries
         /// </summary>
         public const byte Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for No Md Entries
+        /// </summary>
+        public const ushort FixTag = 268;
 
         /// <summary>
         ///  Length of No Md Entries in bytes

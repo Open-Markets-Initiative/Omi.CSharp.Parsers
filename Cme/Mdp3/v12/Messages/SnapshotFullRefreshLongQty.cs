@@ -12,17 +12,17 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
-            TotNumReports TotNumReports;
-            SecurityId SecurityId;
-            RptSeq RptSeq;
-            TransactTime TransactTime;
-            LastUpdateTime LastUpdateTime;
-            TradeDate TradeDate;
-            MdSecurityTradingStatus MdSecurityTradingStatus;
-            HighLimitPrice HighLimitPrice;
-            LowLimitPrice LowLimitPrice;
-            MaxPriceVariation MaxPriceVariation;
+            public LastMsgSeqNumProcessed LastMsgSeqNumProcessed;
+            public TotNumReports TotNumReports;
+            public SecurityId SecurityId;
+            public RptSeq RptSeq;
+            public TransactTime TransactTime;
+            public LastUpdateTime LastUpdateTime;
+            public TradeDate TradeDate;
+            public MdSecurityTradingStatus MdSecurityTradingStatus;
+            public HighLimitPrice HighLimitPrice;
+            public LowLimitPrice LowLimitPrice;
+            public MaxPriceVariation MaxPriceVariation;
         };
     };
 }

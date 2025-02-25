@@ -12,9 +12,9 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            TextMessage TextMessage;
-            MessageDateTime MessageDateTime;
-            TextMessageExtraFld TextMessageExtraFld;
+            public TextMessage TextMessage;
+            public MessageDateTime MessageDateTime;
+            public TextMessageExtraFld TextMessageExtraFld;
         };
     };
 }

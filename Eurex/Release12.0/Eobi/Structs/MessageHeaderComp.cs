@@ -1,20 +1,33 @@
 using System.Runtime.InteropServices;
 
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+
+/// <summary>
+///  Message Header Comp
+/// </summary>
+
+public partial class MessageHeaderComp
 {
     /// <summary>
-    ///  Message Header Comp
+    ///  Body Len
     /// </summary>
+    public ushort BodyLen => Layout.BodyLen.Value;
 
-    public partial class MessageHeaderComp
+    /// <summary>
+    ///  Template Id
+    /// </summary>
+    public TemplateId TemplateId => Layout.TemplateId.Value;
+
+    /// <summary>
+    ///  Msg Seq Num
+    /// </summary>
+    public uint MsgSeqNum => Layout.MsgSeqNum.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            BodyLen BodyLen;
-            TemplateId TemplateId;
-            MsgSeqNum MsgSeqNum;
-        };
+        public BodyLen BodyLen;
+        public TemplateId TemplateId;
+        public MsgSeqNum MsgSeqNum;
     };
-}
+};

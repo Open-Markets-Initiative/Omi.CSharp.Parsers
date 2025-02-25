@@ -12,23 +12,23 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            TransactTime TransactTime;
-            UserSessionType UserSessionType;
-            UserSessionStatus UserSessionStatus;
-            Username Username;
-            Mic Mic;
-            CancelOnDisconnect CancelOnDisconnect;
-            ThrottlePreference ThrottlePreference;
-            ThrottleWindow ThrottleWindow;
-            ThrottleThreshold ThrottleThreshold;
-            SymbolEligibility SymbolEligibility;
-            MaxOrderQuantity MaxOrderQuantity;
-            SelfTradePrevention SelfTradePrevention;
-            OrderPriorityUpdateAckSubscription OrderPriorityUpdateAckSubscription;
-            AckStatus AckStatus;
-            BoldDesignation BoldDesignation;
-            Reserved49 Reserved49;
+            public SeqMsgHeader SeqMsgHeader;
+            public TransactTime TransactTime;
+            public UserSessionType UserSessionType;
+            public UserSessionStatus UserSessionStatus;
+            public Username Username;
+            public Mic Mic;
+            public CancelOnDisconnect CancelOnDisconnect;
+            public ThrottlePreference ThrottlePreference;
+            public ThrottleWindow ThrottleWindow;
+            public ThrottleThreshold ThrottleThreshold;
+            public SymbolEligibility SymbolEligibility;
+            public MaxOrderQuantity MaxOrderQuantity;
+            public SelfTradePrevention SelfTradePrevention;
+            public OrderPriorityUpdateAckSubscription OrderPriorityUpdateAckSubscription;
+            public AckStatus AckStatus;
+            public BoldDesignation BoldDesignation;
+            public Reserved49 Reserved49;
         };
     };
 }

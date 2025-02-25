@@ -12,18 +12,18 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            AuctionDate AuctionDate;
-            Time Time;
-            Description Description;
-            Round Round;
-            AggBidQty AggBidQty;
-            AggOfferQty AggOfferQty;
-            UsdPrice UsdPrice;
-            IsBalanced IsBalanced;
-            IsFinal IsFinal;
-            GbpPrice GbpPrice;
-            EurPrice EurPrice;
+            public MarketId MarketId;
+            public AuctionDate AuctionDate;
+            public Time Time;
+            public Description Description;
+            public Round Round;
+            public AggBidQty AggBidQty;
+            public AggOfferQty AggOfferQty;
+            public UsdPrice UsdPrice;
+            public IsBalanced IsBalanced;
+            public IsFinal IsFinal;
+            public GbpPrice GbpPrice;
+            public EurPrice EurPrice;
         };
     };
 }

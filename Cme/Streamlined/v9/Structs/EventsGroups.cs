@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Events Groups: Number of repeating EventType entries. Block
+/// </summary>
+
+public partial class EventsGroups
 {
     /// <summary>
-    ///  Events Groups: Number of repeating EventType entries. Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSizeEncoding => Layout.GroupSizeEncoding.Value;
 
-    public partial class EventsGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSizeEncoding GroupSizeEncoding;
-        };
+        public GroupSizeEncoding GroupSizeEncoding;
     };
-}
+};

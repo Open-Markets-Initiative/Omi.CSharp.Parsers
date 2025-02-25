@@ -1,20 +1,33 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Group Size 8 Byte: 8 Byte aligned repeating group dimensions
+/// </summary>
+
+public partial class GroupSize8Byte
 {
     /// <summary>
-    ///  Group Size 8 Byte: 8 Byte aligned repeating group dimensions
+    ///  Block Length
     /// </summary>
+    public ushort BlockLength => Layout.BlockLength.Value;
 
-    public partial class GroupSize8Byte
+    /// <summary>
+    ///  5 bytes padding
+    /// </summary>
+    public string Padding5 => Layout.Padding5.Value;
+
+    /// <summary>
+    ///  Num In Group
+    /// </summary>
+    public byte NumInGroup => Layout.NumInGroup.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            BlockLength BlockLength;
-            Padding5 Padding5;
-            NumInGroup NumInGroup;
-        };
+        public BlockLength BlockLength;
+        public Padding5 Padding5;
+        public NumInGroup NumInGroup;
     };
-}
+};

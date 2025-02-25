@@ -12,16 +12,16 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            OldStripId OldStripId;
-            StripType StripType;
-            BeginYear BeginYear;
-            BeginMonth BeginMonth;
-            BeginDay BeginDay;
-            EndYear EndYear;
-            EndMonth EndMonth;
-            EndDay EndDay;
-            StripInfo StripInfo;
-            StripId StripId;
+            public OldStripId OldStripId;
+            public StripType StripType;
+            public BeginYear BeginYear;
+            public BeginMonth BeginMonth;
+            public BeginDay BeginDay;
+            public EndYear EndYear;
+            public EndMonth EndMonth;
+            public EndDay EndDay;
+            public StripInfo StripInfo;
+            public StripId StripId;
         };
     };
 }

@@ -12,8 +12,8 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            EventTypeIndices EventTypeIndices;
-            EventTime EventTime;
+            public EventTypeIndices EventTypeIndices;
+            public EventTime EventTime;
         };
     };
 }

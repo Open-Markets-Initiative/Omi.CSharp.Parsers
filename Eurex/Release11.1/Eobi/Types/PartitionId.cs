@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct PartitionId
     {
         /// <summary>
+        ///  Sentinel null value for Partition Id
+        /// </summary>
+        public const byte NoValue = 0xFF;
+
+        /// <summary>
         ///  Maximum value for Partition Id
         /// </summary>
         public const byte Maximum = 254;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Partition Id
         /// </summary>
         public const byte Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Partition Id
+        /// </summary>
+        public const ushort FixTag = 5948;
 
         /// <summary>
         ///  Length of Partition Id in bytes

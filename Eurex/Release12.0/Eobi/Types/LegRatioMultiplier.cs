@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LegRatioMultiplier
     {
         /// <summary>
+        ///  Sentinel null value for Leg Ratio Multiplier
+        /// </summary>
+        public const uint NoValue = 0xFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Leg Ratio Multiplier
         /// </summary>
         public const uint Maximum = 2147483647;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Leg Ratio Multiplier
         /// </summary>
         public const uint Minimum = 1;
+
+        /// <summary>
+        ///  Fix Tag for Leg Ratio Multiplier
+        /// </summary>
+        public const ushort FixTag = 28900;
 
         /// <summary>
         ///  Size of Leg Ratio Multiplier in bytes
@@ -30,11 +40,27 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Leg Ratio Multiplier field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Leg Ratio Multiplier
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly uint Decode()
             => Underlying;
+
+        /// <summary>
+        ///  Try Read Leg Ratio Multiplier
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out uint value)
+        {
+            value = Decode();
+            return HasValue;
+        }
 
         /// <summary>
         ///  Write Leg Ratio Multiplier
@@ -44,10 +70,17 @@ namespace Eurex.Eobi
             => Underlying = value;
 
         /// <summary>
+        ///  Set Leg Ratio Multiplier to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Leg Ratio Multiplier as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

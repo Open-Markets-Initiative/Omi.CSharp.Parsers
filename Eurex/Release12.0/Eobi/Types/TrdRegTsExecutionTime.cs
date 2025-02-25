@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct TrdRegTsExecutionTime
     {
         /// <summary>
+        ///  Sentinel null value for Trd Reg Ts Execution Time
+        /// </summary>
+        public const ulong NoValue = 0xFFFFFFFFFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Trd Reg Ts Execution Time
         /// </summary>
         public const ulong Maximum = 18446744073709551614;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Trd Reg Ts Execution Time
         /// </summary>
         public const ulong Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Trd Reg Ts Execution Time
+        /// </summary>
+        public const ushort FixTag = 21001;
 
         /// <summary>
         ///  Size of Trd Reg Ts Execution Time in bytes

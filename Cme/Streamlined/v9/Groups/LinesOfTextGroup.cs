@@ -12,7 +12,7 @@ namespace Cme.Streamlined
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Text500 Text500;
+            public Text500 Text500;
         };
     };
 }

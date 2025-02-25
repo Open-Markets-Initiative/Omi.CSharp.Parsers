@@ -12,14 +12,14 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            OrderIdOptional OrderIdOptional;
-            MdOrderPriorityOptional MdOrderPriorityOptional;
-            MdEntryPxOptional MdEntryPxOptional;
-            MdDisplayQtyOptional MdDisplayQtyOptional;
-            SecurityId SecurityId;
-            MdUpdateAction MdUpdateAction;
-            MdEntryTypeBook MdEntryTypeBook;
-            Padding6 Padding6;
+            public OrderIdOptional OrderIdOptional;
+            public MdOrderPriorityOptional MdOrderPriorityOptional;
+            public MdEntryPxOptional MdEntryPxOptional;
+            public MdDisplayQtyOptional MdDisplayQtyOptional;
+            public SecurityId SecurityId;
+            public MdUpdateAction MdUpdateAction;
+            public MdEntryTypeBook MdEntryTypeBook;
+            public Padding6 Padding6;
         };
     };
 }

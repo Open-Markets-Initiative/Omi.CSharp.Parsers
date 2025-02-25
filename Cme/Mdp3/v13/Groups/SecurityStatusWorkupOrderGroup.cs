@@ -12,9 +12,9 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            OrderId OrderId;
-            Side Side;
-            AggressorIndicator AggressorIndicator;
+            public OrderId OrderId;
+            public Side Side;
+            public AggressorIndicator AggressorIndicator;
         };
     };
 }

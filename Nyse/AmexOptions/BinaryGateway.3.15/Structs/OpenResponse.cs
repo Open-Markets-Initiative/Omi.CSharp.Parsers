@@ -1,21 +1,39 @@
 using System.Runtime.InteropServices;
 
-namespace Nyse.AmexOptions.BinaryGateway
+namespace Nyse.AmexOptions.BinaryGateway;
+
+/// <summary>
+///  Open Response
+/// </summary>
+
+public partial class OpenResponse
 {
     /// <summary>
-    ///  Open Response
+    ///  Msg Header
     /// </summary>
+    public string MsgHeader => Layout.MsgHeader.Value;
 
-    public partial class OpenResponse
+    /// <summary>
+    ///  Stream Id
+    /// </summary>
+    public string StreamId => Layout.StreamId.Value;
+
+    /// <summary>
+    ///  Pillar Status Code
+    /// </summary>
+    public Status Status => Layout.Status.Value;
+
+    /// <summary>
+    ///  Available access on the stream
+    /// </summary>
+    public byte Access => Layout.Access.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MsgHeader MsgHeader;
-            StreamId StreamId;
-            Status Status;
-            Access Access;
-        };
+        public MsgHeader MsgHeader;
+        public StreamId StreamId;
+        public Status Status;
+        public Access Access;
     };
-}
+};

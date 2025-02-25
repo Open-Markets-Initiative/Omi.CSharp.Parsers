@@ -12,14 +12,14 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            Mpid Mpid;
-            MarketMaker MarketMaker;
-            SubId SubId;
-            ClOrdId ClOrdId;
-            SelfTradeType SelfTradeType;
-            GroupId GroupId;
-            MmSentTime MmSentTime;
+            public SeqMsgHeader SeqMsgHeader;
+            public Mpid Mpid;
+            public MarketMaker MarketMaker;
+            public SubId SubId;
+            public ClOrdId ClOrdId;
+            public SelfTradeType SelfTradeType;
+            public GroupId GroupId;
+            public MmSentTime MmSentTime;
         };
     };
 }

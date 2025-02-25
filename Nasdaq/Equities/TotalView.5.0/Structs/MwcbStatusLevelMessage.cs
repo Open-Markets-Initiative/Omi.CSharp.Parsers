@@ -1,21 +1,39 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.TotalView
+namespace Nasdaq.TotalView;
+
+/// <summary>
+///  Mwcb Status Level Message: Informs data recipients when a MWCB has breached one of the established levels
+/// </summary>
+
+public partial class MwcbStatusLevelMessage
 {
     /// <summary>
-    ///  Mwcb Status Level Message: Informs data recipients when a MWCB has breached one of the established levels
+    ///  Always 0
     /// </summary>
+    public ushort StockLocate => Layout.StockLocate.Value;
 
-    public partial class MwcbStatusLevelMessage
+    /// <summary>
+    ///  NASDAQ OMX internal tracking number
+    /// </summary>
+    public ushort TrackingNumber => Layout.TrackingNumber.Value;
+
+    /// <summary>
+    ///  Nanoseconds since midnight.
+    /// </summary>
+    public string Timestamp => Layout.Timestamp.Value;
+
+    /// <summary>
+    ///  Denotes the MWCB Level that was breached.
+    /// </summary>
+    public BreachedLevel BreachedLevel => Layout.BreachedLevel.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            StockLocate StockLocate;
-            TrackingNumber TrackingNumber;
-            Timestamp Timestamp;
-            BreachedLevel BreachedLevel;
-        };
+        public StockLocate StockLocate;
+        public TrackingNumber TrackingNumber;
+        public Timestamp Timestamp;
+        public BreachedLevel BreachedLevel;
     };
-}
+};

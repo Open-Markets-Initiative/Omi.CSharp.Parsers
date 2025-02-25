@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Nasdaq.MarketDepth
+namespace Nasdaq.MarketDepth;
+
+/// <summary>
+///  Base Reference Message: This message indicates the base reference number to which all the order/quote/trade reference number deltas must be added to obtain the absolute order/quote PHLX reference number.
+/// </summary>
+
+public partial class BaseReferenceMessage
 {
     /// <summary>
-    ///  Base Reference Message: This message indicates the base reference number to which all the order/quote/trade reference number deltas must be added to obtain the absolute order/quote PHLX reference number.
+    ///  Nanoseconds portion of the timestamp.
     /// </summary>
+    public uint Timestamp => Layout.Timestamp.Value;
 
-    public partial class BaseReferenceMessage
+    /// <summary>
+    ///  The base reference number
+    /// </summary>
+    public ulong BaseReferenceNumber => Layout.BaseReferenceNumber.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Timestamp Timestamp;
-            BaseReferenceNumber BaseReferenceNumber;
-        };
+        public Timestamp Timestamp;
+        public BaseReferenceNumber BaseReferenceNumber;
     };
-}
+};

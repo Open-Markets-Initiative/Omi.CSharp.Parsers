@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct ExecId
     {
         /// <summary>
+        ///  Sentinel null value for Exec Id
+        /// </summary>
+        public const ulong NoValue = 0xFFFFFFFFFFFFFFFF;
+
+        /// <summary>
         ///  Maximum value for Exec Id
         /// </summary>
         public const ulong Maximum = 18446744073709551614;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Exec Id
         /// </summary>
         public const ulong Minimum = 0;
+
+        /// <summary>
+        ///  Fix Tag for Exec Id
+        /// </summary>
+        public const ushort FixTag = 17;
 
         /// <summary>
         ///  Size of Exec Id in bytes

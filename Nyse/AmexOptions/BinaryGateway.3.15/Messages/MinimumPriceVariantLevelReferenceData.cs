@@ -12,8 +12,8 @@ namespace Nyse.AmexOptions.BinaryGateway
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            SeqMsgHeader SeqMsgHeader;
-            TransactTime TransactTime;
+            public SeqMsgHeader SeqMsgHeader;
+            public TransactTime TransactTime;
         };
     };
 }

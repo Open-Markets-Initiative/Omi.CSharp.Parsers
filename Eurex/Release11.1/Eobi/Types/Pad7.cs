@@ -10,6 +10,11 @@ namespace Eurex.Eobi
     public sealed class Pad7
     {
         /// <summary>
+        ///  Fix Tag for Pad 7
+        /// </summary>
+        public const ushort FixTag = 25022;
+
+        /// <summary>
         ///  Length of Pad 7 in bytes
         /// </summary>
         public const int Length = 7;

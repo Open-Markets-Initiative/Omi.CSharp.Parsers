@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  M D Incremental Refresh Trade Summary Order Groups: Number of OrderID entries Block
+/// </summary>
+
+public partial class MDIncrementalRefreshTradeSummaryOrderGroups
 {
     /// <summary>
-    ///  M D Incremental Refresh Trade Summary Order Groups: Number of OrderID entries Block
+    ///  8 Byte aligned repeating group dimensions
     /// </summary>
+    public string GroupSize8Byte => Layout.GroupSize8Byte.Value;
 
-    public partial class MDIncrementalRefreshTradeSummaryOrderGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize8Byte GroupSize8Byte;
-        };
+        public GroupSize8Byte GroupSize8Byte;
     };
-}
+};

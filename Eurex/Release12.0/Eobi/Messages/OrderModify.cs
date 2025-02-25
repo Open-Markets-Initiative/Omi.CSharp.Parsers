@@ -12,14 +12,14 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            RequestTime RequestTime;
-            TrdRegTsPrevTimePriority TrdRegTsPrevTimePriority;
-            PrevPrice PrevPrice;
-            PrevDisplayQty PrevDisplayQty;
-            SecurityId SecurityId;
-            OrderDetailsComp OrderDetailsComp;
-            PrevPriceHhiIndicator PrevPriceHhiIndicator;
-            Pad7 Pad7;
+            public RequestTime RequestTime;
+            public TrdRegTsPrevTimePriority TrdRegTsPrevTimePriority;
+            public PrevPrice PrevPrice;
+            public PrevDisplayQty PrevDisplayQty;
+            public SecurityId SecurityId;
+            public OrderDetailsComp OrderDetailsComp;
+            public PrevPriceHhiIndicator PrevPriceHhiIndicator;
+            public Pad7 Pad7;
         };
     };
 }

@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Siac.Recipient
+namespace Siac.Recipient;
+
+/// <summary>
+///  Packet: Opra Udp Packet
+/// </summary>
+
+public partial class Packet
 {
     /// <summary>
-    ///  Packet: Opra Udp Packet
+    ///  Block Header
     /// </summary>
+    public string BlockHeader => Layout.BlockHeader.Value;
 
-    public partial class Packet
+    /// <summary>
+    ///  Block Pad Byte
+    /// </summary>
+    public byte BlockPadByte => Layout.BlockPadByte.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            BlockHeader BlockHeader;
-            BlockPadByte BlockPadByte;
-        };
+        public BlockHeader BlockHeader;
+        public BlockPadByte BlockPadByte;
     };
-}
+};

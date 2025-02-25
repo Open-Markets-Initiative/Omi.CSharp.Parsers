@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+
+/// <summary>
+///  Packet
+/// </summary>
+
+public partial class Packet
 {
     /// <summary>
-    ///  Packet
+    ///  Packet Header
     /// </summary>
+    public string PacketHeader => Layout.PacketHeader.Value;
 
-    public partial class Packet
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            PacketHeader PacketHeader;
-        };
+        public PacketHeader PacketHeader;
     };
-}
+};

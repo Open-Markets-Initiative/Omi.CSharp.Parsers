@@ -1,19 +1,27 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Min Price Increment: MDInstrumentDefinitionEris
+/// </summary>
+
+public partial class MinPriceIncrement
 {
     /// <summary>
-    ///  Min Price Increment: MDInstrumentDefinitionEris
+    ///  mantissa
     /// </summary>
+    public long Mantissa => Layout.Mantissa.Value;
 
-    public partial class MinPriceIncrement
+    /// <summary>
+    ///  exponent
+    /// </summary>
+    public sbyte Exponent => Layout.Exponent.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            Mantissa Mantissa;
-            Exponent Exponent;
-        };
+        public Mantissa Mantissa;
+        public Exponent Exponent;
     };
-}
+};

@@ -12,19 +12,19 @@ namespace Ice.iMpact
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            MarketId MarketId;
-            Volume Volume;
-            BlockVolume BlockVolume;
-            EfsVolume EfsVolume;
-            EfpVolume EfpVolume;
-            OpeningPrice OpeningPrice;
-            High High;
-            Low Low;
-            Vwap Vwap;
-            SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
-            OpenInterest OpenInterest;
-            MessageDateTime MessageDateTime;
-            SettlementPrice SettlementPrice;
+            public MarketId MarketId;
+            public Volume Volume;
+            public BlockVolume BlockVolume;
+            public EfsVolume EfsVolume;
+            public EfpVolume EfpVolume;
+            public OpeningPrice OpeningPrice;
+            public High High;
+            public Low Low;
+            public Vwap Vwap;
+            public SettlementPriceWithDealPricePrecision SettlementPriceWithDealPricePrecision;
+            public OpenInterest OpenInterest;
+            public MessageDateTime MessageDateTime;
+            public SettlementPrice SettlementPrice;
         };
     };
 }

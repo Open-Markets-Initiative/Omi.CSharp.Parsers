@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Snapshot Refresh Top Orders Groups: Number of data blocks following Block
+/// </summary>
+
+public partial class SnapshotRefreshTopOrdersGroups
 {
     /// <summary>
-    ///  Snapshot Refresh Top Orders Groups: Number of data blocks following Block
+    ///  Repeating group dimensions
     /// </summary>
+    public string GroupSize => Layout.GroupSize.Value;
 
-    public partial class SnapshotRefreshTopOrdersGroups
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            GroupSize GroupSize;
-        };
+        public GroupSize GroupSize;
     };
-}
+};

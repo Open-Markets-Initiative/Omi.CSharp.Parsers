@@ -9,6 +9,11 @@ namespace Eurex.Eobi
     public struct LegPrice
     {
         /// <summary>
+        ///  Sentinel null value for Leg Price
+        /// </summary>
+        public const ulong NoValue = 0x8000000000000000;
+
+        /// <summary>
         ///  Maximum value for Leg Price
         /// </summary>
         public const ulong Maximum = 92233720368.54775807;
@@ -17,6 +22,11 @@ namespace Eurex.Eobi
         ///  Minimum value for Leg Price
         /// </summary>
         public const ulong Minimum = -92233720368.54775807;
+
+        /// <summary>
+        ///  Fix Tag for Leg Price
+        /// </summary>
+        public const ushort FixTag = 566;
 
         /// <summary>
         ///  Decimal place factor for Leg Price
@@ -35,11 +45,33 @@ namespace Eurex.Eobi
             => Decode();
 
         /// <summary>
+        ///  Does Leg Price field contain a value?
+        /// </summary>
+        public readonly bool HasValue
+            => Underlying != NoValue;
+
+        /// <summary>
         ///  Read Leg Price
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public readonly ulong Decode()
             => Underlying / Factor;
+
+        /// <summary>
+        ///  Try Read Leg Price
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public readonly bool TryRead(out ulong value)
+        {
+            if (HasValue)
+            {
+                value = Decode();
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
 
         /// <summary>
         ///  Write Leg Price
@@ -49,10 +81,17 @@ namespace Eurex.Eobi
             => Underlying = value * Factor;
 
         /// <summary>
+        ///  Set Leg Price to unused
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
+            => Encode(NoValue);
+
+        /// <summary>
         ///  Leg Price as string
         /// </summary>
         public readonly override string ToString()
-            => $"{Value}";
+            => TryRead(out var value) ? $"{value}" : "Not Applicable";
 
         /// <summary>
         ///  Underlying bytes

@@ -12,9 +12,9 @@ namespace Eurex.Eobi
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            RequestTime RequestTime;
-            SecurityId SecurityId;
-            OrderDetailsComp OrderDetailsComp;
+            public RequestTime RequestTime;
+            public SecurityId SecurityId;
+            public OrderDetailsComp OrderDetailsComp;
         };
     };
 }

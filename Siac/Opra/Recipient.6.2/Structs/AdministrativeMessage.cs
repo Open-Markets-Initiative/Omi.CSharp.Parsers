@@ -1,22 +1,45 @@
 using System.Runtime.InteropServices;
 
-namespace Siac.Recipient
+namespace Siac.Recipient;
+
+/// <summary>
+///  Administrative Message
+/// </summary>
+
+public partial class AdministrativeMessage
 {
     /// <summary>
-    ///  Administrative Message
+    ///  Message Type
     /// </summary>
+    public string MessageType => Layout.MessageType.Value;
 
-    public partial class AdministrativeMessage
+    /// <summary>
+    ///  Message Identifier
+    /// </summary>
+    public string MessageIndicator => Layout.MessageIndicator.Value;
+
+    /// <summary>
+    ///  Reserved For Internal Use Only
+    /// </summary>
+    public uint TransactionId => Layout.TransactionId.Value;
+
+    /// <summary>
+    ///  The Prn Is For Optional Use By The Participant
+    /// </summary>
+    public uint ParticipantReferenceNumber => Layout.ParticipantReferenceNumber.Value;
+
+    /// <summary>
+    ///  Represents The Length Of The Message Data Field
+    /// </summary>
+    public ushort MessageDataLength => Layout.MessageDataLength.Value;
+
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            MessageType MessageType;
-            MessageIndicator MessageIndicator;
-            TransactionId TransactionId;
-            ParticipantReferenceNumber ParticipantReferenceNumber;
-            MessageDataLength MessageDataLength;
-        };
+        public MessageType MessageType;
+        public MessageIndicator MessageIndicator;
+        public TransactionId TransactionId;
+        public ParticipantReferenceNumber ParticipantReferenceNumber;
+        public MessageDataLength MessageDataLength;
     };
-}
+};

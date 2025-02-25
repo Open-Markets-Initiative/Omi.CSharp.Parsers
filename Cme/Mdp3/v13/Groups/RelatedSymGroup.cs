@@ -12,12 +12,12 @@ namespace Cme.Mdp3
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         public unsafe struct Layout
         {
-            Symbol Symbol;
-            SecurityId SecurityId;
-            OrderQty OrderQty;
-            QuoteType QuoteType;
-            SideOptional SideOptional;
-            Padding2 Padding2;
+            public Symbol Symbol;
+            public SecurityId SecurityId;
+            public OrderQty OrderQty;
+            public QuoteType QuoteType;
+            public SideOptional SideOptional;
+            public Padding2 Padding2;
         };
     };
 }
