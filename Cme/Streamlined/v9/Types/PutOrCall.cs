@@ -1,51 +1,50 @@
 using System.Runtime.CompilerServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+
+/// <summary>
+///  Put Or Call: Indicates whether an option instrument is a put or call
+/// </summary>
+
+public struct PutOrCall
 {
     /// <summary>
-    ///  Put Or Call: Indicates whether an option instrument is a put or call
+    ///  Fix Tag for Put Or Call
     /// </summary>
+    public const ushort FixTag = 201;
 
-    public struct PutOrCall
-    {
-        /// <summary>
-        ///  Fix Tag for Put Or Call
-        /// </summary>
-        public const ushort FixTag = 201;
+    /// <summary>
+    ///  Sentinel null value for Put Or Call
+    /// </summary>
+    public const byte NoValue = 255;
 
-        /// <summary>
-        ///  Sentinel null value for Put Or Call
-        /// </summary>
-        public const byte NoValue = 255;
+    /// <summary>
+    ///  Length of Put Or Call in bytes
+    /// </summary>
+    public const int Size = 1;
 
-        /// <summary>
-        ///  Length of Put Or Call in bytes
-        /// </summary>
-        public const int Size = 1;
+    /// <summary>
+    ///  Read Put Or Call
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public byte Decode()
+        => Byte;
 
-        /// <summary>
-        ///  Read Put Or Call
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public byte Decode()
-            => Byte;
+    /// <summary>
+    ///  Write Put Or Call
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Encode(byte value)
+        => Byte = value;
 
-        /// <summary>
-        ///  Write Put Or Call
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(byte value)
-            => Byte = value;
+    /// <summary>
+    ///  Put Or Call as string
+    /// </summary>
+    public readonly override string ToString()
+        => $"{Decode()}";
 
-        /// <summary>
-        ///  Put Or Call as string
-        /// </summary>
-        public readonly override string ToString()
-            => $"{Decode()}";
-
-        /// <summary>
-        ///  Underlying byte
-        /// </summary>
-        internal byte Byte;
-    }
+    /// <summary>
+    ///  Underlying byte
+    /// </summary>
+    internal byte Byte;
 }

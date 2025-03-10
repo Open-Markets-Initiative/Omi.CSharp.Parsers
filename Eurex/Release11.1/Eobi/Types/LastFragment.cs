@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Last Fragment
+/// </summary>
+public enum LastFragment : byte
 {
-    /// <summary>
-    ///  Last Fragment
-    /// </summary>
-    public enum LastFragment : byte
-    {
-    }
 }

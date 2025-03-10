@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Security Trading Event
+/// </summary>
+public enum SecurityTradingEvent : byte
 {
-    /// <summary>
-    ///  Security Trading Event
-    /// </summary>
-    public enum SecurityTradingEvent : byte
-    {
-    }
 }

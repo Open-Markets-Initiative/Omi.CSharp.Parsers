@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Mass Sold Out Indicator
+/// </summary>
+public enum MassSoldOutIndicator : byte
 {
-    /// <summary>
-    ///  Mass Sold Out Indicator
-    /// </summary>
-    public enum MassSoldOutIndicator : byte
-    {
-    }
 }

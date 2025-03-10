@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Settl Method
+/// </summary>
+public enum SettlMethod : byte
 {
-    /// <summary>
-    ///  Settl Method
-    /// </summary>
-    public enum SettlMethod : byte
-    {
-    }
 }

@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Fast Market Indicator
+/// </summary>
+public enum FastMarketIndicator : byte
 {
-    /// <summary>
-    ///  Fast Market Indicator
-    /// </summary>
-    public enum FastMarketIndicator : byte
-    {
-    }
 }

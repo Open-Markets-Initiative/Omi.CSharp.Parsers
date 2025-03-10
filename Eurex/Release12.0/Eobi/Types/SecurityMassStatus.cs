@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Security Mass Status
+/// </summary>
+public enum SecurityMassStatus : byte
 {
-    /// <summary>
-    ///  Security Mass Status
-    /// </summary>
-    public enum SecurityMassStatus : byte
-    {
-    }
 }

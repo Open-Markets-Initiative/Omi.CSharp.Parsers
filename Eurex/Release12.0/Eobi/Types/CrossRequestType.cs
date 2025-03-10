@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Cross Request Type
+/// </summary>
+public enum CrossRequestType : byte
 {
-    /// <summary>
-    ///  Cross Request Type
-    /// </summary>
-    public enum CrossRequestType : byte
-    {
-    }
 }

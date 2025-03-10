@@ -1,54 +1,54 @@
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Halt Reason: Identifies the reason for the status change
+/// </summary>
+
+public enum HaltReason : byte
 {
     /// <summary>
-    ///  Halt Reason: Identifies the reason for the status change
+    ///  HaltReason Fix Tag
     /// </summary>
-    public enum HaltReason : byte
-    {
-        /// <summary>
-        ///  HaltReason Fix Tag
-        /// </summary>
-        Fix = 327,
+    Fix = 327,
 
-        /// <summary>
-        ///  Group Schedule
-        /// </summary>
-        GroupSchedule = 0,
+    /// <summary>
+    ///  Group Schedule
+    /// </summary>
+    GroupSchedule = 0,
 
-        /// <summary>
-        ///  Surveillance Intervention
-        /// </summary>
-        SurveillanceIntervention = 1,
+    /// <summary>
+    ///  Surveillance Intervention
+    /// </summary>
+    SurveillanceIntervention = 1,
 
-        /// <summary>
-        ///  Market Event
-        /// </summary>
-        MarketEvent = 2,
+    /// <summary>
+    ///  Market Event
+    /// </summary>
+    MarketEvent = 2,
 
-        /// <summary>
-        ///  Instrument Activation
-        /// </summary>
-        InstrumentActivation = 3,
+    /// <summary>
+    ///  Instrument Activation
+    /// </summary>
+    InstrumentActivation = 3,
 
-        /// <summary>
-        ///  Instrument Expiration
-        /// </summary>
-        InstrumentExpiration = 4,
+    /// <summary>
+    ///  Instrument Expiration
+    /// </summary>
+    InstrumentExpiration = 4,
 
-        /// <summary>
-        ///  Unknown
-        /// </summary>
-        Unknown = 5,
+    /// <summary>
+    ///  Unknown
+    /// </summary>
+    Unknown = 5,
 
-        /// <summary>
-        ///  Recovery In Process
-        /// </summary>
-        RecoveryInProcess = 6,
+    /// <summary>
+    ///  Recovery In Process
+    /// </summary>
+    RecoveryInProcess = 6,
 
-        /// <summary>
-        ///  Trade Date Roll
-        /// </summary>
-        TradeDateRoll = 7,
+    /// <summary>
+    ///  Trade Date Roll
+    /// </summary>
+    TradeDateRoll = 7,
 
-    }
 }

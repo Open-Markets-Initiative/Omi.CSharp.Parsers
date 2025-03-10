@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Multi Leg Price Model
+/// </summary>
+public enum MultiLegPriceModel : byte
 {
-    /// <summary>
-    ///  Multi Leg Price Model
-    /// </summary>
-    public enum MultiLegPriceModel : byte
-    {
-    }
 }

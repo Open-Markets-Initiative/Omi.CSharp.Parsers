@@ -1,24 +1,24 @@
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Leg Side: Leg side
+/// </summary>
+
+public enum LegSide : byte
 {
     /// <summary>
-    ///  Leg Side: Leg side
+    ///  LegSide Fix Tag
     /// </summary>
-    public enum LegSide : byte
-    {
-        /// <summary>
-        ///  LegSide Fix Tag
-        /// </summary>
-        Fix = 624,
+    Fix = 624,
 
-        /// <summary>
-        ///  Buy Side
-        /// </summary>
-        BuySide = 1,
+    /// <summary>
+    ///  Buy Side
+    /// </summary>
+    BuySide = 1,
 
-        /// <summary>
-        ///  Sell Side
-        /// </summary>
-        SellSide = 2,
+    /// <summary>
+    ///  Sell Side
+    /// </summary>
+    SellSide = 2,
 
-    }
 }

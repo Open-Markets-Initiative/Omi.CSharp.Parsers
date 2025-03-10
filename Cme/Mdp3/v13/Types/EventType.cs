@@ -1,24 +1,24 @@
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Event Type: Code to represent the type of event
+/// </summary>
+
+public enum EventType : byte
 {
     /// <summary>
-    ///  Event Type: Code to represent the type of event
+    ///  EventType Fix Tag
     /// </summary>
-    public enum EventType : byte
-    {
-        /// <summary>
-        ///  EventType Fix Tag
-        /// </summary>
-        Fix = 865,
+    Fix = 865,
 
-        /// <summary>
-        ///  Activation
-        /// </summary>
-        Activation = 5,
+    /// <summary>
+    ///  Activation
+    /// </summary>
+    Activation = 5,
 
-        /// <summary>
-        ///  Last Eligible Trade Date
-        /// </summary>
-        LastEligibleTradeDate = 7,
+    /// <summary>
+    ///  Last Eligible Trade Date
+    /// </summary>
+    LastEligibleTradeDate = 7,
 
-    }
 }

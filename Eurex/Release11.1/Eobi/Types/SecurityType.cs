@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Security Type
+/// </summary>
+public enum SecurityType : byte
 {
-    /// <summary>
-    ///  Security Type
-    /// </summary>
-    public enum SecurityType : byte
-    {
-    }
 }

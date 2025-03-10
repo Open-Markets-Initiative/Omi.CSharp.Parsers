@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Put Or Call
+/// </summary>
+public enum PutOrCall : byte
 {
-    /// <summary>
-    ///  Put Or Call
-    /// </summary>
-    public enum PutOrCall : byte
-    {
-    }
 }

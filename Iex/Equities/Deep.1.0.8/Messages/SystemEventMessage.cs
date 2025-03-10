@@ -1,19 +1,18 @@
 using System.Runtime.InteropServices;
 
-namespace Iex.Deep
+namespace Iex.Deep;
+
+/// <summary>
+///  System Event Message: The System Event Message is used to indicate events that apply to the market or the data feed.
+/// </summary>
+
+public partial class SystemEventMessage
 {
-    /// <summary>
-    ///  System Event Message: The System Event Message is used to indicate events that apply to the market or the data feed.
-    /// </summary>
 
-    public partial class SystemEventMessage
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            public SystemEvent SystemEvent;
-            public Timestamp Timestamp;
-        };
+        public SystemEvent SystemEvent;
+        public Timestamp Timestamp;
     };
-}
+};

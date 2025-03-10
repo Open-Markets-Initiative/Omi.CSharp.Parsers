@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Instrument Scope Product Complex
+/// </summary>
+public enum InstrumentScopeProductComplex : byte
 {
-    /// <summary>
-    ///  Instrument Scope Product Complex
-    /// </summary>
-    public enum InstrumentScopeProductComplex : byte
-    {
-    }
 }

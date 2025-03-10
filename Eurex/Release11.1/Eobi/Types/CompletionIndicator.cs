@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Completion Indicator
+/// </summary>
+public enum CompletionIndicator : byte
 {
-    /// <summary>
-    ///  Completion Indicator
-    /// </summary>
-    public enum CompletionIndicator : byte
-    {
-    }
 }

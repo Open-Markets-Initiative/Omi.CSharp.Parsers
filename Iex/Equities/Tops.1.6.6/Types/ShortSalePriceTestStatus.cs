@@ -1,19 +1,19 @@
-namespace Iex.Tops
+namespace Iex.Tops;
+
+/// <summary>
+///  Short Sale Price Test Status: Reg. SHO short sale price test restriction status
+/// </summary>
+
+public enum ShortSalePriceTestStatus : byte
 {
     /// <summary>
-    ///  Short Sale Price Test Status: Reg. SHO short sale price test restriction status
+    ///  Not In Effect
     /// </summary>
-    public enum ShortSalePriceTestStatus : byte
-    {
-        /// <summary>
-        ///  Not In Effect
-        /// </summary>
-        NotInEffect = 0,
+    NotInEffect = 0,
 
-        /// <summary>
-        ///  In Effect
-        /// </summary>
-        InEffect = 1,
+    /// <summary>
+    ///  In Effect
+    /// </summary>
+    InEffect = 1,
 
-    }
 }

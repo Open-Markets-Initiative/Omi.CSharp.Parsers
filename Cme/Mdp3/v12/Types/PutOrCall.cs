@@ -1,24 +1,24 @@
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Put Or Call: Indicates whether an option instrument is a put or call
+/// </summary>
+
+public enum PutOrCall : byte
 {
     /// <summary>
-    ///  Put Or Call: Indicates whether an option instrument is a put or call
+    ///  PutOrCall Fix Tag
     /// </summary>
-    public enum PutOrCall : byte
-    {
-        /// <summary>
-        ///  PutOrCall Fix Tag
-        /// </summary>
-        Fix = 201,
+    Fix = 201,
 
-        /// <summary>
-        ///  Put Option
-        /// </summary>
-        Put = 0,
+    /// <summary>
+    ///  Put Option
+    /// </summary>
+    Put = 0,
 
-        /// <summary>
-        ///  Call Option
-        /// </summary>
-        Call = 1,
+    /// <summary>
+    ///  Call Option
+    /// </summary>
+    Call = 1,
 
-    }
 }

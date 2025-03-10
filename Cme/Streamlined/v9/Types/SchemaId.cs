@@ -1,52 +1,50 @@
 using System.Runtime.CompilerServices;
 
-namespace Cme.Streamlined
+namespace Cme.Streamlined;
+/// <summary>
+///  Schema Id
+/// </summary>
+
+public struct SchemaId
 {
     /// <summary>
-    ///  Schema Id
+    ///  Required value for Schema Id
     /// </summary>
+    public const ushort StaticValue = 5;
 
-    public struct SchemaId
-    {
-        /// <summary>
-        ///  Required value for Schema Id
-        /// </summary>
-        public const ushort StaticValue = 5;
+    /// <summary>
+    ///  Size of Schema Id in bytes
+    /// </summary>
+    public const int Size = 2;
 
-        /// <summary>
-        ///  Size of Schema Id in bytes
-        /// </summary>
-        public const int Size = 2;
+    /// <summary>
+    ///  Schema Id value
+    /// </summary>
+    public readonly ushort Value
+        => Decode();
 
-        /// <summary>
-        ///  Schema Id value
-        /// </summary>
-        public readonly ushort Value
-            => Decode();
+    /// <summary>
+    ///  Read Schema Id
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly ushort Decode()
+        => Underlying;
 
-        /// <summary>
-        ///  Read Schema Id
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public readonly ushort Decode()
-            => Underlying;
+    /// <summary>
+    ///  Write Schema Id
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Encode(ushort value)
+        => Underlying = value;
 
-        /// <summary>
-        ///  Write Schema Id
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(ushort value)
-            => Underlying = value;
+    /// <summary>
+    ///  Schema Id as string
+    /// </summary>
+    public readonly override string ToString()
+        => $"{Value}";
 
-        /// <summary>
-        ///  Schema Id as string
-        /// </summary>
-        public readonly override string ToString()
-            => $"{Value}";
-
-        /// <summary>
-        ///  Underlying bytes
-        /// </summary>
-        internal ushort Underlying;
-    }
+    /// <summary>
+    ///  Underlying bytes
+    /// </summary>
+    internal ushort Underlying;
 }

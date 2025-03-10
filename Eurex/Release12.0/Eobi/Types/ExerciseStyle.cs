@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Exercise Style
+/// </summary>
+public enum ExerciseStyle : byte
 {
-    /// <summary>
-    ///  Exercise Style
-    /// </summary>
-    public enum ExerciseStyle : byte
-    {
-    }
 }

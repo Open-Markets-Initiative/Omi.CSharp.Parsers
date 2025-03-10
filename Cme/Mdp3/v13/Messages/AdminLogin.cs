@@ -1,18 +1,17 @@
 using System.Runtime.InteropServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Admin Login: AdminLogin
+/// </summary>
+
+public partial class AdminLogin
 {
-    /// <summary>
-    ///  Admin Login: AdminLogin
-    /// </summary>
 
-    public partial class AdminLogin
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            public HeartBtInt HeartBtInt;
-        };
+        public HeartBtInt HeartBtInt;
     };
-}
+};

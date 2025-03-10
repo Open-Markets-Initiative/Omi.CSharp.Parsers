@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Template Id
+/// </summary>
+public enum TemplateId : ushort
 {
-    /// <summary>
-    ///  Template Id
-    /// </summary>
-    public enum TemplateId : ushort
-    {
-    }
 }

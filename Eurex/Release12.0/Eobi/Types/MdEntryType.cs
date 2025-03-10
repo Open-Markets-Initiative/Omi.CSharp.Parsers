@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Md Entry Type
+/// </summary>
+public enum MdEntryType : byte
 {
-    /// <summary>
-    ///  Md Entry Type
-    /// </summary>
-    public enum MdEntryType : byte
-    {
-    }
 }

@@ -1,19 +1,18 @@
 using System.Runtime.InteropServices;
 
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+
+/// <summary>
+///  Order Mass Delete
+/// </summary>
+
+public partial class OrderMassDelete
 {
-    /// <summary>
-    ///  Order Mass Delete
-    /// </summary>
 
-    public partial class OrderMassDelete
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            public SecurityId SecurityId;
-            public TransactTime TransactTime;
-        };
+        public SecurityId SecurityId;
+        public TransactTime TransactTime;
     };
-}
+};

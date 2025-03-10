@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Bid Ord Type
+/// </summary>
+public enum BidOrdType : byte
 {
-    /// <summary>
-    ///  Bid Ord Type
-    /// </summary>
-    public enum BidOrdType : byte
-    {
-    }
 }

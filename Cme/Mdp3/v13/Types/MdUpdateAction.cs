@@ -1,44 +1,44 @@
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Md Update Action: Market Data update action
+/// </summary>
+
+public enum MdUpdateAction : byte
 {
     /// <summary>
-    ///  Md Update Action: Market Data update action
+    ///  MDUpdateAction Fix Tag
     /// </summary>
-    public enum MdUpdateAction : byte
-    {
-        /// <summary>
-        ///  MDUpdateAction Fix Tag
-        /// </summary>
-        Fix = 279,
+    Fix = 279,
 
-        /// <summary>
-        ///  New
-        /// </summary>
-        New = 0,
+    /// <summary>
+    ///  New
+    /// </summary>
+    New = 0,
 
-        /// <summary>
-        ///  Change
-        /// </summary>
-        Change = 1,
+    /// <summary>
+    ///  Change
+    /// </summary>
+    Change = 1,
 
-        /// <summary>
-        ///  Delete
-        /// </summary>
-        Delete = 2,
+    /// <summary>
+    ///  Delete
+    /// </summary>
+    Delete = 2,
 
-        /// <summary>
-        ///  Delete Thru
-        /// </summary>
-        DeleteThru = 3,
+    /// <summary>
+    ///  Delete Thru
+    /// </summary>
+    DeleteThru = 3,
 
-        /// <summary>
-        ///  Delete From
-        /// </summary>
-        DeleteFrom = 4,
+    /// <summary>
+    ///  Delete From
+    /// </summary>
+    DeleteFrom = 4,
 
-        /// <summary>
-        ///  Overlay
-        /// </summary>
-        Overlay = 5,
+    /// <summary>
+    ///  Overlay
+    /// </summary>
+    Overlay = 5,
 
-    }
 }

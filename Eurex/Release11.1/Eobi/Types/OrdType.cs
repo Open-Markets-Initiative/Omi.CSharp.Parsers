@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Ord Type
+/// </summary>
+public enum OrdType : byte
 {
-    /// <summary>
-    ///  Ord Type
-    /// </summary>
-    public enum OrdType : byte
-    {
-    }
 }

@@ -1,47 +1,45 @@
 using System.Runtime.CompilerServices;
 
-namespace Iex.Deep
+namespace Iex.Deep;
+/// <summary>
+///  Session Id: Identifies the session
+/// </summary>
+
+public struct SessionId
 {
     /// <summary>
-    ///  Session Id: Identifies the session
+    ///  Size of Session Id in bytes
     /// </summary>
+    public const int Size = 4;
 
-    public struct SessionId
-    {
-        /// <summary>
-        ///  Size of Session Id in bytes
-        /// </summary>
-        public const int Size = 4;
+    /// <summary>
+    ///  Session Id value
+    /// </summary>
+    public readonly uint Value
+        => Decode();
 
-        /// <summary>
-        ///  Session Id value
-        /// </summary>
-        public readonly uint Value
-            => Decode();
+    /// <summary>
+    ///  Read Session Id
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly uint Decode()
+        => Underlying;
 
-        /// <summary>
-        ///  Read Session Id
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public readonly uint Decode()
-            => Underlying;
+    /// <summary>
+    ///  Write Session Id
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Encode(uint value)
+        => Underlying = value;
 
-        /// <summary>
-        ///  Write Session Id
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(uint value)
-            => Underlying = value;
+    /// <summary>
+    ///  Session Id as string
+    /// </summary>
+    public readonly override string ToString()
+        => $"{Value}";
 
-        /// <summary>
-        ///  Session Id as string
-        /// </summary>
-        public readonly override string ToString()
-            => $"{Value}";
-
-        /// <summary>
-        ///  Underlying bytes
-        /// </summary>
-        internal uint Underlying;
-    }
+    /// <summary>
+    ///  Underlying bytes
+    /// </summary>
+    internal uint Underlying;
 }

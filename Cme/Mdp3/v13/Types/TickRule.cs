@@ -1,51 +1,50 @@
 using System.Runtime.CompilerServices;
 
-namespace Cme.Mdp3
+namespace Cme.Mdp3;
+
+/// <summary>
+///  Tick Rule: VTT code referencing variable tick table
+/// </summary>
+
+public struct TickRule
 {
     /// <summary>
-    ///  Tick Rule: VTT code referencing variable tick table
+    ///  Fix Tag for Tick Rule
     /// </summary>
+    public const ushort FixTag = 6350;
 
-    public struct TickRule
-    {
-        /// <summary>
-        ///  Fix Tag for Tick Rule
-        /// </summary>
-        public const ushort FixTag = 6350;
+    /// <summary>
+    ///  Sentinel null value for Tick Rule
+    /// </summary>
+    public const sbyte NoValue = 127;
 
-        /// <summary>
-        ///  Sentinel null value for Tick Rule
-        /// </summary>
-        public const sbyte NoValue = 127;
+    /// <summary>
+    ///  Size of Tick Rule in bytes
+    /// </summary>
+    public const int Size = 1;
 
-        /// <summary>
-        ///  Size of Tick Rule in bytes
-        /// </summary>
-        public const int Size = 1;
+    /// <summary>
+    ///  Read Tick Rule
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public sbyte Decode()
+        => (sbyte)Byte;
 
-        /// <summary>
-        ///  Read Tick Rule
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public sbyte Decode()
-            => (sbyte)Byte;
+    /// <summary>
+    ///  Write Tick Rule
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Encode(sbyte value)
+        => Byte = (byte)value;
 
-        /// <summary>
-        ///  Write Tick Rule
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(sbyte value)
-            => Byte = (byte)value;
+    /// <summary>
+    ///  Tick Rule as string
+    /// </summary>
+    public readonly override string ToString()
+        => $"{Decode()}";
 
-        /// <summary>
-        ///  Tick Rule as string
-        /// </summary>
-        public readonly override string ToString()
-            => $"{Decode()}";
-
-        /// <summary>
-        ///  Underlying byte
-        /// </summary>
-        internal byte Byte;
-    }
+    /// <summary>
+    ///  Underlying byte
+    /// </summary>
+    internal byte Byte;
 }

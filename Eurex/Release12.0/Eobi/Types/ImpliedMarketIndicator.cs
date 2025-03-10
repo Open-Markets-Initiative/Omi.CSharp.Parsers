@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Implied Market Indicator
+/// </summary>
+public enum ImpliedMarketIndicator : byte
 {
-    /// <summary>
-    ///  Implied Market Indicator
-    /// </summary>
-    public enum ImpliedMarketIndicator : byte
-    {
-    }
 }

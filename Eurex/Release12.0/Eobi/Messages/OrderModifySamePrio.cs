@@ -1,22 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+
+/// <summary>
+///  Order Modify Same Prio
+/// </summary>
+
+public partial class OrderModifySamePrio
 {
-    /// <summary>
-    ///  Order Modify Same Prio
-    /// </summary>
 
-    public partial class OrderModifySamePrio
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
+    public unsafe struct Layout
     {
-
-        [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public unsafe struct Layout
-        {
-            public RequestTime RequestTime;
-            public TransactTime TransactTime;
-            public PrevDisplayQty PrevDisplayQty;
-            public SecurityId SecurityId;
-            public OrderDetailsComp OrderDetailsComp;
-        };
+        public RequestTime RequestTime;
+        public TransactTime TransactTime;
+        public PrevDisplayQty PrevDisplayQty;
+        public SecurityId SecurityId;
+        public OrderDetailsComp OrderDetailsComp;
     };
-}
+};

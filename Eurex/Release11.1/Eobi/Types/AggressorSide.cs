@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Aggressor Side
+/// </summary>
+public enum AggressorSide : byte
 {
-    /// <summary>
-    ///  Aggressor Side
-    /// </summary>
-    public enum AggressorSide : byte
-    {
-    }
 }

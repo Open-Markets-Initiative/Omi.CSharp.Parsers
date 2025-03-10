@@ -1,48 +1,46 @@
 using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
-namespace Nasdaq.MarketDepth
+namespace Nasdaq.MarketDepth;
+/// <summary>
+///  Timestamp: Nanoseconds portion of the timestamp.
+/// </summary>
+
+public struct Timestamp
 {
     /// <summary>
-    ///  Timestamp: Nanoseconds portion of the timestamp.
+    ///  Size of Timestamp in bytes
     /// </summary>
+    public const int Size = 4;
 
-    public struct Timestamp
-    {
-        /// <summary>
-        ///  Size of Timestamp in bytes
-        /// </summary>
-        public const int Size = 4;
+    /// <summary>
+    ///  Timestamp value
+    /// </summary>
+    public readonly uint Value
+        => Decode();
 
-        /// <summary>
-        ///  Timestamp value
-        /// </summary>
-        public readonly uint Value
-            => Decode();
+    /// <summary>
+    ///  Read Timestamp
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly uint Decode()
+        => BinaryPrimitives.ReverseEndianness(Underlying);
 
-        /// <summary>
-        ///  Read Timestamp
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public readonly uint Decode()
-            => BinaryPrimitives.ReverseEndianness(Underlying);
+    /// <summary>
+    ///  Write Timestamp
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Encode(uint value)
+        => Underlying = BinaryPrimitives.ReverseEndianness(value);
 
-        /// <summary>
-        ///  Write Timestamp
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Encode(uint value)
-            => Underlying = BinaryPrimitives.ReverseEndianness(value);
+    /// <summary>
+    ///  Timestamp as string
+    /// </summary>
+    public readonly override string ToString()
+        => $"{Value}";
 
-        /// <summary>
-        ///  Timestamp as string
-        /// </summary>
-        public readonly override string ToString()
-            => $"{Value}";
-
-        /// <summary>
-        ///  Underlying bytes
-        /// </summary>
-        internal uint Underlying;
-    }
+    /// <summary>
+    ///  Underlying bytes
+    /// </summary>
+    internal uint Underlying;
 }

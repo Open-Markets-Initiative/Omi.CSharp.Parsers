@@ -1,9 +1,7 @@
-namespace Eurex.Eobi
+namespace Eurex.Eobi;
+/// <summary>
+///  Match Sub Type
+/// </summary>
+public enum MatchSubType : byte
 {
-    /// <summary>
-    ///  Match Sub Type
-    /// </summary>
-    public enum MatchSubType : byte
-    {
-    }
 }
