@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Unit Qty Denominator: Denominator for UnitQuantity. This field will be ‘0’ for most of the markets.
     /// </summary>

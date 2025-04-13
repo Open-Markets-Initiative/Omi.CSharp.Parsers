@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Net Change: Represents The Change In The Price Of An Option From The Closing Price Of One Day To The Closing Price On The Next Day On Which The Option Is Traded
 /// </summary>

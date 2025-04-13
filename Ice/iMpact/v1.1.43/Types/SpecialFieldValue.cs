@@ -7,7 +7,7 @@ namespace Ice.iMpact
     ///  Special Field Value: Fixed Length Data Field
     /// </summary>
 
-    public sealed class SpecialFieldValue
+    public struct SpecialFieldValue
     {
         /// <summary>
         ///  Length of Special Field Value in bytes

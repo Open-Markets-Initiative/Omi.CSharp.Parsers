@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Tracking Number: NASDAQ OMX internal tracking number
 /// </summary>

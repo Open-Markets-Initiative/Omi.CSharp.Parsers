@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient
 {
+
     /// <summary>
     ///  Message Indicator: Message Identifier
     /// </summary>

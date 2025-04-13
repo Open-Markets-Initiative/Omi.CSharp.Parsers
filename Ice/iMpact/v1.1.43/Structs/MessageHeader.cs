@@ -11,12 +11,12 @@ public partial class MessageHeader
     /// <summary>
     ///  Code identifying this message type
     /// </summary>
-    public MessageType MessageType => Layout.MessageType.Value;
+    public MessageType MessageType => Fields.MessageType.Value;
 
     /// <summary>
     ///  Length of message
     /// </summary>
-    public ushort Length => Layout.Length.Value;
+    public ushort Length => Fields.Length.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class MessageHeader
         public MessageType MessageType;
         public Length Length;
     };
+
+    protected Layout Fields;
 };

@@ -11,17 +11,17 @@ public partial class ExpirationBlock
     /// <summary>
     ///  Indicates The Expiration Month And Identifies The Option As A Call Or A Put
     /// </summary>
-    public ExpirationMonth ExpirationMonth => Layout.ExpirationMonth.Value;
+    public ExpirationMonth ExpirationMonth => Fields.ExpirationMonth.Value;
 
     /// <summary>
     ///  Contains Hex 0 X 01 To 0 X 1f Decimal 1 To 31 Indicating The Day Of The Month The Series Expires
     /// </summary>
-    public byte ExpirationDay => Layout.ExpirationDay.Value;
+    public byte ExpirationDay => Fields.ExpirationDay.Value;
 
     /// <summary>
     ///  Contains Hex 0 X 00 To 0 X 63 Decimal 0 To 99 Represents The Year Starting With Year 2000
     /// </summary>
-    public byte ExpirationYear => Layout.ExpirationYear.Value;
+    public byte ExpirationYear => Fields.ExpirationYear.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -30,4 +30,6 @@ public partial class ExpirationBlock
         public ExpirationDay ExpirationDay;
         public ExpirationYear ExpirationYear;
     };
+
+    protected Layout Fields;
 };

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Order Id: PHLX assigned order ID.
 /// </summary>

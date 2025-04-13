@@ -11,22 +11,22 @@ public partial class MaturityMonthYear
     /// <summary>
     ///  YYYY
     /// </summary>
-    public ushort Year => Layout.Year.Value;
+    public ushort Year => Fields.Year.Value;
 
     /// <summary>
     ///  MM
     /// </summary>
-    public byte Month => Layout.Month.Value;
+    public byte Month => Fields.Month.Value;
 
     /// <summary>
     ///  DD
     /// </summary>
-    public byte Day => Layout.Day.Value;
+    public byte Day => Fields.Day.Value;
 
     /// <summary>
     ///  WW
     /// </summary>
-    public byte Week => Layout.Week.Value;
+    public byte Week => Fields.Week.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -36,4 +36,6 @@ public partial class MaturityMonthYear
         public Day Day;
         public Week Week;
     };
+
+    protected Layout Fields;
 };

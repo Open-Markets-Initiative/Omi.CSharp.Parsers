@@ -11,12 +11,12 @@ public partial class BinaryPacketHeader
     /// <summary>
     ///  Packet Sequence Number
     /// </summary>
-    public uint MessageSequenceNumber => Layout.MessageSequenceNumber.Value;
+    public uint MessageSequenceNumber => Fields.MessageSequenceNumber.Value;
 
     /// <summary>
     ///  Packet Sending Time
     /// </summary>
-    public ulong SendingTime => Layout.SendingTime.Value;
+    public ulong SendingTime => Fields.SendingTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class BinaryPacketHeader
         public MessageSequenceNumber MessageSequenceNumber;
         public SendingTime SendingTime;
     };
+
+    protected Layout Fields;
 };

@@ -8,6 +8,20 @@ namespace Ice.iMpact;
 
 public partial class SystemTextMessage
 {
+    /// <summary>
+    ///  Text Message
+    /// </summary>
+    public string TextMessage => Fields.TextMessage.Value;
+
+    /// <summary>
+    ///  Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime MessageDateTime => Fields.MessageDateTime.Value;
+
+    /// <summary>
+    ///  Extra field for text message when TextMessage field is not big enough. This should be appended to TextMessage if it is not empty.
+    /// </summary>
+    public string TextMessageExtraFld => Fields.TextMessageExtraFld.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -16,4 +30,6 @@ public partial class SystemTextMessage
         public MessageDateTime MessageDateTime;
         public TextMessageExtraFld TextMessageExtraFld;
     };
+
+    protected Layout Fields;
 };

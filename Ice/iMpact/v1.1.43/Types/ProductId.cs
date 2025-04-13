@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Product Id: ID of the product that the contract/market is under.
 /// </summary>

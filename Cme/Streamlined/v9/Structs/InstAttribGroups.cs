@@ -11,11 +11,13 @@ public partial class InstAttribGroups
     /// <summary>
     ///  Repeating group dimensions
     /// </summary>
-    public string GroupSizeEncoding => Layout.GroupSizeEncoding.Value;
+    public string GroupSizeEncoding => Fields.GroupSizeEncoding.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
     {
         public GroupSizeEncoding GroupSizeEncoding;
     };
+
+    protected Layout Fields;
 };

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  End Month: Month range 1-12
 /// </summary>

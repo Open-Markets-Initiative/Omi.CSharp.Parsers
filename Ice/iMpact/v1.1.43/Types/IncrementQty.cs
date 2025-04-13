@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Increment Qty: Minimum increment quantity for this market
 /// </summary>

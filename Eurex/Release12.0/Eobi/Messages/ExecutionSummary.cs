@@ -8,6 +8,75 @@ namespace Eurex.Eobi;
 
 public partial class ExecutionSummary
 {
+    /// <summary>
+    ///  Unique instrument identifier
+    /// </summary>
+    public long SecurityId => Fields.SecurityId.Value;
+
+    /// <summary>
+    ///  Request Time
+    /// </summary>
+    public DateTime RequestTime => Fields.RequestTime.Value;
+
+    /// <summary>
+    ///  Exec Id
+    /// </summary>
+    public DateTime ExecId => Fields.ExecId.Value;
+
+    /// <summary>
+    ///  Total executed matched quantity of this match event
+    /// </summary>
+    public ulong LastQty => Fields.LastQty.Value;
+
+    /// <summary>
+    ///  Aggressor Side
+    /// </summary>
+    public AggressorSide AggressorSide => Fields.AggressorSide.Value;
+
+    /// <summary>
+    ///  Pad 1
+    /// </summary>
+    public string Pad1 => Fields.Pad1.Value;
+
+    /// <summary>
+    ///  Trade Condition
+    /// </summary>
+    public TradeCondition TradeCondition => Fields.TradeCondition.Value;
+
+    /// <summary>
+    ///  Trading Hhi Indicator
+    /// </summary>
+    public byte TradingHhiIndicator => Fields.TradingHhiIndicator.Value;
+
+    /// <summary>
+    ///  Pad 3
+    /// </summary>
+    public string Pad3 => Fields.Pad3.Value;
+
+    /// <summary>
+    ///  Last Px
+    /// </summary>
+    public ulong LastPx => Fields.LastPx.Value;
+
+    /// <summary>
+    ///  Remaining Order Details Comp
+    /// </summary>
+    public string RemainingOrderDetailsComp => Fields.RemainingOrderDetailsComp.Value;
+
+    /// <summary>
+    ///  Resting Hidden Qty
+    /// </summary>
+    public ulong RestingHiddenQty => Fields.RestingHiddenQty.Value;
+
+    /// <summary>
+    ///  Resting Cxl Qty
+    /// </summary>
+    public ulong RestingCxlQty => Fields.RestingCxlQty.Value;
+
+    /// <summary>
+    ///  Aggressor Time
+    /// </summary>
+    public DateTime AggressorTime => Fields.AggressorTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -27,4 +96,6 @@ public partial class ExecutionSummary
         public RestingCxlQty RestingCxlQty;
         public AggressorTime AggressorTime;
     };
+
+    protected Layout Fields;
 };

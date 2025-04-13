@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Size: Identifies The Number Of Contracts Being Bought For An Option At The Price
 /// </summary>

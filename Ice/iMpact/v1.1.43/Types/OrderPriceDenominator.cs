@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Order Price Denominator: Denominator for the order price fields in this market.
     /// </summary>

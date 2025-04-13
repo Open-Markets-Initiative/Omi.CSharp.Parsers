@@ -11,12 +11,12 @@ public partial class GroupSize
     /// <summary>
     ///  Block Length
     /// </summary>
-    public ushort BlockLength => Layout.BlockLength.Value;
+    public ushort BlockLength => Fields.BlockLength.Value;
 
     /// <summary>
     ///  Num In Group uint 8
     /// </summary>
-    public byte NumInGroupUint8 => Layout.NumInGroupUint8.Value;
+    public byte NumInGroupUint8 => Fields.NumInGroupUint8.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class GroupSize
         public BlockLength BlockLength;
         public NumInGroupUint8 NumInGroupUint8;
     };
+
+    protected Layout Fields;
 };

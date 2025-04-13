@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Timestamp: Timestamp of last update used to derive the price level message. The format is nanoseconds since
 /// </summary>

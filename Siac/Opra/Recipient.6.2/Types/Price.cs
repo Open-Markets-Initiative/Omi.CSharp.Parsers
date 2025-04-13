@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Price: Represents The Price At Which A Buyer Is Willing To Buy An Option
 /// </summary>

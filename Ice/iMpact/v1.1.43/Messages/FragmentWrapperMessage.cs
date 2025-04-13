@@ -8,6 +8,25 @@ namespace Ice.iMpact;
 
 public partial class FragmentWrapperMessage
 {
+    /// <summary>
+    ///  The total length of the fragmented message.
+    /// </summary>
+    public short TotalLength => Fields.TotalLength.Value;
+
+    /// <summary>
+    ///  The index of the byte where this fragment starts within the total length of the fragmented message.
+    /// </summary>
+    public short FragmentOffset => Fields.FragmentOffset.Value;
+
+    /// <summary>
+    ///  The number of bytes in this fragment
+    /// </summary>
+    public short FragmentLength => Fields.FragmentLength.Value;
+
+    /// <summary>
+    ///  The serialized bytes of the fragmented message
+    /// </summary>
+    public string FragmentBytes => Fields.FragmentBytes.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -17,4 +36,6 @@ public partial class FragmentWrapperMessage
         public FragmentLength FragmentLength;
         public FragmentBytes FragmentBytes;
     };
+
+    protected Layout Fields;
 };

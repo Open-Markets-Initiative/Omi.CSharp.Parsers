@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Stock Locate: Always 0
 /// </summary>

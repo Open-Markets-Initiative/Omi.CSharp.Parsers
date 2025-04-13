@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Transact Date Time: Deal date time. Milliseconds since Jan 1st, 1970,
     /// </summary>

@@ -11,12 +11,12 @@ public partial class CouponRateOptional
     /// <summary>
     ///  mantissa
     /// </summary>
-    public int Mantissa32 => Layout.Mantissa32.Value;
+    public int Mantissa32 => Fields.Mantissa32.Value;
 
     /// <summary>
     ///  exponent
     /// </summary>
-    public sbyte Exponent => Layout.Exponent.Value;
+    public sbyte Exponent => Fields.Exponent.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class CouponRateOptional
         public Mantissa32 Mantissa32;
         public Exponent Exponent;
     };
+
+    protected Layout Fields;
 };

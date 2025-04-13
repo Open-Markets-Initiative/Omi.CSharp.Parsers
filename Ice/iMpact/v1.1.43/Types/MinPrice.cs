@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Min Price: Minimum Price. OrderPriceDenominator should be applied to this field.
 /// </summary>

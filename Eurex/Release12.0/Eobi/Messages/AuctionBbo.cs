@@ -8,6 +8,55 @@ namespace Eurex.Eobi;
 
 public partial class AuctionBbo
 {
+    /// <summary>
+    ///  Transact Time
+    /// </summary>
+    public DateTime TransactTime => Fields.TransactTime.Value;
+
+    /// <summary>
+    ///  Unique instrument identifier
+    /// </summary>
+    public long SecurityId => Fields.SecurityId.Value;
+
+    /// <summary>
+    ///  Bid Px
+    /// </summary>
+    public ulong BidPx => Fields.BidPx.Value;
+
+    /// <summary>
+    ///  Offer Px
+    /// </summary>
+    public ulong OfferPx => Fields.OfferPx.Value;
+
+    /// <summary>
+    ///  Bid Size
+    /// </summary>
+    public ulong BidSize => Fields.BidSize.Value;
+
+    /// <summary>
+    ///  Offer Size
+    /// </summary>
+    public ulong OfferSize => Fields.OfferSize.Value;
+
+    /// <summary>
+    ///  Potential Security Trading Event
+    /// </summary>
+    public PotentialSecurityTradingEvent PotentialSecurityTradingEvent => Fields.PotentialSecurityTradingEvent.Value;
+
+    /// <summary>
+    ///  Bid Ord Type
+    /// </summary>
+    public BidOrdType BidOrdType => Fields.BidOrdType.Value;
+
+    /// <summary>
+    ///  Offer Ord Type
+    /// </summary>
+    public OfferOrdType OfferOrdType => Fields.OfferOrdType.Value;
+
+    /// <summary>
+    ///  Pad 5
+    /// </summary>
+    public string Pad5 => Fields.Pad5.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -23,4 +72,6 @@ public partial class AuctionBbo
         public OfferOrdType OfferOrdType;
         public Pad5 Pad5;
     };
+
+    protected Layout Fields;
 };

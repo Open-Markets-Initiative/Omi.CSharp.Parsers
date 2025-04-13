@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Original Bid Reference Number Delta: The original bid reference number delta associated with the order being replaced.
 /// </summary>

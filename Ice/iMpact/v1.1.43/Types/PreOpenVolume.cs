@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Pre Open Volume: Indicative volume that would trade at the preOpenPrice
 /// </summary>

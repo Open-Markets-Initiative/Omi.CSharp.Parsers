@@ -11,52 +11,52 @@ public partial class OpenInterestMessage
     /// <summary>
     ///  Message Type
     /// </summary>
-    public string MessageType => Layout.MessageType.Value;
+    public char MessageType => Fields.MessageType.Value;
 
     /// <summary>
     ///  Message Identifier
     /// </summary>
-    public string MessageIndicator => Layout.MessageIndicator.Value;
+    public char MessageIndicator => Fields.MessageIndicator.Value;
 
     /// <summary>
     ///  Reserved For Internal Use Only
     /// </summary>
-    public uint TransactionId => Layout.TransactionId.Value;
+    public uint TransactionId => Fields.TransactionId.Value;
 
     /// <summary>
     ///  The Prn Is For Optional Use By The Participant
     /// </summary>
-    public uint ParticipantReferenceNumber => Layout.ParticipantReferenceNumber.Value;
+    public uint ParticipantReferenceNumber => Fields.ParticipantReferenceNumber.Value;
 
     /// <summary>
     ///  Identifies The Unique Symbol Assigned To The Underlying Security
     /// </summary>
-    public string SecuritySymbol => Layout.SecuritySymbol.Value;
+    public string SecuritySymbol => Fields.SecuritySymbol.Value;
 
     /// <summary>
     ///  One Reserved Byte
     /// </summary>
-    public string Reserved1 => Layout.Reserved1.Value;
+    public string Reserved1 => Fields.Reserved1.Value;
 
     /// <summary>
     ///  Expiration Block
     /// </summary>
-    public string ExpirationBlock => Layout.ExpirationBlock.Value;
+    public string ExpirationBlock => Fields.ExpirationBlock.Value;
 
     /// <summary>
     ///  The Strike Price Denominator Code Field Indicates The Position Of The Floating Decimal Point Within The Strike Price Field
     /// </summary>
-    public StrikePriceDenominatorCode StrikePriceDenominatorCode => Layout.StrikePriceDenominatorCode.Value;
+    public StrikePriceDenominatorCode StrikePriceDenominatorCode => Fields.StrikePriceDenominatorCode.Value;
 
     /// <summary>
     ///  Represents The Stated Price Per Share For Which The Underlying Security May Be Purchased In The Case Of A Call Or Sold In The Case Of A Put By The Option Holder Upon Exercise Of The Option Contract
     /// </summary>
-    public uint StrikePrice => Layout.StrikePrice.Value;
+    public uint StrikePrice => Fields.StrikePrice.Value;
 
     /// <summary>
     ///  Represents The Total Number Of Outstanding Option Contracts That Have Not Been Exercised And Have Not Yet Reached Expiration
     /// </summary>
-    public uint OpenInterestVolume => Layout.OpenInterestVolume.Value;
+    public uint OpenInterestVolume => Fields.OpenInterestVolume.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -72,4 +72,6 @@ public partial class OpenInterestMessage
         public StrikePrice StrikePrice;
         public OpenInterestVolume OpenInterestVolume;
     };
+
+    protected Layout Fields;
 };

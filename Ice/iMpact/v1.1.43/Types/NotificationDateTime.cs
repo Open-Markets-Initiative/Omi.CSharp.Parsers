@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Notification Date Time: Date time of the IPL Hold notification. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

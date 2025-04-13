@@ -8,6 +8,35 @@ namespace Ice.iMpact;
 
 public partial class SettlementPriceMessage
 {
+    /// <summary>
+    ///  Market Id
+    /// </summary>
+    public int MarketId => Fields.MarketId.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get this price.
+    /// </summary>
+    public long SettlementPriceWithDealPricePrecision => Fields.SettlementPriceWithDealPricePrecision.Value;
+
+    /// <summary>
+    ///  Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime MessageDateTime => Fields.MessageDateTime.Value;
+
+    /// <summary>
+    ///  Flag to indicate this is official settlement price or not. ‘Y’ or ‘N’.
+    /// </summary>
+    public IsOfficial IsOfficial => Fields.IsOfficial.Value;
+
+    /// <summary>
+    ///  Date time the settlement price is for. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime ValuationDateTime => Fields.ValuationDateTime.Value;
+
+    /// <summary>
+    ///  SettlePriceDenominator for the market should be applied to get the real settlement price.
+    /// </summary>
+    public long SettlementPrice => Fields.SettlementPrice.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -19,4 +48,6 @@ public partial class SettlementPriceMessage
         public ValuationDateTime ValuationDateTime;
         public SettlementPrice SettlementPrice;
     };
+
+    protected Layout Fields;
 };

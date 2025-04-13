@@ -11,12 +11,12 @@ public partial class NextFixedPaymentAmount
     /// <summary>
     ///  mantissa
     /// </summary>
-    public long Mantissa => Layout.Mantissa.Value;
+    public long Mantissa => Fields.Mantissa.Value;
 
     /// <summary>
     ///  exponent
     /// </summary>
-    public sbyte Exponent => Layout.Exponent.Value;
+    public sbyte Exponent => Fields.Exponent.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class NextFixedPaymentAmount
         public Mantissa Mantissa;
         public Exponent Exponent;
     };
+
+    protected Layout Fields;
 };

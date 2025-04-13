@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Ipo Quotation Release Time: Denotes the IPO release time, in seconds since midnight, for quotation to the nearest second.
 /// </summary>

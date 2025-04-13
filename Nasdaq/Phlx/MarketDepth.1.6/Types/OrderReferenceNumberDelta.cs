@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Order Reference Number Delta: The unique reference number delta assigned to the new order. The order reference number is Increasing, but not necessarily sequential.
 /// </summary>

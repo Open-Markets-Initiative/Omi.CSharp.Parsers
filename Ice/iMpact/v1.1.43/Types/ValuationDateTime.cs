@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Valuation Date Time: Date time the settlement price is for. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

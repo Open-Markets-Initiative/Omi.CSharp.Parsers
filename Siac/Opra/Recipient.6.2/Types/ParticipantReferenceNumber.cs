@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Participant Reference Number: The Prn Is For Optional Use By The Participant
 /// </summary>

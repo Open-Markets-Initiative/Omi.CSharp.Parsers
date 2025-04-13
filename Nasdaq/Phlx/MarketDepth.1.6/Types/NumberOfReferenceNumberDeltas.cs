@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Number Of Reference Number Deltas: The number of single side deletes in this block. Max possible value = 360
 /// </summary>

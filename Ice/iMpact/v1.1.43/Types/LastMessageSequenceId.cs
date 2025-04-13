@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Last Message Sequence Id: This should be used for synchronization with live update messages. Please see the main tech spec for details on how it can be done.
 /// </summary>

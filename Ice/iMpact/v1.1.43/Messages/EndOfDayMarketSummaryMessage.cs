@@ -8,6 +8,70 @@ namespace Ice.iMpact;
 
 public partial class EndOfDayMarketSummaryMessage
 {
+    /// <summary>
+    ///  Market Id
+    /// </summary>
+    public int MarketId => Fields.MarketId.Value;
+
+    /// <summary>
+    ///  Electronic trade volume only, excluding block and other volumes.
+    /// </summary>
+    public int Volume => Fields.Volume.Value;
+
+    /// <summary>
+    ///  Block Volume
+    /// </summary>
+    public int BlockVolume => Fields.BlockVolume.Value;
+
+    /// <summary>
+    ///  Efs Volume
+    /// </summary>
+    public int EfsVolume => Fields.EfsVolume.Value;
+
+    /// <summary>
+    ///  Efp Volume
+    /// </summary>
+    public int EfpVolume => Fields.EfpVolume.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long OpeningPrice => Fields.OpeningPrice.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long High => Fields.High.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long Low => Fields.Low.Value;
+
+    /// <summary>
+    ///  Weighted Average Price. DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long Vwap => Fields.Vwap.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get this price.
+    /// </summary>
+    public long SettlementPriceWithDealPricePrecision => Fields.SettlementPriceWithDealPricePrecision.Value;
+
+    /// <summary>
+    ///  Open Interest
+    /// </summary>
+    public int OpenInterest => Fields.OpenInterest.Value;
+
+    /// <summary>
+    ///  Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime MessageDateTime => Fields.MessageDateTime.Value;
+
+    /// <summary>
+    ///  SettlePriceDenominator for the market should be applied to get the real settlement price.
+    /// </summary>
+    public long SettlementPrice => Fields.SettlementPrice.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -26,4 +90,6 @@ public partial class EndOfDayMarketSummaryMessage
         public MessageDateTime MessageDateTime;
         public SettlementPrice SettlementPrice;
     };
+
+    protected Layout Fields;
 };

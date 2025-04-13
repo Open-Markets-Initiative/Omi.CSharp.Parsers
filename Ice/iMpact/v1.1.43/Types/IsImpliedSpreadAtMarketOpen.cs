@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Is Implied Spread At Market Open: Indicate if the trade happens at market open due to spread implied. When set to ‘Y’, such deal should not be included in market stats.
     /// </summary>

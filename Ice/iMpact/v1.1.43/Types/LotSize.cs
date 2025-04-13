@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Lot Size: The lot size is minimum size of contracts in lots. It is multiplier to determine the total lots.
 /// </summary>

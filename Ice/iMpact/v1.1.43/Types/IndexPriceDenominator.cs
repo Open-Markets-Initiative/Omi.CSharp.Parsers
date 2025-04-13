@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Index Price Denominator: This field should be applied to the Price field to get the number of decimals for the Marker/Index.
     /// </summary>

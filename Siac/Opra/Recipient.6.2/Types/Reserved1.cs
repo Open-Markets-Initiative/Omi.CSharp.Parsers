@@ -7,7 +7,7 @@ namespace Siac.Recipient
     ///  Reserved 1: Fixed Length Data Field
     /// </summary>
 
-    public sealed class Reserved1
+    public struct Reserved1
     {
         /// <summary>
         ///  Length of Reserved 1 in bytes

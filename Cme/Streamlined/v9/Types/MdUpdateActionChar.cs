@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
+
     /// <summary>
     ///  Md Update Action Char: Indicates the type of Market Data update action
     /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  New Order Reference Number: The new reference number for this order at time of replacement. Please note that the NASDAQ system will use this new order reference number for all subsequent updates.
 /// </summary>

@@ -8,10 +8,16 @@ namespace Ice.iMpact;
 
 public partial class SpecialFieldMessage
 {
+    /// <summary>
+    ///  Number of Fields present on this message
+    /// </summary>
+    public sbyte NumberOfSpecialFields => Fields.NumberOfSpecialFields.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
     {
         public NumberOfSpecialFields NumberOfSpecialFields;
     };
+
+    protected Layout Fields;
 };

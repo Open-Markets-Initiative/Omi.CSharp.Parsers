@@ -8,6 +8,25 @@ namespace Ice.iMpact;
 
 public partial class DeletePriceLevelMessage
 {
+    /// <summary>
+    ///  Market Id
+    /// </summary>
+    public int MarketId => Fields.MarketId.Value;
+
+    /// <summary>
+    ///  1 = Bid, 2 = Offer
+    /// </summary>
+    public Side Side => Fields.Side.Value;
+
+    /// <summary>
+    ///  Position of the price level
+    /// </summary>
+    public sbyte PriceLevelPosition => Fields.PriceLevelPosition.Value;
+
+    /// <summary>
+    ///  Timestamp of last update used to derive the price level message. The format is nanoseconds since
+    /// </summary>
+    public long Timestamp => Fields.Timestamp.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -17,4 +36,6 @@ public partial class DeletePriceLevelMessage
         public PriceLevelPosition PriceLevelPosition;
         public Timestamp Timestamp;
     };
+
+    protected Layout Fields;
 };

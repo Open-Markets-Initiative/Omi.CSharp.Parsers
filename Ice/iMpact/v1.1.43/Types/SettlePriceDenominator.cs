@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Settle Price Denominator: Denominator for the settlement price fields in the market. For most markets, this is the same as DealPriceDenominator.
     /// </summary>

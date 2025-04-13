@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Imbalance Shares: The number of shares not paired at the Current Reference Price.
 /// </summary>

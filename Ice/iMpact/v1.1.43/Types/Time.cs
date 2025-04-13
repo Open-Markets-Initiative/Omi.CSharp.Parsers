@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Time: Date time the message was sent. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

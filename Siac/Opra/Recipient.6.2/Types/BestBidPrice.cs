@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Best Bid Price: Represents The Best Price At Which A Buyer Is Willing To Buy An Option
 /// </summary>

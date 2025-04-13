@@ -8,6 +8,50 @@ namespace Ice.iMpact;
 
 public partial class SpotMarketTradeMessage
 {
+    /// <summary>
+    ///  Market Id
+    /// </summary>
+    public int MarketId => Fields.MarketId.Value;
+
+    /// <summary>
+    ///  Unique identifier of the trade message, unique per market.
+    /// </summary>
+    public long TradeId => Fields.TradeId.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long Price => Fields.Price.Value;
+
+    /// <summary>
+    ///  Quantity
+    /// </summary>
+    public int Quantity => Fields.Quantity.Value;
+
+    /// <summary>
+    ///  Deal date time. Milliseconds since Jan 1st, 1970,
+    /// </summary>
+    public DateTime TransactDateTime => Fields.TransactDateTime.Value;
+
+    /// <summary>
+    ///  For Future use
+    /// </summary>
+    public sbyte ExtraFlags => Fields.ExtraFlags.Value;
+
+    /// <summary>
+    ///  Delivery begin date time. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime DeliveryBeginDateTime => Fields.DeliveryBeginDateTime.Value;
+
+    /// <summary>
+    ///  Delivery end date time. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime DeliveryEndDateTime => Fields.DeliveryEndDateTime.Value;
+
+    /// <summary>
+    ///  Indicate if it is a system priced leg, ‘Y’ or ‘N’
+    /// </summary>
+    public IsSystemPricedLeg IsSystemPricedLeg => Fields.IsSystemPricedLeg.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -22,4 +66,6 @@ public partial class SpotMarketTradeMessage
         public DeliveryEndDateTime DeliveryEndDateTime;
         public IsSystemPricedLeg IsSystemPricedLeg;
     };
+
+    protected Layout Fields;
 };

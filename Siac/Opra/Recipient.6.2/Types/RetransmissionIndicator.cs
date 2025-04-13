@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient
 {
+
     /// <summary>
     ///  Retransmission Indicator: Contains Either A Space Not A Retransmitted Message Or V Indicating A Retransmission Of The Block
     /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Match Number: The NASDAQ generated day-unique Match Number of this execution. The match number is also referenced in the Trade Break Message.
 /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Request Trading Engine Received Timestamp: This field can be used to get the time the trading engine received the request that triggers this message
 /// </summary>

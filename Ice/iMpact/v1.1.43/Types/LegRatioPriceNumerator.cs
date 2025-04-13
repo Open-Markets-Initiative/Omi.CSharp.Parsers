@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Leg Ratio Price Numerator: Leg Ratio Price Numerator
 /// </summary>

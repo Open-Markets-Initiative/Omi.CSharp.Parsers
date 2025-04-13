@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Offer Price: Represents The Price At Which A Seller Is Offering To Sell An Option
 /// </summary>

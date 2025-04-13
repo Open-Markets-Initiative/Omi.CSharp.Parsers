@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Nanoseconds: The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond
 /// </summary>

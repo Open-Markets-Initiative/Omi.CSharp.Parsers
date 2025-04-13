@@ -11,11 +11,13 @@ public partial class MDIncrementalRefreshEris353Groups
     /// <summary>
     ///  Repeating group dimensions
     /// </summary>
-    public string GroupSize => Layout.GroupSize.Value;
+    public string GroupSize => Fields.GroupSize.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
     {
         public GroupSize GroupSize;
     };
+
+    protected Layout Fields;
 };

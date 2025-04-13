@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Off Exchange Increment Qty: Off exchange increment qty. OffExchangeIncrementQtyDenominator should be applied to this field.
 /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Usd Price: Auctioneers price for the round in USD. Use 2 decimal places for USD Price.
 /// </summary>

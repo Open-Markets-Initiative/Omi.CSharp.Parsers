@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Offer Size: The Offer Size Identifies The Number Of Contracts For Sale For An Option At The Offer Price
 /// </summary>

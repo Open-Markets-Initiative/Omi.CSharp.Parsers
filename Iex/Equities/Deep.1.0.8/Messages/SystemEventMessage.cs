@@ -8,6 +8,15 @@ namespace Iex.Deep;
 
 public partial class SystemEventMessage
 {
+    /// <summary>
+    ///  System event identifier
+    /// </summary>
+    public SystemEvent SystemEvent => Fields.SystemEvent.Value;
+
+    /// <summary>
+    ///  Time stamp of the system event
+    /// </summary>
+    public DateTime Timestamp => Fields.Timestamp.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -15,4 +24,6 @@ public partial class SystemEventMessage
         public SystemEvent SystemEvent;
         public Timestamp Timestamp;
     };
+
+    protected Layout Fields;
 };

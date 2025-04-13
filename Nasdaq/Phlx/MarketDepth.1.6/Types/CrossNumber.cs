@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Cross Number: Trade Group Id. Ties together all trades of a given atomic transaction in the matching engine.
 /// </summary>

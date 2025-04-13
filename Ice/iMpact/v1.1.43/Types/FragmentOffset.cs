@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Fragment Offset: The index of the byte where this fragment starts within the total length of the fragmented message.
 /// </summary>

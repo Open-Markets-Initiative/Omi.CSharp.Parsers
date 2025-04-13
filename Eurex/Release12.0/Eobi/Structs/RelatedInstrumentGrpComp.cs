@@ -11,11 +11,13 @@ public partial class RelatedInstrumentGrpComp
     /// <summary>
     ///  Related Security Id
     /// </summary>
-    public long RelatedSecurityId => Layout.RelatedSecurityId.Value;
+    public long RelatedSecurityId => Fields.RelatedSecurityId.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
     {
         public RelatedSecurityId RelatedSecurityId;
     };
+
+    protected Layout Fields;
 };

@@ -7,7 +7,7 @@ namespace Cme.Mdp3
     ///  Padding 6: Fixed Length Data Field
     /// </summary>
 
-    public sealed class Padding6
+    public struct Padding6
     {
         /// <summary>
         ///  Length of Padding 6 in bytes

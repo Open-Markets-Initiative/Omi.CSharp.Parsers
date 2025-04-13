@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Delta: Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.
 /// </summary>

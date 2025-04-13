@@ -8,6 +8,20 @@ namespace Cme.Mdp3;
 
 public partial class SnapshotRefreshTopOrders
 {
+    /// <summary>
+    ///  Start of event processing time in number of nanoseconds since Unix epoch
+    /// </summary>
+    public ulong TransactTime => Fields.TransactTime.Value;
+
+    /// <summary>
+    ///  MatchEventIndicator bit set
+    /// </summary>
+    public string MatchEventIndicator => Fields.MatchEventIndicator.Value;
+
+    /// <summary>
+    ///  Security ID
+    /// </summary>
+    public int SecurityId => Fields.SecurityId.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -16,4 +30,6 @@ public partial class SnapshotRefreshTopOrders
         public MatchEventIndicator MatchEventIndicator;
         public SecurityId SecurityId;
     };
+
+    protected Layout Fields;
 };

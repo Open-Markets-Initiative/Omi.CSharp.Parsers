@@ -11,42 +11,42 @@ public partial class PacketHeader
     /// <summary>
     ///  Packet Info
     /// </summary>
-    public string PacketInfo => Layout.PacketInfo.Value;
+    public string PacketInfo => Fields.PacketInfo.Value;
 
     /// <summary>
     ///  Appl Seq Num
     /// </summary>
-    public uint ApplSeqNum => Layout.ApplSeqNum.Value;
+    public uint ApplSeqNum => Fields.ApplSeqNum.Value;
 
     /// <summary>
     ///  Market Segment Id
     /// </summary>
-    public int MarketSegmentId => Layout.MarketSegmentId.Value;
+    public int MarketSegmentId => Fields.MarketSegmentId.Value;
 
     /// <summary>
     ///  Partition Id
     /// </summary>
-    public byte PartitionId => Layout.PartitionId.Value;
+    public byte PartitionId => Fields.PartitionId.Value;
 
     /// <summary>
     ///  Completion Indicator
     /// </summary>
-    public CompletionIndicator CompletionIndicator => Layout.CompletionIndicator.Value;
+    public CompletionIndicator CompletionIndicator => Fields.CompletionIndicator.Value;
 
     /// <summary>
     ///  Appl Seq Reset Indicator
     /// </summary>
-    public ApplSeqResetIndicator ApplSeqResetIndicator => Layout.ApplSeqResetIndicator.Value;
+    public ApplSeqResetIndicator ApplSeqResetIndicator => Fields.ApplSeqResetIndicator.Value;
 
     /// <summary>
     ///  Pad 5
     /// </summary>
-    public string Pad5 => Layout.Pad5.Value;
+    public string Pad5 => Fields.Pad5.Value;
 
     /// <summary>
     ///  Transact Time
     /// </summary>
-    public ulong TransactTime => Layout.TransactTime.Value;
+    public DateTime TransactTime => Fields.TransactTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -60,4 +60,6 @@ public partial class PacketHeader
         public Pad5 Pad5;
         public TransactTime TransactTime;
     };
+
+    protected Layout Fields;
 };

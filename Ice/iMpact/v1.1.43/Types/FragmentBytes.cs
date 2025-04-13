@@ -7,7 +7,7 @@ namespace Ice.iMpact
     ///  Fragment Bytes: Fixed Length Data Field
     /// </summary>
 
-    public sealed class FragmentBytes
+    public struct FragmentBytes
     {
         /// <summary>
         ///  Length of Fragment Bytes in bytes

@@ -7,7 +7,7 @@ namespace Ice.iMpact
     ///  Reserved 2 Bytes: Fixed Length Data Field
     /// </summary>
 
-    public sealed class Reserved2Bytes
+    public struct Reserved2Bytes
     {
         /// <summary>
         ///  Length of Reserved 2 Bytes in bytes

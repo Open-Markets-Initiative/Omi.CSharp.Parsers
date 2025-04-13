@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Seconds: Contains The Number Seconds From Epoch 111970000000 Utc
 /// </summary>

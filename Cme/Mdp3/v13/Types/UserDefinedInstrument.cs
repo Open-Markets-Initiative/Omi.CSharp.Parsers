@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Cme.Mdp3
 {
+
     /// <summary>
     ///  User Defined Instrument: User-defined instruments flag
     /// </summary>

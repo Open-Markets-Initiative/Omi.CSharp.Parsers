@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Bid Reference Number Delta: The bid reference number delta associated with the new quote.
 /// </summary>

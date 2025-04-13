@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
+
     /// <summary>
     ///  Md Entry Type: Indicates the type of Market Data entry
     /// </summary>

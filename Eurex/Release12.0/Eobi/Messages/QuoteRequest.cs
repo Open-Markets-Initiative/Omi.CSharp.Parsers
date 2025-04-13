@@ -8,6 +8,30 @@ namespace Eurex.Eobi;
 
 public partial class QuoteRequest
 {
+    /// <summary>
+    ///  Unique instrument identifier
+    /// </summary>
+    public long SecurityId => Fields.SecurityId.Value;
+
+    /// <summary>
+    ///  Total executed matched quantity of this match event
+    /// </summary>
+    public ulong LastQty => Fields.LastQty.Value;
+
+    /// <summary>
+    ///  Side
+    /// </summary>
+    public Side Side => Fields.Side.Value;
+
+    /// <summary>
+    ///  Pad 7
+    /// </summary>
+    public string Pad7 => Fields.Pad7.Value;
+
+    /// <summary>
+    ///  Transact Time
+    /// </summary>
+    public DateTime TransactTime => Fields.TransactTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -18,4 +42,6 @@ public partial class QuoteRequest
         public Pad7 Pad7;
         public TransactTime TransactTime;
     };
+
+    protected Layout Fields;
 };

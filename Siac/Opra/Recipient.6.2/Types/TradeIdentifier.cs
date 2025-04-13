@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Trade Identifier: For Future Use Filled With Hex 0 X 00
 /// </summary>

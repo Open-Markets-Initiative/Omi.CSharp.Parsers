@@ -11,12 +11,12 @@ public partial class BlockTimestamp
     /// <summary>
     ///  Contains The Number Seconds From Epoch 111970000000 Utc
     /// </summary>
-    public uint Seconds => Layout.Seconds.Value;
+    public uint Seconds => Fields.Seconds.Value;
 
     /// <summary>
     ///  The Nanosecond Portion Of The Time Currently Rounded To The Nearest Microsecond
     /// </summary>
-    public uint Nanoseconds => Layout.Nanoseconds.Value;
+    public uint Nanoseconds => Fields.Nanoseconds.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class BlockTimestamp
         public Seconds Seconds;
         public Nanoseconds Nanoseconds;
     };
+
+    protected Layout Fields;
 };

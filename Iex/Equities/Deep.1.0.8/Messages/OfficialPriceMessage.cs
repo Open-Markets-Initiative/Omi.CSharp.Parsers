@@ -8,6 +8,25 @@ namespace Iex.Deep;
 
 public partial class OfficialPriceMessage
 {
+    /// <summary>
+    ///  Price type identifier
+    /// </summary>
+    public PriceType PriceType => Fields.PriceType.Value;
+
+    /// <summary>
+    ///  Time stamp of the system event
+    /// </summary>
+    public DateTime Timestamp => Fields.Timestamp.Value;
+
+    /// <summary>
+    ///  Security identifier
+    /// </summary>
+    public string Symbol => Fields.Symbol.Value;
+
+    /// <summary>
+    ///  Official opening or closing price, as specified
+    /// </summary>
+    public long OfficialPrice => Fields.OfficialPrice.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -17,4 +36,6 @@ public partial class OfficialPriceMessage
         public Symbol Symbol;
         public OfficialPrice OfficialPrice;
     };
+
+    protected Layout Fields;
 };

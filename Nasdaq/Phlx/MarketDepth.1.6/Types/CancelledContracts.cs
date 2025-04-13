@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Cancelled Contracts: The number of contracts to be removed from the display size of the order/quote as the result of a cancellation.
 /// </summary>

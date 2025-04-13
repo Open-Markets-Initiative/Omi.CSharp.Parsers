@@ -8,6 +8,40 @@ namespace Iex.Tops;
 
 public partial class QuoteUpdateMessage
 {
+    /// <summary>
+    ///  Quote Update Flags
+    /// </summary>
+    public string QuoteUpdateFlags => Fields.QuoteUpdateFlags.Value;
+
+    /// <summary>
+    ///  Time stamp of the system event
+    /// </summary>
+    public DateTime Timestamp => Fields.Timestamp.Value;
+
+    /// <summary>
+    ///  Security identifier
+    /// </summary>
+    public string Symbol => Fields.Symbol.Value;
+
+    /// <summary>
+    ///  Aggregate quoted best bid size
+    /// </summary>
+    public uint BidSize => Fields.BidSize.Value;
+
+    /// <summary>
+    ///  Best quoted bid price
+    /// </summary>
+    public long BidPrice => Fields.BidPrice.Value;
+
+    /// <summary>
+    ///  Best quoted ask price
+    /// </summary>
+    public long AskPrice => Fields.AskPrice.Value;
+
+    /// <summary>
+    ///  Aggregate quoted best ask size
+    /// </summary>
+    public uint AskSize => Fields.AskSize.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -20,4 +54,6 @@ public partial class QuoteUpdateMessage
         public AskPrice AskPrice;
         public AskSize AskSize;
     };
+
+    protected Layout Fields;
 };

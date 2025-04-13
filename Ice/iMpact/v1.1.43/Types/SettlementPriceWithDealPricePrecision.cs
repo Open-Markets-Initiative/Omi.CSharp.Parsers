@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Settlement Price With Deal Price Precision: DealPriceDenominator for the market should be applied to get this price.
 /// </summary>

@@ -8,6 +8,35 @@ namespace Cme.Mdp3;
 
 public partial class SnapshotFullRefreshOrderBook
 {
+    /// <summary>
+    ///  Sequence number of the last Incremental feed packet processed. This value is used to synchronize the snapshot loop with the real-time feed
+    /// </summary>
+    public uint LastMsgSeqNumProcessed => Fields.LastMsgSeqNumProcessed.Value;
+
+    /// <summary>
+    ///  Total number of messages replayed in the loop
+    /// </summary>
+    public uint TotNumReports => Fields.TotNumReports.Value;
+
+    /// <summary>
+    ///  Security ID
+    /// </summary>
+    public int SecurityId => Fields.SecurityId.Value;
+
+    /// <summary>
+    ///  Total number of packets that constitutes a single instrument order book
+    /// </summary>
+    public uint NoChunks => Fields.NoChunks.Value;
+
+    /// <summary>
+    ///  Chunk sequence
+    /// </summary>
+    public uint CurrentChunk => Fields.CurrentChunk.Value;
+
+    /// <summary>
+    ///  Start of event processing time in number of nanoseconds since Unix epoch
+    /// </summary>
+    public ulong TransactTime => Fields.TransactTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -19,4 +48,6 @@ public partial class SnapshotFullRefreshOrderBook
         public CurrentChunk CurrentChunk;
         public TransactTime TransactTime;
     };
+
+    protected Layout Fields;
 };

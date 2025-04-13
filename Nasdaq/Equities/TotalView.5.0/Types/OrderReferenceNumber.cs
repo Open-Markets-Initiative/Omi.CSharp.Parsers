@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Order Reference Number: The unique reference number assigned to the new order at the time of receipt.
 /// </summary>

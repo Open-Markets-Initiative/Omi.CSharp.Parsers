@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  High Price: Represents The Highest Price Paid For An Option During The Trading Day
 /// </summary>

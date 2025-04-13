@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Old Strip Id: Not used. Kept here for backward compatibility. Client should use the new 4-byte StripID field.
 /// </summary>

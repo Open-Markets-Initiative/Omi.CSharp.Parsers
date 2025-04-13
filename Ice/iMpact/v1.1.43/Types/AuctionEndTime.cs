@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Auction End Time: Date time the Auction will end. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

@@ -7,7 +7,7 @@ namespace Iex.Tops
     ///  Reserved: Fixed Length Data Field
     /// </summary>
 
-    public sealed class Reserved
+    public struct Reserved
     {
         /// <summary>
         ///  Length of Reserved in bytes

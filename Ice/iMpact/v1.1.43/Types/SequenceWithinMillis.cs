@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Sequence Within Millis: Can be used in conjunction with TransactDateTime field for sequence of deals within same milliseconds time.
 /// </summary>

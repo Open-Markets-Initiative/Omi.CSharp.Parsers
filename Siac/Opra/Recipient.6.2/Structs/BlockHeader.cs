@@ -11,47 +11,47 @@ public partial class BlockHeader
     /// <summary>
     ///  Designates The Opra Binary Version
     /// </summary>
-    public byte Version => Layout.Version.Value;
+    public byte Version => Fields.Version.Value;
 
     /// <summary>
     ///  Size In Bytes Of Entire Transmission Block
     /// </summary>
-    public ushort BlockSize => Layout.BlockSize.Value;
+    public ushort BlockSize => Fields.BlockSize.Value;
 
     /// <summary>
     ///  Value Is‘ O For Opra
     /// </summary>
-    public string DataFeedIndicator => Layout.DataFeedIndicator.Value;
+    public char DataFeedIndicator => Fields.DataFeedIndicator.Value;
 
     /// <summary>
     ///  Contains Either A Space Not A Retransmitted Message Or V Indicating A Retransmission Of The Block
     /// </summary>
-    public string RetransmissionIndicator => Layout.RetransmissionIndicator.Value;
+    public char RetransmissionIndicator => Fields.RetransmissionIndicator.Value;
 
     /// <summary>
     ///  0 X 00 For Regular Trading Session
     /// </summary>
-    public SessionIndicator SessionIndicator => Layout.SessionIndicator.Value;
+    public SessionIndicator SessionIndicator => Fields.SessionIndicator.Value;
 
     /// <summary>
     ///  Packet Sequence Number
     /// </summary>
-    public uint BlockSequenceNumber => Layout.BlockSequenceNumber.Value;
+    public uint BlockSequenceNumber => Fields.BlockSequenceNumber.Value;
 
     /// <summary>
     ///  The Number Of Messages Contained In The Block Data Of The Transmission Block
     /// </summary>
-    public byte MessagesInBlock => Layout.MessagesInBlock.Value;
+    public byte MessagesInBlock => Fields.MessagesInBlock.Value;
 
     /// <summary>
     ///  Block Timestamp
     /// </summary>
-    public string BlockTimestamp => Layout.BlockTimestamp.Value;
+    public string BlockTimestamp => Fields.BlockTimestamp.Value;
 
     /// <summary>
     ///  Lower 16 Bits Of The 32 Bit Sum Of All Bytes In The Block Excluding The Block Checksum Field
     /// </summary>
-    public ushort BlockChecksum => Layout.BlockChecksum.Value;
+    public ushort BlockChecksum => Fields.BlockChecksum.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -66,4 +66,6 @@ public partial class BlockHeader
         public BlockTimestamp BlockTimestamp;
         public BlockChecksum BlockChecksum;
     };
+
+    protected Layout Fields;
 };

@@ -7,7 +7,7 @@ namespace Eurex.Eobi
     ///  Pad 4: Fixed Length Data Field
     /// </summary>
 
-    public sealed class Pad4
+    public struct Pad4
     {
         /// <summary>
         ///  Fix Tag for Pad 4

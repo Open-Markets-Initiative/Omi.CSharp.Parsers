@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient
 {
+
     /// <summary>
     ///  Denominator Code: The Bid Size Identifies The Number Of Contracts Being Bought For An Option At The Bid Price
     /// </summary>

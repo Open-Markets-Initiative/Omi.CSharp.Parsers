@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Iex.Deep
 {
+
     /// <summary>
     ///  Extension Number: Number of extensions an auction received
     /// </summary>

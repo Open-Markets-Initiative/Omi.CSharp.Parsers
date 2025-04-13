@@ -11,12 +11,12 @@ public partial class SpecialField
     /// <summary>
     ///  Special Field Identifier
     /// </summary>
-    public byte SpecialFieldId => Layout.SpecialFieldId.Value;
+    public byte SpecialFieldId => Fields.SpecialFieldId.Value;
 
     /// <summary>
     ///  Length of this field
     /// </summary>
-    public ushort SpecialFieldLength => Layout.SpecialFieldLength.Value;
+    public ushort SpecialFieldLength => Fields.SpecialFieldLength.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class SpecialField
         public SpecialFieldId SpecialFieldId;
         public SpecialFieldLength SpecialFieldLength;
     };
+
+    protected Layout Fields;
 };

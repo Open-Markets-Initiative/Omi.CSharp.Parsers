@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Tick Value: OrderPriceDenominator should be applied to get the real value.
 /// </summary>

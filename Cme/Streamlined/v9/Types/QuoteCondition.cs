@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
+
     /// <summary>
     ///  Quote Condition: Condition describing a quote
     /// </summary>

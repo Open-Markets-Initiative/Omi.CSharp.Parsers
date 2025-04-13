@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Unit Quantity: The quantity in unit of measurement per lot. For example, it is 1000 barrels per lot for Brent.
 /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Opening Price: DealPriceDenominator for the market should be applied to get the real price.
 /// </summary>

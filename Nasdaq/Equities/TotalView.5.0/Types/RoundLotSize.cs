@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Round Lot Size: Denotes the number of shares that represent a round lot for the issue
 /// </summary>

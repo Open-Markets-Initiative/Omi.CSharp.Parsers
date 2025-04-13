@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient
 {
+
     /// <summary>
     ///  Data Feed Indicator: Value Is‘ O For Opra
     /// </summary>

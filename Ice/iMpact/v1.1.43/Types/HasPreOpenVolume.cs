@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Has Pre Open Volume: Indicates message contains PreOpenVolume. ‘Y’ or ‘N’
     /// </summary>

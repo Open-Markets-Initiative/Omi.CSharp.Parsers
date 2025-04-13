@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Canceled Shares: The number of shares being removed from the display size of the order as the result of a cancellation.
 /// </summary>

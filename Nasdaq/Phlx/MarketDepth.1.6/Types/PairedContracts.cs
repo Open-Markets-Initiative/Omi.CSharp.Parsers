@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.MarketDepth;
+
 /// <summary>
 ///  Paired Contracts: The total number of contracts that are eligible to be matched at the Current Reference Price. Zero for Order Exposure notifications.
 /// </summary>

@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Hedge Price Denominator: Hedge Price Denominator
     /// </summary>

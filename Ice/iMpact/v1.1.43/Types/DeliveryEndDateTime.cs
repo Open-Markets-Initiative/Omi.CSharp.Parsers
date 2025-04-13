@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Delivery End Date Time: Delivery end date time. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

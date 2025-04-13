@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Auction Collar Extension: Indicates the number of the extensions to the Reopening Auction
 /// </summary>

@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Last Trade Date Time: Milliseconds since Jan 1st, 1970, 00:00:00 GMT
     /// </summary>

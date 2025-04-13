@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Cme.Streamlined
 {
+
     /// <summary>
     ///  Security Alt Id Source: Identifies class or source of the SecurityAltID (455) value.
     /// </summary>

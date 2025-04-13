@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView;
+
 /// <summary>
 ///  Paired Shares: The total number of shares that are eligible to be matched at the Current Reference Price.
 /// </summary>

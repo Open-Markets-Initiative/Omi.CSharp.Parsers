@@ -8,6 +8,20 @@ namespace Ice.iMpact;
 
 public partial class OpenPriceMessage
 {
+    /// <summary>
+    ///  Market Id
+    /// </summary>
+    public int MarketId => Fields.MarketId.Value;
+
+    /// <summary>
+    ///  DealPriceDenominator for the market should be applied to get the real price.
+    /// </summary>
+    public long OpenPrice => Fields.OpenPrice.Value;
+
+    /// <summary>
+    ///  Date time the trade was investigated. Milliseconds since Jan 1st, 1970, 00:00:00 GMT
+    /// </summary>
+    public DateTime MessageDateTime => Fields.MessageDateTime.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -16,4 +30,6 @@ public partial class OpenPriceMessage
         public OpenPrice OpenPrice;
         public MessageDateTime MessageDateTime;
     };
+
+    protected Layout Fields;
 };

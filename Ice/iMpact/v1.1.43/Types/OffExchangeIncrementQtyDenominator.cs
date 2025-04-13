@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Off Exchange Increment Qty Denominator: Denominator for OffExchangeIncrementQty.
     /// </summary>

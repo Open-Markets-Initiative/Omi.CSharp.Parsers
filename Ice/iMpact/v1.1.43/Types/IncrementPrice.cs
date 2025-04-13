@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Increment Price: Minimum increment premium price for this market. OrderPriceDenominator should be applied to this field.
 /// </summary>

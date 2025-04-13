@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Num Decimals Strike Price: Denominator for the strike price field.
     /// </summary>

@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Off Exchange Increment Option Price: Off exchange options increment price. NumDecimalsOptionsPrice should be applied to this field
 /// </summary>

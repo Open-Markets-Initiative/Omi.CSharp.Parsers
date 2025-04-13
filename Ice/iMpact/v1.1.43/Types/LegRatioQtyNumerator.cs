@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Leg Ratio Qty Numerator: Leg Ratio Qty Numerator
 /// </summary>

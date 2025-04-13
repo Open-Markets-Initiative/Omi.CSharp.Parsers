@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Num Decimals Options Price: Only used for OffExchangeIncrementOptionPrice.
     /// </summary>

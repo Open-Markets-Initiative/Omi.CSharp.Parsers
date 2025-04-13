@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Previous Day Settlement Price: SettlePriceDenominator for the market should be applied to get the real previous day settlement price.
 /// </summary>

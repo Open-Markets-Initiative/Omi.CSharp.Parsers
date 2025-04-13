@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Index Value: Contains The Index Value Using Last Sale Values Of Index Components
 /// </summary>

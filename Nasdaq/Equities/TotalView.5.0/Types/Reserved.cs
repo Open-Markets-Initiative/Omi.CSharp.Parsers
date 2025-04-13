@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Nasdaq.TotalView
 {
+
     /// <summary>
     ///  Reserved: Reserved
     /// </summary>

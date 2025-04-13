@@ -11,12 +11,12 @@ public partial class Message
     /// <summary>
     ///  Message Size
     /// </summary>
-    public ushort MessageSize => Layout.MessageSize.Value;
+    public ushort MessageSize => Fields.MessageSize.Value;
 
     /// <summary>
     ///  Template ID and length of message root
     /// </summary>
-    public string MessageHeader => Layout.MessageHeader.Value;
+    public string MessageHeader => Fields.MessageHeader.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -24,4 +24,6 @@ public partial class Message
         public MessageSize MessageSize;
         public MessageHeader MessageHeader;
     };
+
+    protected Layout Fields;
 };

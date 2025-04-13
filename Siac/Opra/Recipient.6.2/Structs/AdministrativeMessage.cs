@@ -11,27 +11,27 @@ public partial class AdministrativeMessage
     /// <summary>
     ///  Message Type
     /// </summary>
-    public string MessageType => Layout.MessageType.Value;
+    public char MessageType => Fields.MessageType.Value;
 
     /// <summary>
     ///  Message Identifier
     /// </summary>
-    public string MessageIndicator => Layout.MessageIndicator.Value;
+    public char MessageIndicator => Fields.MessageIndicator.Value;
 
     /// <summary>
     ///  Reserved For Internal Use Only
     /// </summary>
-    public uint TransactionId => Layout.TransactionId.Value;
+    public uint TransactionId => Fields.TransactionId.Value;
 
     /// <summary>
     ///  The Prn Is For Optional Use By The Participant
     /// </summary>
-    public uint ParticipantReferenceNumber => Layout.ParticipantReferenceNumber.Value;
+    public uint ParticipantReferenceNumber => Fields.ParticipantReferenceNumber.Value;
 
     /// <summary>
     ///  Represents The Length Of The Message Data Field
     /// </summary>
-    public ushort MessageDataLength => Layout.MessageDataLength.Value;
+    public ushort MessageDataLength => Fields.MessageDataLength.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -42,4 +42,6 @@ public partial class AdministrativeMessage
         public ParticipantReferenceNumber ParticipantReferenceNumber;
         public MessageDataLength MessageDataLength;
     };
+
+    protected Layout Fields;
 };

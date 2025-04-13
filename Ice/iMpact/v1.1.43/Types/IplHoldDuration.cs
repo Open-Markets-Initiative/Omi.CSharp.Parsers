@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact;
+
 /// <summary>
 ///  Ipl Hold Duration: Hold duration, in milliseconds. N/A when IPLHoldNotifyType = ‘E’
 /// </summary>

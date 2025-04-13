@@ -11,17 +11,17 @@ public partial class MessageHeaderComp
     /// <summary>
     ///  Body Len
     /// </summary>
-    public ushort BodyLen => Layout.BodyLen.Value;
+    public ushort BodyLen => Fields.BodyLen.Value;
 
     /// <summary>
     ///  Template Id
     /// </summary>
-    public TemplateId TemplateId => Layout.TemplateId.Value;
+    public TemplateId TemplateId => Fields.TemplateId.Value;
 
     /// <summary>
     ///  Msg Seq Num
     /// </summary>
-    public uint MsgSeqNum => Layout.MsgSeqNum.Value;
+    public uint MsgSeqNum => Fields.MsgSeqNum.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -30,4 +30,6 @@ public partial class MessageHeaderComp
         public TemplateId TemplateId;
         public MsgSeqNum MsgSeqNum;
     };
+
+    protected Layout Fields;
 };

@@ -11,17 +11,17 @@ public partial class RemainingOrderDetailsComp
     /// <summary>
     ///  Trd Reg Ts Prev Time Priority
     /// </summary>
-    public ulong TrdRegTsPrevTimePriority => Layout.TrdRegTsPrevTimePriority.Value;
+    public DateTime TrdRegTsPrevTimePriority => Fields.TrdRegTsPrevTimePriority.Value;
 
     /// <summary>
     ///  Display Qty
     /// </summary>
-    public ulong DisplayQty => Layout.DisplayQty.Value;
+    public ulong DisplayQty => Fields.DisplayQty.Value;
 
     /// <summary>
     ///  Price
     /// </summary>
-    public ulong Price => Layout.Price.Value;
+    public ulong Price => Fields.Price.Value;
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public unsafe struct Layout
@@ -30,4 +30,6 @@ public partial class RemainingOrderDetailsComp
         public DisplayQty DisplayQty;
         public Price Price;
     };
+
+    protected Layout Fields;
 };

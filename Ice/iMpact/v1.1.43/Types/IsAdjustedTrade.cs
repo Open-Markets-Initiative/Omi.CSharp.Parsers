@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 
 namespace Ice.iMpact
 {
+
     /// <summary>
     ///  Is Adjusted Trade: Indicate if the trade is an adjusted trade, ‘Y’ or ‘N’
     /// </summary>

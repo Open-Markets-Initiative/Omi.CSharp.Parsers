@@ -2,6 +2,7 @@ using System.Buffers.Binary;
 using System.Runtime.CompilerServices;
 
 namespace Siac.Recipient;
+
 /// <summary>
 ///  Low Price: Represents The Lowest Price Paid For An Option During The Trading Day
 /// </summary>
